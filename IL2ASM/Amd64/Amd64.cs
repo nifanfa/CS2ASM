@@ -58,14 +58,14 @@ namespace IL2ASM
                    ins.Is("Ldc")
                    )
                 {
-                    Append($"push {ILParser.ldc(ins)}");
+                    Append($"push {ILParser.Ldc(ins)}");
                 }
 
                 else if (
                    ins.Is("Stloc")
                    )
                 {
-                    ulong Index = ILParser.stloc(ins) + 1;
+                    ulong Index = ILParser.Stloc(ins) + 1;
                     Index += RsvdStack;
                     Append($"pop rax");
                     Append($"mov [rbp-{Index * 8}],rax");
@@ -75,7 +75,7 @@ namespace IL2ASM
                   ins.Is("Ldloc")
                   )
                 {
-                    ulong Index = ILParser.ldloc(ins) + 1;
+                    ulong Index = ILParser.Ldloc(ins) + 1;
                     Index += RsvdStack;
                     Append($"push qword [rbp-{Index * 8}]");
                 }

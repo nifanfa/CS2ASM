@@ -5,7 +5,7 @@ namespace IL2ASM
 {
     public static unsafe class ILParser
     {
-        public static ulong ldc(Instruction ins)
+        public static ulong Ldc(Instruction ins)
         {
             unchecked
             {
@@ -32,7 +32,7 @@ namespace IL2ASM
             }
         }
 
-        public static ulong stloc(Instruction ins)
+        public static ulong Stloc(Instruction ins)
         {
             unchecked
             {
@@ -49,7 +49,7 @@ namespace IL2ASM
             }
         }
 
-        public static ulong ldloc(Instruction ins)
+        public static ulong Ldloc(Instruction ins)
         {
             unchecked
             {
