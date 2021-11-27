@@ -5,6 +5,7 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System.Diagnostics;
 
 namespace IL2ASM
 {
@@ -19,11 +20,7 @@ namespace IL2ASM
 
         public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
-            string nam = meth.FullName.Split(' ')[1];
-            nam = nam.Substring(0, nam.IndexOf("("));
-            nam = nam.SafeName();
-
-            Append($"{nam}:");
+            Append($"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}:");
             Append($"xor rax,rax");
             for (ulong i = 0; i < (ulong)meth.Body.Variables.Count + ReservedStack; i++)
             {
