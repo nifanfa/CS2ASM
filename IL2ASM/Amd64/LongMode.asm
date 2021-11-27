@@ -122,25 +122,8 @@ _Main:
     mov rbp, rsp
     
     %include "Kernel.asm"
-
-    ; Blank out the screen to a blue color.
-    ;mov edi, 0xB8000
-    ;mov rcx, 500                      ; Since we are clearing uint64_t over here, we put the count as Count/4.
-    ;mov rax, 0x0F200F200F200F20       ; Set the value to set the screen to: Blue background, white foreground, blank spaces.
-    ;rep stosq                         ; Clear the entire screen. 
- 
-    ; Display "Hello World!"
-    ;mov edi, 0x00b8000              
- 
-    ;mov rax, 0x0F6C0F6C0F650F48    
-    ;mov [edi],rax
- 
-    ;mov rax, 0x0F6F0F570F200F6F
-    ;mov [edi + 8], rax
- 
-    ;mov rax, 0x0F210F640F6C0F72
-    ;mov [edi + 16], rax
- 
-deadloop:
+    
+    cli
+_Die:
     hlt
-    jmp deadloop
+    jmp _Die
