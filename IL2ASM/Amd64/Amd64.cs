@@ -59,6 +59,7 @@ namespace IL2ASM
                 {
                     if (!isEntryPoint)
                     {
+                        //recover
                         Append($"add rbp,8");
                         Append($"push qword [rbp-8]");
                         Append($"ret");
