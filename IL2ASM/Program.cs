@@ -37,6 +37,7 @@ namespace IL2ASM
                             arch.Compile(meth);
                     }
                 }
+
                 arch.ILCalls();
 
                 stopwatch.Stop();
