@@ -38,8 +38,6 @@ namespace IL2ASM
                     }
                 }
 
-                arch.ILCalls();
-
                 stopwatch.Stop();
                 Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
 

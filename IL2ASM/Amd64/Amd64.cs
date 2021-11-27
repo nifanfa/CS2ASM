@@ -1,6 +1,7 @@
 ﻿/*
- * Reference: https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture
- * Reference: https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.emit.opcodes?view=net-6.0
+ * Reference: 
+ * https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture
+ * https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.emit.opcodes?view=net-6.0
 */
 
 using dnlib.DotNet;
@@ -138,7 +139,10 @@ namespace IL2ASM
                   ins.Is("Add")
                  )
                 {
-                    Append($"call IL_Add");
+                    Append($"pop rdx");
+                    Append($"pop rax");
+                    Append($"add rax,rdx");
+                    Append($"push rax");
                 }
 
                 else
@@ -146,18 +150,6 @@ namespace IL2ASM
                     Append($"unresolved {ins}");
                 }
             }
-        }
-
-        public override void ILCalls()
-        {
-            Append($"IL_Add:");
-            Append($"pop rcx");
-            Append($"pop rdx");
-            Append($"pop rax");
-            Append($"add rax,rdx");
-            Append($"push rax");
-            Append($"push rcx");
-            Append($"ret");
         }
     }
 }
