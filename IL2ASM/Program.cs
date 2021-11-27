@@ -34,8 +34,8 @@ namespace IL2ASM
                         arch.Compile(meth);
                     }
                 }
-                stopwatch.Stop();
-                Console.WriteLine(stopwatch.Elapsed.TotalSeconds);
+                stopwatch.Stop(); 
+                Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
 
                 switch (ProcessorArchitecture)
                 {
@@ -49,7 +49,6 @@ namespace IL2ASM
                         Process.Start($"{Environment.CurrentDirectory}\\Amd64QEMU.bat");
                         break;
                 }
-                //Console.WriteLine(BaseArch.Code);
             }
             catch (Exception E)
             {

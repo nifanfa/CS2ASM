@@ -23,6 +23,8 @@ namespace IL2ASM
         {
             string currentd = Environment.CurrentDirectory;
             Environment.CurrentDirectory = new FileInfo(file).DirectoryName;
+            Console.WriteLine();
+            Console.WriteLine($"{new FileInfo(file).Name}:");
             var v = Process.Start(file, args);
             v.WaitForExit();
             Environment.CurrentDirectory = currentd;
