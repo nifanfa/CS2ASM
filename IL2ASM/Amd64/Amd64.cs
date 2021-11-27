@@ -20,8 +20,13 @@ namespace IL2ASM
 
         public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
-            Append($"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}:");
+            Append($"{meth.SafeName()}:");
             Append($"xor rax,rax");
+
+            //for call
+            Append($"sub rbp,8");
+
+            //for variables
             for (ulong i = 0; i < (ulong)meth.Body.Variables.Count + ReservedStack; i++)
             {
                 Append($"push rax");
@@ -41,11 +46,20 @@ namespace IL2ASM
                 }
 
                 else if (
+                   ins.OpCode.Code == Code.Call
+                   )
+                {
+                    Append($"call {((MethodDef)ins.Operand).SafeName()}");
+                }
+
+                else if (
                   ins.Is("Ret")
                   )
                 {
                     if (!isEntryPoint)
                     {
+                        Append($"add rbp,8");
+                        Append($"push qword [rbp-8]");
                         Append($"ret");
                     }
                     else 
