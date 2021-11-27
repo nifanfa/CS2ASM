@@ -54,7 +54,7 @@ namespace IL2ASM
                         break;
                 }
             }
-            catch (Exception E)
+            catch (SystemException E)
             {
                 Console.WriteLine(E);
             }

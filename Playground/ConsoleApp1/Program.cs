@@ -4,9 +4,13 @@
     {
         public static void Main()
         {
-            Second();
+            int i = 0;
+        Die:
+            goto Die;
+            //Second();
         }
 
+        /*
         public static void Second() 
         {
             byte* p = (byte*)0xb8000;
@@ -33,5 +37,6 @@
             p += 2;
             *p = (byte)'d';
         }
+        */
     }
 }

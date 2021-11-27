@@ -6,6 +6,8 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace IL2ASM
@@ -21,11 +23,16 @@ namespace IL2ASM
 
         public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
+            List<Instruction> BrTargets = meth.GetBrs();
+
             Append($"{meth.SafeName()}:");
             Append($"xor rax,rax");
 
             //for call
-            Append($"sub rbp,8");
+            if (!isEntryPoint)
+            {
+                Append($"sub rbp,8");
+            }
 
             //for variables
             for (ulong i = 0; i < (ulong)meth.Body.Variables.Count + ReservedStack; i++)
@@ -38,6 +45,11 @@ namespace IL2ASM
                 var ins = meth.Body.Instructions[i];
 
                 Append($";{ins}");
+                foreach(var v in BrTargets)
+                {
+                    if(((Instruction)v.Operand).Offset == ins.Offset)
+                    Append($"{meth.SafeName()}_{ins.Offset}:");
+                }
 
                 if (
                     ins.OpCode.Code == Code.Nop ||
@@ -64,9 +76,9 @@ namespace IL2ASM
                         Append($"push qword [rbp-8]");
                         Append($"ret");
                     }
-                    else 
+                    else
                     {
-                        Append($"jmp die");
+                        //Append($"jmp die");
                     }
                 }
 
@@ -75,6 +87,14 @@ namespace IL2ASM
                    )
                 {
                     Append($"push {ILParser.Ldc(ins)}");
+                }
+
+                else if (
+                   ins.OpCode.Code == Code.Br ||
+                   ins.OpCode.Code == Code.Br_S
+                   )
+                {
+                    Append($"jmp {meth.SafeName()}_{((Instruction)(ins.Operand)).Offset}");
                 }
 
                 else if (
@@ -150,6 +170,8 @@ namespace IL2ASM
                 {
                     Append($"unresolved {ins}");
                 }
+
+                Append();
             }
         }
     }
