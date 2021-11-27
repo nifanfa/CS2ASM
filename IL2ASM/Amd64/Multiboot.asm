@@ -52,7 +52,7 @@ multiboot_entry:
         push   eax                     ;2nd argument is magic number
         push   ebx                     ;1st argument multiboot info pointer
         call   LongMode                ;Call _Main 
-        add    esp, 8                  ;Cleanup 8 bytes pushed as arguments
+        ;add    esp, 8                  ;Cleanup 8 bytes pushed as arguments
 
 die:
         cli
