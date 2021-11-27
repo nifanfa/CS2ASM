@@ -127,10 +127,7 @@ namespace IL2ASM
                   ins.Is("Add")
                  )
                 {
-                    Append($"pop rdx");
-                    Append($"pop rax");
-                    Append($"add rax,rdx");
-                    Append($"push rax");
+                    Append($"call IL_Add");
                 }
 
                 else
@@ -138,6 +135,18 @@ namespace IL2ASM
                     Append($"unresolved {ins}");
                 }
             }
+        }
+
+        public override void ILCalls()
+        {
+            Append($"IL_Add:");
+            Append($"pop rcx");
+            Append($"pop rdx");
+            Append($"pop rax");
+            Append($"add rax,rdx");
+            Append($"push rax");
+            Append($"push rcx");
+            Append($"ret");
         }
     }
 }

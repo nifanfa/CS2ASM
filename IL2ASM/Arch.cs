@@ -20,7 +20,7 @@ namespace IL2ASM
         }
 
         public abstract void Compile(MethodDef meth, bool isEntryPoint = false);
-
+        public abstract void ILCalls();
         public abstract void Setup();
     }
 }
