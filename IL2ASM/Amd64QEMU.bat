@@ -1,0 +1,1 @@
+"C:\Program Files\qemu\qemu-system-x86_64.exe" -m 8192 -cdrom output.iso
