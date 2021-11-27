@@ -24,7 +24,7 @@ namespace IL2ASM
                 }
                 arch.Setup();
 
-                ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
+                ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
 
