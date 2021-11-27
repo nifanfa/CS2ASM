@@ -14,8 +14,6 @@ namespace IL2ASM
 {
     public unsafe class Amd64 : Arch
     {
-        public const ulong RsvdStack = 1;
-
         public override void Setup()
         {
             Append($"[bits 64]");
@@ -94,7 +92,7 @@ namespace IL2ASM
                     }
                     else
                     {
-                        //Append($"jmp die");
+                        Append($"jmp die");
                     }
                 }
 
@@ -118,7 +116,6 @@ namespace IL2ASM
                    )
                 {
                     ulong Index = ILParser.Stloc(ins) + 1;
-                    Index += RsvdStack;
                     Append($"pop rax");
                     Append($"mov [rbp-{Index * 8}],rax");
                 }
@@ -128,7 +125,6 @@ namespace IL2ASM
                   )
                 {
                     ulong Index = ILParser.Ldloc(ins) + 1;
-                    Index += RsvdStack;
                     Append($"push qword [rbp-{Index * 8}]");
                 }
 

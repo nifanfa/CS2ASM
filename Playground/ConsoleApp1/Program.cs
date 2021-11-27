@@ -4,15 +4,6 @@
     {
         public static void Main()
         {
-            int i = 0;
-        Die:
-            goto Die;
-            //Second();
-        }
-
-        /*
-        public static void Second() 
-        {
             byte* p = (byte*)0xb8000;
 
             *p = (byte)'H';
@@ -36,7 +27,14 @@
             *p = (byte)'l';
             p += 2;
             *p = (byte)'d';
+
+        Die:
+            goto Die;
+            //Second();
         }
-        */
+
+        public static void Second() 
+        {
+        }
     }
 }
