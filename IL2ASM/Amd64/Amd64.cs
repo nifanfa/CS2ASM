@@ -48,7 +48,7 @@ namespace IL2ASM
                 foreach(var v in BrTargets)
                 {
                     if(((Instruction)v.Operand).Offset == ins.Offset)
-                    Append($"{meth.SafeName()}_{ins.Offset}:");
+                    Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
                 }
 
                 if (
@@ -94,7 +94,7 @@ namespace IL2ASM
                    ins.OpCode.Code == Code.Br_S
                    )
                 {
-                    Append($"jmp {meth.SafeName()}_{((Instruction)(ins.Operand)).Offset}");
+                    Append($"jmp {meth.SafeName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}");
                 }
 
                 else if (
