@@ -10,7 +10,7 @@
             goto Die;
         }
 
-        public static void Second() 
+        public static void Second()
         {
             byte* p = (byte*)0xb8000;
 

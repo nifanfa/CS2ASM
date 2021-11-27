@@ -46,7 +46,8 @@ namespace IL2ASM
             if (!isEntryPoint)
             {
                 //dangerous
-                Append($"mov rbp,rsp");
+                Append($"pop rax");
+                Append($"mov [rbp+8],rax");
             }
 
             //for variables
@@ -87,7 +88,7 @@ namespace IL2ASM
                     if (!isEntryPoint)
                     {
                         //recover
-                        Append($"push qword [rbp]");
+                        Append($"push qword [rbp+8]");
                         Append($"ret");
                     }
                     else

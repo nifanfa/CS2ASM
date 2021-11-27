@@ -132,3 +132,4 @@ _Main:
 stack_top:
 resb 16384
 stack_bottom:
+resb 8
