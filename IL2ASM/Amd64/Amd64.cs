@@ -46,10 +46,10 @@ namespace IL2ASM
                 Append($"mov [rbp+8],rax");
             }
 
+            //for variables
             if (meth.Body.Variables.Count != 0)
                 Append($"xor rax,rax");
 
-            //for variables
             for (ulong i = 0; i < (ulong)meth.Body.Variables.Count; i++)
             {
                 Append($"push rax");
