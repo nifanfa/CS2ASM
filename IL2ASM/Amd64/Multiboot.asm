@@ -54,6 +54,7 @@ multiboot_entry:
         call   LongMode                ;Call _Main 
         add    esp, 8                  ;Cleanup 8 bytes pushed as arguments
 
+die:
         cli
 endloop:
         hlt

@@ -19,7 +19,7 @@ namespace IL2ASM
             if (s.Length != 0 && s[0] == ';') Console.ResetColor();
         }
 
-        public abstract void Compile(MethodDef meth);
+        public abstract void Compile(MethodDef meth, bool isEntryPoint = false);
 
         public abstract void Setup();
     }

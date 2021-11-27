@@ -27,14 +27,18 @@ namespace IL2ASM
                 ModuleDefMD def = ModuleDefMD.Load(@"C:\Users\nifan\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.dll");
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
+
+                arch.Compile(def.EntryPoint, true);
                 foreach (var typ in def.Types)
                 {
                     foreach (var meth in typ.Methods)
                     {
-                        arch.Compile(meth);
+                        if (meth.FullName != def.EntryPoint.FullName)
+                            arch.Compile(meth);
                     }
                 }
-                stopwatch.Stop(); 
+
+                stopwatch.Stop();
                 Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
 
                 switch (ProcessorArchitecture)

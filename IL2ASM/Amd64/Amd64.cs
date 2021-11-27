@@ -17,7 +17,7 @@ namespace IL2ASM
             Append($"[bits 64]");
         }
 
-        public override void Compile(MethodDef meth)
+        public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
             string nam = meth.FullName.Split(' ')[1];
             nam = nam.Substring(0, nam.IndexOf("("));
@@ -29,7 +29,6 @@ namespace IL2ASM
             {
                 Append($"push rax");
             }
-            Append();
 
             for (int i = 0; i < meth.Body.Instructions.Count; i++)
             {
@@ -48,9 +47,13 @@ namespace IL2ASM
                   ins.Is("Ret")
                   )
                 {
-                    if (meth.Module.EntryPoint != meth)
+                    if (!isEntryPoint)
                     {
                         Append($"ret");
+                    }
+                    else 
+                    {
+                        Append($"jmp die");
                     }
                 }
 
@@ -134,8 +137,6 @@ namespace IL2ASM
                 {
                     Append($"unresolved {ins}");
                 }
-
-                Append();
             }
         }
     }

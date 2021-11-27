@@ -122,8 +122,3 @@ _Main:
     mov rbp, rsp
     
     %include "Kernel.asm"
-    
-    cli
-_Die:
-    hlt
-    jmp _Die
