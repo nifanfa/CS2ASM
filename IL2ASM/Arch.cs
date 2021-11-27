@@ -6,7 +6,6 @@ namespace IL2ASM
 {
     public abstract unsafe class Arch
     {
-        public const ulong ReservedStack = 1;
         public static StringWriter _Code = new StringWriter();
         public static delegate*<string, void> Writer = &Append;
 

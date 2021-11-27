@@ -6,9 +6,7 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace IL2ASM
 {
@@ -40,18 +38,19 @@ namespace IL2ASM
 
             //Starts
             Append($"{meth.SafeName()}:");
-            Append($"xor rax,rax");
 
             //for call
             if (!isEntryPoint)
             {
-                //dangerous
                 Append($"pop rax");
                 Append($"mov [rbp+8],rax");
             }
 
+            if (meth.Body.Variables.Count != 0)
+                Append($"xor rax,rax");
+
             //for variables
-            for (ulong i = 0; i < (ulong)meth.Body.Variables.Count + ReservedStack; i++)
+            for (ulong i = 0; i < (ulong)meth.Body.Variables.Count; i++)
             {
                 Append($"push rax");
             }
@@ -61,10 +60,10 @@ namespace IL2ASM
                 var ins = meth.Body.Instructions[i];
 
                 Append($";{ins}");
-                foreach(var v in BrS)
+                foreach (var v in BrS)
                 {
-                    if(((Instruction)v.Operand).Offset == ins.Offset)
-                    Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
+                    if (((Instruction)v.Operand).Offset == ins.Offset)
+                        Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
                 }
 
                 if (

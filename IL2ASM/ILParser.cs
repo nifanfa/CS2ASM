@@ -1,7 +1,5 @@
-﻿using dnlib.DotNet;
-using dnlib.DotNet.Emit;
+﻿using dnlib.DotNet.Emit;
 using System;
-using System.Collections.Generic;
 
 namespace IL2ASM
 {
