@@ -51,26 +51,6 @@ namespace IL2ASM
             }
         }
 
-        public static List<Instruction> GetBrs(this MethodDef def) 
-        {
-            List<Instruction> instructions = new List<Instruction>();
-            foreach(var ins in def.Body.Instructions) 
-            {
-                if (
-                    ins.OpCode == OpCodes.Br ||
-                    ins.OpCode == OpCodes.Brfalse ||
-                    ins.OpCode == OpCodes.Brfalse_S ||
-                    ins.OpCode == OpCodes.Brtrue ||
-                    ins.OpCode == OpCodes.Brtrue_S ||
-                    ins.OpCode == OpCodes.Br_S
-                    ) 
-                {
-                    instructions.Add(ins);
-                }
-            }
-            return instructions;
-        }
-
         public static ulong Ldloc(Instruction ins)
         {
             unchecked

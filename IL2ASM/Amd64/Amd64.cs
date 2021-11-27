@@ -23,8 +23,24 @@ namespace IL2ASM
 
         public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
-            List<Instruction> BrTargets = meth.GetBrs();
+            //Get All Branches
+            List<Instruction> BrS = new List<Instruction>();
+            foreach (var ins in meth.Body.Instructions)
+            {
+                if (
+                    ins.OpCode == OpCodes.Br ||
+                    ins.OpCode == OpCodes.Brfalse ||
+                    ins.OpCode == OpCodes.Brfalse_S ||
+                    ins.OpCode == OpCodes.Brtrue ||
+                    ins.OpCode == OpCodes.Brtrue_S ||
+                    ins.OpCode == OpCodes.Br_S
+                    )
+                {
+                    BrS.Add(ins);
+                }
+            }
 
+            //Starts
             Append($"{meth.SafeName()}:");
             Append($"xor rax,rax");
 
@@ -45,7 +61,7 @@ namespace IL2ASM
                 var ins = meth.Body.Instructions[i];
 
                 Append($";{ins}");
-                foreach(var v in BrTargets)
+                foreach(var v in BrS)
                 {
                     if(((Instruction)v.Operand).Offset == ins.Offset)
                     Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
