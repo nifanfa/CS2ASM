@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace IL2ASM.CodeGenerator
+namespace IL2ASM.Misc
 {
     class Program
     {
