@@ -72,6 +72,8 @@ namespace IL2ASM
                 var ins = meth.Body.Instructions[i];
 
                 Append($";{ins}");
+
+                //For Branches
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
@@ -82,31 +84,8 @@ namespace IL2ASM
                 //Bridge
                 if (ILBridgeMethods.ContainsKey(ins.OpCode.Code))
                 {
-                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this });
+                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, meth });
                     goto End;
-                }
-
-                else if (
-                   ins.OpCode.Code == Code.Call
-                   )
-                {
-                    Append($"call {((MethodDef)ins.Operand).SafeName()}");
-                }
-
-                else if (
-                  ins.Is("Ret")
-                  )
-                {
-                    if (!isEntryPoint)
-                    {
-                        //recover
-                        Append($"push qword [rbp+8]");
-                        Append($"ret");
-                    }
-                    else
-                    {
-                        Append($"jmp die");
-                    }
                 }
 
                 else if (
@@ -114,14 +93,6 @@ namespace IL2ASM
                    )
                 {
                     Append($"push {ILParser.Ldc(ins)}");
-                }
-
-                else if (
-                   ins.OpCode.Code == Code.Br ||
-                   ins.OpCode.Code == Code.Br_S
-                   )
-                {
-                    Append($"jmp {meth.SafeName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}");
                 }
 
                 else if (
