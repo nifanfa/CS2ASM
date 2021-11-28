@@ -9,7 +9,9 @@ namespace IL2ASM
         [ILBridge(Code.Stloc_1)]
         public static void Stloc_1(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stloc_1 is not implemented");
+            ulong Index = ILParser.Stloc(ins) + 1;
+            arch.Append($"pop rax");
+            arch.Append($"mov [rbp-{Index * 8}],rax");
         }
     }
 }

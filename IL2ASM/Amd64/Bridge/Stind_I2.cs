@@ -9,7 +9,9 @@ namespace IL2ASM
         [ILBridge(Code.Stind_I2)]
         public static void Stind_I2(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stind_I2 is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"mov [rax],dx");
         }
     }
 }

@@ -9,7 +9,8 @@ namespace IL2ASM
         [ILBridge(Code.Ldloc_S)]
         public static void Ldloc_S(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldloc_S is not implemented");
+            ulong Index = ILParser.Ldloc(ins) + 1;
+            arch.Append($"push qword [rbp-{Index * 8}]");
         }
     }
 }

@@ -9,7 +9,10 @@ namespace IL2ASM
         [ILBridge(Code.Add)]
         public static void Add(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Add is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"add rax,rdx");
+            arch.Append($"push rax");
         }
     }
 }

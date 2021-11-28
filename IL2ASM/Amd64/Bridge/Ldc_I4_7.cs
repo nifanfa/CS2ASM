@@ -9,7 +9,7 @@ namespace IL2ASM
         [ILBridge(Code.Ldc_I4_7)]
         public static void Ldc_I4_7(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldc_I4_7 is not implemented");
+            arch.Append($"push {ILParser.Ldc(ins)}");
         }
     }
 }
