@@ -5,7 +5,18 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<LangVersion>9.0</LangVersion>
+	<StartupObject>IL2ASM.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Generator\Sample.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Generator\Sample.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="dnlib" Version="3.3.5" />

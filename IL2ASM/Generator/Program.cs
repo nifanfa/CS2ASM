@@ -11,7 +11,7 @@ namespace IL2ASM.Generator
 
         static unsafe void Main(string[] args)
         {
-            string Sample = File.ReadAllText("Sample.cs");
+            string Sample = File.ReadAllText(@"Generator\Sample.cs");
 
             string[] Names = Enum.GetNames(typeof(Code));
             if (Directory.Exists(@"Output\"))
