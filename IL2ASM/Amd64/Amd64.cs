@@ -48,7 +48,7 @@ namespace IL2ASM
             }
 
             //Label
-            Append($"{def.SafeName()}:");
+            Append($"{def.SafeMethodName()}:");
 
             //for call
             if (!isEntryPoint)
@@ -77,7 +77,7 @@ namespace IL2ASM
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        Append($"{Amd64.BrLabelName(ins, def)}:");
+                        Append($"{Util.BrLabelName(ins, def)}:");
                 }
 
                 //Starts Here
@@ -89,11 +89,6 @@ namespace IL2ASM
 
                 Append();
             }
-        }
-
-        public static string BrLabelName(Instruction ins, MethodDef def)
-        {
-            return $"{def.SafeName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}";
         }
     }
 }

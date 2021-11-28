@@ -8,9 +8,14 @@ namespace IL2ASM
 {
     public static class Util
     {
-        public static string SafeName(this MethodDef meth)
+        public static string SafeMethodName(this MethodDef meth)
         {
             return $"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}";
+        }
+
+        public static string BrLabelName(Instruction ins, MethodDef def)
+        {
+            return $"{def.SafeMethodName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}";
         }
 
         public static void Start(string file, string args)

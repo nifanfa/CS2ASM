@@ -8,7 +8,7 @@ namespace IL2ASM
         [ILBridge(Code.Call)]
         public static void Call(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"call {((MethodDef)ins.Operand).SafeName()}");
+            arch.Append($"call {((MethodDef)ins.Operand).SafeMethodName()}");
         }
     }
 }

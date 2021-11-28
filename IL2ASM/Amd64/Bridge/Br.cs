@@ -8,7 +8,7 @@ namespace IL2ASM
         [ILBridge(Code.Br)]
         public static void Br(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"jmp {Amd64.BrLabelName(ins, def)}");
+            arch.Append($"jmp {Util.BrLabelName(ins, def)}");
         }
     }
 }
