@@ -44,7 +44,7 @@ namespace IL2ASM
                 switch (ProcessorArchitecture)
                 {
                     case ProcessorArchitecture.Amd64:
-                        File.WriteAllText(@"Amd64\Kernel.asm", Arch._Code.ToString());
+                        File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 
                         Util.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel");
                         ZipFile.ExtractToDirectory(@"Amd64\grub2.zip", @"Amd64\Temp\", true);

@@ -7,6 +7,8 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace IL2ASM
 {
@@ -14,11 +16,20 @@ namespace IL2ASM
     {
         public override void Setup()
         {
+            var methodInfos = from M in typeof(Amd64Bridge).GetMethods()
+                              where M.GetCustomAttribute(typeof(ILBridgeAttribute), true) != null
+                              select M;
+            foreach (var v in methodInfos)
+            {
+                ILBridgeMethods.Add(v.GetCustomAttributes(true).OfType<ILBridgeAttribute>().First().code, v);
+            }
+
             Append($"[bits 64]");
         }
 
         public override void Compile(MethodDef meth, bool isEntryPoint = false)
         {
+
             //Get All Branches
             List<Instruction> BrS = new List<Instruction>();
             foreach (var ins in meth.Body.Instructions)
@@ -36,7 +47,7 @@ namespace IL2ASM
                 }
             }
 
-            //Starts
+            //Label
             Append($"{meth.SafeName()}:");
 
             //for call
@@ -46,7 +57,7 @@ namespace IL2ASM
                 Append($"mov [rbp+8],rax");
             }
 
-            //for variables
+            //For Variables
             if (meth.Body.Variables.Count != 0)
                 Append($"xor rax,rax");
 
@@ -55,6 +66,7 @@ namespace IL2ASM
                 Append($"push rax");
             }
 
+            //Start Parse IL Code
             for (int i = 0; i < meth.Body.Instructions.Count; i++)
             {
                 var ins = meth.Body.Instructions[i];
@@ -66,11 +78,12 @@ namespace IL2ASM
                         Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
                 }
 
-                if (
-                    ins.OpCode.Code == Code.Nop ||
-                    ins.Is("Conv")
-                    )
+                //Starts Here
+                //Bridge
+                if (ILBridgeMethods.ContainsKey(ins.OpCode.Code))
                 {
+                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this });
+                    goto End;
                 }
 
                 else if (
@@ -183,6 +196,7 @@ namespace IL2ASM
                     Append($"unresolved {ins}");
                 }
 
+                End:
                 Append();
             }
         }
