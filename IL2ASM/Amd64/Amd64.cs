@@ -85,10 +85,8 @@ namespace IL2ASM
                 if (ILBridgeMethods.ContainsKey(ins.OpCode.Code))
                 {
                     ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, meth });
-                    goto End;
                 }
-                
-                End:
+
                 Append();
             }
         }
