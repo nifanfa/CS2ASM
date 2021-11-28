@@ -27,12 +27,12 @@ namespace IL2ASM
             Append($"[bits 64]");
         }
 
-        public override void Compile(MethodDef meth, bool isEntryPoint = false)
+        public override void Compile(MethodDef def, bool isEntryPoint = false)
         {
 
             //Get All Branches
             List<Instruction> BrS = new List<Instruction>();
-            foreach (var ins in meth.Body.Instructions)
+            foreach (var ins in def.Body.Instructions)
             {
                 if (
                     ins.OpCode == OpCodes.Br ||
@@ -48,7 +48,7 @@ namespace IL2ASM
             }
 
             //Label
-            Append($"{meth.SafeName()}:");
+            Append($"{def.SafeName()}:");
 
             //for call
             if (!isEntryPoint)
@@ -58,18 +58,18 @@ namespace IL2ASM
             }
 
             //For Variables
-            if (meth.Body.Variables.Count != 0)
+            if (def.Body.Variables.Count != 0)
                 Append($"xor rax,rax");
 
-            for (ulong i = 0; i < (ulong)meth.Body.Variables.Count; i++)
+            for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
             {
                 Append($"push rax");
             }
 
             //Start Parse IL Code
-            for (int i = 0; i < meth.Body.Instructions.Count; i++)
+            for (int i = 0; i < def.Body.Instructions.Count; i++)
             {
-                var ins = meth.Body.Instructions[i];
+                var ins = def.Body.Instructions[i];
 
                 Append($";{ins}");
 
@@ -77,18 +77,23 @@ namespace IL2ASM
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        Append($"{meth.SafeName()}_IL_{ins.Offset:X4}:");
+                        Append($"{Amd64.BrLabelName(ins, def)}:");
                 }
 
                 //Starts Here
                 //Bridge
                 if (ILBridgeMethods.ContainsKey(ins.OpCode.Code))
                 {
-                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, meth });
+                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
                 }
 
                 Append();
             }
+        }
+
+        public static string BrLabelName(Instruction ins, MethodDef def)
+        {
+            return $"{def.SafeName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}";
         }
     }
 }

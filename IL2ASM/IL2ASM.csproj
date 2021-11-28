@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CodeGenerator\Sample.cs" />
+    <Compile Remove="Misc\Sample.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="CodeGenerator\Sample.cs">
+    <None Include="Misc\Sample.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

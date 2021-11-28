@@ -13,11 +13,6 @@ namespace IL2ASM
             return $"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}";
         }
 
-        public static bool Is(this Instruction ins, string s)
-        {
-            return ins.OpCode.Code.ToString().IndexOf(s) == 0;
-        }
-
         public static void Start(string file, string args)
         {
             string currentd = Environment.CurrentDirectory;
