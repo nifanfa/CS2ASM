@@ -1,0 +1,14 @@
+using dnlib.DotNet;
+using dnlib.DotNet.Emit;
+
+namespace IL2ASM
+{
+    public static unsafe partial class Amd64Bridge
+    {
+        [ILBridge(Code.Sub_Ovf)]
+        public static void Sub_Ovf(Arch arch, Instruction ins, MethodDef def)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
