@@ -124,9 +124,6 @@ _Main:
     mov rcx,0xfa0
     rep stosw
 
-    mov rbp,stack_bottom
-    mov rsp,rbp
-
     %include "Kernel.asm"
 
 stack_top:

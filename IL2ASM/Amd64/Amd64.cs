@@ -48,6 +48,11 @@ Br.OpCode.Code == Code.Br_S)
             if (!isEntryPoint)
             {
                 this.Append($"pop rax");
+            }
+            this.Append($"mov rbp,stack_bottom");
+            this.Append($"mov rsp,rbp");
+            if (!isEntryPoint)
+            {
                 this.Append($"mov [rbp+8],rax");
             }
 
