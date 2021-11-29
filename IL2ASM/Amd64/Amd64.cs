@@ -6,7 +6,6 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -72,7 +71,7 @@ Br.OpCode.Code == Code.Br_S)
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        this.Append($"{Util.BrLabelName(ins, def)}:");
+                        this.Append($"{Util.BrLabelName(ins, def, true)}:");
                 }
 
                 //Starts Here

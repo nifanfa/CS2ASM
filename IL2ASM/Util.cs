@@ -13,9 +13,9 @@ namespace IL2ASM
             return $"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}";
         }
 
-        public static string BrLabelName(Instruction ins, MethodDef def)
+        public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
-            return $"{def.SafeMethodName()}_IL_{((Instruction)(ins.Operand)).Offset:X4}";
+            return $"{def.SafeMethodName()}_IL_{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
 
         public static void Start(string file, string args)

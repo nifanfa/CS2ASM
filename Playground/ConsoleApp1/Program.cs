@@ -7,8 +7,11 @@
             Second();
 
         Die:
+            Nothing();
             goto Die;
         }
+
+        public static void Nothing() { }
 
         public static void Second()
         {
