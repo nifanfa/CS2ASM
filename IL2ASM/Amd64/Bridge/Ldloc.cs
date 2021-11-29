@@ -9,7 +9,7 @@ namespace IL2ASM
         [ILBridge(Code.Ldloc)]
         public static void Ldloc(Arch arch, Instruction ins, MethodDef def)
         {
-            ulong Index = ILParser.Ldloc(ins) + 1;
+            ulong Index = ValueReader.Ldloc(ins) + 1;
             arch.Append($"push qword [rbp-{Index * 8}]");
         }
     }

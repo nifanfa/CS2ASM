@@ -11,16 +11,19 @@ namespace IL2ASM
         {
             if (def.Module.EntryPoint != def)
             {
-                //Call.cs lines 13
                 if (def.HasReturnType)
                 {
                     arch.Append($"pop rax");
-                    arch.Append($"mov qword [rbp+16],rax");
                 }
 
                 for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
                 {
                     arch.Append($"pop rcx");
+                }
+
+                if (def.HasReturnType)
+                {
+                    arch.Append($"push rax");
                 }
 
                 //recover

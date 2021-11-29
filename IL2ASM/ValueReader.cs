@@ -3,7 +3,7 @@ using System;
 
 namespace IL2ASM
 {
-    public static unsafe class ILParser
+    public static unsafe class ValueReader
     {
         public static ulong Ldc(Instruction ins)
         {
@@ -62,9 +62,23 @@ namespace IL2ASM
                     Code.Ldloc_1 => 1,
                     Code.Ldloc_2 => 2,
                     Code.Ldloc_3 => 3,
+                };
+            }
+        }
 
-                    Code.Ldloca => (ulong)((int)ins.Operand),
-                    Code.Ldloca_S => (ulong)((sbyte)ins.Operand),
+        public static ulong Ldarg(Instruction ins)
+        {
+            unchecked
+            {
+                return ins.OpCode.Code switch
+                {
+                    Code.Ldarg => (ulong)((int)ins.Operand),
+                    Code.Ldarg_S => (ulong)((sbyte)ins.Operand),
+
+                    Code.Ldarg_0 => 0,
+                    Code.Ldarg_1 => 1,
+                    Code.Ldarg_2 => 2,
+                    Code.Ldarg_3 => 3,
                 };
             }
         }

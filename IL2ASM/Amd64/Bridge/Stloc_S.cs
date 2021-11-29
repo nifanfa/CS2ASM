@@ -9,7 +9,7 @@ namespace IL2ASM
         [ILBridge(Code.Stloc_S)]
         public static void Stloc_S(Arch arch, Instruction ins, MethodDef def)
         {
-            ulong Index = ILParser.Stloc(ins) + 1;
+            ulong Index = ValueReader.Stloc(ins) + 1;
             arch.Append($"pop rax");
             arch.Append($"mov [rbp-{Index * 8}],rax");
         }

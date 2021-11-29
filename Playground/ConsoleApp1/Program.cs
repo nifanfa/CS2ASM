@@ -7,14 +7,22 @@
             Second();
 
         Die:
-            byte b = Nothing();
+            byte b = ReturnTest();
             byte* p = (byte*)0xb8000;
             *p = b;
+
+            ArguTest(0x42);
 
             goto Die;
         }
 
-        public static byte Nothing() { return 0x41; }
+        public static void ArguTest(byte b) 
+        {
+            byte* p = (byte*)0xb8002;
+            *p = b;
+        }
+
+        public static byte ReturnTest() { return 0x41; }
 
         public static void Second()
         {
