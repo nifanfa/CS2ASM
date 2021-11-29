@@ -9,7 +9,7 @@ namespace IL2ASM
         [ILBridge(Code.Ldc_R8)]
         public static void Ldc_R8(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push {ValueReader.Ldc(ins)}");
+            arch.Append($"push {OperandReader.Ldc(ins)}");
         }
     }
 }
