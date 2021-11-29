@@ -1,5 +1,6 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 
 namespace IL2ASM
 {
@@ -10,6 +11,12 @@ namespace IL2ASM
         {
             if (def.Module.EntryPoint != def)
             {
+                //Call.cs lines 13
+                if (def.HasReturnType)
+                {
+                    arch.Append($"pop rax");
+                    arch.Append($"mov qword [rbp+16],rax");
+                }
                 //recover
                 arch.Append($"push qword [rbp+8]");
                 arch.Append($"ret");

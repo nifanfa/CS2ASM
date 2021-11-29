@@ -7,11 +7,14 @@
             Second();
 
         Die:
-            Nothing();
+            byte b = Nothing();
+            byte* p = (byte*)0xb8000;
+            *p = b;
+
             goto Die;
         }
 
-        public static void Nothing() { }
+        public static byte Nothing() { return 0x41; }
 
         public static void Second()
         {

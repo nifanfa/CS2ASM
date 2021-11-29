@@ -16,7 +16,7 @@ namespace IL2ASM
             if (s.Length != 0 && s[0] == ';')
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             _Code.WriteLine(s);
-            Console.WriteLine(s);
+            //Console.WriteLine(s);
             if (s.Length != 0 && s[0] == ';') Console.ResetColor();
         }
 

@@ -49,6 +49,7 @@ Br.OpCode.Code == Code.Br_S)
             {
                 this.Append($"pop rax");
             }
+            //this can prevent stack overflow. but it also clear all the variables that previous method use
             this.Append($"mov rbp,stack_bottom");
             this.Append($"mov rsp,rbp");
             if (!isEntryPoint)
