@@ -27,7 +27,7 @@ namespace IL2ASM
                 }
 
                 //recover
-                arch.Append($"push qword [rbp+8]");
+                arch.Append($"push qword [registersave]");
                 arch.Append($"ret");
             }
             else

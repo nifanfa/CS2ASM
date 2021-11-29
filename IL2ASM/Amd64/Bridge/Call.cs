@@ -9,12 +9,12 @@ namespace IL2ASM
         [ILBridge(Code.Call)]
         public static void Call(Arch arch, Instruction ins, MethodDef def)
         {
-            for(int i =0;i< ((MethodDef)ins.Operand).Parameters.Count; i++) 
+            arch.Append($"call {((MethodDef)ins.Operand).SafeMethodName()}");
+            //Clean up
+            for (int i = 0; i < ((MethodDef)ins.Operand).Parameters.Count; i++)
             {
                 arch.Append($"pop rcx");
-                arch.Append($"mov qword [rbp+{16 + (i * 8)}],rcx");
             }
-            arch.Append($"call {((MethodDef)ins.Operand).SafeMethodName()}");
         }
     }
 }

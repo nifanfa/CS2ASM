@@ -44,17 +44,13 @@ Br.OpCode.Code == Code.Br_S)
             //Label
             this.Append($"{def.SafeMethodName()}:");
 
+            this.Append($"mov rbp,rsp");
+
             //for call
             if (!isEntryPoint)
             {
                 this.Append($"pop rax");
-            }
-            //this can prevent stack overflow. but it also clear all the variables that previous method use
-            //this.Append($"mov rbp,stack_bottom");
-            //this.Append($"mov rsp,rbp");
-            if (!isEntryPoint)
-            {
-                this.Append($"mov [rbp+8],rax");
+                this.Append($"mov [registersave],rax");
             }
 
             //For Variables
