@@ -9,7 +9,10 @@ namespace IL2ASM
         [ILBridge(Code.Sub)]
         public static void Sub(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Sub is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"sub rax,rdx");
+            arch.Append($"push rax");
         }
     }
 }
