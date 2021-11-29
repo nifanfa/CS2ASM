@@ -50,8 +50,8 @@ Br.OpCode.Code == Code.Br_S)
                 this.Append($"pop rax");
             }
             //this can prevent stack overflow. but it also clear all the variables that previous method use
-            this.Append($"mov rbp,stack_bottom");
-            this.Append($"mov rsp,rbp");
+            //this.Append($"mov rbp,stack_bottom");
+            //this.Append($"mov rsp,rbp");
             if (!isEntryPoint)
             {
                 this.Append($"mov [rbp+8],rax");
@@ -60,7 +60,7 @@ Br.OpCode.Code == Code.Br_S)
             //For Variables
             if (def.Body.Variables.Count != 0)
                 this.Append($"xor rax,rax");
-
+            //pop at Ret.cs
             for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
             {
                 this.Append($"push rax");

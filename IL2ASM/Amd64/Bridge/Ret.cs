@@ -17,6 +17,12 @@ namespace IL2ASM
                     arch.Append($"pop rax");
                     arch.Append($"mov qword [rbp+16],rax");
                 }
+
+                for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
+                {
+                    arch.Append($"pop rcx");
+                }
+
                 //recover
                 arch.Append($"push qword [rbp+8]");
                 arch.Append($"ret");
