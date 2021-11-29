@@ -24,7 +24,7 @@ namespace IL2ASM
                 ILBridgeMethods.Add(v.GetCustomAttributes(true).OfType<ILBridgeAttribute>().First().code, v);
             }
 
-            Append($"[bits 64]");
+            this.Append($"[bits 64]");
         }
 
         public override void Compile(MethodDef def, bool isEntryPoint = false)
@@ -43,22 +43,22 @@ Br.OpCode.Code == Code.Br_S)
                       select Br;
 
             //Label
-            Append($"{def.SafeMethodName()}:");
+            this.Append($"{def.SafeMethodName()}:");
 
             //for call
             if (!isEntryPoint)
             {
-                Append($"pop rax");
-                Append($"mov [rbp+8],rax");
+                this.Append($"pop rax");
+                this.Append($"mov [rbp+8],rax");
             }
 
             //For Variables
             if (def.Body.Variables.Count != 0)
-                Append($"xor rax,rax");
+                this.Append($"xor rax,rax");
 
             for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
             {
-                Append($"push rax");
+                this.Append($"push rax");
             }
 
             //Start Parse IL Code
@@ -66,13 +66,13 @@ Br.OpCode.Code == Code.Br_S)
             {
                 var ins = def.Body.Instructions[i];
 
-                Append($";{ins}");
+                this.Append($";{ins}");
 
                 //For Branches
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        Append($"{Util.BrLabelName(ins, def)}:");
+                        this.Append($"{Util.BrLabelName(ins, def)}:");
                 }
 
                 //Starts Here
@@ -82,7 +82,7 @@ Br.OpCode.Code == Code.Br_S)
                     ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
                 }
 
-                Append();
+                this.Append();
             }
         }
     }
