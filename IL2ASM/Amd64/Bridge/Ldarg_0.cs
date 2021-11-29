@@ -11,7 +11,7 @@ namespace IL2ASM
         public static void Ldarg_0(Arch arch, Instruction ins, MethodDef def)
         {
             //throw new NotImplementedException("Ldarg_0 is not implemented");
-            arch.Append($"push qword [rbp+{16 + (ValueReader.Ldarg(ins) * 8)}]");
+            arch.Append($"push qword [rbp+{16 + (OperandReader.Ldarg(ins) * 8)}]");
         }
     }
 }

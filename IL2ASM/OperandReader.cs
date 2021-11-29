@@ -3,7 +3,7 @@ using System;
 
 namespace IL2ASM
 {
-    public static unsafe class ValueReader
+    public static unsafe class OperandReader
     {
         public static ulong Ldc(Instruction ins)
         {
