@@ -31,21 +31,16 @@ namespace IL2ASM
         {
 
             //Get All Branches
-            List<Instruction> BrS = new List<Instruction>();
-            foreach (var ins in def.Body.Instructions)
-            {
-                if (
-                    ins.OpCode == OpCodes.Br ||
-                    ins.OpCode == OpCodes.Brfalse ||
-                    ins.OpCode == OpCodes.Brfalse_S ||
-                    ins.OpCode == OpCodes.Brtrue ||
-                    ins.OpCode == OpCodes.Brtrue_S ||
-                    ins.OpCode == OpCodes.Br_S
-                    )
-                {
-                    BrS.Add(ins);
-                }
-            }
+            var BrS = from Br in def.Body.Instructions
+                      where
+(
+Br.OpCode.Code == Code.Br ||
+Br.OpCode.Code == Code.Brfalse ||
+Br.OpCode.Code == Code.Brfalse_S ||
+Br.OpCode.Code == Code.Brtrue ||
+Br.OpCode.Code == Code.Brtrue_S ||
+Br.OpCode.Code == Code.Br_S)
+                      select Br;
 
             //Label
             Append($"{def.SafeMethodName()}:");
