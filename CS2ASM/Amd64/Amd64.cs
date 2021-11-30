@@ -28,7 +28,6 @@ namespace CS2ASM
 
         public override void Compile(MethodDef def, bool isEntryPoint = false)
         {
-
             //Get All Branches
             var BrS = from Br in def.Body.Instructions
                       where
@@ -82,15 +81,8 @@ Br.OpCode.Code == Code.Br_S)
                         this.Append($"{Util.BrLabelName(ins, def, true)}:");
                 }
 
-                //Starts Here
-                //Bridge
-                if (ILBridgeMethods.ContainsKey(ins.OpCode.Code))
-                {
-                    ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
-                }
-
-                if (Debug)
-                    this.Append();
+                //Compile IL Instructions
+                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
             }
         }
     }
