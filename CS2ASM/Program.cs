@@ -15,7 +15,6 @@ namespace CS2ASM
     internal class Program
     {
         public static ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
-        public static bool Debug = false;
 
         static unsafe void Main(string[] args)
         {
@@ -26,6 +25,7 @@ namespace CS2ASM
                     arch = new Amd64();
                     break;
             }
+            arch.Debug = false;
             arch.Setup();
 
             ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");

@@ -10,7 +10,7 @@ namespace CS2ASM
     public abstract unsafe class Arch
     {
         public StringWriter _Code = new StringWriter();
-        public bool Debug = Program.Debug;
+        public bool Debug = true;
 
         public void Append(string s = "")
         {
