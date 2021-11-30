@@ -123,14 +123,11 @@ _Main:
     mov rdi,0xb8000
     mov rcx,0xfa0
     rep stosw
-
-    mov rbp,stack_bottom
-    mov rsp,rbp
-
+    
     %include "Kernel.asm"
 
 stack_top:
 resb 16384 ; System Use
 stack_bottom:
-resb 8 ; For Call Instruction
+resb 4096 ; For Call Instruction
 cache:

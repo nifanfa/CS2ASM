@@ -27,7 +27,7 @@ namespace CS2ASM
                 }
 
                 //recover
-                arch.Append($"push qword [cache]");
+                arch.Append($"push qword [cache-8]");
                 arch.Append($"ret");
             }
             else

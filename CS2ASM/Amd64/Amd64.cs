@@ -44,13 +44,20 @@ Br.OpCode.Code == Code.Br_S)
             //Label
             this.Append($"{def.SafeMethodName()}:");
 
+            if (isEntryPoint)
+            {
+                this.Append($"mov rbp,stack_bottom");
+                this.Append($"mov rsp,rbp");
+            }
+
+            this.Append($"mov [cache-16],rbp");
             this.Append($"mov rbp,rsp");
 
             //for call
             if (!isEntryPoint)
             {
                 this.Append($"pop rcx");
-                this.Append($"mov [cache],rcx");
+                this.Append($"mov [cache-8],rcx");
             }
 
             //For Variables
