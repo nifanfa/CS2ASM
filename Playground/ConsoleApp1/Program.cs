@@ -12,9 +12,6 @@
             PutChar((byte)'l');
             PutChar((byte)'l');
             PutChar((byte)'o');
-
-            //byte* c = (byte*)0xb8000;
-            //*c = *p;
         }
 
         public static void PutChar(byte chr) 
@@ -26,6 +23,15 @@
         }
 
         /*
+        public static void ArguTest1(byte b1,byte b2)
+        {
+            byte* p0 = (byte*)0xb8000;
+            *p0 = b1;
+
+            byte* p1 = (byte*)0xb8002;
+            *p1 = b2;
+        }
+
         public static void Main()
         {
         Loop:
@@ -35,6 +41,8 @@
             *p = b;
 
             ArguTest(0x42);
+
+            //ArguTest1(0x41, 0x42);
 
             goto Loop;
         }

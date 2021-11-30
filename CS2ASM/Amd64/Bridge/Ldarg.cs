@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Ldarg)]
         public static void Ldarg(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldarg is not implemented");
+            arch.Append($"push qword [rbp+{((ulong)def.Parameters.Count - OperandReader.Ldarg(ins)) * 8}]");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Ldarg_1)]
         public static void Ldarg_1(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push qword [rbp+{((OperandReader.Ldarg(ins) + 1) * 8)}]");
+            arch.Append($"push qword [rbp+{((ulong)def.Parameters.Count - OperandReader.Ldarg(ins)) * 8}]");
         }
     }
 }
