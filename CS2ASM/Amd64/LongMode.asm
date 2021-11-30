@@ -1,6 +1,3 @@
-%define PAGE_PRESENT    (1 << 0)
-%define PAGE_WRITE      (1 << 1)
- 
 %define CODE_SEG     0x0008
 %define DATA_SEG     0x0010
  
