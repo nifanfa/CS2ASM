@@ -49,17 +49,15 @@ Br.OpCode.Code == Code.Br_S)
             //for call
             if (!isEntryPoint)
             {
-                this.Append($"pop rax");
-                this.Append($"mov [registersave],rax");
+                this.Append($"pop rcx");
+                this.Append($"mov [registersave],rcx");
             }
 
             //For Variables
-            if (def.Body.Variables.Count != 0)
-                this.Append($"xor rax,rax");
             //pop at Ret.cs
             for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
             {
-                this.Append($"push rax");
+                this.Append($"push 0");
             }
 
             //Start Parse IL Code
