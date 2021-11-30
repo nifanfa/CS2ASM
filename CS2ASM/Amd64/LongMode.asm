@@ -113,7 +113,7 @@ _Main:
     
     %include "Kernel.asm"
 
-align 4096
+ALIGN 4096
 stack_top:
 resb 16384 ; System Use
 stack_bottom:
