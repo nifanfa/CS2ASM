@@ -17,48 +17,35 @@ IDT:
 ; ss:esp    Should point to memory that can be used as a small (1 uint32_t) stack
  
 LongMode:
-    mov edi, 0x9000
+    mov edi, p4_table
     ; Zero out the 16KiB buffer.
     ; Since we are doing a rep stosd, count should be bytes/4.   
     push di                           ; REP STOSD alters DI.
-    mov ecx, 0x1000
-    xor eax, eax
-    cld
-    rep stosd
-    pop di                            ; Get DI back.
- 
- 
-    ; Build the Page Map Level 4.
-    ; es:di points to the Page Map Level 4 table.
-    lea eax, [es:di + 0x1000]         ; Put the address of the Page Directory Pointer Table in to EAX.
-    or eax, PAGE_PRESENT | PAGE_WRITE ; Or EAX with the flags - present flag, writable flag.
-    mov [es:di], eax                  ; Store the value of EAX as the first PML4E.
- 
- 
-    ; Build the Page Directory Pointer Table.
-    lea eax, [es:di + 0x2000]         ; Put the address of the Page Directory in to EAX.
-    or eax, PAGE_PRESENT | PAGE_WRITE ; Or EAX with the flags - present flag, writable flag.
-    mov [es:di + 0x1000], eax         ; Store the value of EAX as the first PDPTE.
- 
- 
-    ; Build the Page Directory.
-    lea eax, [es:di + 0x3000]         ; Put the address of the Page Table in to EAX.
-    or eax, PAGE_PRESENT | PAGE_WRITE ; Or EAX with the flags - present flag, writeable flag.
-    mov [es:di + 0x2000], eax         ; Store to value of EAX as the first PDE.
- 
- 
-    push di                           ; Save DI for the time being.
-    lea di, [di + 0x3000]             ; Point DI to the page table.
-    mov eax, PAGE_PRESENT | PAGE_WRITE    ; Move the flags into EAX - and point it to 0x0000.
- 
- 
-    ; Build the Page Table.
-.LoopPageTable:
-    mov [es:di], eax
-    add eax, 0x1000
-    add di, 8
-    cmp eax, 0x200000                 ; If we did all 2MiB, end.
-    jb .LoopPageTable
+    
+    ; map first P4 entry to P3 table
+    mov eax, p3_table
+    or eax, 0b11 ; present + writable
+    mov [p4_table], eax
+
+    ; map first P3 entry to P2 table
+    mov eax, p2_table
+    or eax, 0b11 ; present + writable
+    mov [p3_table], eax
+
+    ; map each P2 entry to a huge 2MiB page
+    mov ecx, 0         ; counter variable
+
+.Map_P2_Table:
+    ; map ecx-th P2 entry to a huge page that starts at address 2MiB*ecx
+    mov eax, 0x200000  ; 2MiB
+    mul ecx            ; start address of ecx-th page
+    or eax, 0b10000011 ; present + writable + huge
+    mov [p2_table + ecx * 8], eax ; map ecx-th entry
+
+    inc ecx            ; increase counter
+    cmp ecx, 512       ; if counter == 512, the whole P2 table is mapped
+    jne .Map_P2_Table  ; else map the next entry
+    ;1024MB of memory should be mapped now
  
     pop di                            ; Restore DI.
  
@@ -126,6 +113,14 @@ _Main:
     
     %include "Kernel.asm"
 
+align 4096
+p4_table:
+resb 4096
+p3_table:
+resb 4096
+p2_table:
+resb 4096
+resb 4096
 stack_top:
 resb 16384 ; System Use
 stack_bottom:
