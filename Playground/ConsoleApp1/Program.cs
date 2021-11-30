@@ -4,9 +4,8 @@
     {
         public static void Main()
         {
-            Second();
-
         Die:
+            Second();
             byte b = ReturnTest();
             byte* p = (byte*)0xb8000;
             *p = b;
