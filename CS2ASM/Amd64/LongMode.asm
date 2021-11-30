@@ -78,7 +78,7 @@ LongMode:
     mov cr0, ebx                    
  
     lgdt [GDT.Pointer]                ; Load GDT.Pointer defined below.
-    
+
     sti
  
     jmp CODE_SEG:_Main             ; Load CS with 64 bit segment and flush the instruction cache
@@ -117,15 +117,16 @@ _Main:
     %include "Kernel.asm"
 
 align 4096
+stack_top:
+resb 16384 ; System Use
+stack_bottom:
+resb 4096 ; For Call Instruction
+cache:
+resb 4096 ; Reserved
+;Page Table
 p4_table:
 resb 4096
 p3_table:
 resb 4096
 p2_table:
 resb 4096
-resb 4096
-stack_top:
-resb 16384 ; System Use
-stack_bottom:
-resb 4096 ; For Call Instruction
-cache:
