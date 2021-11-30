@@ -133,7 +133,4 @@ stack_top:
 resb 16384 ; System Use
 stack_bottom:
 resb 8 ; For Call Instruction
-
-resb 8
 registersave:
-resb 4096

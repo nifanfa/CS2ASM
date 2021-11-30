@@ -4,15 +4,15 @@
     {
         public static void Main()
         {
-        Die:
             Second();
+        Loop:
             byte b = ReturnTest();
             byte* p = (byte*)0xb8000;
             *p = b;
 
             ArguTest(0x42);
 
-            goto Die;
+            goto Loop;
         }
 
         public static void ArguTest(byte b) 
