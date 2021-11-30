@@ -1,5 +1,3 @@
-using System;
-using System.Diagnostics;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -10,8 +8,7 @@ namespace IL2ASM
         [ILBridge(Code.Ldarg_0)]
         public static void Ldarg_0(Arch arch, Instruction ins, MethodDef def)
         {
-            //throw new NotImplementedException("Ldarg_0 is not implemented");
-            arch.Append($"push qword [rbp+{8 + (OperandReader.Ldarg(ins) * 8)}]");
+            arch.Append($"push qword [rbp+{((OperandReader.Ldarg(ins) + 1) * 8)}]");
         }
     }
 }

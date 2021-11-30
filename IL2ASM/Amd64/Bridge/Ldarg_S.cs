@@ -9,7 +9,7 @@ namespace IL2ASM
         [ILBridge(Code.Ldarg_S)]
         public static void Ldarg_S(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldarg_S is not implemented");
+            arch.Append($"push qword [rbp+{((OperandReader.Ldarg(ins) + 1) * 8)}]");
         }
     }
 }
