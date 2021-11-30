@@ -50,7 +50,7 @@ Br.OpCode.Code == Code.Br_S)
             if (!isEntryPoint)
             {
                 this.Append($"pop rcx");
-                this.Append($"mov [registersave],rcx");
+                this.Append($"mov [cache],rcx");
             }
 
             //For Variables
