@@ -9,9 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Stind_R8)]
         public static void Stind_R8(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop rdx");
-            arch.Append($"pop rax");
-            arch.Append($"mov [rax],rdx");
+            throw new NotImplementedException("Stind_R8 is not implemented");
         }
     }
 }

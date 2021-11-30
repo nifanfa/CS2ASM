@@ -9,9 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Stind_R4)]
         public static void Stind_R4(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop rdx");
-            arch.Append($"pop rax");
-            arch.Append($"mov [rax],edx");
+            throw new NotImplementedException("Stind_R4 is not implemented");
         }
     }
 }
