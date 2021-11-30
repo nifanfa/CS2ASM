@@ -72,7 +72,8 @@ Br.OpCode.Code == Code.Br_S)
             {
                 var ins = def.Body.Instructions[i];
 
-                this.Append($";{ins}");
+                if (Debug)
+                    this.Append($";{ins}");
 
                 //For Branches
                 foreach (var v in BrS)
@@ -88,7 +89,8 @@ Br.OpCode.Code == Code.Br_S)
                     ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
                 }
 
-                this.Append();
+                if (Debug)
+                    this.Append();
             }
         }
     }

@@ -15,6 +15,7 @@ namespace CS2ASM
     internal class Program
     {
         public static ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
+        public static bool Debug = false;
 
         static unsafe void Main(string[] args)
         {
