@@ -120,7 +120,7 @@ align 4096
 stack_top:
 resb 16384 ; System Use
 stack_bottom:
-resb 4096 ; For Call Instruction
+resb 4096 ; For Storing Registers
 cache:
 resb 4096 ; Reserved
 ;Page Table
