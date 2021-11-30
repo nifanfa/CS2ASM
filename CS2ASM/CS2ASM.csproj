@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<LangVersion>9.0</LangVersion>
-	<StartupObject>IL2ASM.Program</StartupObject>
+	<StartupObject>CS2ASM.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
