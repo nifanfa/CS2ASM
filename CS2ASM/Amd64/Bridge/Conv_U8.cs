@@ -9,7 +9,6 @@ namespace CS2ASM
         [ILBridge(Code.Conv_U8)]
         public static void Conv_U8(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Conv_U8 is not implemented");
         }
     }
 }

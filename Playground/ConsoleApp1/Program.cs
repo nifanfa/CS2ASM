@@ -2,6 +2,16 @@
 {
     public static unsafe class Program
     {
+        public static void Main() 
+        {
+            byte* p = (byte*)0x140000000;
+            *p = 0x41;
+
+            byte* c = (byte*)0xb8000;
+            *c = *p;
+        }
+
+        /*
         public static void Main()
         {
         Loop:
@@ -49,5 +59,6 @@
             p += 2;
             *p = (byte)'d';
         }
+        */
     }
 }
