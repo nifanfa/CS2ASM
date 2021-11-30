@@ -6,7 +6,7 @@ namespace CS2ASM.Misc
 {
     class Program
     {
-        public const string NameSpaceName = "IL2ASM";
+        public const string NameSpaceName = "CS2ASM";
         public const string ClassName = "Amd64Bridge";
 
         static unsafe void Main(string[] args)
