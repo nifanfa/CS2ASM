@@ -4,8 +4,8 @@
     {
         public static void Main()
         {
-            Second();
         Loop:
+            Second();
             byte b = ReturnTest();
             byte* p = (byte*)0xb8000;
             *p = b;
