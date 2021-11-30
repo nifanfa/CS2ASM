@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILBridge(Code.Ldind_U2)]
         public static void Ldind_U2(Arch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldind_U2 is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"push qword [rax]");
         }
     }
 }

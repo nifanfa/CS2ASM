@@ -4,11 +4,14 @@
     {
         public static void Main() 
         {
-            byte* p = (byte*)0x140000000;
-            *p = 0x41;
+            byte* p0 = (byte*)0xb8002;
+            *p0 = 0x41;
 
-            byte* c = (byte*)0xb8000;
-            *c = *p;
+            byte* p1 = (byte*)0xb8000;
+            *p1 = *p0;
+
+            //byte* c = (byte*)0xb8000;
+            //*c = *p;
         }
 
         /*

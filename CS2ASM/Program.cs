@@ -25,7 +25,7 @@ namespace CS2ASM
                     arch = new Amd64();
                     break;
             }
-            arch.Debug = false;
+            //arch.Debug = false;
             arch.Setup();
 
             ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
