@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Ldc_I4_5)]
         public static void Ldc_I4_5(Arch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push {OperandReader.Ldc(ins)}");
+            arch.Append($"push {OperandParser.Ldc(ins)}");
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace CS2ASM
 {
-    public static unsafe class OperandReader
+    public static unsafe class OperandParser
     {
         public static ulong Ldc(Instruction ins)
         {
