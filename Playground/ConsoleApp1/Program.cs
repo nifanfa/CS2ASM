@@ -4,14 +4,25 @@
     {
         public static void Main() 
         {
-            byte* p0 = (byte*)0xb8002;
-            *p0 = 0x41;
+            ulong* index = (ulong*)0xA00000;
+            *index = 0;
 
-            byte* p1 = (byte*)0xb8000;
-            *p1 = *p0;
+            PutChar((byte)'H');
+            PutChar((byte)'e');
+            PutChar((byte)'l');
+            PutChar((byte)'l');
+            PutChar((byte)'o');
 
             //byte* c = (byte*)0xb8000;
             //*c = *p;
+        }
+
+        public static void PutChar(byte chr) 
+        {
+            ulong* index = (ulong*)0xA00000;
+            byte* p = (byte*)(0xb8000 + *index);
+            *p = chr;
+            *index = *index + 2;
         }
 
         /*
