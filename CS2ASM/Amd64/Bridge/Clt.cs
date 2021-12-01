@@ -9,7 +9,13 @@ namespace CS2ASM
         [ILBridge(Code.Clt)]
         public static void Clt(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Clt is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,rdx");
+            arch.Append($"jge $+6");
+            arch.Append($"push 0");
+            arch.Append($"jmp $+4");
+            arch.Append($"push 1");
         }
     }
 }
