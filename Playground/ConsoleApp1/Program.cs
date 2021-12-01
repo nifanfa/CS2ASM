@@ -6,11 +6,30 @@
 
         public static void Main() 
         {
+            if(Position == 0) 
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+
+            if (Position == 1)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+            /*
             PutChar('H');
             PutChar('e');
             PutChar('l');
             PutChar('l');
             PutChar('o');
+            */
         }
 
         public static void PutChar(char chr) 

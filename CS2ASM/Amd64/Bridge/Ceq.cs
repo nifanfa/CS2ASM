@@ -9,7 +9,12 @@ namespace CS2ASM
         [ILBridge(Code.Ceq)]
         public static void Ceq(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ceq is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"push 0 ;false");
+            arch.Append($"cmp rax,rdx");
+            arch.Append($"jne $+20"); //$+2+InstructionBytes
+            arch.Append($"mov qword [rsp+8],1");
         }
     }
 }
