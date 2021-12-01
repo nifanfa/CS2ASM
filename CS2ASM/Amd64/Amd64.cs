@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace CS2ASM
 {
-    public unsafe class Amd64 : Arch
+    public unsafe class Amd64 : BaseArch
     {
         public override void Setup()
         {
@@ -41,7 +41,7 @@ Br.OpCode.Code == Code.Br_S)
                       select Br;
 
             //Label
-            this.Append($"{def.SafeMethodName()}:");
+            this.Append($"{SafeMethodName(def)}:");
 
             if (isEntryPoint)
             {
@@ -78,12 +78,40 @@ Br.OpCode.Code == Code.Br_S)
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        this.Append($"{Util.BrLabelName(ins, def, true)}:");
+                        this.Append($"{BrLabelName(ins, def, true)}:");
                 }
 
                 //Compile IL Instructions
                 ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
             }
+        }
+
+        public override void InitFields(TypeDef typ)
+        {
+            foreach(var v in typ.Fields) 
+            {
+                //Ldsfld
+                //Stsfld
+                this.Append($";{v}");
+                this.Append($"{SafeFieldName(typ, v)}:");
+                this.Append($"dq 0");
+            }
+        }
+
+
+        public static string SafeMethodName(MethodDef meth)
+        {
+            return $"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}";
+        }
+
+        public static string SafeFieldName(TypeDef type, FieldDef field)
+        {
+            return $"{type.Namespace}_{field.Name}";
+        }
+
+        public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
+        {
+            return $"{SafeMethodName(def)}_IL_{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
     }
 }

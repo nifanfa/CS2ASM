@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Prefix2)]
-        public static void Prefix2(Arch arch, Instruction ins, MethodDef def)
+        public static void Prefix2(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Prefix2 is not implemented");
         }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Leave)]
-        public static void Leave(Arch arch, Instruction ins, MethodDef def)
+        public static void Leave(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Leave is not implemented");
         }

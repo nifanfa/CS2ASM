@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace CS2ASM
 {
-    public abstract unsafe class Arch
+    public abstract unsafe class BaseArch
     {
         public StringWriter _Code = new StringWriter();
         public bool Debug = true;
@@ -23,6 +23,7 @@ namespace CS2ASM
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
         public abstract void Compile(MethodDef meth, bool isEntryPoint = false);
+        public abstract void InitFields(TypeDef typ);
         public abstract void Setup();
     }
 }

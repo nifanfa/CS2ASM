@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ldsflda)]
-        public static void Ldsflda(Arch arch, Instruction ins, MethodDef def)
+        public static void Ldsflda(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Ldsflda is not implemented");
         }

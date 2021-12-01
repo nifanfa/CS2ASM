@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Isinst)]
-        public static void Isinst(Arch arch, Instruction ins, MethodDef def)
+        public static void Isinst(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Isinst is not implemented");
         }

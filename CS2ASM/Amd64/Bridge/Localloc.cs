@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Localloc)]
-        public static void Localloc(Arch arch, Instruction ins, MethodDef def)
+        public static void Localloc(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Localloc is not implemented");
         }

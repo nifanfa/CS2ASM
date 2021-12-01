@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ldnull)]
-        public static void Ldnull(Arch arch, Instruction ins, MethodDef def)
+        public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Ldnull is not implemented");
         }

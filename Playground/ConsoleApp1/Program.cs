@@ -2,11 +2,10 @@
 {
     public static unsafe class Program
     {
+        public static ulong Position = 0;
+
         public static void Main() 
         {
-            ulong* index = (ulong*)0xA00000;
-            *index = 0;
-
             PutChar((byte)'H');
             PutChar((byte)'e');
             PutChar((byte)'l');
@@ -16,10 +15,9 @@
 
         public static void PutChar(byte chr) 
         {
-            ulong* index = (ulong*)0xA00000;
-            byte* p = (byte*)(0xb8000 + *index);
+            byte* p = (byte*)(0xb8000 + Position);
             *p = chr;
-            *index = *index + 2;
+            Position = Position + 2;
         }
 
         /*

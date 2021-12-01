@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Div)]
-        public static void Div(Arch arch, Instruction ins, MethodDef def)
+        public static void Div(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Div is not implemented");
         }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Sizeof)]
-        public static void Sizeof(Arch arch, Instruction ins, MethodDef def)
+        public static void Sizeof(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Sizeof is not implemented");
         }

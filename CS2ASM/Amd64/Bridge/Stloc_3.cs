@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Stloc_3)]
-        public static void Stloc_3(Arch arch, Instruction ins, MethodDef def)
+        public static void Stloc_3(BaseArch arch, Instruction ins, MethodDef def)
         {
             ulong Index = OperandParser.Stloc(ins) + 1;
             arch.Append($"pop rax");

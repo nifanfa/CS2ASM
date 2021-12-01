@@ -7,7 +7,7 @@ namespace $NAMESPACE$
     public static unsafe partial class $CLASSNAME$
     {
         [ILBridge(Code.$OPCODENAME$)]
-        public static void $OPCODENAME$(Arch arch, Instruction ins, MethodDef def)
+        public static void $OPCODENAME$(BaseArch arch, Instruction ins, MethodDef def)
         {
             $EXCEPTION$
         }

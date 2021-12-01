@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Cpobj)]
-        public static void Cpobj(Arch arch, Instruction ins, MethodDef def)
+        public static void Cpobj(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Cpobj is not implemented");
         }

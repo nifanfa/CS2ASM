@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ret)]
-        public static void Ret(Arch arch, Instruction ins, MethodDef def)
+        public static void Ret(BaseArch arch, Instruction ins, MethodDef def)
         {
             if (def.Module.EntryPoint != def)
             {

@@ -7,9 +7,10 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Stsfld)]
-        public static void Stsfld(Arch arch, Instruction ins, MethodDef def)
+        public static void Stsfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stsfld is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"mov [{Amd64.SafeFieldName(def.DeclaringType, (FieldDef)ins.Operand)}],rax");
         }
     }
 }

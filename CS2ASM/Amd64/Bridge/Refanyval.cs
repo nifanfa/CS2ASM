@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Refanyval)]
-        public static void Refanyval(Arch arch, Instruction ins, MethodDef def)
+        public static void Refanyval(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Refanyval is not implemented");
         }

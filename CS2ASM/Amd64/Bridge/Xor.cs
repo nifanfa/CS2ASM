@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Xor)]
-        public static void Xor(Arch arch, Instruction ins, MethodDef def)
+        public static void Xor(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Xor is not implemented");
         }

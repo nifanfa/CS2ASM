@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Shr)]
-        public static void Shr(Arch arch, Instruction ins, MethodDef def)
+        public static void Shr(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Shr is not implemented");
         }

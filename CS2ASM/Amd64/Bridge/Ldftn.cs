@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ldftn)]
-        public static void Ldftn(Arch arch, Instruction ins, MethodDef def)
+        public static void Ldftn(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Ldftn is not implemented");
         }

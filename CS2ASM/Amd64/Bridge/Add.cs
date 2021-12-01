@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Add)]
-        public static void Add(Arch arch, Instruction ins, MethodDef def)
+        public static void Add(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append($"pop rdx");
             arch.Append($"pop rax");

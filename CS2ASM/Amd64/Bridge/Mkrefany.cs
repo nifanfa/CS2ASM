@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Mkrefany)]
-        public static void Mkrefany(Arch arch, Instruction ins, MethodDef def)
+        public static void Mkrefany(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Mkrefany is not implemented");
         }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Conv_Ovf_U)]
-        public static void Conv_Ovf_U(Arch arch, Instruction ins, MethodDef def)
+        public static void Conv_Ovf_U(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Conv_Ovf_U is not implemented");
         }

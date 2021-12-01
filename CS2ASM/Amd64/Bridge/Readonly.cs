@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Readonly)]
-        public static void Readonly(Arch arch, Instruction ins, MethodDef def)
+        public static void Readonly(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Readonly is not implemented");
         }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ldind_Ref)]
-        public static void Ldind_Ref(Arch arch, Instruction ins, MethodDef def)
+        public static void Ldind_Ref(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Ldind_Ref is not implemented");
         }

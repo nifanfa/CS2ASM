@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Rethrow)]
-        public static void Rethrow(Arch arch, Instruction ins, MethodDef def)
+        public static void Rethrow(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Rethrow is not implemented");
         }

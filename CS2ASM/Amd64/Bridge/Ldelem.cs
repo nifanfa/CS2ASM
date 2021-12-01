@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Bridge
     {
         [ILBridge(Code.Ldelem)]
-        public static void Ldelem(Arch arch, Instruction ins, MethodDef def)
+        public static void Ldelem(BaseArch arch, Instruction ins, MethodDef def)
         {
             throw new NotImplementedException("Ldelem is not implemented");
         }
