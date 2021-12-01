@@ -9,7 +9,13 @@ namespace CS2ASM
         [ILBridge(Code.Cgt)]
         public static void Cgt(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Cgt is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,rdx");
+            arch.Append($"jg $+6");
+            arch.Append($"push 0");
+            arch.Append($"jmp $+4");
+            arch.Append($"push 1");
         }
     }
 }
