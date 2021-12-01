@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILBridge(Code.Call)]
         public static void Call(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"call {((MethodDef)ins.Operand).SafeMethodName()}");
+            arch.Append($"call {Amd64.SafeMethodName(((MethodDef)ins.Operand))}");
             //Clean up
             for (int i = 0; i < ((MethodDef)ins.Operand).Parameters.Count; i++)
             {
