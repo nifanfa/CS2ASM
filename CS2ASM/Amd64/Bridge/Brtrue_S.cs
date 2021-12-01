@@ -9,7 +9,9 @@ namespace CS2ASM
         [ILBridge(Code.Brtrue_S)]
         public static void Brtrue_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Brtrue_S is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,1");
+            arch.Append($"je {Amd64.BrLabelName(ins, def)}");
         }
     }
 }
