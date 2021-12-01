@@ -41,7 +41,7 @@ Br.OpCode.Code == Code.Br_S)
                       select Br;
 
             //Label
-            this.Append($"{SafeMethodName(def)}:");
+            this.Append($"{Amd64.SafeMethodName(def)}:");
 
             if (isEntryPoint)
             {
@@ -78,7 +78,7 @@ Br.OpCode.Code == Code.Br_S)
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                        this.Append($"{BrLabelName(ins, def, true)}:");
+                        this.Append($"{Amd64.BrLabelName(ins, def, true)}:");
                 }
 
                 //Compile IL Instructions
@@ -93,7 +93,7 @@ Br.OpCode.Code == Code.Br_S)
                 //Ldsfld
                 //Stsfld
                 this.Append($";{v}");
-                this.Append($"{SafeFieldName(typ, v)}:");
+                this.Append($"{Amd64.SafeFieldName(typ, v)}:");
                 this.Append($"dq 0");
             }
         }
@@ -111,7 +111,7 @@ Br.OpCode.Code == Code.Br_S)
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
-            return $"{SafeMethodName(def)}_IL_{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
+            return $"{Amd64.SafeMethodName(def)}_IL_{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
     }
 }
