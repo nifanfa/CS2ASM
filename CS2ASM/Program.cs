@@ -25,21 +25,21 @@ namespace CS2ASM
                     arch = new Amd64();
                     break;
             }
-            //arch.Debug = false;
+            //arch.DebugEnabled = false;
             arch.Setup();
 
             ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            arch.Compile(def.EntryPoint, true);
+            arch.Translate(def.EntryPoint, true);
             foreach (var typ in def.Types)
             {
-                arch.InitFields(typ);
+                arch.InitializeFields(typ);
                 foreach (var meth in typ.Methods)
                 {
                     if (meth.FullName != def.EntryPoint.FullName)
-                        arch.Compile(meth);
+                        arch.Translate(meth);
                 }
             }
 

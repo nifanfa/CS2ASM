@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,7 +10,9 @@ namespace CS2ASM
         [ILBridge(Code.Brfalse_S)]
         public static void Brfalse_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Brfalse_S is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,0");
+            arch.Append($"je {Amd64.BrLabelName(ins, def)}");
         }
     }
 }

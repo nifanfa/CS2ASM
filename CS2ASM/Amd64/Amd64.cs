@@ -6,6 +6,8 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -26,19 +28,10 @@ namespace CS2ASM
             this.Append($"[bits 64]");
         }
 
-        public override void Compile(MethodDef def, bool isEntryPoint = false)
+        public override void Translate(MethodDef def, bool isEntryPoint = false)
         {
             //Get All Branches
-            var BrS = from Br in def.Body.Instructions
-                      where
-(
-Br.OpCode.Code == Code.Br ||
-Br.OpCode.Code == Code.Brfalse ||
-Br.OpCode.Code == Code.Brfalse_S ||
-Br.OpCode.Code == Code.Brtrue ||
-Br.OpCode.Code == Code.Brtrue_S ||
-Br.OpCode.Code == Code.Br_S)
-                      select Br;
+            var BrS = GetAllBranches(def);
 
             //Label
             this.Append($"{Amd64.SafeMethodName(def)}:");
@@ -71,14 +64,16 @@ Br.OpCode.Code == Code.Br_S)
             {
                 var ins = def.Body.Instructions[i];
 
-                if (Debug)
+                if (DebugEnabled)
                     this.Append($";{ins}");
 
                 //For Branches
                 foreach (var v in BrS)
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
+                    {
                         this.Append($"{Amd64.BrLabelName(ins, def, true)}:");
+                    }
                 }
 
                 //Compile IL Instructions
@@ -86,15 +81,22 @@ Br.OpCode.Code == Code.Br_S)
             }
         }
 
-        public override void InitFields(TypeDef typ)
+        public override void InitializeFields(TypeDef typ)
         {
             foreach(var v in typ.Fields) 
             {
                 //Ldsfld
                 //Stsfld
-                this.Append($";{v}");
-                this.Append($"{Amd64.SafeFieldName(typ, v)}:");
-                this.Append($"dq 0");
+                if (v.IsStatic) 
+                {
+                    this.Append($";{v}");
+                    this.Append($"{Amd64.SafeFieldName(typ, v)}:");
+                    this.Append($"dq 0");
+                }
+                else 
+                {
+                    throw new NotImplementedException("Only static fields were supported for now!");
+                }
             }
         }
 

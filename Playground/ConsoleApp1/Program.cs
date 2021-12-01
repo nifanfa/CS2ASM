@@ -6,11 +6,33 @@
 
         public static void Main() 
         {
+            /*
             PutChar((byte)'H');
             PutChar((byte)'e');
             PutChar((byte)'l');
             PutChar((byte)'l');
             PutChar((byte)'o');
+            */
+
+            bool T = true;
+            if (T) 
+            {
+                PutChar((byte)'T');
+            }
+            else 
+            {
+                PutChar((byte)'F');
+            }
+
+            bool F = false;
+            if (F)
+            {
+                PutChar((byte)'T');
+            }
+            else
+            {
+                PutChar((byte)'F');
+            }
         }
 
         public static void PutChar(byte chr) 

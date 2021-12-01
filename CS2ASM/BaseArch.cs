@@ -3,6 +3,7 @@ using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace CS2ASM
@@ -10,7 +11,7 @@ namespace CS2ASM
     public abstract unsafe class BaseArch
     {
         public StringWriter _Code = new StringWriter();
-        public bool Debug = true;
+        public bool DebugEnabled = true;
 
         public void Append(string s = "")
         {
@@ -22,8 +23,22 @@ namespace CS2ASM
         }
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
-        public abstract void Compile(MethodDef meth, bool isEntryPoint = false);
-        public abstract void InitFields(TypeDef typ);
+        public abstract void Translate(MethodDef meth, bool isEntryPoint = false);
+        public abstract void InitializeFields(TypeDef typ);
+        public IEnumerable<Instruction> GetAllBranches(MethodDef def)
+        {
+            return from Br in def.Body.Instructions
+                   where
+(
+Br.OpCode.Code == Code.Br ||
+Br.OpCode.Code == Code.Brfalse ||
+Br.OpCode.Code == Code.Brfalse_S ||
+Br.OpCode.Code == Code.Brtrue ||
+Br.OpCode.Code == Code.Brtrue_S ||
+Br.OpCode.Code == Code.Br_S
+)
+                   select Br;
+        }
         public abstract void Setup();
     }
 }
