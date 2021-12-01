@@ -4,9 +4,9 @@
     {
         public static ulong Position = 0;
 
-        public static void Main() 
+        public static void Main()
         {
-            if(Position == 0) 
+            if (Position == 0)
             {
                 PutChar('Y');
             }
@@ -23,13 +23,12 @@
             {
                 PutChar('N');
             }
-            /*
+
             PutChar('H');
             PutChar('e');
             PutChar('l');
             PutChar('l');
             PutChar('o');
-            */
         }
 
         public static void PutChar(char chr) 
@@ -38,6 +37,29 @@
             *p = (byte)chr;
             Position = Position + 2;
         }
+
+        /*
+        public static void Main()
+        {
+            if (Position == 0)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+
+            if (Position == 1)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+        }
+        */
 
         /*
         public static void Main()
