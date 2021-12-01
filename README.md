@@ -1,2 +1,9 @@
-**CS2ASM is not IL2CPU**  
-By using this compiler you can make your own OS in C#. Only Amd64 platfrom at the moment
+## CS2ASM
+
+CS2ASM is a compiler which translates C# code into Assembly.
+By using this compiler, you may create you own operating system using C#.
+
+
+**CS2ASM is not IL2CPU!**
+
+**Currently, only the AMD64 platform is supported.**
