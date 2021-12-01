@@ -6,41 +6,44 @@
 
         public static void Main() 
         {
-            /*
-            PutChar((byte)'H');
-            PutChar((byte)'e');
-            PutChar((byte)'l');
-            PutChar((byte)'l');
-            PutChar((byte)'o');
-            */
+            PutChar('H');
+            PutChar('e');
+            PutChar('l');
+            PutChar('l');
+            PutChar('o');
+        }
 
+        public static void PutChar(char chr) 
+        {
+            byte* p = (byte*)(0xb8000 + Position);
+            *p = (byte)chr;
+            Position = Position + 2;
+        }
+
+        /*
+        public static void Main()
+        {
             bool T = true;
-            if (T) 
+            if (T)
             {
-                PutChar((byte)'T');
+                PutChar('T');
             }
-            else 
+            else
             {
-                PutChar((byte)'F');
+                PutChar('F');
             }
 
             bool F = false;
             if (F)
             {
-                PutChar((byte)'T');
+                PutChar('T');
             }
             else
             {
-                PutChar((byte)'F');
+                PutChar('F');
             }
         }
-
-        public static void PutChar(byte chr) 
-        {
-            byte* p = (byte*)(0xb8000 + Position);
-            *p = chr;
-            Position = Position + 2;
-        }
+        */
 
         /*
         public static void ArguTest1(byte b1,byte b2)
