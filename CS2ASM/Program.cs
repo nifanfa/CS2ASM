@@ -51,7 +51,7 @@ namespace CS2ASM
                 case ProcessorArchitecture.Amd64:
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 
-                    Utility.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel");
+                    Utility.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel -l kernel.lst");
                     ZipFile.ExtractToDirectory(@"Amd64\grub2.zip", @"Amd64\Temp\", true);
                     File.Move(@"Amd64\kernel", @"Amd64\Temp\boot\kernel", true);
                     Utility.Start(@"Amd64\mkisofs.exe", $"-relaxed-filenames -J -R -o \"{Environment.CurrentDirectory}\\output.iso\" -b \"{@"boot/grub/i386-pc/eltorito.img"}\" -no-emul-boot -boot-load-size 4 -boot-info-table {Environment.CurrentDirectory}\\Amd64\\Temp");

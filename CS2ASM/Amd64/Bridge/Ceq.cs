@@ -11,10 +11,11 @@ namespace CS2ASM
         {
             arch.Append($"pop rdx");
             arch.Append($"pop rax");
-            arch.Append($"push 0 ;false");
             arch.Append($"cmp rax,rdx");
-            arch.Append($"jne $+10"); //$+2+InstructionBytes
-            arch.Append($"mov qword [rsp+8],1");
+            arch.Append($"je $+6");
+            arch.Append($"push 0");
+            arch.Append($"jmp $+4");
+            arch.Append($"push 1");
         }
     }
 }

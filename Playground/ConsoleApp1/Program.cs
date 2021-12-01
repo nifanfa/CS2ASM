@@ -6,7 +6,8 @@
 
         public static void Main()
         {
-            if (Position == 0)
+            ulong p = 0;
+            if (p == 0)
             {
                 PutChar('Y');
             }
@@ -15,7 +16,7 @@
                 PutChar('N');
             }
 
-            if (Position == 1)
+            if (p == 1)
             {
                 PutChar('Y');
             }
