@@ -5,6 +5,9 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>9.0</LangVersion>
+
+		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+		<NoStdLib>true</NoStdLib>
 	</PropertyGroup>
 
 </Project>

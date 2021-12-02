@@ -6,10 +6,12 @@
 
         public static void Main()
         {
-            for(int i = 0; i < 10; i++) 
+            for (int i = 0; i < 10; i++)
             {
                 PutChar('A');
             }
+
+
 
             /*
             PutChar('H');
@@ -20,7 +22,7 @@
             */
         }
 
-        public static void PutChar(char chr) 
+        public static void PutChar(char chr)
         {
             byte* p = (byte*)(0xb8000 + Position);
             *p = (byte)chr;
