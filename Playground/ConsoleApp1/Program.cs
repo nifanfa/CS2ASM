@@ -6,14 +6,9 @@
 
         public static void Main()
         {
-            int p = 9;
-            if (p > 10)
+            for(int i = 0; i < 10; i++) 
             {
                 PutChar('A');
-            }
-            if (p < 10)
-            {
-                PutChar('B');
             }
 
             /*

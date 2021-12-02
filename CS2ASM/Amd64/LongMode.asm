@@ -115,7 +115,7 @@ _Main:
 
 ALIGN 4096
 stack_top:
-resb 16384 ; System Use
+resb 4096 ; System Use
 stack_bottom:
 resb 4096 ; For Storing Registers
 cache:
