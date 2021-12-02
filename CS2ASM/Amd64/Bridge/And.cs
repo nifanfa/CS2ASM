@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILBridge(Code.And)]
         public static void And(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("And is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"and rax,rdx");
+            arch.Append($"push rax");
         }
     }
 }
