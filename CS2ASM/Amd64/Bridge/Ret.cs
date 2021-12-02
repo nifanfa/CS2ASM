@@ -1,6 +1,5 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 
 namespace CS2ASM
 {
@@ -16,8 +15,9 @@ namespace CS2ASM
                 {
                     arch.Append($"pop rax");
                 }
-                
-                arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
+
+                if (def.Body.Variables.Count != 0)
+                    arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
                 //recover
                 //arch.Append($"push qword [cache-8]");

@@ -13,10 +13,11 @@ namespace CS2ASM
 
             arch.Append($"pop rbp"); //Recover rbp register
             //Clean up arguments
-            arch.Append($"add rsp,{((MethodDef)ins.Operand).Parameters.Count * 8}");
+            if (((MethodDef)ins.Operand).Parameters.Count != 0)
+                arch.Append($"add rsp,{((MethodDef)ins.Operand).Parameters.Count * 8}");
 
             //Ret.cs
-            if (def.HasReturnType)
+            if (((MethodDef)ins.Operand).HasReturnType)
             {
                 arch.Append($"push rax");
             }
