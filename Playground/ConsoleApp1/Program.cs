@@ -4,18 +4,36 @@
     {
         public static ulong Position = 0;
 
+        /*
+         * Current Progress:
+         *  Static Methods Only
+         *  Local And Static Variable Only
+         *  Pointer Support
+         *  Sbyte Byte Short UShort Int Uint Long ULong Support
+         *  C# basic things(for if) etc Support
+         *  
+         *  Allocation Is Not Supported
+         */
         public static void Main()
         {
-            int a = 32;
-            int b = a >> 4;
-            if(b == 2) 
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('N');
-            }
+            PutChar('H');
+            PutChar('e');
+            PutChar('l');
+            PutChar('l');
+            PutChar('o');
+            PutChar(' ');
+            PutChar('F');
+            PutChar('r');
+            PutChar('o');
+            PutChar('m');
+            PutChar(' ');
+            PutChar('n');
+            PutChar('i');
+            PutChar('f');
+            PutChar('a');
+            PutChar('n');
+            PutChar('f');
+            PutChar('a');
         }
 
         public static void PutChar(char chr)
