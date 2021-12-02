@@ -117,12 +117,11 @@ _Main:
     %include "Kernel.asm"
 
 ALIGN 4096
+;Stack
 stack_top:
-resb 4096 ; System Use
+resb 4096
 stack_bottom:
-resb 4096 ; For Storing Registers
-cache:
-resb 4096 ; Reserved
+
 ;Page Table
 p4_table:
 resb 4096
