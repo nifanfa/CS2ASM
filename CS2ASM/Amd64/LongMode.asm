@@ -116,12 +116,13 @@ _Main:
     
     %include "Kernel.asm"
 
-ALIGN 4096
 ;Stack
 stack_top:
-resb 4096
+resb 8192
 stack_bottom:
+resb 8192
 
+ALIGN 4096
 ;Page Table
 p4_table:
 resb 4096
