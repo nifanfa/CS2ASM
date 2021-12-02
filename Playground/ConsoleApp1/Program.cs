@@ -6,14 +6,42 @@
 
         public static void Main()
         {
-        Loop:
-            Second();
+            int a = 5;
+            if (a > 4)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
 
-            PutChar('S');
-            PutChar('u');
-            PutChar('c');
-            PutChar('c');
-            goto Loop;
+            if (a < 4)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+
+            if (a > 4)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
+
+            if (a < 4)
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('N');
+            }
         }
 
         public static void Second() 
