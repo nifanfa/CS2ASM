@@ -10,4 +10,6 @@
 		<NoStdLib>true</NoStdLib>
 	</PropertyGroup>
 
+	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
+
 </Project>

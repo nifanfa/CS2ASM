@@ -6,8 +6,16 @@
     <SharedGUID>2270c494-0ae5-43e7-8063-ee692461afe0</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Corlib</Import_RootNamespace>
+    <Import_RootNamespace>System</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Boolean.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Byte.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Char.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Int32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Object.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UInt64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ValueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Void.cs" />
   </ItemGroup>
 </Project>
