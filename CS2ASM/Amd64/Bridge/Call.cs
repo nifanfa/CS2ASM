@@ -10,12 +10,13 @@ namespace CS2ASM
         public static void Call(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append($"call {Amd64.SafeMethodName(((MethodDef)ins.Operand))}");
-            //Clean up
+
+            //Clean up arguments
             for (int i = 0; i < ((MethodDef)ins.Operand).Parameters.Count; i++)
             {
                 arch.Append($"pop rcx");
             }
-            arch.Append($"pop rbp");
+            arch.Append($"pop rbp"); //Recover rbp register
         }
     }
 }

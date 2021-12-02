@@ -35,12 +35,12 @@ namespace CS2ASM
             //Label
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
-            //for call
+            //Call.cs Line 19
             if (!isEntryPoint)
             {
                 this.Append($"pop rcx");
-                this.Append($"push rbp");
-                this.Append($"push rcx");
+                this.Append($"push rbp"); //Save rbp register
+                this.Append($"push rcx"); //For ret instruction
             }
 
             this.Append($"mov rbp,rsp");
