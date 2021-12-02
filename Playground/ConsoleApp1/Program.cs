@@ -6,30 +6,23 @@
 
         public static void Main()
         {
-            ulong p = 0;
-            if (p == 0)
+            int p = 9;
+            if (p > 10)
             {
-                PutChar('Y');
+                PutChar('A');
             }
-            else
+            if (p < 10)
             {
-                PutChar('N');
-            }
-
-            if (p == 1)
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('N');
+                PutChar('B');
             }
 
+            /*
             PutChar('H');
             PutChar('e');
             PutChar('l');
             PutChar('l');
             PutChar('o');
+            */
         }
 
         public static void PutChar(char chr) 
