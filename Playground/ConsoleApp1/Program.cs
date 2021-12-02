@@ -6,18 +6,18 @@
 
         public static void Main()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                PutChar('A');
-            }
+        Loop:
+            Second();
 
-            /*
-            PutChar('H');
-            PutChar('e');
-            PutChar('l');
-            PutChar('l');
-            PutChar('o');
-            */
+            PutChar('S');
+            PutChar('u');
+            PutChar('c');
+            PutChar('c');
+            goto Loop;
+        }
+
+        public static void Second() 
+        {
         }
 
         public static void PutChar(char chr)
@@ -26,7 +26,7 @@
             *p = (byte)chr;
             Position = Position + 2;
         }
-
+        
         /*
         public static void Main()
         {

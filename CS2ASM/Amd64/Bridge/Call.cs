@@ -15,7 +15,7 @@ namespace CS2ASM
             {
                 arch.Append($"pop rcx");
             }
-            arch.Append($"mov rbp,[cache-16]");
+            arch.Append($"pop rbp");
         }
     }
 }

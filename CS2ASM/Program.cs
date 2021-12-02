@@ -42,7 +42,7 @@ namespace CS2ASM
                         arch.Translate(meth);
                 }
             }
-
+            
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
 
@@ -50,7 +50,6 @@ namespace CS2ASM
             {
                 case ProcessorArchitecture.Amd64:
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
-                    if (arch.StackPushPop != 0) throw new StackOverflowException("Stackoverflow risk!");
 
                     Utility.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel -l Kernel.lst");
                     ZipFile.ExtractToDirectory(@"Amd64\grub2.zip", @"Amd64\Temp\", true);

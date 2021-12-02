@@ -16,7 +16,6 @@ namespace CS2ASM
             arch.Append($"push 0");
             arch.Append($"jmp $+4");
             arch.Append($"push 1");
-            arch.StackPushPop--; //In this case only one jump will be called
         }
     }
 }

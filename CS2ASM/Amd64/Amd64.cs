@@ -7,7 +7,6 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -36,21 +35,24 @@ namespace CS2ASM
             //Label
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
-            this.Append($"mov [cache-16],rbp ;save stack base pointer");
-            this.Append($"mov rbp,rsp");
-
             //for call
             if (!isEntryPoint)
-                this.Append($"pop rcx ;for call return");
+            {
+                this.Append($"pop rcx");
+                this.Append($"push rbp");
+                this.Append($"push rcx");
+            }
+
+            this.Append($"mov rbp,rsp");
+
+            if (!isEntryPoint)
+            {
+            }
 
             //For Variables
             //pop at Ret.cs
             this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
 
-            //for call
-
-            if (!isEntryPoint)
-                this.Append($"push rcx");
 
             //Start Parse IL Code
             for (int i = 0; i < def.Body.Instructions.Count; i++)
@@ -76,21 +78,28 @@ namespace CS2ASM
 
         public override void InitializeFields(TypeDef typ)
         {
-            foreach(var v in typ.Fields) 
+            foreach (var v in typ.Fields)
             {
                 //Ldsfld
                 //Stsfld
-                if (v.IsStatic) 
+                if (v.IsStatic)
                 {
                     this.Append($";{v}");
                     this.Append($"{Amd64.SafeFieldName(typ, v)}:");
                     this.Append($"dq 0");
                 }
-                else 
+                else
                 {
                     throw new NotImplementedException("Only static fields were supported for now!");
                 }
             }
+        }
+
+        public override void Append(string s = "")
+        {
+            s = s.Trim();
+
+            base.Append(s);
         }
 
 
