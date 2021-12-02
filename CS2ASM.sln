@@ -7,13 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS2ASM", "CS2ASM\CS2ASM.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "Playground\ConsoleApp1\ConsoleApp1.csproj", "{8C8E73CB-A000-41C2-9DE4-961020EB4280}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Corlib", "Corlib\Corlib.shproj", "{2270C494-0AE5-43E7-8063-EE692461AFE0}"
-EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Corlib\Corlib.projitems*{2270c494-0ae5-43e7-8063-ee692461afe0}*SharedItemsImports = 13
-		Corlib\Corlib.projitems*{8c8e73cb-a000-41c2-9de4-961020eb4280}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

@@ -36,28 +36,21 @@ namespace CS2ASM
             //Label
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
-            if (isEntryPoint)
-            {
-                this.Append($"mov rbp,stack_bottom");
-                this.Append($"mov rsp,rbp");
-            }
-
-            this.Append($"mov [cache-16],rbp");
+            this.Append($"mov [cache-16],rbp ;save stack base pointer");
             this.Append($"mov rbp,rsp");
 
             //for call
             if (!isEntryPoint)
-            {
-                this.Append($"pop rcx");
-                this.Append($"mov [cache-8],rcx");
-            }
+                this.Append($"pop rcx ;for call return");
 
             //For Variables
             //pop at Ret.cs
-            for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
-            {
-                this.Append($"push 0");
-            }
+            this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
+
+            //for call
+
+            if (!isEntryPoint)
+                this.Append($"push rcx");
 
             //Start Parse IL Code
             for (int i = 0; i < def.Body.Instructions.Count; i++)

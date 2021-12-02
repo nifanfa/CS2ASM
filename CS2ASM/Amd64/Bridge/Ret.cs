@@ -15,11 +15,8 @@ namespace CS2ASM
                 {
                     arch.Append($"pop rax");
                 }
-
-                for (ulong i = 0; i < (ulong)def.Body.Variables.Count; i++)
-                {
-                    arch.Append($"pop rcx");
-                }
+                
+                arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
                 if (def.HasReturnType)
                 {
@@ -27,7 +24,7 @@ namespace CS2ASM
                 }
 
                 //recover
-                arch.Append($"push qword [cache-8]");
+                //arch.Append($"push qword [cache-8]");
                 arch.Append($"ret");
             }
             else

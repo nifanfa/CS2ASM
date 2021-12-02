@@ -13,13 +13,18 @@ namespace CS2ASM
         public StringWriter _Code = new StringWriter();
         public bool DebugEnabled = true;
 
+        public long StackPushPop = 0;
+
         public void Append(string s = "")
         {
-            if (s.Length != 0 && s[0] == ';')
-                Console.ForegroundColor = ConsoleColor.DarkGray;
+            s = s.Trim();
+            if (s.IndexOf("push") == 0) StackPushPop++;
+            if (s.IndexOf("pop") == 0) StackPushPop--;
+
+            if (s.IndexOf(";") == 0) Console.ForegroundColor = ConsoleColor.DarkGray;
             _Code.WriteLine(s);
             //Console.WriteLine(s);
-            if (s.Length != 0 && s[0] == ';') Console.ResetColor();
+            if (s.IndexOf(";") == 0) Console.ResetColor();
         }
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();

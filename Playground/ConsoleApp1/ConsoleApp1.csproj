@@ -3,13 +3,8 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>9.0</LangVersion>
-
-		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-		<NoStdLib>true</NoStdLib>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
-
-	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
 
 </Project>
