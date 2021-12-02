@@ -45,14 +45,9 @@ namespace CS2ASM
 
             this.Append($"mov rbp,rsp");
 
-            if (!isEntryPoint)
-            {
-            }
-
             //For Variables
             //pop at Ret.cs
             this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
-
 
             //Start Parse IL Code
             for (int i = 0; i < def.Body.Instructions.Count; i++)
