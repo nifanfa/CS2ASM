@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILBridge(Code.Or)]
         public static void Or(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Or is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"or rax,rdx");
+            arch.Append($"push rax");
         }
     }
 }
