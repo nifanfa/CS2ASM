@@ -11,12 +11,12 @@ namespace CS2ASM
         {
             arch.Append($"call {Amd64.SafeMethodName(((MethodDef)ins.Operand))}");
 
+            arch.Append($"pop rbp"); //Recover rbp register
             //Clean up arguments
             for (int i = 0; i < ((MethodDef)ins.Operand).Parameters.Count; i++)
             {
                 arch.Append($"pop rcx");
             }
-            arch.Append($"pop rbp"); //Recover rbp register
 
             //Ret.cs
             if (def.HasReturnType)

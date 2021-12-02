@@ -13,42 +13,15 @@
          *  C# basic things(for if) etc Support
          *  
          *  Allocation Is Not Supported
+         *  Return Not Work. Check out Ret.cs and Call.cs
          */
         public static void Main()
         {
-            PutChar('H');
-            PutChar('e');
-            PutChar('l');
-            PutChar('l');
-            PutChar('o');
-            PutChar(' ');
-            PutChar('F');
-            PutChar('r');
-            PutChar('o');
-            PutChar('m');
-            PutChar(' ');
-            PutChar('n');
-            PutChar('i');
-            PutChar('f');
-            PutChar('a');
-            PutChar('n');
-            PutChar('f');
-            PutChar('a');
-
-            PutChar(' ');
-
-            int Ten = Ret10();
-            if(Ten == 10) 
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('Y');
-            }
+            byte b = Ret();
+            PutChar((char)b);
         }
 
-        public static int Ret10() { return 10; }
+        public static byte Ret() { return 0x41; }
 
         public static void PutChar(char chr)
         {
