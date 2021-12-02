@@ -34,7 +34,21 @@
             PutChar('n');
             PutChar('f');
             PutChar('a');
+
+            PutChar(' ');
+
+            int Ten = Ret10();
+            if(Ten == 10) 
+            {
+                PutChar('Y');
+            }
+            else
+            {
+                PutChar('Y');
+            }
         }
+
+        public static int Ret10() { return 10; }
 
         public static void PutChar(char chr)
         {

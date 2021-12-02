@@ -17,6 +17,12 @@ namespace CS2ASM
                 arch.Append($"pop rcx");
             }
             arch.Append($"pop rbp"); //Recover rbp register
+
+            //Ret.cs
+            if (def.HasReturnType)
+            {
+                arch.Append($"push rax");
+            }
         }
     }
 }

@@ -11,17 +11,13 @@ namespace CS2ASM
         {
             if (def.Module.EntryPoint != def)
             {
+                //Call.cs
                 if (def.HasReturnType)
                 {
                     arch.Append($"pop rax");
                 }
                 
                 arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
-
-                if (def.HasReturnType)
-                {
-                    arch.Append($"push rax");
-                }
 
                 //recover
                 //arch.Append($"push qword [cache-8]");
