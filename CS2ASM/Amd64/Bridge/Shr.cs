@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILBridge(Code.Shr)]
         public static void Shr(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Shr is not implemented");
+            arch.Append($"pop rcx");
+            arch.Append($"pop rax");
+            arch.Append($"shr rax,cl");
+            arch.Append($"push rax");
         }
     }
 }

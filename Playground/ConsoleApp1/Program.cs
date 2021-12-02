@@ -6,8 +6,9 @@
 
         public static void Main()
         {
-            int a = 5;
-            if (a > 4)
+            int a = 32;
+            int b = a >> 4;
+            if(b == 2) 
             {
                 PutChar('Y');
             }
@@ -15,37 +16,6 @@
             {
                 PutChar('N');
             }
-
-            if (a < 4)
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('N');
-            }
-
-            if (a > 4)
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('N');
-            }
-
-            if (a < 4)
-            {
-                PutChar('Y');
-            }
-            else
-            {
-                PutChar('N');
-            }
-        }
-
-        public static void Second() 
-        {
         }
 
         public static void PutChar(char chr)

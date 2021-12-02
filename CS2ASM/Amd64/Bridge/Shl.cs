@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILBridge(Code.Shl)]
         public static void Shl(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Shl is not implemented");
+            arch.Append($"pop rcx");                                                                                                                                                                                                                                                           
+            arch.Append($"pop rax");
+            arch.Append($"shl rax,cl");
+            arch.Append($"push rax");
         }
     }
 }
