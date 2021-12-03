@@ -81,7 +81,7 @@ namespace CS2ASM
                 {
                     this.Append($";{v}");
                     this.Append($"{Amd64.SafeFieldName(typ, v)}:");
-                    this.Append($"dq 0");
+                    this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
                 }
                 else
                 {
