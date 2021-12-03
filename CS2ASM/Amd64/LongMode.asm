@@ -106,11 +106,6 @@ _Main:
     mov gs, ax
     mov ss, ax
 
-    mov rax,0x0f20
-    mov rdi,0xb8000
-    mov rcx,0xfa0
-    rep stosw
-
     mov rbp,stack_bottom
     mov rsp,rbp
     
