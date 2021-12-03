@@ -9,15 +9,16 @@
          *  Pointers supported.
          *  SByte, Byte, Short, UShort, Int, UInt, Long, ULong, are all supported.
          *  C# basic things (for, if, etc, return, and more) supported.
-         *  
+         *
          *  Allocation is not yet supported!
          */
         public static void Main()
         {
             Console.Setup();
-            Console.BackgroundColor = ConsoleColor.Purple;
+            Console.BackgroundColor = ConsoleColor.Cyan;
             Console.Clear();
             Console.Alphabet();
+            Console.WriteAt('0', 0, Console.Height - 1); // Draw at 0, 24 (Bottom left)
         }
     }
 }

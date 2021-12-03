@@ -3,8 +3,8 @@ namespace ConsoleApp1
 {
     public static unsafe class Console
     {
-        private const byte Width = 80;
-        private const byte Height = 25;
+        public const byte Width = 80;
+        public const byte Height = 25;
 
         private static byte Color = 0;
         private static ulong Position = 0;
@@ -42,6 +42,12 @@ namespace ConsoleApp1
             p++;
             *p = Color;
             Position += 2;
+        }
+
+        public static void WriteAt(char chr, byte x, byte y)
+        {
+            byte* p = (byte*)0xb8000 + ((y * Width + x) * 2);
+            *p = (byte)chr;
         }
 
         public static void Clear()
