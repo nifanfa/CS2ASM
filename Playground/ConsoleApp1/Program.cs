@@ -6,13 +6,15 @@ namespace ConsoleApp1
     {
         /*
          * Current Progress:
-         *  Only static methods supported.
-         *  Only local and static variables supported.
-         *  Pointers supported.
-         *  SByte, Byte, Short, UShort, Int, UInt, Long, ULong, are all supported.
-         *  C# basic things (for, if, etc, return, and more) supported.
+         *  Currently, only static methods are supported.
+         *  Currently, only local and static variables are supported.
+         *  Pointers are supported.
+         *  Void, Boolean, Char, SByte, Byte, Short, UShort, Int, UInt, Long and ULong are all supported.
+         *  Arithmetic operations such as +, -, *, /, << and >> are all supported.
+         *  Logic operations such as >, >=, <, <= and == are all supported.
+         *  Other instructions such as loops, if statements and returning variables are all supported.
          *
-         *  Allocation is not yet supported!
+         *  Allocation is not supported yet!
          */
         public static void Main()
         {
