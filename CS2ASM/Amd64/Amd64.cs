@@ -17,11 +17,11 @@ namespace CS2ASM
         public override void Setup()
         {
             var methodInfos = from M in typeof(Amd64Bridge).GetMethods()
-                              where M.GetCustomAttribute(typeof(ILBridgeAttribute), true) != null
+                              where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
                               select M;
             foreach (var v in methodInfos)
             {
-                ILBridgeMethods.Add(v.GetCustomAttributes(true).OfType<ILBridgeAttribute>().First().code, v);
+                ILBridgeMethods.Add(v.GetCustomAttributes(true).OfType<ILTransformationAttribute>().First().code, v);
             }
 
             this.Append($"[bits 64]");
