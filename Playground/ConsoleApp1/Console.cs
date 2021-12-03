@@ -44,33 +44,6 @@ namespace ConsoleApp1
             Position += 2;
         }
 
-        public static void WriteF(char chr, byte fg)
-        {
-            byte pfg = ForegroundColor;
-            ForegroundColor = fg;
-            Write(chr);
-            ForegroundColor = pfg;
-        }
-
-        public static void WriteB(char chr, byte bg)
-        {
-            byte pbg = BackgroundColor;
-            BackgroundColor = bg;
-            Write(chr);
-            BackgroundColor = pbg;
-        }
-
-        public static void WriteFB(char chr, byte fg, byte bg)
-        {
-            byte bfg = ForegroundColor;
-            byte pbg = BackgroundColor;
-            ForegroundColor = fg;
-            BackgroundColor = bg;
-            Write(chr);
-            ForegroundColor = bfg;
-            BackgroundColor = pbg;
-        }
-
         public static void Clear()
         {
             Position = 0;
