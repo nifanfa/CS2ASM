@@ -23,5 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
   </ItemGroup>
 </Project>

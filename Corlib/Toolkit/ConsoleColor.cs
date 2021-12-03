@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleApp1
+namespace Toolkit
 {
     public static class ConsoleColor
     {

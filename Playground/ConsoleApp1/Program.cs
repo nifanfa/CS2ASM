@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp1
+﻿using Toolkit;
+
+namespace ConsoleApp1
 {
     public static unsafe class Program
     {
@@ -15,11 +17,9 @@
         public static void Main()
         {
             Console.Setup();
-            Console.BackgroundColor = ConsoleColor.Cyan;
+
             Console.Clear();
             Console.Alphabet();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteAt('0', 0, Console.Height - 1); // Draw at 0, 24 (Bottom left)
         }
     }
 }
