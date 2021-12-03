@@ -20,6 +20,22 @@ namespace ConsoleApp1
 
             Console.Clear();
             Console.Alphabet();
+
+            Counter();
+        }
+
+        // Counts to 9 and resets
+        public static void Counter()
+        {
+            byte b = 0x30; // 0
+        Loop:
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteAt((char)b, 0, 24);
+                b++;
+            }
+            b = 0x30; // 0
+            goto Loop;
         }
     }
 }
