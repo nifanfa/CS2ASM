@@ -18,6 +18,7 @@
             Console.BackgroundColor = ConsoleColor.Cyan;
             Console.Clear();
             Console.Alphabet();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteAt('0', 0, Console.Height - 1); // Draw at 0, 24 (Bottom left)
         }
     }

@@ -48,6 +48,8 @@ namespace ConsoleApp1
         {
             byte* p = (byte*)0xb8000 + ((y * Width + x) * 2);
             *p = (byte)chr;
+            p++;
+            *p = Color;
         }
 
         public static void Clear()
