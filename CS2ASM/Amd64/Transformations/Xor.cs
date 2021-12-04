@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Xor)]
         public static void Xor(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Xor is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"xor rax,rdx");
+            arch.Append($"push rax");
         }
     }
 }
