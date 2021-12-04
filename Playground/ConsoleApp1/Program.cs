@@ -38,11 +38,6 @@ namespace ConsoleApp1
             Counter();
         }
 
-        public static ulong malloc() 
-        {
-            return 0x640_0000UL;
-        }
-
         // Counts to 9 and resets
         public static void Counter()
         {
