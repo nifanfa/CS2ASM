@@ -74,7 +74,7 @@ namespace CS2ASM
             }
         }
 
-        public override void InitializeFields(IList<TypeDef> types)
+        public override void InitializeStaticFields(IList<TypeDef> types)
         {
             foreach (var typ in types)
             {
@@ -87,10 +87,6 @@ namespace CS2ASM
                         this.Append($";{v}");
                         this.Append($"{Amd64.SafeFieldName(typ, v)}:");
                         this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
-                    }
-                    else
-                    {
-                        throw new NotImplementedException("Only static fields were supported for now!");
                     }
                 }
             }

@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Ldfld)]
         public static void Ldfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldfld is not implemented");
+            int index = def.DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
+            arch.Append("pop rsi");
+            arch.Append($"add rsi,{(index + 1) * 8}");
+            arch.Append("push qword [rsi+8]");
         }
     }
 }

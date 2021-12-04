@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,7 +10,11 @@ namespace CS2ASM
         [ILTransformation(Code.Stfld)]
         public static void Stfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stfld is not implemented");
+            int index = def.DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
+            arch.Append($"pop rax");
+            arch.Append($"pop rdi");
+            arch.Append($"add rdi,{(index + 1) * 8}");
+            arch.Append($"stosq");
         }
     }
 }

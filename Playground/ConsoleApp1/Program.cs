@@ -2,6 +2,11 @@
 
 namespace ConsoleApp1
 {
+    public class aClass 
+    {
+        public ulong u = 0x1122334455667788;
+    }
+
     public static unsafe class Program
     {
         /*
@@ -26,7 +31,16 @@ namespace ConsoleApp1
             ulong* p = (ulong*)0xb8050;
             *p = 0x0f410f420f430f44;
 
+            aClass aClass = new aClass();
+
+            *p = aClass.u;
+
             Counter();
+        }
+
+        public static ulong malloc() 
+        {
+            return 0x640_0000UL;
         }
 
         // Counts to 9 and resets
