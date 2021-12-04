@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldc_I4_M1)]
         public static void Ldc_I4_M1(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push {OperandParser.Ldc(ins)}");
+            throw new NotImplementedException("Ldc_I4_M1 is not implemented");
         }
     }
 }

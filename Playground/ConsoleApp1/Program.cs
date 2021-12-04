@@ -23,6 +23,9 @@ namespace ConsoleApp1
             Console.Clear();
             Console.Alphabet();
 
+            ulong* p = (ulong*)0xb8050;
+            *p = 0x0f410f420f430f44;
+
             Counter();
         }
 
