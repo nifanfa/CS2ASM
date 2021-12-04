@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Pop)]
         public static void Pop(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Pop is not implemented");
+            arch.Append($"add rsp,8");
         }
     }
 }
