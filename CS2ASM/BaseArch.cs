@@ -36,6 +36,5 @@ Br.OpCode.Code == Code.Br_S
                    select Br;
         }
         public abstract void Setup();
-        public abstract void CreateTypeDefs(IList<TypeDef> types);
     }
 }

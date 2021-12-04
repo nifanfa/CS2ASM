@@ -96,25 +96,6 @@ namespace CS2ASM
             }
         }
 
-        public override void CreateTypeDefs(IList<TypeDef> types)
-        {
-            foreach (var typ in types)
-            {
-                if (typ.Name == "<Module>") continue;
-                string name = SafeTypeName(typ);
-                byte[] nameB = Encoding.Unicode.GetBytes(name);
-                this.Append($"{name}:");
-                this.Append($"dq {nameB.Length}");
-
-                string s = string.Empty;
-                for (int i = 0; i < nameB.Length; i++)
-                {
-                    s += $"{nameB[i]}{(i + 1 == nameB.Length ? "" : ",")}";
-                }
-                this.Append($"db {s}");
-            }
-        }
-
         public override void Append(string s = "")
         {
             s = s.Trim();

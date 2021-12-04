@@ -42,7 +42,6 @@ namespace CS2ASM
                 }
             }
             arch.InitializeFields(def.Types);
-            arch.CreateTypeDefs(def.Types);
             
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
