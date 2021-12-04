@@ -4,7 +4,7 @@ using dnlib.DotNet.Emit;
 
 namespace CS2ASM
 {
-    public static unsafe partial class Amd64Bridge
+    public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Clt)]
         public static void Clt(BaseArch arch, Instruction ins, MethodDef def)

@@ -7,8 +7,11 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace CS2ASM
 {
@@ -16,7 +19,7 @@ namespace CS2ASM
     {
         public override void Setup()
         {
-            var methodInfos = from M in typeof(Amd64Bridge).GetMethods()
+            var methodInfos = from M in typeof(Amd64Transformation).GetMethods()
                               where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
                               select M;
             foreach (var v in methodInfos)
@@ -71,22 +74,44 @@ namespace CS2ASM
             }
         }
 
-        public override void InitializeFields(TypeDef typ)
+        public override void InitializeFields(IList<TypeDef> types)
         {
-            foreach (var v in typ.Fields)
+            foreach (var typ in types)
             {
-                //Ldsfld
-                //Stsfld
-                if (v.IsStatic)
+                foreach (var v in typ.Fields)
                 {
-                    this.Append($";{v}");
-                    this.Append($"{Amd64.SafeFieldName(typ, v)}:");
-                    this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
+                    //Ldsfld
+                    //Stsfld
+                    if (v.IsStatic)
+                    {
+                        this.Append($";{v}");
+                        this.Append($"{Amd64.SafeFieldName(typ, v)}:");
+                        this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
+                    }
+                    else
+                    {
+                        throw new NotImplementedException("Only static fields were supported for now!");
+                    }
                 }
-                else
+            }
+        }
+
+        public override void CreateTypeDefs(IList<TypeDef> types)
+        {
+            foreach (var typ in types)
+            {
+                if (typ.Name == "<Module>") continue;
+                string name = SafeTypeName(typ);
+                byte[] nameB = Encoding.Unicode.GetBytes(name);
+                this.Append($"{name}:");
+                this.Append($"dq {nameB.Length}");
+
+                string s = string.Empty;
+                for (int i = 0; i < nameB.Length; i++)
                 {
-                    throw new NotImplementedException("Only static fields were supported for now!");
+                    s += $"{nameB[i]}{(i + 1 == nameB.Length ? "" : ",")}";
                 }
+                this.Append($"db {s}");
             }
         }
 
@@ -100,7 +125,12 @@ namespace CS2ASM
 
         public static string SafeMethodName(MethodDef meth)
         {
-            return $"{meth.DeclaringType.Namespace}_{meth.DeclaringType.Name}_{meth.Name}";
+            return $"{Amd64.SafeTypeName(meth.DeclaringType)}_{meth.Name}";
+        }
+
+        public static string SafeTypeName(TypeDef def)
+        {
+            return $"{def.Namespace}_{def.Name}";
         }
 
         public static string SafeFieldName(TypeDef type, FieldDef field)

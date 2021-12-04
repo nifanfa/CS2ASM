@@ -4,7 +4,7 @@ using dnlib.DotNet.Emit;
 
 namespace CS2ASM
 {
-    public static unsafe partial class Amd64Bridge
+    public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Stloc)]
         public static void Stloc(BaseArch arch, Instruction ins, MethodDef def)

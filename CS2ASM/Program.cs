@@ -35,13 +35,14 @@ namespace CS2ASM
             arch.Translate(def.EntryPoint, true);
             foreach (var typ in def.Types)
             {
-                arch.InitializeFields(typ);
                 foreach (var meth in typ.Methods)
                 {
                     if (meth.FullName != def.EntryPoint.FullName)
                         arch.Translate(meth);
                 }
             }
+            arch.InitializeFields(def.Types);
+            arch.CreateTypeDefs(def.Types);
             
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");

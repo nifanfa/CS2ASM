@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace CS2ASM
 {
-    public static unsafe partial class Amd64Bridge
+    public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Call)]
         public static void Call(BaseArch arch, Instruction ins, MethodDef def)

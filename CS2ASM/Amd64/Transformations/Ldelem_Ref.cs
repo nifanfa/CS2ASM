@@ -4,7 +4,7 @@ using dnlib.DotNet.Emit;
 
 namespace CS2ASM
 {
-    public static unsafe partial class Amd64Bridge
+    public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldelem_Ref)]
         public static void Ldelem_Ref(BaseArch arch, Instruction ins, MethodDef def)

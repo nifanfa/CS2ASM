@@ -20,7 +20,7 @@ namespace CS2ASM
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
         public abstract void Translate(MethodDef meth, bool isEntryPoint = false);
-        public abstract void InitializeFields(TypeDef typ);
+        public abstract void InitializeFields(IList<TypeDef> types);
         public IEnumerable<Instruction> GetAllBranches(MethodDef def)
         {
             return from Br in def.Body.Instructions
@@ -36,5 +36,6 @@ Br.OpCode.Code == Code.Br_S
                    select Br;
         }
         public abstract void Setup();
+        public abstract void CreateTypeDefs(IList<TypeDef> types);
     }
 }
