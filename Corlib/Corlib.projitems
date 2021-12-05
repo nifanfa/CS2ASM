@@ -30,5 +30,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
   </ItemGroup>
 </Project>
