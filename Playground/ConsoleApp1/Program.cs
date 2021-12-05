@@ -22,9 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            asm("mov dx,0x604");
-            asm("mov ax,0x2000");
-            asm("out dx,ax");
+            Out16(0x604, 0x2000);
 
             Allocator.start = 0x6400000;
 
@@ -44,6 +42,13 @@ namespace ConsoleApp1
             //Warning: Those string won't get disposed
 
             Counter();
+        }
+
+        public static void Out16(ushort port,ushort value)
+        {
+            asm("mov rdx,[rbp+24] ;the first argument");
+            asm("mov rax,[rbp+16] ;the second argument");
+            asm("out dx,ax");
         }
 
         // Counts to 9 and resets
