@@ -1,7 +1,6 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
-using System.Diagnostics;
 using System.Text;
 
 namespace CS2ASM
@@ -46,12 +45,18 @@ namespace CS2ASM
             }
             else
             {
-                if(nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)") 
+                if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
                 {
-                    arch.Append($"{(string)ins.Operand}");
+                    string comment = (string)ins.Operand;
+                    int paramCount = ((MethodDef)nextIns.Operand).Parameters.Count;
+
+                    comment = comment.Replace($"%-1", $"[rbp+{16 + (paramCount * 8) - 0}]");
+                    comment = comment.Replace($"%-2", $"[rbp+{16 + (paramCount * 8) - 8}]");
+
+                    arch.Append($"{comment}");
                     arch.SkipNextInstruction();
                 }
-                else 
+                else
                 {
                     throw new NotImplementedException();
                 }

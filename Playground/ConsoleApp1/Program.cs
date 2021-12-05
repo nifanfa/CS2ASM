@@ -22,7 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            //Out16(0x604, 0x2000);
+            Out16(0x604, 0x2000);
 
             Allocator.start = 0x6400000;
 
@@ -46,8 +46,8 @@ namespace ConsoleApp1
 
         public static void Out16(ushort port,ushort value)
         {
-            asm("mov rdx,[rbp+24] ;the first argument");
-            asm("mov rax,[rbp+16] ;the second argument");
+            asm("mov rdx,%-1");
+            asm("mov rax,%-2");
             asm("out dx,ax");
         }
 
