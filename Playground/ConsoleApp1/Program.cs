@@ -22,8 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            //Out16(0x604, 0x2000);
-            In8(0x60);
+            Out16(0x604, 0x2000);
 
             Allocator.start = 0x6400000;
 
@@ -45,20 +44,10 @@ namespace ConsoleApp1
             Counter();
         }
 
-        public static byte In8(ushort port)
-        {
-            byte data = 0;
-            asm("mov rdx,{port}");
-            asm("xor rax,rax");
-            asm("in al,dx");
-            asm("mov {data},al");
-            return data;
-        }
-
         public static void Out16(ushort port,ushort value)
         {
-            asm("mov rdx,{port}");
-            asm("mov rax,{value}");
+            asm("mov rdx,%-1");
+            asm("mov rax,%-2");
             asm("out dx,ax");
         }
 
