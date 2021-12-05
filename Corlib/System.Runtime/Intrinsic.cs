@@ -2,7 +2,7 @@
 {
     public static class Intrinsic
     {
-        //Ldstr
+        //Ldstr.cs
         public static void asm(string comment) 
         { }
     }
