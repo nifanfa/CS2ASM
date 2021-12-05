@@ -18,6 +18,8 @@ namespace CS2ASM
 
         static unsafe void Main(string[] args)
         {
+            ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
+
             BaseArch arch = null;
             switch (ProcessorArchitecture)
             {
@@ -26,13 +28,12 @@ namespace CS2ASM
                     break;
             }
             //arch.DebugEnabled = false;
-            arch.Setup();
+            arch.Setup(def);
 
-            ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            arch.Translate(def.EntryPoint, true);
+            arch.Translate(def.EntryPoint);
             foreach (var typ in def.Types)
             {
                 foreach (var meth in typ.Methods)

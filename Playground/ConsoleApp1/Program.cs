@@ -34,17 +34,13 @@ namespace ConsoleApp1
 
             string s0 = "hello world from CS2ASM. you are already in x64 mode!";
 
-            for (byte i = 0; i < s0.Length; i++)
-            {
-                Console.WriteAt(s0.Value[i], i, 1);
-            }
+            Console.WriteStr(s0, 1);
 
             string s1 = "contributor: nifanfa(Owner), LeonTheDev";
 
-            for (byte i = 0; i < s1.Length; i++)
-            {
-                Console.WriteAt(s1.Value[i], i, 2);
-            }
+            Console.WriteStr(s1, 2);
+
+            //Warning: Those string won't get disposed
 
             Counter();
         }

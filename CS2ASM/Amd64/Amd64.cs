@@ -14,7 +14,7 @@ namespace CS2ASM
 {
     public unsafe class Amd64 : BaseArch
     {
-        public override void Setup()
+        public override void Setup(ModuleDefMD def)
         {
             var methodInfos = from M in typeof(Amd64Transformation).GetMethods()
                               where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
@@ -25,9 +25,11 @@ namespace CS2ASM
             }
 
             this.Append($"[bits 64]");
+            this.Append($"call {Amd64.SafeMethodName(def.EntryPoint)}");
+            this.Append($"");
         }
 
-        public override void Translate(MethodDef def, bool isEntryPoint = false)
+        public override void Translate(MethodDef def)
         {
             //Get All Branches
             var BrS = GetAllBranches(def);
@@ -36,12 +38,9 @@ namespace CS2ASM
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
             //Call.cs Line 19
-            if (!isEntryPoint)
-            {
-                this.Append($"pop rcx");
-                this.Append($"push rbp"); //Save rbp register
-                this.Append($"push rcx"); //For ret instruction
-            }
+            this.Append($"pop rcx");
+            this.Append($"push rbp"); //Save rbp register
+            this.Append($"push rcx"); //For ret instruction
 
             this.Append($"mov rbp,rsp");
 

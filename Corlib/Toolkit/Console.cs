@@ -1,5 +1,4 @@
-﻿
-namespace Toolkit
+﻿namespace Toolkit
 {
     public static unsafe class Console
     {
@@ -15,6 +14,14 @@ namespace Toolkit
             {
                 Write((char)b);
                 b++;
+            }
+        }
+
+        public static void WriteStr(string s, byte line)
+        {
+            for (byte i = 0; i < s.Length; i++)
+            {
+                Console.WriteAt(s.Value[i], i, line);
             }
         }
 

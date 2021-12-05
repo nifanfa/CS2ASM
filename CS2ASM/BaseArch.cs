@@ -24,7 +24,7 @@ namespace CS2ASM
         }
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
-        public abstract void Translate(MethodDef meth, bool isEntryPoint = false);
+        public abstract void Translate(MethodDef meth);
         public abstract void InitializeStaticFields(IList<TypeDef> types);
         public IEnumerable<Instruction> GetAllBranches(MethodDef def)
         {
@@ -40,6 +40,6 @@ Br.OpCode.Code == Code.Br_S
 )
                    select Br;
         }
-        public abstract void Setup();
+        public abstract void Setup(ModuleDefMD def);
     }
 }
