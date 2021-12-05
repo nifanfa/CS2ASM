@@ -43,6 +43,7 @@ namespace ConsoleApp1
 
             //Warning: Those string won't get disposed
 
+            // IDT On Interrupt not implement yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
             for (; ; )
             {
