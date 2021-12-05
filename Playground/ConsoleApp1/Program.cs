@@ -1,6 +1,5 @@
 ﻿using System.Runtime;
 using Toolkit;
-using static System.Runtime.Intrinsic;
 
 namespace ConsoleApp1
 {
@@ -42,13 +41,6 @@ namespace ConsoleApp1
             //Warning: Those string won't get disposed
 
             Counter();
-        }
-
-        public static void Out16(ushort port,ushort value)
-        {
-            asm("mov rdx,%-1");
-            asm("mov rax,%-2");
-            asm("out dx,ax");
         }
 
         // Counts to 9 and resets
