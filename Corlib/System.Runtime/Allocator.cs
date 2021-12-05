@@ -1,6 +1,6 @@
 ﻿namespace System.Runtime
 {
-    public static class Allocation
+    public static class Allocator
     {
         public static ulong start = 0;
 

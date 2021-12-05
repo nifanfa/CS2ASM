@@ -25,7 +25,7 @@ namespace ConsoleApp1
          */
         public static void Main()
         {
-            Allocation.start = 0x6400000;
+            Allocator.start = 0x6400000;
 
             Console.Setup();
 
