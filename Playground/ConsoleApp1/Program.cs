@@ -1,4 +1,5 @@
-﻿using Toolkit;
+﻿using System.Runtime;
+using Toolkit;
 
 namespace ConsoleApp1
 {
@@ -23,6 +24,8 @@ namespace ConsoleApp1
          */
         public static void Main()
         {
+            Allocation.start = 0x6400000;
+
             Console.Setup();
 
             Console.Clear();

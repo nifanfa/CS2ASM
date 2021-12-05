@@ -2,10 +2,13 @@
 {
     public static class Allocation
     {
+        public static ulong start = 0;
+
         //Newobj.cs
         public static ulong malloc()
         {
-            return 0x6400000;
+            start = start + 128UL;
+            return start;
         }
     }
 }
