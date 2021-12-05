@@ -20,7 +20,7 @@ namespace ConsoleApp1
          *  Logic operations such as >, >=, <, <= and == are all supported.
          *  Other instructions such as loops, if statements and returning variables are all supported.
          *
-         *  Allocation is not supported yet!
+         *  TODO - Free the unused strings
          */
         public static void Main()
         {
