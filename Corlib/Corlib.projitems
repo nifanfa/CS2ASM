@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Allocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Intrinsic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Boolean.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Byte.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Char.cs" />

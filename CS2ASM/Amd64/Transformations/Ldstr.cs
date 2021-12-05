@@ -1,6 +1,7 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace CS2ASM
@@ -11,14 +12,14 @@ namespace CS2ASM
         public static void Ldstr(BaseArch arch, Instruction ins, MethodDef def)
         {
             var nextIns = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) + 1];
-            var bytes = Encoding.Unicode.GetBytes((string)ins.Operand);
-            var text = "";
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
-            }
             if (nextIns.IsStloc())
             {
+                var bytes = Encoding.Unicode.GetBytes((string)ins.Operand);
+                var text = "";
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
+                }
                 ulong Index = OperandParser.Stloc(nextIns) + 1;
 
                 arch.Append($"push qword {bytes.Length + (sizeof(ulong) * 2)}");
@@ -45,7 +46,15 @@ namespace CS2ASM
             }
             else
             {
-                throw new NotImplementedException();
+                if(nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)") 
+                {
+                    arch.Append($"{(string)ins.Operand}");
+                    arch.SkipNextInstruction();
+                }
+                else 
+                {
+                    throw new NotImplementedException();
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Runtime;
 using Toolkit;
+using static System.Runtime.Intrinsic;
 
 namespace ConsoleApp1
 {
@@ -20,6 +21,11 @@ namespace ConsoleApp1
          */
         public static void Main()
         {
+            //shutdown qemu
+            asm("mov dx,0x604");
+            asm("mov ax,0x2000");
+            asm("out dx,ax");
+
             Allocator.start = 0x6400000;
 
             Console.Setup();
