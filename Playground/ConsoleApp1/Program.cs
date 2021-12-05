@@ -43,7 +43,21 @@ namespace ConsoleApp1
 
             //Warning: Those string won't get disposed
 
-            Counter();
+            string pres = "ESC Pressed ";
+            string rele = "ESC Released";
+            for(; ; ) 
+            {
+                byte v = In8(0x60);
+                if (v == 0x01) //ESC
+                {
+                    Console.WriteStr(pres, 3);
+                }
+                else
+                {
+                    Console.WriteStr(rele, 3);
+                }
+            }
+            //Counter();
         }
 
         public static byte In8(ushort port)
@@ -52,7 +66,7 @@ namespace ConsoleApp1
             asm("mov rdx,{port}");
             asm("xor rax,rax");
             asm("in al,dx");
-            asm("mov {data},al");
+            asm("mov qword {data},rax");
             return data;
         }
 
