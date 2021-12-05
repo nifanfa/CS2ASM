@@ -53,9 +53,9 @@ namespace CS2ASM
             this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
 
             //Start Parse IL Code
-            for (int i = 0; i < def.Body.Instructions.Count; i++)
+            for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
             {
-                var ins = def.Body.Instructions[i];
+                var ins = def.Body.Instructions[InstructionIndex];
 
                 if (DebugEnabled)
                     this.Append($";{ins}");
@@ -102,22 +102,22 @@ namespace CS2ASM
 
         public static string SafeMethodName(MethodDef meth)
         {
-            return $"{Amd64.SafeTypeName(meth.DeclaringType)}_{meth.Name}";
+            return $"{Amd64.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
         }
 
         public static string SafeTypeName(TypeDef def)
         {
-            return $"{def.Namespace}_{def.Name}";
+            return $"{def.Namespace}.{def.Name}";
         }
 
         public static string SafeFieldName(TypeDef type, FieldDef field)
         {
-            return $"{type.Namespace}_{field.Name}";
+            return $"{type.Namespace}.{field.Name}";
         }
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
-            return $"{Amd64.SafeMethodName(def)}_IL_{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
+            return $"{Amd64.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
     }
 }

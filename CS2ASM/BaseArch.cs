@@ -12,6 +12,12 @@ namespace CS2ASM
     {
         public StringWriter _Code = new StringWriter();
         public bool DebugEnabled = true;
+        public int InstructionIndex = 0;
+
+        public void SkipNextInstruction() 
+        {
+            InstructionIndex++;
+        }
 
         public virtual void Append(string s = "")
         {

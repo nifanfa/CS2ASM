@@ -10,10 +10,11 @@ namespace CS2ASM
         [ILTransformation(Code.Stfld)]
         public static void Stfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            int index = def.DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
+            int index = ((FieldDef)ins.Operand).DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
+            Debug.Assert(index != -1);
             arch.Append($"pop rax");
             arch.Append($"pop rdi");
-            arch.Append($"add rdi,{(index + 1) * 8}");
+            arch.Append($"add rdi,{(index) * 8}");
             arch.Append($"stosq");
         }
     }

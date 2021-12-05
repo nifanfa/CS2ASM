@@ -31,9 +31,16 @@ namespace ConsoleApp1
             ulong* p = (ulong*)0xb8050;
             *p = 0x0f410f420f430f44;
 
-            aClass aClass = new aClass();
+            //aClass aClass = new aClass();
 
-            *p = aClass.u;
+            //*p = aClass.u;
+
+            string s = "hello string";
+
+            for(byte i = 0; i < s.length; i++) 
+            {
+                Console.WriteAt(s.value[i], i, 8);
+            }
 
             Counter();
         }

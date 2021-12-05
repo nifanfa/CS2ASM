@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,10 +10,11 @@ namespace CS2ASM
         [ILTransformation(Code.Ldfld)]
         public static void Ldfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            int index = def.DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
-            arch.Append("pop rsi");
-            arch.Append($"add rsi,{(index + 1) * 8}");
-            arch.Append("push qword [rsi+8]");
+            int index = ((FieldDef)ins.Operand).DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
+            Debug.Assert(index != -1);
+            arch.Append("pop rax");
+            arch.Append($"add rax,{(index) * 8}");
+            arch.Append("push qword [rax]");
         }
     }
 }
