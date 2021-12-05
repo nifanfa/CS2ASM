@@ -22,7 +22,7 @@ namespace CS2ASM
                 ulong Index = OperandParser.Stloc(nextIns) + 1;
 
                 arch.Append($"push qword {bytes.Length + (sizeof(ulong) * 2)}");
-                arch.Append($"call System.Runtime.Allocation.malloc");
+                arch.Append($"call System.Runtime.Allocator.malloc");
                 arch.Append($"pop rbp");
                 arch.Append($"add rsp,8");
                 arch.Append($"mov [rbp-{Index * 8}],rax");
