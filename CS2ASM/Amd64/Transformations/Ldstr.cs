@@ -48,13 +48,37 @@ namespace CS2ASM
                 if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
                 {
                     string comment = (string)ins.Operand;
-                    int paramCount = ((MethodDef)nextIns.Operand).Parameters.Count;
+                    int paramCount = def.Parameters.Count;
 
-                    comment = comment.Replace($"%-1", $"[rbp+{16 + (paramCount * 8) - 0}]");
-                    comment = comment.Replace($"%-2", $"[rbp+{16 + (paramCount * 8) - 8}]");
+                    string cpy = comment;
+                    if (cpy.IndexOf("{") != -1 && cpy.IndexOf("}") != -1)
+                    {
+                        cpy = cpy.Substring(cpy.IndexOf("{") + 1);
+                        cpy = cpy.Substring(0, cpy.IndexOf("}"));
 
+                        foreach (var v in def.Parameters)
+                        {
+                            if (v.Name == cpy)
+                            {
+                                comment = comment.Replace($"{{{cpy}}}", $"[rbp+{(paramCount + 1 - v.Index) * 8}]");
+                                goto End;
+                            }
+                        }
+
+                        foreach (var v in def.Body.Variables)
+                        {
+                            if (v.Name == cpy)
+                            {
+                                comment = comment.Replace($"{{{cpy}}}", $"[rbp-{(v.Index + 1) * 8}]");
+                                goto End;
+                            }
+                        }
+                    }
+                End:
                     arch.Append($"{comment}");
                     arch.SkipNextInstruction();
+
+                    //Debugger.Break();
                 }
                 else
                 {
