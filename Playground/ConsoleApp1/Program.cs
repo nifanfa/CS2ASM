@@ -45,6 +45,8 @@ namespace ConsoleApp1
 
             string pres = "ESC Pressed ";
             string rele = "ESC Released";
+
+            //IDT(interrupt) is not implemented so loop
             for(; ; ) 
             {
                 byte v = IOPort.In8(0x60);
