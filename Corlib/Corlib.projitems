@@ -31,5 +31,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\PS2Keyboard.cs" />
   </ItemGroup>
 </Project>

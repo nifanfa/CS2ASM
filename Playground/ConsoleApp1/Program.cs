@@ -43,19 +43,11 @@ namespace ConsoleApp1
 
             //Warning: Those string won't get disposed
 
-            string pres = "ESC Pressed ";
-            string rele = "ESC Released";
-            for(; ; ) 
+            Console.ForegroundColor = ConsoleColor.LightCyan;
+            for (; ; )
             {
-                byte v = IOPort.In8(0x60);
-                if (v == 0x01) //ESC
-                {
-                    Console.WriteStr(pres, 3);
-                }
-                else
-                {
-                    Console.WriteStr(rele, 3);
-                }
+                char c = PS2Keyboard.GetKeyPressed();
+                Console.WriteAt(c, 0, 24);
             }
             //Counter();
         }
