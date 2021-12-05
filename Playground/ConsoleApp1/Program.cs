@@ -49,6 +49,10 @@ namespace ConsoleApp1
             {
                 char c = PS2Keyboard.GetKeyPressed();
                 Console.WriteAt(c, 0, 24);
+                if (c == 'G')
+                {
+                    IOPort.Out8(0x64, 0xFE); // CPU Reboot
+                }
             }
             //Counter();
         }
