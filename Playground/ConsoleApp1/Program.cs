@@ -31,11 +31,18 @@ namespace ConsoleApp1
             Console.Clear();
             Console.Alphabet();
 
-            string s = "hello world from CS2ASM. you are already in x64 mode!";
+            string s0 = "hello world from CS2ASM. you are already in x64 mode!";
 
-            for (byte i = 0; i < s.Length; i++)
+            for (byte i = 0; i < s0.Length; i++)
             {
-                Console.WriteAt(s.Value[i], i, 1);
+                Console.WriteAt(s0.Value[i], i, 1);
+            }
+
+            string s1 = "contributor: nifanfa(Owner), LeonTheDev";
+
+            for (byte i = 0; i < s1.Length; i++)
+            {
+                Console.WriteAt(s1.Value[i], i, 2);
             }
 
             Counter();
