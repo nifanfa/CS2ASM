@@ -22,7 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            IOPort.Out16(0x604, 0x2000);
+            //IOPort.Out16(0x604, 0x2000);
 
             //In8(0x60);
 
