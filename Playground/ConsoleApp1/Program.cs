@@ -22,7 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            //Out16(0x604, 0x2000);
+            IOPort.Out16(0x604, 0x2000);
 
             //In8(0x60);
 
@@ -47,7 +47,7 @@ namespace ConsoleApp1
             string rele = "ESC Released";
             for(; ; ) 
             {
-                byte v = In8(0x60);
+                byte v = IOPort.In8(0x60);
                 if (v == 0x01) //ESC
                 {
                     Console.WriteStr(pres, 3);
@@ -58,23 +58,6 @@ namespace ConsoleApp1
                 }
             }
             //Counter();
-        }
-
-        public static byte In8(ushort port)
-        {
-            byte data = 0;
-            asm("mov rdx,{port}");
-            asm("xor rax,rax");
-            asm("in al,dx");
-            asm("mov qword {data},rax");
-            return data;
-        }
-
-        public static void Out16(ushort port,ushort value)
-        {
-            asm("mov rdx,{port}");
-            asm("mov rax,{value}");
-            asm("out dx,ax");
         }
 
         // Counts to 9 and resets
