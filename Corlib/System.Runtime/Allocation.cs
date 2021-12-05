@@ -5,10 +5,11 @@
         public static ulong start = 0;
 
         //Newobj.cs
-        public static ulong malloc()
+        public static ulong malloc(ulong size)
         {
-            start = start + 128UL;
-            return start;
+            ulong ptr = start;
+            start = start + size;
+            return ptr;
         }
     }
 }

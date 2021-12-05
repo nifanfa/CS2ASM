@@ -1,4 +1,3 @@
-using System;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,7 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Clt_Un)]
         public static void Clt_Un(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Clt_Un is not implemented");
+            Clt(arch, ins, def);
         }
     }
 }

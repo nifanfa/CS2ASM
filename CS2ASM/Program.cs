@@ -42,7 +42,7 @@ namespace CS2ASM
                 }
             }
             arch.InitializeStaticFields(def.Types);
-            
+
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
 

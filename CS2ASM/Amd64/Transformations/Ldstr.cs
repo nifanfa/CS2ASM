@@ -1,7 +1,7 @@
-using System;
-using System.Text;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
+using System.Text;
 
 namespace CS2ASM
 {
@@ -13,16 +13,18 @@ namespace CS2ASM
             var nextIns = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) + 1];
             var bytes = Encoding.Unicode.GetBytes((string)ins.Operand);
             var text = "";
-            for(int i = 0; i < bytes.Length; i++) 
+            for (int i = 0; i < bytes.Length; i++)
             {
                 text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
             }
-            if (nextIns.IsStloc()) 
+            if (nextIns.IsStloc())
             {
                 ulong Index = OperandParser.Stloc(nextIns) + 1;
 
+                arch.Append($"push qword {bytes.Length + (sizeof(ulong) * 2)}");
                 arch.Append($"call System.Runtime.Allocation.malloc");
                 arch.Append($"pop rbp");
+                arch.Append($"add rsp,8");
                 arch.Append($"mov [rbp-{Index * 8}],rax");
 
                 arch.Append($"mov rcx,rax");
@@ -41,7 +43,7 @@ namespace CS2ASM
                 arch.Append($"rep movsb");
                 arch.SkipNextInstruction();
             }
-            else 
+            else
             {
                 throw new NotImplementedException();
             }

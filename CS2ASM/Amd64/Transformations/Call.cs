@@ -1,6 +1,5 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System.Diagnostics;
 
 namespace CS2ASM
 {

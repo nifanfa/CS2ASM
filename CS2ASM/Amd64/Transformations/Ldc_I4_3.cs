@@ -1,4 +1,3 @@
-using System;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,7 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldc_I4_3)]
         public static void Ldc_I4_3(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push {OperandParser.Ldc(ins)}");
+            Ldc_I4(arch, ins, def);
         }
     }
 }

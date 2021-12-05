@@ -3,7 +3,7 @@ using Toolkit;
 
 namespace ConsoleApp1
 {
-    public class aClass 
+    public class aClass
     {
         public ulong u = 0x1122334455667788;
     }
@@ -31,18 +31,11 @@ namespace ConsoleApp1
             Console.Clear();
             Console.Alphabet();
 
-            ulong* p = (ulong*)0xb8050;
-            *p = 0x0f410f420f430f44;
+            string s = "hello world from CS2ASM. you are already in x64 mode!";
 
-            //aClass aClass = new aClass();
-
-            //*p = aClass.u;
-
-            string s = "hello string";
-
-            for(byte i = 0; i < s.length; i++) 
+            for (byte i = 0; i < s.Length; i++)
             {
-                Console.WriteAt(s.value[i], i, 8);
+                Console.WriteAt(s.Value[i], i, 1);
             }
 
             Counter();

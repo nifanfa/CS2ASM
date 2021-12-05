@@ -1,5 +1,3 @@
-using System;
-using System.Diagnostics;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 

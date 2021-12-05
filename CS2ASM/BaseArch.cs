@@ -1,6 +1,5 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace CS2ASM
         public bool DebugEnabled = true;
         public int InstructionIndex = 0;
 
-        public void SkipNextInstruction() 
+        public void SkipNextInstruction()
         {
             InstructionIndex++;
         }

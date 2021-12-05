@@ -1,7 +1,7 @@
 ﻿
 namespace System
 {
-    public struct Void 
+    public struct Void
     {
     }
 }

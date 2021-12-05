@@ -1,4 +1,3 @@
-using System;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
@@ -9,8 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldloc_3)]
         public static void Ldloc_3(BaseArch arch, Instruction ins, MethodDef def)
         {
-            ulong Index = OperandParser.Ldloc(ins) + 1;
-            arch.Append($"push qword [rbp-{Index * 8}]");
+            Ldloc(arch, ins, def);
         }
     }
 }

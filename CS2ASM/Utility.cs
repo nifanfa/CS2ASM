@@ -1,6 +1,4 @@
-﻿using dnlib.DotNet;
-using dnlib.DotNet.Emit;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 

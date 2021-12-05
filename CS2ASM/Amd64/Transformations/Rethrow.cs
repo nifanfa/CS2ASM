@@ -1,6 +1,6 @@
-using System;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 
 namespace CS2ASM
 {
