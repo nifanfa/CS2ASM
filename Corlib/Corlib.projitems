@@ -28,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\CMOS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
