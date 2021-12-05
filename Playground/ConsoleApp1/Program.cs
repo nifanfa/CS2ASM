@@ -22,7 +22,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            Out16(0x604, 0x2000);
+            //Out16(0x604, 0x2000);
 
             Allocator.start = 0x6400000;
 
