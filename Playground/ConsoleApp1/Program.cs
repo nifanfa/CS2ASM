@@ -3,11 +3,6 @@ using Toolkit;
 
 namespace ConsoleApp1
 {
-    public class aClass
-    {
-        public ulong u = 0x1122334455667788;
-    }
-
     public static unsafe class Program
     {
         /*
