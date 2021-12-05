@@ -6,8 +6,8 @@ namespace Toolkit
     {
         public static void Out16(ushort port, ushort value)
         {
-            asm("mov rdx,%-1");
-            asm("mov rax,%-2");
+            asm("mov rdx,{port}");
+            asm("mov rax,{value}");
             asm("out dx,ax");
         }
     }
