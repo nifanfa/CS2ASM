@@ -10,7 +10,6 @@ namespace CS2ASM
         {
             arch.Append($"call {Amd64.SafeMethodName(((MethodDef)ins.Operand))}");
 
-            arch.Append($"pop rbp"); //Recover rbp register
             //Clean up arguments
             if (((MethodDef)ins.Operand).Parameters.Count != 0)
                 arch.Append($"add rsp,{((MethodDef)ins.Operand).Parameters.Count * 8}");

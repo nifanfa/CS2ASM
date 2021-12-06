@@ -19,8 +19,7 @@ namespace CS2ASM
                 if (def.Body.Variables.Count != 0)
                     arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
-                //recover
-                //arch.Append($"push qword [cache-8]");
+                arch.Append($"leave");
                 arch.Append($"ret");
             }
             else
