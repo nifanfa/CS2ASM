@@ -41,8 +41,6 @@ namespace ConsoleApp1
 
             Console.WriteStr(s1, 2);
 
-            //Warning: Those string won't get disposed
-
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
             for (; ; )
