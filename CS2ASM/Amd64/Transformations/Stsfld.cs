@@ -1,3 +1,4 @@
+using CS2ASM.AMD64;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 

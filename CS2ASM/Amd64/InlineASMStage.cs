@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CS2ASM
+namespace CS2ASM.AMD64
 {
     public static class Amd64InlineASMStage
     {

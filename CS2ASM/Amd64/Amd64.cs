@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace CS2ASM
+namespace CS2ASM.AMD64
 {
     public unsafe class Amd64 : BaseArch
     {
