@@ -1,4 +1,5 @@
-﻿using dnlib.DotNet;
+﻿using CS2ASM.AMD64;
+using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
 namespace CS2ASM

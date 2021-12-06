@@ -3,6 +3,7 @@
  * https://sharplab.io/
  */
 
+using CS2ASM.AMD64;
 using dnlib.DotNet;
 using System;
 using System.Diagnostics;
@@ -51,7 +52,7 @@ namespace CS2ASM
             {
                 case ProcessorArchitecture.Amd64:
                     //Debug C
-                    Amd64CStage.CompileC(def, arch, "Test");
+                    CStage.CompileC(def, arch, "Test");
 
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 

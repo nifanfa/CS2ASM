@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CS2ASM.AMD64
 {
-    public static class Amd64InlineASMStage
+    public static class InlineASMStage
     {
         public static bool NewMethod(BaseArch arch, Instruction ins, MethodDef def, Instruction nextIns)
         {

@@ -1,3 +1,4 @@
+using CS2ASM.AMD64;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
@@ -33,7 +34,7 @@ namespace CS2ASM
             }
             else
             {
-                if(!Amd64InlineASMStage.NewMethod(arch, ins, def, nextIns)) 
+                if(!InlineASMStage.NewMethod(arch, ins, def, nextIns)) 
                 {
                     throw new NotImplementedException();
                 }
