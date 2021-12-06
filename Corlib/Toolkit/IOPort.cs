@@ -14,6 +14,13 @@ namespace Toolkit
             return data;
         }
 
+        public static void Out8(ushort port, byte value)
+        {
+            asm("mov rdx,{port}");
+            asm("mov rax,{value}");
+            asm("out dx,al");
+        }
+
         public static void Out16(ushort port, ushort value)
         {
             asm("mov rdx,{port}");

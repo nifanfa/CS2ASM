@@ -43,20 +43,15 @@ namespace ConsoleApp1
 
             //Warning: Those string won't get disposed
 
-            string pres = "ESC Pressed ";
-            string rele = "ESC Released";
-
-            //IDT(interrupt) is not implemented so loop
-            for(; ; ) 
+            // IDT On Interrupt not implemented yet, using loop for now.
+            Console.ForegroundColor = ConsoleColor.LightCyan;
+            for (; ; )
             {
-                byte v = IOPort.In8(0x60);
-                if (v == 0x01) //ESC
+                char c = PS2Keyboard.GetKeyPressed();
+                Console.WriteAt(c, 0, 24);
+                if (c == 'G')
                 {
-                    Console.WriteStr(pres, 3);
-                }
-                else
-                {
-                    Console.WriteStr(rele, 3);
+                    IOPort.Out8(0x64, 0xFE); // CPU Reboot
                 }
             }
             //Counter();
