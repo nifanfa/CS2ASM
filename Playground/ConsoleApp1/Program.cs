@@ -43,6 +43,7 @@ namespace ConsoleApp1
 
             Console.WriteStr(s1, 2);
 
+            //Call test in Test.c
             //asm("call test");
 
             // IDT On Interrupt not implemented yet, using loop for now.

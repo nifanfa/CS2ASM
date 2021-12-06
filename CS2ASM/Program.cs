@@ -51,7 +51,7 @@ namespace CS2ASM
             {
                 case ProcessorArchitecture.Amd64:
                     //Debug C
-                    //Mingw no installation can be downloaded here https://winlibs.com/
+                    //Mingw no installation can be downloaded here https://github.com/brechtsanders/winlibs_mingw/releases
                     //Unzip it to C:\mingw
                     /*
                     Utility.Start(@"C:\mingw64\bin\gcc.exe", new FileInfo(def.Location).DirectoryName, @"gcc -fno-asynchronous-unwind-tables -O2 -s -c -o Test.o Test.c");
