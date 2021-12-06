@@ -27,12 +27,24 @@ namespace CS2ASM
             }
 
             this.Append($"[bits 64]");
+            
+            foreach(var T in def.Types) 
+                foreach(var M in T.Methods)
+                {
+                    if (M.IsStaticConstructor)
+                    {
+                        this.Append($"call {Amd64.SafeMethodName(M)}");
+                    }
+                }
+
             this.Append($"call {Amd64.SafeMethodName(def.EntryPoint)}");
-            this.Append($"");
+            this.Append();
         }
 
         public override void Translate(MethodDef def)
         {
+            this.Append($";{new string('>', 20)}{def}{new string('>', 20)}");
+
             //Get All Branches
             var BrS = GetAllBranches(def);
 
@@ -52,8 +64,7 @@ namespace CS2ASM
             {
                 var ins = def.Body.Instructions[InstructionIndex];
 
-                if (DebugEnabled)
-                    this.Append($";{ins}");
+                this.Append($";{ins}");
 
                 //For Branches
                 foreach (var v in BrS)
@@ -67,6 +78,9 @@ namespace CS2ASM
                 //Compile IL Instructions
                 ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
             }
+
+            this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
+            this.Append();
         }
 
         public override void InitializeStaticFields(IList<TypeDef> types)

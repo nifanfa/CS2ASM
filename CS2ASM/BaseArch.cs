@@ -10,7 +10,6 @@ namespace CS2ASM
     public abstract unsafe class BaseArch
     {
         public StringWriter _Code = new StringWriter();
-        public bool DebugEnabled = true;
         public int InstructionIndex = 0;
 
         public void SkipNextInstruction()

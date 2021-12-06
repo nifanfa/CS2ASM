@@ -19,14 +19,14 @@ namespace ConsoleApp1
          *  TODO - Free the unused strings
          *  TODO - Inherited class implementation
          */
+        public static char chr = 'S';
+
         public static void Main()
         {
             //shutdown qemu
             //IOPort.Out16(0x604, 0x2000);
 
             //In8(0x60);
-
-            Allocator.start = 0x6400000;
 
             Console.Setup();
 
@@ -36,6 +36,8 @@ namespace ConsoleApp1
             string s0 = "hello world from CS2ASM. you are already in x64 mode!";
 
             Console.WriteStr(s0, 1);
+
+            Console.WriteAt(chr, 20, 20);
 
             string s1 = "contributor: nifanfa(Owner), LeonTheDev";
 

@@ -2,7 +2,8 @@
 {
     public static class Allocator
     {
-        public static ulong start = 0;
+        //Static value supported now
+        public static ulong start = 0x6400000;
 
         //Newobj.cs
         public static ulong malloc(ulong size)
