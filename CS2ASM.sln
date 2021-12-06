@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "Playground\C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Corlib", "Corlib\Corlib.shproj", "{3B64FCA0-062D-4CA3-99A0-AD8CA8A49C80}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StaticLib1", "StaticLib1\StaticLib1.vcxproj", "{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Corlib\Corlib.projitems*{3b64fca0-062d-4ca3-99a0-ad8ca8a49c80}*SharedItemsImports = 13
@@ -49,16 +47,6 @@ Global
 		{8C8E73CB-A000-41C2-9DE4-961020EB4280}.Release|x64.Build.0 = Release|Any CPU
 		{8C8E73CB-A000-41C2-9DE4-961020EB4280}.Release|x86.ActiveCfg = Release|Any CPU
 		{8C8E73CB-A000-41C2-9DE4-961020EB4280}.Release|x86.Build.0 = Release|Any CPU
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Debug|Any CPU.ActiveCfg = Release|x64
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Debug|x64.ActiveCfg = Debug|x64
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Debug|x64.Build.0 = Debug|x64
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Debug|x86.ActiveCfg = Debug|Win32
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Debug|x86.Build.0 = Debug|Win32
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Release|Any CPU.ActiveCfg = Release|Win32
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Release|x64.ActiveCfg = Release|x64
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Release|x64.Build.0 = Release|x64
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Release|x86.ActiveCfg = Release|Win32
-		{CB76D813-708F-4607-9F6E-CCC0B8E6BE3C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
