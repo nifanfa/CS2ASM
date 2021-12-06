@@ -50,6 +50,24 @@ namespace CS2ASM
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
+                    //Debug C
+                    //Mingw no installation can be downloaded here https://winlibs.com/
+                    //Unzip it to C:\mingw
+                    /*
+                    Utility.Start(@"C:\mingw64\bin\gcc.exe", new FileInfo(def.Location).DirectoryName, @"gcc -fno-asynchronous-unwind-tables -O2 -s -c -o Test.o Test.c");
+                    File.Move(new FileInfo(def.Location).DirectoryName + @"\Test.o", @"Amd64\Test.o", true);
+                    Utility.Start(@"Amd64\objconv-x64.exe", "-fnasm Test.o");
+                    StreamReader str = new StreamReader(@"Amd64\Test.asm");
+                    string line = string.Empty;
+                    while ((line = str.ReadLine()) != null)
+                    {
+                        if (line.IndexOf("global") != 0)
+                        {
+                            arch._Code.WriteLine(line);
+                        }
+                    }
+                    */
+
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 
                     Utility.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel -l Kernel.lst");
