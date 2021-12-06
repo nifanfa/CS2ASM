@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Int16.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Integer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\IntPtr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Object.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\SByte.cs" />
