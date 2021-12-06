@@ -13,13 +13,26 @@ namespace CS2ASM
                 //Call.cs
                 if (def.HasReturnType)
                 {
-                    arch.Append($"pop rax");
+                    arch.Append($"mov rax,[rsp]");
                 }
 
-                if (def.Body.Variables.Count != 0)
-                    arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
+                //Clean up local variables
+                arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
                 arch.Append($"leave");
+
+                arch.Append($"pop r8");
+
+                //Clean up arguments
+                arch.Append($"add rsp,{def.Parameters.Count * 8}");
+
+                if (def.HasReturnType)
+                {
+                    arch.Append($"push rax");
+                }
+
+                arch.Append($"push r8");
+
                 arch.Append($"ret");
             }
             else

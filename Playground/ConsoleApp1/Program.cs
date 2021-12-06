@@ -55,6 +55,10 @@ namespace ConsoleApp1
             //Counter();
         }
 
+        public static void EmptyMethod() 
+        {
+        }
+
         // Counts to 9 and resets
         public static void Counter()
         {
