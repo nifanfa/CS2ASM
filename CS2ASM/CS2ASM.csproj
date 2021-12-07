@@ -27,7 +27,7 @@
     <None Update="Amd64QEMU.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Amd64\7z.exe">
+    <None Update="Amd64\7z2106-x64.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Amd64\grub2.zip">
