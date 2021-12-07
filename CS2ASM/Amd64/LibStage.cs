@@ -9,7 +9,11 @@ namespace CS2ASM.AMD64
     {
         public static unsafe void ImportLib(ModuleDefMD def, BaseArch arch, string fileNameNoPath)
         {
-            Utility.Start(@"Amd64\7z.exe", $@"e {new DirectoryInfo(Environment.CurrentDirectory).Parent}\{fileNameNoPath} -o{Environment.CurrentDirectory}\Amd64\ *.obj -r -y");
+            if (!File.Exists(@"C:\Program Files\7-Zip\7z.exe")) 
+            {
+                throw new FileNotFoundException(@"7-Zip is not installed! here to download: http://7-zip.org/");
+            }
+            Utility.Start(@"C:\Program Files\7-Zip\7z.exe", $@"e {new DirectoryInfo(Environment.CurrentDirectory).Parent}\{fileNameNoPath} -o{Environment.CurrentDirectory}\Amd64\ *.obj -r -y");
             foreach (var v in new DirectoryInfo(@"Amd64\").GetFiles())
             {
                 if (v.Extension != ".obj" || v.Name.Contains("asm")) continue;
