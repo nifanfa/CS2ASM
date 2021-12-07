@@ -53,7 +53,7 @@ namespace CS2ASM
                 case ProcessorArchitecture.Amd64:
                     //Debug Cpp
                     //Import StaticLib1 From ..\..\..\..\x64\Debug\
-                    CStage.ImportLib(def, arch, "StaticLib1","CPPTest");
+                    LibStage.ImportLib(def, arch, "StaticLib1.lib");
 
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 

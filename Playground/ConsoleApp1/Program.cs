@@ -43,8 +43,8 @@ namespace ConsoleApp1
 
             Console.WriteStr(s1, 2);
 
-            //Call test in StaticLib/CPPTest.cpp
-            asm("call CPPTest");
+            //Call the methods in StaticLib
+            asm("call Hello");
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
