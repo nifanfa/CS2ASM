@@ -6,6 +6,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<LangVersion>9.0</LangVersion>
 	<StartupObject>CS2ASM.Program</StartupObject>
+	<OutputPath>..\bin</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

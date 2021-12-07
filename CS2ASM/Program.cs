@@ -19,7 +19,7 @@ namespace CS2ASM
 
         static unsafe void Main(string[] args)
         {
-            ModuleDefMD def = ModuleDefMD.Load(@"..\..\..\..\Playground\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll");
+            ModuleDefMD def = ModuleDefMD.Load("ConsoleApp1.dll");
 
             BaseArch arch = null;
             switch (ProcessorArchitecture)

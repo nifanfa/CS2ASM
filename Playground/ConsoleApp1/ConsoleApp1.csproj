@@ -10,6 +10,7 @@
 		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+		<OutputPath>..\..\bin</OutputPath>
 	</PropertyGroup>
 
 	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
