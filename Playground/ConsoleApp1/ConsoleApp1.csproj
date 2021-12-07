@@ -13,10 +13,4 @@
 	</PropertyGroup>
 
 	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
-
-	<ItemGroup>
-	  <None Update="Test.c">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	</ItemGroup>
 </Project>
