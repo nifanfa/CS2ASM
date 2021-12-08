@@ -13,23 +13,19 @@ namespace CS2ASM
             arch.Append($"pop rdi");
             arch.Append($"add rdi,{Utility.IndexInStack(((FieldDef)ins.Operand).DeclaringType.Fields, (FieldDef)ins.Operand)}");
             if (
-                ((FieldDef)ins.Operand).FieldType.FullName == "System.Byte" ||
-                ((FieldDef)ins.Operand).FieldType.FullName == "System.SByte"
+                Utility.SizeInStack(((FieldDef)ins.Operand)) == 1
                 )
             {
                 arch.Append($"stosb");
             }
             else if (
-                ((FieldDef)ins.Operand).FieldType.FullName == "System.Char" ||
-                ((FieldDef)ins.Operand).FieldType.FullName == "System.Int16" ||
-                ((FieldDef)ins.Operand).FieldType.FullName == "System.UInt16"
+                Utility.SizeInStack(((FieldDef)ins.Operand)) == 2
                 )
             {
                 arch.Append($"stosw");
             }
             else if (
-               ((FieldDef)ins.Operand).FieldType.FullName == "System.Int32" ||
-               ((FieldDef)ins.Operand).FieldType.FullName == "System.UInt32"
+                Utility.SizeInStack(((FieldDef)ins.Operand)) == 4
                )
             {
                 arch.Append($"stosd");
