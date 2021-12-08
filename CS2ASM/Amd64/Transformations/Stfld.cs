@@ -12,27 +12,20 @@ namespace CS2ASM
             arch.Append($"pop rax");
             arch.Append($"pop rdi");
             arch.Append($"add rdi,{Utility.IndexInStack(((FieldDef)ins.Operand).DeclaringType.Fields, (FieldDef)ins.Operand)}");
-            if (
-                Utility.SizeInStack(((FieldDef)ins.Operand)) == 1
-                )
+            switch (Utility.SizeInStack(((FieldDef)ins.Operand))) 
             {
-                arch.Append($"stosb");
-            }
-            else if (
-                Utility.SizeInStack(((FieldDef)ins.Operand)) == 2
-                )
-            {
-                arch.Append($"stosw");
-            }
-            else if (
-                Utility.SizeInStack(((FieldDef)ins.Operand)) == 4
-               )
-            {
-                arch.Append($"stosd");
-            }
-            else
-            {
-                arch.Append($"stosq");
+                case 1:
+                    arch.Append($"stosb");
+                    break;
+                case 2:
+                    arch.Append($"stosw");
+                    break;
+                case 4:
+                    arch.Append($"stosd");
+                    break;
+                default:
+                    arch.Append($"stosq");
+                    break;
             }
         }
     }

@@ -9,11 +9,25 @@ namespace CS2ASM
         [ILTransformation(Code.Ldfld)]
         public static void Ldfld(BaseArch arch, Instruction ins, MethodDef def)
         {
-            int index = ((FieldDef)ins.Operand).DeclaringType.Fields.IndexOf((FieldDef)ins.Operand);
-            Debug.Assert(index != -1);
             arch.Append("pop rax");
-            arch.Append($"add rax,{(index) * 8}");
-            arch.Append("push qword [rax]");
+            arch.Append($"add rax,{Utility.IndexInStack(((FieldDef)ins.Operand).DeclaringType.Fields, (FieldDef)ins.Operand)}");
+            arch.Append($"xor rcx,rcx");
+            switch (Utility.SizeInStack(((FieldDef)ins.Operand)))
+            {
+                case 1:
+                    arch.Append($"mov cl,[rax]");
+                    break;
+                case 2:
+                    arch.Append($"mov cx,[rax]");
+                    break;
+                case 4:
+                    arch.Append($"mov ecx,[rax]");
+                    break;
+                default:
+                    arch.Append($"mov rcx,[rax]");
+                    break;
+            }
+            arch.Append("push qword rcx");
         }
     }
 }

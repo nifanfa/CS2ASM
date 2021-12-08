@@ -53,6 +53,9 @@ namespace ConsoleApp1
             STP->U1 = 0x11;
             STP->U2 = 0x99;
 
+            byte* p = (byte*)0xb865e;
+            *p = STP->U1;
+
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
             for (; ; )
