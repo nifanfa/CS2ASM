@@ -19,7 +19,6 @@ namespace ConsoleApp1
          *  TODO - Free the unused strings
          *  TODO - Inherited class implementation
          */
-        public static char chr = 'S';
 
         public struct StructTest 
         {
@@ -39,13 +38,11 @@ namespace ConsoleApp1
             Console.Clear();
             Console.Alphabet();
 
-            string s0 = "hello world from CS2ASM. you are already in x64 mode!";
+            string s0 = "Hello World from CS2ASM. You are in x64 mode!";
 
             Console.WriteStr(s0, 1);
 
-            Console.WriteAt(chr, 20, 20);
-
-            string s1 = "contributor: nifanfa(Owner), LeonTheDev";
+            string s1 = "Contributors: nifanfa (Owner), LeonTheDev";
 
             Console.WriteStr(s1, 2);
 
