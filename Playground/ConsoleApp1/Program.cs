@@ -56,6 +56,10 @@ namespace ConsoleApp1
             byte* p = (byte*)0xb865e;
             *p = STP->U1;
 
+            ulong u0 = 5;
+            ulong u = 5 % 2;
+            *p = (byte)u;
+
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
             for (; ; )

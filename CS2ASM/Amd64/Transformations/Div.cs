@@ -10,7 +10,7 @@ namespace CS2ASM
         {
             arch.Append($"pop rbx");
             arch.Append($"pop rax");
-            arch.Append($"div rbx");
+            arch.Append($"idiv rbx");
             arch.Append($"push rax");
         }
     }
