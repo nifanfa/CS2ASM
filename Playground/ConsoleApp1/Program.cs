@@ -21,6 +21,12 @@ namespace ConsoleApp1
          */
         public static char chr = 'S';
 
+        public struct StructTest 
+        {
+            public byte U1;
+            public byte U2;
+        }
+
         public static void Main()
         {
             //shutdown qemu
@@ -45,6 +51,10 @@ namespace ConsoleApp1
 
             //Call the methods in StaticLib
             asm("call Hello");
+
+            StructTest* STP = (StructTest*)0xb8360;
+            STP->U1 = 0x11;
+            STP->U2 = 0x99;
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
