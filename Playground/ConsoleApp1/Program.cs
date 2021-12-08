@@ -1,4 +1,5 @@
-﻿using System.Runtime;
+﻿using System;
+using System.Runtime;
 using Toolkit;
 using static System.Runtime.Intrinsic;
 
@@ -54,11 +55,9 @@ namespace ConsoleApp1
             STP->U2 = 0x99;
 
             byte* p = (byte*)0xb865e;
-            *p = STP->U1;
-
-            ulong u0 = 5;
-            ulong u = 5 % 2;
-            *p = (byte)u;
+            ulong u1 = 3;
+            ulong u2 = 2;
+            //*p = (byte)(u1 / u2);
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;

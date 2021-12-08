@@ -1,5 +1,6 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 
 namespace CS2ASM
 {
@@ -8,10 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Div)]
         public static void Div(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop rbx");
-            arch.Append($"pop rax");
-            arch.Append($"idiv rbx");
-            arch.Append($"push rax");
+            throw new NotImplementedException("Div is not implemented");
         }
     }
 }

@@ -15,11 +15,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Boolean.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Byte.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Char.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Convert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Delegate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int16.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int64.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Integer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\IntPtr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Object.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\SByte.cs" />
@@ -29,7 +29,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\CMOS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
