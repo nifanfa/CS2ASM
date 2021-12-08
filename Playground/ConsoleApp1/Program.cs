@@ -19,6 +19,8 @@ namespace ConsoleApp1
          *
          *  TODO - Free the unused strings
          *  TODO - Inherited class implementation
+         *  
+         *  TODO - Div Div_Un Rem Rem_Un
          */
 
         public struct StructTest 
@@ -54,10 +56,7 @@ namespace ConsoleApp1
             STP->U1 = 0x11;
             STP->U2 = 0x99;
 
-            byte* p = (byte*)0xb865e;
-            ulong u1 = 3;
-            ulong u2 = 2;
-            //*p = (byte)(u1 / u2);
+            STP->U2 = STP->U2;
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
