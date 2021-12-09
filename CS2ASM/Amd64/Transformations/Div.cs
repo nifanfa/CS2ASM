@@ -9,7 +9,11 @@ namespace CS2ASM
         [ILTransformation(Code.Div)]
         public static void Div(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Div is not implemented");
+            arch.Append($"xor rdx,rdx");
+            arch.Append($"pop r8");
+            arch.Append($"pop rax");
+            arch.Append($"idiv r8");
+            arch.Append($"push rax");
         }
     }
 }

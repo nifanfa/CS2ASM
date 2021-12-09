@@ -9,7 +9,11 @@ namespace CS2ASM
         [ILTransformation(Code.Div_Un)]
         public static void Div_Un(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Div_Un is not implemented");
+            arch.Append($"xor rdx,rdx");
+            arch.Append($"pop r8");
+            arch.Append($"pop rax");
+            arch.Append($"div r8");
+            arch.Append($"push rax");
         }
     }
 }

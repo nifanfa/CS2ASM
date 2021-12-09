@@ -27,6 +27,8 @@ namespace ConsoleApp1
         {
             public byte U1;
             public byte U2;
+            public byte U3;
+            public byte U4;
         }
 
         public static void Main()
@@ -53,10 +55,13 @@ namespace ConsoleApp1
             asm("call Hello");
 
             StructTest* STP = (StructTest*)0xb8360;
-            STP->U1 = 0x11;
-            STP->U2 = 0x99;
+            STP->U1 = 32;
+            STP->U2 = 6;
 
-            STP->U2 = STP->U2;
+            STP->U3 = (byte)(STP->U1 % STP->U2);
+            STP->U3 = (byte)(STP->U1 / STP->U2);
+
+            Console.WriteStr(Convert.ToString(12345678), 8);
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;

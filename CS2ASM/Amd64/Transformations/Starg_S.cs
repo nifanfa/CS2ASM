@@ -1,6 +1,7 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
+using System.Diagnostics;
 
 namespace CS2ASM
 {
@@ -9,7 +10,7 @@ namespace CS2ASM
         [ILTransformation(Code.Starg_S)]
         public static void Starg_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Starg_S is not implemented");
+            Starg(arch, ins, def);
         }
     }
 }

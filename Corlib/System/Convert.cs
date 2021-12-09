@@ -2,30 +2,25 @@
 {
     public static unsafe class Convert
     {
-        /*
-        public static string ToString(ulong value)
+        public static string ToString(ulong val)
         {
-            string s = "                      ";
+			string s = "                     ";
+			int i = 19;
 
-            int count = 0;
-            ulong tmp = value;
-            do
-            {
-                tmp /= 10;
-                count++;
-            } while (tmp != 0);
+			do
+			{
+				var d = val % 10;
+				val /= 10;
 
-            s.Length = (ulong)count;
-            ulong temp = value;
+				d += 0x30;
+				i = i - 1;
+				s.Value[i] = (char)d;
+			} while (val > 0);
 
-            for (int i = count - 1; i >= 0; i--)
-            {
-                s.Value[i] = (char)((temp % 10) + 0x30);
-                temp /= 10;
-            }
+			i++;
 
-            return s;
+
+			return s;
         }
-        */
     }
 }

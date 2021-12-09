@@ -8,26 +8,26 @@ namespace CS2ASM
 {
     public static class Utility
     {
-        public static int SizeInStack(FieldDef def)
+        public static int SizeInStack(string Name)
         {
             if (
-                   ((FieldDef)def).FieldType.FullName == "System.Byte" ||
-                   ((FieldDef)def).FieldType.FullName == "System.SByte"
+                   Name == "System.Byte" ||
+                   Name == "System.SByte"
                    )
             {
                 return 1;
             }
             else if (
-                ((FieldDef)def).FieldType.FullName == "System.Char" ||
-                ((FieldDef)def).FieldType.FullName == "System.Int16" ||
-                ((FieldDef)def).FieldType.FullName == "System.UInt16"
+                Name == "System.Char" ||
+                Name == "System.Int16" ||
+                Name == "System.UInt16"
                 )
             {
                 return 2;
             }
             else if (
-               ((FieldDef)def).FieldType.FullName == "System.Int32" ||
-               ((FieldDef)def).FieldType.FullName == "System.UInt32"
+               Name == "System.Int32" ||
+               Name == "System.UInt32"
                )
             {
                 return 4;
@@ -43,7 +43,7 @@ namespace CS2ASM
             ulong Index = 0;
             for (int i = 0; i < defs.IndexOf(def); i++) 
             {
-                Index += (ulong)SizeInStack(defs[i]);
+                Index += (ulong)SizeInStack(defs[i].FieldType.FullName);
             }
             return Index;
         }

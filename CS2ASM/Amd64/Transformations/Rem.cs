@@ -9,7 +9,11 @@ namespace CS2ASM
         [ILTransformation(Code.Rem)]
         public static void Rem(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Rem is not implemented");
+            arch.Append($"xor rdx,rdx");
+            arch.Append($"pop r8");
+            arch.Append($"pop rax");
+            arch.Append($"idiv r8");
+            arch.Append($"push rdx");
         }
     }
 }

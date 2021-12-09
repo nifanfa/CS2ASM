@@ -1,4 +1,5 @@
-﻿using dnlib.DotNet.Emit;
+﻿using dnlib.DotNet;
+using dnlib.DotNet.Emit;
 using System;
 
 namespace CS2ASM
@@ -72,6 +73,16 @@ namespace CS2ASM
                 Code.Ldarg_1 => 1,
                 Code.Ldarg_2 => 2,
                 Code.Ldarg_3 => 3,
+            };
+        }
+
+        public static ulong Starg(Instruction ins)
+        {
+            if (ins.Operand is Local) { ins.Operand = ((Local)ins.Operand).Index; }
+            return ins.OpCode.Code switch
+            {
+                Code.Starg => Convert.ToUInt64(((Parameter)ins.Operand).Index),
+                Code.Starg_S => Convert.ToUInt64(((Parameter)ins.Operand).Index),
             };
         }
     }
