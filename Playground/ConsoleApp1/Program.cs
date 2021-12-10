@@ -61,7 +61,7 @@ namespace ConsoleApp1
             STP->U3 = (byte)(STP->U1 % STP->U2);
             STP->U3 = (byte)(STP->U1 / STP->U2);
 
-            Console.WriteStr(Convert.ToString(12345678), 8);
+            Console.WriteStr(Convert.ToString(20050217), 8);
 
             // IDT On Interrupt not implemented yet, using loop for now.
             Console.ForegroundColor = ConsoleColor.LightCyan;
