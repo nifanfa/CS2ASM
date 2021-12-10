@@ -66,32 +66,28 @@ namespace ConsoleApp1
             Console.WriteStr(Convert.ToString(123456UL >> 2), 8);
 
             // IDT On Interrupt not implemented yet, using loop for now.
-            Console.ForegroundColor = ConsoleColor.LightCyan;
-            for (; ; )
-            {
-                char c = PS2Keyboard.GetKeyPressed();
-                Console.WriteAt(c, 0, 24);
-                if (c == 'G')
-                {
-                    IOPort.Out8(0x64, 0xFE); // CPU Reboot
-                }
-            }
-            //Counter();
+            Loop();
         }
 
         public static void EmptyMethod() 
         {
         }
 
-        // Counts to 9 and resets
-        public static void Counter()
+        // Counts to 9 and resets. Also manages keyboard input.
+        public static void Loop()
         {
             byte b = 0x30; // 0
         Loop:
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteAt((char)b, 0, 24);
+                byte tempColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.LightCyan;
+                char c = PS2Keyboard.GetKeyPressed();
+                Console.WriteAt(c, 0, 24);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteAt((char)b, 79, 24);
                 b++;
+                Console.ForegroundColor = tempColor;
             }
             b = 0x30; // 0
             goto Loop;
