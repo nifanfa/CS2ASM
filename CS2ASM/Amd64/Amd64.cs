@@ -9,7 +9,9 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -52,14 +54,17 @@ namespace CS2ASM.AMD64
             //Label
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
-            //Call.cs Line 19
-            this.Append($"mov r8,rbp");
-            this.Append($"mov rbp,rsp");
+            if (!Amd64.IsEmptyMethod(def))
+            {
+                //Call.cs Line 19
+                this.Append($"mov r8,rbp");
+                this.Append($"mov rbp,rsp");
 
-            //For Variables
-            //pop at Ret.cs
-            this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
-            this.Append($"push r8");
+                //For Variables
+                //pop at Ret.cs
+                this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
+                this.Append($"push r8");
+            }
             
             //Start Parse IL Code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
@@ -83,6 +88,18 @@ namespace CS2ASM.AMD64
 
             this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
             this.Append();
+        }
+
+        public static bool IsEmptyMethod(MethodDef def)
+        {
+            foreach(var v in def.CustomAttributes) 
+            {
+                if(v.TypeFullName == "System.Runtime.CompilerServices.EmptyMethodAttribute") 
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override void InitializeStaticFields(IList<TypeDef> types)

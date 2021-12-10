@@ -1,4 +1,5 @@
-﻿using dnlib.DotNet;
+﻿using CS2ASM.AMD64;
+using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
 namespace CS2ASM
@@ -8,6 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ret)]
         public static void Ret(BaseArch arch, Instruction ins, MethodDef def)
         {
+            if (Amd64.IsEmptyMethod(def)) return;
+
             //Call.cs
             if (def.HasReturnType)
             {

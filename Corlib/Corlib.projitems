@@ -10,8 +10,10 @@
     </Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\EmptyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Allocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Intrinsic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Boolean.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Byte.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Char.cs" />
@@ -31,7 +33,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IDT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\PIC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Toolkit\PS2Keyboard.cs" />
   </ItemGroup>
 </Project>

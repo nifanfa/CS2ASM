@@ -63,8 +63,6 @@ namespace ConsoleApp1
             //STP->U3 = (byte)(STP->U1 % STP->U2);
             //STP->U3 = (byte)(STP->U1 / STP->U2);
 
-            Console.WriteStr(Convert.ToString(123456UL >> 2), 8);
-
             // IDT On Interrupt not implemented yet, using loop for now.
             Loop();
         }
