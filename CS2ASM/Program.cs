@@ -51,10 +51,6 @@ namespace CS2ASM
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
-                    //Debug Cpp
-                    //Import StaticLib1 From ..\..\..\..\x64\Debug\
-                    LibStage.ImportLib(def, arch, "StaticLib1.lib");
-
                     File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
 
                     Util.Start(@"Amd64\nasm.exe", "-fbin Multiboot.asm -o kernel -l Kernel.lst");

@@ -42,6 +42,45 @@ namespace CS2ASM.AMD64
 
             this.Append($"call {Amd64.SafeMethodName(def.EntryPoint)}");
             this.Append($"jmp die");
+
+            //For IDT
+            this.Append($"%macro procirq 1");
+            this.Append($"push rax");
+            this.Append($"push rcx");
+            this.Append($"push rdx");
+            this.Append($"push rbx");
+            this.Append($"push rsp");
+            this.Append($"push rbp");
+            this.Append($"push rsi");
+            this.Append($"push rdi");
+            this.Append($"push r8");
+            this.Append($"push r9");
+            this.Append($"push r10");
+            this.Append($"push r11");
+            this.Append($"push r12");
+            this.Append($"push r13");
+            this.Append($"push r14");
+            this.Append($"push r15");
+            this.Append($"push %1"); //This will be cleared automatically after call System.Platform.Amd64.IDT.OnInterrupt
+            this.Append($"call System.Platform.Amd64.IDT.OnInterrupt");
+            this.Append($"pop r15");
+            this.Append($"pop r14");
+            this.Append($"pop r13");
+            this.Append($"pop r12");
+            this.Append($"pop r11");
+            this.Append($"pop r10");
+            this.Append($"pop r9");
+            this.Append($"pop r8");
+            this.Append($"pop rdi");
+            this.Append($"pop rsi");
+            this.Append($"pop rbp");
+            this.Append($"pop rsp");
+            this.Append($"pop rbx");
+            this.Append($"pop rdx");
+            this.Append($"pop rcx");
+            this.Append($"pop rax");
+            this.Append($"iretq");
+            this.Append($"%endmacro");
         }
 
         public override void Translate(MethodDef def)

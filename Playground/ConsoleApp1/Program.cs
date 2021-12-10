@@ -51,9 +51,6 @@ namespace ConsoleApp1
 
             Console.WriteStr(s1, 2);
 
-            //Call the methods in StaticLib
-            asm("call Hello");
-
             StructTest* STP = (StructTest*)0xb8360;
             (&STP[0])->U1 = 0x52;
             (&STP[0])->U2 = 0x20;
