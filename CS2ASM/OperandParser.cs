@@ -14,7 +14,7 @@ namespace CS2ASM
                 Code.Ldc_I4 => Convert.ToUInt64(ins.Operand),
                 Code.Ldc_I4_S => Convert.ToUInt64(ins.Operand),
 
-                Code.Ldc_I4_M1 => Convert.ToUInt64(-1),
+                Code.Ldc_I4_M1 => 0xFFFFFFFFFFFFFFFF,
                 Code.Ldc_I4_0 => 0,
                 Code.Ldc_I4_1 => 1,
                 Code.Ldc_I4_2 => 2,
@@ -64,6 +64,7 @@ namespace CS2ASM
         public static ulong Ldarg(Instruction ins)
         {
             if (ins.Operand is Local) { ins.Operand = ((Local)ins.Operand).Index; }
+            if (ins.Operand is Parameter) { ins.Operand = ((Parameter)ins.Operand).Index; }
             return ins.OpCode.Code switch
             {
                 Code.Ldarg => Convert.ToUInt64(ins.Operand),

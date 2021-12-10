@@ -1,3 +1,4 @@
+using CS2ASM.AMD64;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
@@ -9,7 +10,14 @@ namespace CS2ASM
         [ILTransformation(Code.Ldftn)]
         public static void Ldftn(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldftn is not implemented");
+            if((ins.Operand is MethodDef)) 
+            {
+                arch.Append($"push qword {Amd64.SafeMethodName((MethodDef)ins.Operand)}");
+            }
+            else
+            {
+                throw new NotImplementedException("Ldftn is not implemented");
+            }
         }
     }
 }

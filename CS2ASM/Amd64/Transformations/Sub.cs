@@ -8,6 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Sub)]
         public static void Sub(BaseArch arch, Instruction ins, MethodDef def)
         {
+            arch.Append($"xor rdx,rdx");
             arch.Append($"pop rdx");
             arch.Append($"pop rax");
             arch.Append($"sub rax,rdx");

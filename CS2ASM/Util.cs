@@ -6,7 +6,7 @@ using System.IO;
 
 namespace CS2ASM
 {
-    public static class Utility
+    public static class Util
     {
         public static int SizeInStack(string Name)
         {
@@ -46,6 +46,16 @@ namespace CS2ASM
                 Index += (ulong)SizeInStack(defs[i].FieldType.FullName);
             }
             return Index;
+        }
+
+        public static ulong SizeOfInStack(IList<FieldDef> defs)
+        {
+            ulong Size = 0;
+            for (int i = 0; i < defs.Count; i++)
+            {
+                Size += (ulong)SizeInStack(defs[i].FieldType.FullName);
+            }
+            return Size;
         }
 
         public static void Start(string file, string args)

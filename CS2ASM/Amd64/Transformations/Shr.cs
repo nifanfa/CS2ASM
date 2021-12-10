@@ -8,6 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Shr)]
         public static void Shr(BaseArch arch, Instruction ins, MethodDef def)
         {
+            arch.Append($"xor rdx,rdx");
             arch.Append($"pop rcx");
             arch.Append($"pop rax");
             arch.Append($"shr rax,cl");

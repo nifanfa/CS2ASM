@@ -13,15 +13,15 @@ namespace CS2ASM.AMD64
             if (!File.Exists(@"C:\Program Files\7-Zip\7z.exe")) 
             {
                 Console.WriteLine(@"Installing 7-Zip");
-                Utility.Start(@"explorer.exe",@"Amd64\7z2106-x64.exe");
+                Util.Start(@"explorer.exe",@"Amd64\7z2106-x64.exe");
                 while (!File.Exists(@"C:\Program Files\7-Zip\7z.exe")) ;
             }
-            Utility.Start(@"C:\Program Files\7-Zip\7z.exe", $@"e {new DirectoryInfo(Environment.CurrentDirectory).Parent}\{fileNameNoPath} -o{Environment.CurrentDirectory}\Amd64\ *.obj -r -y");
+            Util.Start(@"C:\Program Files\7-Zip\7z.exe", $@"e {new DirectoryInfo(Environment.CurrentDirectory).Parent}\{fileNameNoPath} -o{Environment.CurrentDirectory}\Amd64\ *.obj -r -y");
             foreach (var v in new DirectoryInfo(@"Amd64\").GetFiles())
             {
                 if (v.Extension != ".obj" || v.Name.Contains("asm")) continue;
                 string ModuleName = v.Name.Substring(0, v.Name.Length - v.Extension.Length);
-                Utility.Start(@"Amd64\objconv-x64.exe", $"-fnasm {ModuleName}.obj");
+                Util.Start(@"Amd64\objconv-x64.exe", $"-fnasm {ModuleName}.obj");
 
                 List<string> vs = new List<string>();
                 StreamReader str = new StreamReader(@$"Amd64\{ModuleName}.asm");

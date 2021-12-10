@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldc_I4_M1)]
         public static void Ldc_I4_M1(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldc_I4_M1 is not implemented");
+            Ldc_I4(arch, ins, def);
         }
     }
 }

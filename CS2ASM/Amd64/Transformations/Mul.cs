@@ -8,6 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Mul)]
         public static void Mul(BaseArch arch, Instruction ins, MethodDef def)
         {
+            arch.Append($"xor rdx,rdx");
             arch.Append($"pop rbx");
             arch.Append($"pop rax");
             arch.Append($"mul rbx");

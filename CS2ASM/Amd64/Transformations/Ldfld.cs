@@ -10,9 +10,9 @@ namespace CS2ASM
         public static void Ldfld(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append("pop rax");
-            arch.Append($"add rax,{Utility.IndexInStack(((FieldDef)ins.Operand).DeclaringType.Fields, (FieldDef)ins.Operand)}");
+            arch.Append($"add rax,{Util.IndexInStack(((FieldDef)ins.Operand).DeclaringType.Fields, (FieldDef)ins.Operand)}");
             arch.Append($"xor rcx,rcx");
-            switch (Utility.SizeInStack(((FieldDef)ins.Operand).FieldType.FullName))
+            switch (Util.SizeInStack(((FieldDef)ins.Operand).FieldType.FullName))
             {
                 case 1:
                     arch.Append($"mov cl,[rax]");

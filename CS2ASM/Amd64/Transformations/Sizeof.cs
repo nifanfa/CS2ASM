@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Sizeof)]
         public static void Sizeof(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Sizeof is not implemented");
+            arch.Append($"mov rax,{Util.SizeOfInStack(((TypeDef)ins.Operand).Fields)}");
+            arch.Append($"push rax");
         }
     }
 }
