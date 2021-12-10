@@ -1,5 +1,5 @@
 ﻿
-namespace Toolkit
+namespace System.Platform.Amd64
 {
     public static class PS2Keyboard
     {
@@ -7,14 +7,14 @@ namespace Toolkit
 
         public static byte GetKeyPressedByte()
         {
-            KeyData = IOPort.In8(0x60);
+            KeyData = X64.In8(0x60);
             return KeyData;
         }
 
         public static char GetKeyPressed()
         {
             // TODO: Tidy
-            KeyData = IOPort.In8(0x60);
+            KeyData = X64.In8(0x60);
             if (KeyData == 0x1E)
             {
                 return 'A';

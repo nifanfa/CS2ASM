@@ -1,5 +1,5 @@
 ﻿
-namespace Toolkit
+namespace System.Platform.Amd64
 {
     public static class ConsoleColor
     {

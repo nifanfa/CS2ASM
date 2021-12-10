@@ -1,9 +1,14 @@
 ﻿using static System.Runtime.Intrinsic;
 
-namespace Toolkit
+namespace System.Platform.Amd64
 {
-    public static class IOPort
+    public static class X64
     {
+        public static void Hlt()
+        {
+            asm("hlt");
+        }
+
         public static byte In8(ushort port)
         {
             byte data = 0;

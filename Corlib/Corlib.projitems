@@ -10,6 +10,7 @@
     </Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\X64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\EmptyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Allocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Intrinsic.cs" />
@@ -31,11 +32,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\Console.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\ConsoleColor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IDT.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\IOPort.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\PIC.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Toolkit\PS2Keyboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\Console.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\ConsoleColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\IDT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\PIC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\PS2Keyboard.cs" />
   </ItemGroup>
 </Project>

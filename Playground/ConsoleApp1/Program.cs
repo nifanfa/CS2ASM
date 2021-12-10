@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime;
-using Toolkit;
+using System.Platform.Amd64;
 using static System.Runtime.Intrinsic;
 
 namespace ConsoleApp1
@@ -34,7 +34,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             //shutdown qemu
-            //IOPort.Out16(0x604, 0x2000);
+            //X64.Out16(0x604, 0x2000);
 
             //In8(0x60);
 

@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using static System.Runtime.Intrinsic;
 
-namespace Toolkit
+namespace System.Platform.Amd64
 {
     public static unsafe class IDT
     {
@@ -261,8 +261,8 @@ namespace Toolkit
         private static void IRQ33()
         {
             asm("pushaq");
-            asm("push 33");
-            asm("call Toolkit.IDT.OnInterrupt");
+            asm("push 33"); //This will be cleared automatically after call System.Platform.Amd64.IDT.OnInterrupt
+            asm("call System.Platform.Amd64.IDT.OnInterrupt");
             asm("popaq");
             asm("iretq");
         }
