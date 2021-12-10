@@ -39,7 +39,7 @@ namespace CS2ASM.AMD64
                 }
 
             this.Append($"call {Amd64.SafeMethodName(def.EntryPoint)}");
-            this.Append();
+            this.Append($"jmp die");
         }
 
         public override void Translate(MethodDef def)
@@ -53,12 +53,13 @@ namespace CS2ASM.AMD64
             this.Append($"{Amd64.SafeMethodName(def)}:");
 
             //Call.cs Line 19
-            this.Append($"push rbp");
+            this.Append($"mov r8,rbp");
             this.Append($"mov rbp,rsp");
 
             //For Variables
             //pop at Ret.cs
             this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
+            this.Append($"push r8");
             
             //Start Parse IL Code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)

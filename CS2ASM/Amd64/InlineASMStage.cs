@@ -26,7 +26,7 @@ namespace CS2ASM.AMD64
                         if (v.Name == cpy)
                         {
                             //ldarg
-                            comment = comment.Replace($"{{{cpy}}}", $"[rbp+{(paramCount + 1 - v.Index) * 8}]");
+                            comment = comment.Replace($"{{{cpy}}}", $"[rbp+{(paramCount + 0 - v.Index) * 8}]");
                             goto End;
                         }
                     }
