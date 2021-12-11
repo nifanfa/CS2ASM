@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Sizeof)]
         public static void Sizeof(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"mov rax,{Util.SizeOfInStack(((TypeDef)ins.Operand).Fields)}");
+            if (ins.Operand is TypeSpec)
+                arch.Append($"mov rax,{arch.PointerSize}");
+            else
+                arch.Append($"mov rax,{Util.SizeOfInStack(((TypeDef)ins.Operand).Fields)}");
             arch.Append($"push rax");
         }
     }

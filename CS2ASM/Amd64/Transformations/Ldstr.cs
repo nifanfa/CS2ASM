@@ -22,14 +22,15 @@ namespace CS2ASM
                 }
                 ulong Index = OperandParser.Stloc(nextIns) + 1;
 
-                arch.Append($"mov qword [rbp-{Index * 8}],{Amd64.SafeMethodName(def)}.{ins.Offset:X4}.String");
+                arch.Append($"push qword {Amd64.SafeMethodName(def)}.{ins.Offset:X4}.String");
+                arch.Append($"push qword {((string)ins.Operand).Length}");
+                arch.Append($"call System.String.Ctor");
+                arch.Append($"pop rax");
+                arch.Append($"mov qword [rbp-{Index * 8}],rax");
 
-                arch.Append($"jmp {Amd64.SafeMethodName(def)}.{ins.Offset:X4}");
+                arch.Append($"jmp $+{bytes.Length + 2}");
                 arch.Append($"{Amd64.SafeMethodName(def)}.{ins.Offset:X4}.String:");
-                arch.Append($"dq {((string)ins.Operand).Length}");
-                arch.Append($"dq $+8");
                 arch.Append($"db {text}");
-                arch.Append($"{Amd64.SafeMethodName(def)}.{ins.Offset:X4}:");
                 arch.SkipNextInstruction();
             }
             else

@@ -12,6 +12,8 @@ namespace CS2ASM
         public StringWriter _Code = new StringWriter();
         public int InstructionIndex = 0;
 
+        public int PointerSize = 8;
+
         public void SkipNextInstruction()
         {
             InstructionIndex++;

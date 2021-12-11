@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldnull)]
         public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldnull is not implemented");
+            //Here can be implementation of disposing
+            arch.Append($"push qword 0");
         }
     }
 }
