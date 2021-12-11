@@ -18,5 +18,13 @@
             X64.Out8(0x21, 0xFD);
             X64.Out8(0xA1, 0xFF);
         }
+
+        public static void EOI(uint irq)
+        {
+            if (irq >= 40)
+                X64.Out8(0xA0, 0x20);
+
+            X64.Out8(0x20, 0x20);
+        }
     }
 }
