@@ -19,8 +19,6 @@ namespace ConsoleApp1
          *
          *  TODO - Free the unused strings
          *  TODO - Inherited class implementation
-         *  
-         *  TODO - Div Div_Un Rem Rem_Un
          */
 
         public struct StructTest 
