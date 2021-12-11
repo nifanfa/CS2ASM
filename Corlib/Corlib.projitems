@@ -12,7 +12,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\X64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\EmptyMethodAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\GC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime\Intrinsic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Boolean.cs" />

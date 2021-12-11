@@ -1,13 +1,11 @@
-﻿namespace System
+﻿namespace System.Runtime.CompilerServices
 {
-    public static class GC
+    public static class Unsafe
     {
-        //Static value supported now
+        //10 Megabytes
         public static ulong MemoryStart = 0xA00000;
 
-        //Newobj.cs
-        //Localloc.cs
-        public static ulong Allocate(ulong size)
+        public static ulong Stackalloc(ulong size)
         {
             ulong ptr = MemoryStart;
             MemoryStart = MemoryStart + size;

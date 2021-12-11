@@ -10,7 +10,7 @@ namespace CS2ASM
         public static void Newobj(BaseArch arch, Instruction ins, MethodDef def)
         {
             /*
-            arch.Append($"call System.GC.Allocate");
+            arch.Append($"call System.Runtime.CompilerServices.Unsafe.Stackalloc");
             arch.Append($"pop rbp");
             arch.Append($"push rax");
             arch.Append($"call {Util.SafeMethodName((MethodDef)ins.Operand)}");
