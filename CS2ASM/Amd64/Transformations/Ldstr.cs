@@ -35,7 +35,7 @@ namespace CS2ASM
             }
             else
             {
-                if(!InlineASMStage.NewMethod(arch, ins, def, nextIns)) 
+                if(!InlineASM.NewMethod(arch, ins, def, nextIns)) 
                 {
                     throw new NotImplementedException();
                 }
