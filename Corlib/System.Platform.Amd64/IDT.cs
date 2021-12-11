@@ -311,6 +311,11 @@ namespace System.Platform.Amd64
             string s = "Interrupt:";
             Console.WriteStr(s, 7);
             Console.WriteStr(Convert.ToString(irq), 8);
+
+            if (irq == 0x21)
+            {
+                PS2Keyboard.OnInterrupt();
+            }
         }
 
         [EmptyMethod]

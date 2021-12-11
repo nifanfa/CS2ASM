@@ -78,8 +78,7 @@ namespace ConsoleApp1
             {
                 byte tempColor = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.LightCyan;
-                char c = PS2Keyboard.GetKeyPressed();
-                Console.WriteAt(c, 0, 24);
+                Console.WriteAt(PS2Keyboard.KeyPressed, 0, 24);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteAt((char)b, 79, 24);
                 b++;
