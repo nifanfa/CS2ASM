@@ -14,7 +14,8 @@
             X64.Out8(0xA1, 0x01);
             X64.Out8(0x21, 0x0);
             X64.Out8(0xA1, 0x0);
-
+            
+            //Clear Mask Of IRQ21(PS/2 Keyboard Interrupt)
             X64.Out8(0x21, 0xFD);
             X64.Out8(0xA1, 0xFF);
         }
