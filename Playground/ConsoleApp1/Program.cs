@@ -73,6 +73,7 @@ namespace ConsoleApp1
         {
             byte b = 0x30; // 0
         Loop:
+            X64.Hlt();
             for (int i = 0; i < 10; i++)
             {
                 byte tempColor = Console.ForegroundColor;
