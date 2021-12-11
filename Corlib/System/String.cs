@@ -19,7 +19,7 @@ namespace System
             //Ldnull can be a way freeing objects
             string Str = null;
 
-            ulong* Ptr = (ulong*)Allocator.malloc((ulong)sizeof(void*) * 2 + (Size * 2));
+            ulong* Ptr = (ulong*)Allocator.malloc((ulong)sizeof(void*) * 2);
             Ptr[0] = Size;
             Ptr[1] = (ulong)Chr;
 
