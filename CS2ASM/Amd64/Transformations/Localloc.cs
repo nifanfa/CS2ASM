@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Localloc)]
         public static void Localloc(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Localloc is not implemented");
+            arch.Append($"call System.Runtime.Allocator.malloc");
         }
     }
 }
