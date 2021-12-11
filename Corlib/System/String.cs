@@ -19,9 +19,11 @@ namespace System
             //Ldnull can be a way freeing objects
             string Str = null;
 
-            ulong* Ptr = stackalloc ulong[2];
-            Ptr[0] = Size;
-            Ptr[1] = (ulong)Chr;
+            ulong* Ptr = stackalloc ulong[3];
+            //Not working
+            Ptr[0] = (ulong)(sizeof(void*) * 2); //Object.Size
+            Ptr[1] = Size;
+            Ptr[2] = (ulong)Chr;
 
             asm("mov rax,{Ptr}");
             asm("mov {Str},rax");

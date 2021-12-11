@@ -5,6 +5,11 @@ using static System.Runtime.Intrinsic;
 
 namespace ConsoleApp1
 {
+    public class TestClass
+    {
+        public ulong Value = 123456;
+    }
+
     public static unsafe class Program
     {
         /*
@@ -31,6 +36,9 @@ namespace ConsoleApp1
 
         public static void Main()
         {
+            TestClass testClass = new TestClass();
+            testClass.Size = 100;
+
             //shutdown qemu
             //X64.Out16(0x604, 0x2000);
 
@@ -48,6 +56,10 @@ namespace ConsoleApp1
             string s1 = "Contributors: nifanfa (Owner), LeonTheDev";
 
             Console.WriteStr(s1, 2);
+
+            Console.WriteStr(Convert.ToString(testClass.Size), 19);
+            Console.WriteStr(Convert.ToString(testClass.Value), 20);
+            Console.WriteStr(Convert.ToString(s1.Size), 21);
 
             StructTest* STP = (StructTest*)0xb8360;
             (&STP[0])->U1 = 0x52;

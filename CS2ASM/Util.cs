@@ -39,12 +39,24 @@ namespace CS2ASM
             }
         }
 
-        public static ulong IndexInStack(IList<FieldDef> defs,FieldDef def)
+        public static ulong IndexInStack(FieldDef def)
         {
-            ulong Index = 0;
-            for (int i = 0; i < defs.IndexOf(def); i++) 
+            List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
+            TypeDef td = def.DeclaringType;
+            do
             {
-                Index += (ulong)SizeInStack(defs[i].FieldType.FullName);
+                fields.Insert(0, td.Fields);
+                if (def.DeclaringType.IsValueType) break;
+            } while ((td = (TypeDef)td.BaseType) != null);
+
+            ulong Index = 0;
+            foreach (var v1 in fields)
+            {
+                foreach (var v2 in v1)
+                {
+                    if (v2 == def) break;
+                    Index += (ulong)SizeInStack(v2.FieldType.FullName);
+                }
             }
             return Index;
         }
