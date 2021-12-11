@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Localloc)]
         public static void Localloc(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"call System.Runtime.Allocator.malloc");
+            arch.Append($"call System.GC.Allocate");
         }
     }
 }
