@@ -38,11 +38,11 @@ namespace CS2ASM.AMD64
                 {
                     if (M.IsStaticConstructor)
                     {
-                        this.Append($"call {Amd64.SafeMethodName(M)}");
+                        this.Append($"call {Util.SafeMethodName(M)}");
                     }
                 }
 
-            this.Append($"call {Amd64.SafeMethodName(def.EntryPoint)}");
+            this.Append($"call {Util.SafeMethodName(def.EntryPoint)}");
             this.Append($"jmp die");
 
             //For IDT
@@ -95,7 +95,7 @@ namespace CS2ASM.AMD64
             var BrS = GetAllBranches(def);
 
             //Label
-            this.Append($"{Amd64.SafeMethodName(def)}:");
+            this.Append($"{Util.SafeMethodName(def)}:");
 
             if (!Amd64.IsEmptyMethod(def))
             {
@@ -121,7 +121,7 @@ namespace CS2ASM.AMD64
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
                     {
-                        this.Append($"{Amd64.BrLabelName(ins, def, true)}:");
+                        this.Append($"{Util.BrLabelName(ins, def, true)}:");
                     }
                 }
 
@@ -156,7 +156,7 @@ namespace CS2ASM.AMD64
                     if (v.IsStatic)
                     {
                         this.Append($";{v}");
-                        this.Append($"{Amd64.SafeFieldName(typ, v)}:");
+                        this.Append($"{Util.SafeFieldName(typ, v)}:");
                         this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
                     }
                 }
@@ -168,27 +168,6 @@ namespace CS2ASM.AMD64
             s = s.Trim();
 
             base.Append(s);
-        }
-
-
-        public static string SafeMethodName(MethodDef meth)
-        {
-            return $"{Amd64.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
-        }
-
-        public static string SafeTypeName(TypeDef def)
-        {
-            return $"{def.Namespace}.{def.Name}";
-        }
-
-        public static string SafeFieldName(TypeDef type, FieldDef field)
-        {
-            return $"{type.Namespace}.{field.Name}";
-        }
-
-        public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
-        {
-            return $"{Amd64.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using dnlib.DotNet;
+using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -56,6 +57,26 @@ namespace CS2ASM
                 Size += (ulong)SizeInStack(defs[i].FieldType.FullName);
             }
             return Size;
+        }
+
+        public static string SafeMethodName(MethodDef meth)
+        {
+            return $"{Util.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
+        }
+
+        public static string SafeTypeName(TypeDef def)
+        {
+            return $"{def.Namespace}.{def.Name}";
+        }
+
+        public static string SafeFieldName(TypeDef type, FieldDef field)
+        {
+            return $"{type.Namespace}.{field.Name}";
+        }
+
+        public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
+        {
+            return $"{Util.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
 
         public static void Start(string file, string args)

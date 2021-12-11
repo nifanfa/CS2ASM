@@ -13,7 +13,7 @@ namespace CS2ASM
             arch.Append($"call System.GC.Allocate");
             arch.Append($"pop rbp");
             arch.Append($"push rax");
-            arch.Append($"call {Amd64.SafeMethodName((MethodDef)ins.Operand)}");
+            arch.Append($"call {Util.SafeMethodName((MethodDef)ins.Operand)}");
             arch.Append($"pop rbp");
             //arch.Append($"add rsp,8"); //This will be called by stloc so we don't need to do it here
             */
