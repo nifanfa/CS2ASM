@@ -25,7 +25,7 @@ namespace System.Platform.Amd64
 
         static IDT()
         {
-            IDTEntry* Entries = (IDTEntry*)0x320_0000;
+            IDTEntry* Entries = stackalloc IDTEntry[256];
 
             Set(Entries, 0, (uint)(delegate*<void>)(&IRQ0), 0x08, 0x8E);
             Set(Entries, 1, (uint)(delegate*<void>)(&IRQ1), 0x08, 0x8E);
@@ -284,7 +284,7 @@ namespace System.Platform.Amd64
             Set(Entries, 254, (uint)(delegate*<void>)(&IRQ254), 0x08, 0x8E);
             Set(Entries, 255, (uint)(delegate*<void>)(&IRQ255), 0x08, 0x8E);
 
-            IDTDescriptor* Descriptor = (IDTDescriptor*)0x321_0000;
+            IDTDescriptor* Descriptor = stackalloc IDTDescriptor[1];
             Descriptor->Limit = (ushort)((sizeof(IDTEntry) * 256) - 1);
             Descriptor->Base = (ulong)Entries;
 

@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Mul_Ovf)]
         public static void Mul_Ovf(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Mul_Ovf is not implemented");
+            //TO-DO Overflow Exception
+            Mul(arch, ins, def);
         }
     }
 }
