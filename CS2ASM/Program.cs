@@ -28,22 +28,20 @@ namespace CS2ASM
                     arch = new Amd64();
                     break;
             }
-            //arch.DebugEnabled = false;
-            arch.Setup(def);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            arch.Translate(def.EntryPoint);
+            arch.Before(def);
+            arch.InitializeStaticFields(def.Types);
             foreach (var typ in def.Types)
             {
                 foreach (var meth in typ.Methods)
                 {
-                    if (meth.FullName != def.EntryPoint.FullName)
-                        arch.Translate(meth);
+                    arch.Translate(meth);
                 }
             }
-            arch.InitializeStaticFields(def.Types);
+            arch.After();
 
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");

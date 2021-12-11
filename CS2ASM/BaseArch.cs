@@ -41,6 +41,8 @@ Br.OpCode.Code == Code.Br_S
 )
                    select Br;
         }
-        public abstract void Setup(ModuleDefMD def);
+
+        internal abstract void After();
+        public abstract void Before(ModuleDefMD def);
     }
 }
