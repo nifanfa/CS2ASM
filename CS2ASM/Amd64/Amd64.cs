@@ -21,6 +21,8 @@ namespace CS2ASM.AMD64
     {
         public override void Setup(ModuleDefMD def)
         {
+            this.PointerSize = 8;
+
             var methodInfos = from M in typeof(Amd64Transformation).GetMethods()
                               where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
                               select M;
