@@ -16,6 +16,15 @@ namespace CS2ASM
             arch.Append($"push rax");
             arch.Append($"push rax");
             arch.Append($"call {Util.SafeMethodName((MethodDef)ins.Operand)}");
+
+            Sizeof(arch, new Instruction() { Operand = ((MethodDef)ins.Operand).DeclaringType }, def);
+
+            //Object.Size
+            arch.Append($"xor rdx,rdx");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"push rax");
+            arch.Append($"add [rax],rdx");
         }
     }
 }
