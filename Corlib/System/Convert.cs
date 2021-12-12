@@ -1,7 +1,8 @@
 ﻿namespace System
 {
     public static unsafe class Convert
-    {
+	{
+		//Preventing memory overflow
 		private static string Result = "                     ";
 
 		public static string ToString(ulong val)
