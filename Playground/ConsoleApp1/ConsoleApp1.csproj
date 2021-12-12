@@ -14,4 +14,12 @@
 	</PropertyGroup>
 
 	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
+
+	<ItemGroup>
+	  <Compile Remove="ProgramOld.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="ProgramOld.cs" />
+	</ItemGroup>
 </Project>

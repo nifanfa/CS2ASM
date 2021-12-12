@@ -9,7 +9,9 @@ namespace CS2ASM
         [ILTransformation(Code.Brtrue)]
         public static void Brtrue(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Brtrue is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,0");
+            arch.Append($"jne {Util.BrLabelName(ins, def)}");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Bne_Un_S)]
         public static void Bne_Un_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Bne_Un_S is not implemented");
+            Bne_Un(arch, ins, def);
         }
     }
 }

@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Bne_Un)]
         public static void Bne_Un(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Bne_Un is not implemented");
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,rdx");
+            arch.Append($"jne {Util.BrLabelName(ins, def)}");
         }
     }
 }

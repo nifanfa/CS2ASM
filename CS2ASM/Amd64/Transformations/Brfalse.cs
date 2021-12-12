@@ -9,7 +9,9 @@ namespace CS2ASM
         [ILTransformation(Code.Brfalse)]
         public static void Brfalse(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Brfalse is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,0");
+            arch.Append($"je {Util.BrLabelName(ins, def)}");
         }
     }
 }
