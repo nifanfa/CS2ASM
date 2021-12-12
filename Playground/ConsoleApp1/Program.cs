@@ -51,7 +51,7 @@ namespace ConsoleApp1
             //testClass.Size = 100;
 
             //shutdown qemu
-            //X64.Out16(0x604, 0x2000);
+            //x64.Out16(0x604, 0x2000);
 
             //In8(0x60);
 
