@@ -6,6 +6,7 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
+            x64.Out8(0x60, 0x00);
             Banner();
 
             Console.ResetColor();
