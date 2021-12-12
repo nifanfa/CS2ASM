@@ -23,7 +23,7 @@ namespace ConsoleApp1
          *  Other instructions such as loops, if statements and returning variables are all supported.
          *
          *  TODO - Free the unused strings
-         *  Don't instance strings in a loop
+         *  Don't instance strings in a loop make it static
          */
 
         public struct StructTest 
