@@ -39,7 +39,9 @@ Br.OpCode.Code == Code.Brtrue ||
 Br.OpCode.Code == Code.Brtrue_S ||
 Br.OpCode.Code == Code.Br_S ||
 Br.OpCode.Code == Code. Bne_Un ||
-Br.OpCode.Code == Code. Bne_Un_S 
+Br.OpCode.Code == Code. Bne_Un_S ||
+Br.OpCode.Code == Code. Beq ||
+Br.OpCode.Code == Code. Beq_S
 )
                    select Br;
         }

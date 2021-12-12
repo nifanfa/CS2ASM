@@ -9,7 +9,11 @@ namespace CS2ASM
         [ILTransformation(Code.Beq)]
         public static void Beq(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Beq is not implemented");
+            //WIP
+            arch.Append($"pop rdx");
+            arch.Append($"pop rax");
+            arch.Append($"cmp rax,rdx");
+            arch.Append($"je {Util.BrLabelName(ins, def)}");
         }
     }
 }

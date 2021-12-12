@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Beq_S)]
         public static void Beq_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Beq_S is not implemented");
+            Beq(arch, ins, def);
         }
     }
 }
