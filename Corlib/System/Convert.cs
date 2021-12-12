@@ -2,10 +2,16 @@
 {
     public static unsafe class Convert
     {
-        public static string ToString(ulong val)
+		private static string Result = "                     ";
+
+		public static string ToString(ulong val)
         {
-			string s = "                     ";
-			int i = 19;
+			for(int idx = 0; idx < 21; idx++) 
+			{
+				Result.Value[idx] = ' ';
+			}
+
+			int i = 21;
 
 			do
 			{
@@ -14,13 +20,13 @@
 
 				d += 0x30;
 				i = i - 1;
-				s.Value[i] = (char)d;
+				Result.Value[i] = (char)d;
 			} while (val > 0);
 
 			i++;
 
 
-			return s;
+			return Result;
         }
     }
 }
