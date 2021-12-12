@@ -39,14 +39,15 @@ namespace CS2ASM
             }
         }
 
-        public static ulong IndexInStack(FieldDef def)
+        public static ulong SizeOrIndexInStack(TypeDef type,FieldDef def)
         {
             List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
-            TypeDef td = def.DeclaringType;
+            TypeDef td = type;
             do
             {
                 fields.Insert(0, td.Fields);
-                if (def.DeclaringType.IsValueType) break;
+                //Here is for struct
+                if (td.IsValueType) break;
             } while ((td = (TypeDef)td.BaseType) != null);
 
             ulong Index = 0;
@@ -59,16 +60,6 @@ namespace CS2ASM
                 }
             }
             return Index;
-        }
-
-        public static ulong SizeOfInStack(IList<FieldDef> defs)
-        {
-            ulong Size = 0;
-            for (int i = 0; i < defs.Count; i++)
-            {
-                Size += (ulong)SizeInStack(defs[i].FieldType.FullName);
-            }
-            return Size;
         }
 
         public static string SafeMethodName(MethodDef meth)

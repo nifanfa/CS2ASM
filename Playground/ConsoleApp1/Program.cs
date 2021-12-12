@@ -23,7 +23,6 @@ namespace ConsoleApp1
          *  Other instructions such as loops, if statements and returning variables are all supported.
          *
          *  TODO - Free the unused strings
-         *  TODO - Inherited class implementation
          */
 
         public struct StructTest 
@@ -70,7 +69,6 @@ namespace ConsoleApp1
             //STP->U3 = (byte)(STP->U1 % STP->U2);
             //STP->U3 = (byte)(STP->U1 / STP->U2);
 
-            // IDT On Interrupt not implemented yet, using loop for now.
             Loop();
         }
 

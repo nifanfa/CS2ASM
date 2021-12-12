@@ -10,7 +10,7 @@ namespace CS2ASM
         [ILTransformation(Code.Newobj)]
         public static void Newobj(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push 4096");
+            Sizeof(arch, new Instruction() { Operand = ((MethodDef)ins.Operand).DeclaringType }, def);
             arch.Append($"call System.Runtime.CompilerServices.Unsafe.Stackalloc");
             arch.Append($"pop rax");
             arch.Append($"push rax");

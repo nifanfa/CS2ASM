@@ -13,7 +13,10 @@ namespace CS2ASM
             if (ins.Operand is TypeSpec)
                 arch.Append($"mov rax,{Util.SizeInStack(((TypeSpec)ins.Operand).ScopeType.FullName)}");
             else
-                arch.Append($"mov rax,{Util.SizeOfInStack(((TypeDef)ins.Operand).Fields)}");
+            {
+                arch.Append($"mov rax,{Util.SizeOrIndexInStack((TypeDef)ins.Operand, null)}");
+            }
+
             arch.Append($"push rax");
         }
     }

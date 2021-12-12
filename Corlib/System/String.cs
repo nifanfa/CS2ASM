@@ -22,7 +22,6 @@ namespace System
             char* Char = stackalloc char[(int)Length];
             x64.Movsb(Char, Sample, Length * 2);
             Str.Length = Length;
-            Str.Size = Length * 2;
             Str.Value = Char;
             return Str;
         }
