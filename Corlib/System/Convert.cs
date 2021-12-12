@@ -7,12 +7,12 @@
 
 		public static string ToString(ulong val)
         {
-			for(int idx = 0; idx < 21; idx++) 
+			for(ulong idx = 0; idx < 21; idx++) 
 			{
-				Result.Value[idx] = ' ';
+				Result[idx] = ' ';
 			}
 
-			int i = 21;
+			ulong i = 21;
 
 			do
 			{
@@ -21,7 +21,7 @@
 
 				d += 0x30;
 				i = i - 1;
-				Result.Value[i] = (char)d;
+				Result[i] = (char)d;
 			} while (val > 0);
 
 			i++;

@@ -21,7 +21,7 @@
         {
             for (byte i = 0; i < s.Length; i++)
             {
-                Console.WriteAt(s.Value[i], i, line);
+                Console.WriteAt(s[i], i, line);
             }
         }
 

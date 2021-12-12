@@ -14,7 +14,19 @@ namespace System
     public unsafe class String
     {
         public ulong Length;
-        public char* Value;
+        private char* Value;
+
+        public char this[ulong index] 
+        {
+            get 
+            {
+                return Value[index];
+            }
+            set 
+            {
+                Value[index] = value;
+            }
+        }
 
         public static string Ctor(char* Sample, ulong Length)
         {
