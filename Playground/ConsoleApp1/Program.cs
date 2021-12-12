@@ -6,7 +6,7 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
-            Console.Setup();
+            Console.Write("Hello World! CS2ASM By nifanfa And Contributors: LeonTheDev");
             Console.BackgroundColor = ConsoleColor.Purple;
             Console.ForegroundColor = ConsoleColor.White;
             for (byte y = 10; y < 15; y++)
@@ -23,8 +23,10 @@ namespace ConsoleApp1
                         Console.WriteAt('T', x, y);
                 }
             Console.ResetColor();
-            PIT.Wait(2000);
-            x64.Out16(0x604, 0x2000);
+            //Shutdown after 2sec
+            //PIT.Wait(2000);
+            //x64.Out16(0x604, 0x2000);
+            for (; ; );
         }
     }
 }

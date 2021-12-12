@@ -306,14 +306,8 @@ namespace System.Platform.Amd64
             (&Entry[Index])->Reserved1 = 0;
         }
 
-        //Preventing memory overflow
-        public static string Str = "Interrupt:";
-
         private static void OnInterrupt(ulong irq)
         {
-            Console.WriteStr(Str, 7);
-            Console.WriteStr(Convert.ToString(irq), 8);
-
             if (irq == 0x20)
             {
                 PIT.OnInterrupt();

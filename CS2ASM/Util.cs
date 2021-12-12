@@ -39,7 +39,7 @@ namespace CS2ASM
             }
         }
 
-        public static ulong SizeOrIndexInStack(TypeDef type,FieldDef def)
+        public static ulong SizeOrIndexInStack(TypeDef type, FieldDef def)
         {
             List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
             TypeDef td = type;
@@ -64,7 +64,23 @@ namespace CS2ASM
 
         public static string SafeMethodName(MethodDef meth)
         {
-            return $"{Util.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
+            string result = $"{Util.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
+            bool dotP = false;
+            for (int i = 0; i < meth.Parameters.Count; i++)
+            {
+                if (meth.Parameters[i].Name != string.Empty)
+                {
+                    if (!dotP)
+                    {
+                        result += ".";
+                        dotP = true;
+                    }
+                    result += meth.Parameters[i].Name;
+                    if (i != meth.Parameters.Count - 1)
+                        result += ".";
+                }
+            }
+            return result;
         }
 
         public static string SafeTypeName(TypeDef def)

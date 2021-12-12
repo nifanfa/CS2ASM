@@ -31,7 +31,7 @@ namespace CS2ASM
                 }
                 arch.Append($"push qword {Util.SafeMethodName(def)}.{ins.Offset:X4}.String");
                 arch.Append($"push qword {((string)ins.Operand).Length}");
-                arch.Append($"call System.String.Ctor");
+                arch.Append($"call System.String.Ctor.chr.length");
 
                 arch.Append($"jmp $+{bytes.Length + 2}");
                 arch.Append($"{Util.SafeMethodName(def)}.{ins.Offset:X4}.String:");

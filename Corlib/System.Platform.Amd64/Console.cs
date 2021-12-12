@@ -7,38 +7,19 @@
 
         private static byte Color = 0;
         private static ulong Position = 0;
-        public static void Alphabet()
-        {
-            byte b = 0x41; // Start at 0x41 (character A)
-            for (int i = 0; i < 26; i++) // Loop through next 25 characters after A
-            {
-                Write((char)b);
-                b++;
-            }
-        }
 
-        public static void WriteStr(string s, byte line)
-        {
-            for (byte i = 0; i < s.Length; i++)
-            {
-                Console.WriteAt(s[i], i, line);
-            }
-        }
-
-        public static void AllSymbols()
-        {
-            byte b = 0x01; // Start at 0x01
-            for (int i = 0; i < 256; i++)
-            {
-                Write((char)b);
-                b++;
-            }
-        }
-
-        public static void Setup()
+        static Console()
         {
             ResetColor();
             Clear();
+        }
+
+        public static void Write(string s)
+        {
+            for (byte i = 0; i < s.Length; i++)
+            {
+                Console.Write(s[i]);
+            }
         }
 
         public static void ResetColor()
@@ -49,8 +30,8 @@
 
         public static void Write(char chr)
         {
-            byte* p = GetVideoAddress();
-            *p = (byte)chr;
+            byte* p = ((byte*)(0xb8000 + Position));
+            * p = (byte)chr;
             p++;
             *p = Color;
             Position += 2;
@@ -85,11 +66,6 @@
         {
             get { return (byte)(Color >> 4); }
             set { Color &= 0x0F; Color |= (byte)((value & 0x0F) << 4); }
-        }
-
-        private static byte* GetVideoAddress()
-        {
-            return (byte*)(0xb8000 + Position);
         }
     }
 }

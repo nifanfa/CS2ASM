@@ -11,7 +11,7 @@ namespace CS2ASM
         public static void Newobj(BaseArch arch, Instruction ins, MethodDef def)
         {
             Sizeof(arch, new Instruction() { Operand = ((MethodDef)ins.Operand).DeclaringType }, def);
-            arch.Append($"call System.Runtime.CompilerServices.Unsafe.Stackalloc");
+            arch.Append($"call System.Runtime.CompilerServices.Unsafe.Stackalloc.size");
             arch.Append($"pop rax");
             arch.Append($"push rax");
             arch.Append($"push rax");

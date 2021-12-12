@@ -28,13 +28,13 @@ namespace System
             }
         }
 
-        public static string Ctor(char* Sample, ulong Length)
+        public static string Ctor(char* chr, ulong length)
         {
             String Str = new String();
-            char* Char = stackalloc char[(int)Length];
-            x64.Movsb(Char, Sample, Length * 2);
-            Str.Length = Length;
-            Str.Size = Str.Size + Length * 2;
+            char* Char = stackalloc char[(int)length];
+            x64.Movsb(Char, chr, length * 2);
+            Str.Length = length;
+            Str.Size = Str.Size + length * 2;
             Str.Value = Char;
             return Str;
         }
