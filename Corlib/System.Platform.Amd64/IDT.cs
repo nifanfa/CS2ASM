@@ -314,10 +314,16 @@ namespace System.Platform.Amd64
             Console.WriteStr(Str, 7);
             Console.WriteStr(Convert.ToString(irq), 8);
 
+            if (irq == 0x20)
+            {
+                PIT.OnInterrupt();
+            }
             if (irq == 0x21)
             {
                 PS2Keyboard.OnInterrupt();
             }
+
+            PIC.EOI(irq);
 
             byte tempColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.LightCyan;

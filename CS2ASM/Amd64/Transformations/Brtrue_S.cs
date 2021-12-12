@@ -9,9 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Brtrue_S)]
         public static void Brtrue_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop rax");
-            arch.Append($"cmp rax,1");
-            arch.Append($"je {Util.BrLabelName(ins, def)}");
+            Brtrue(arch, ins, def);
         }
     }
 }

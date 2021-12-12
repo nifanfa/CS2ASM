@@ -10,6 +10,7 @@
     </Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\PIT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Platform.Amd64\x64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\EmptyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\Unsafe.cs" />

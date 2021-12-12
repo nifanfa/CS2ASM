@@ -14,18 +14,32 @@
             x64.Out8(0xA1, 0x01);
             x64.Out8(0x21, 0x0);
             x64.Out8(0xA1, 0x0);
-            
-            //Clear Mask Of IRQ21(PS/2 Keyboard Interrupt)
-            x64.Out8(0x21, 0xFD);
-            x64.Out8(0xA1, 0xFF);
         }
 
-        public static void EOI(uint irq)
+        public static void EOI(ulong irq)
         {
             if (irq >= 40)
                 x64.Out8(0xA0, 0x20);
 
             x64.Out8(0x20, 0x20);
+        }
+
+        public static void ClearMask(byte irq)
+        {
+            ushort port;
+            byte value;
+
+            if (irq < 8)
+            {
+                port = 0x21;
+            }
+            else
+            {
+                port = 0xA1;
+                irq -= 8;
+            }
+            value = (byte)(x64.In8(port) & ~(1 << irq));
+            x64.Out8(port, value);
         }
     }
 }

@@ -37,9 +37,14 @@
 
         public static void Setup()
         {
+            ResetColor();
+            Clear();
+        }
+
+        public static void ResetColor()
+        {
             BackgroundColor = ConsoleColor.Black;
             ForegroundColor = ConsoleColor.White;
-            Clear();
         }
 
         public static void Write(char chr)

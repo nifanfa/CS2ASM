@@ -3,6 +3,11 @@ namespace System.Platform.Amd64
 {
     public static class PS2Keyboard
     {
+        static PS2Keyboard()
+        {
+            PIC.ClearMask(0x21);
+        }
+
         public static char KeyPressed = ' ';
 
         public static void OnInterrupt() 

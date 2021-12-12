@@ -1,6 +1,5 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 
 namespace CS2ASM
 {
@@ -9,7 +8,9 @@ namespace CS2ASM
         [ILTransformation(Code.Not)]
         public static void Not(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Not is not implemented");
+            arch.Append($"pop rax");
+            arch.Append($"not rax");
+            arch.Append($"push rax");
         }
     }
 }
