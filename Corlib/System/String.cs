@@ -1,4 +1,6 @@
-﻿using System.Runtime;
+﻿using System.Platform.Amd64;
+using System.Runtime;
+using System.Runtime.CompilerServices;
 using static System.Runtime.Intrinsic;
 
 namespace System
@@ -14,20 +16,14 @@ namespace System
         public ulong Length;
         public char* Value;
 
-        public static string Ctor(char* Chr, ulong Size)
+        public static string Ctor(char* Sample, ulong Length)
         {
-            //Ldnull can be a way freeing objects
-            string Str = null;
-
-            ulong* Ptr = stackalloc ulong[3];
-            //Not working
-            Ptr[0] = (ulong)(sizeof(void*) * 2); //Object.Size
-            Ptr[1] = Size;
-            Ptr[2] = (ulong)Chr;
-
-            asm("mov rax,{Ptr}");
-            asm("mov {Str},rax");
-
+            String Str = new String();
+            char* Char = stackalloc char[(int)Length];
+            x64.Movsb(Char, Sample, Length * 2);
+            Str.Length = Length;
+            Str.Size = Length * 2;
+            Str.Value = Char;
             return Str;
         }
     }

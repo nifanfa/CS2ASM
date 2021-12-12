@@ -2,11 +2,19 @@
 
 namespace System.Platform.Amd64
 {
-    public static class X64
+    public static unsafe class x64
     {
         public static void Hlt()
         {
             asm("hlt");
+        }
+
+        public static void Movsb(void* dest, void* source, ulong count)
+        {
+            asm("mov rcx,{count}");
+            asm("mov rdi,{dest}");
+            asm("mov rsi,{source}");
+            asm("rep movsb");
         }
 
         public static byte In8(ushort port)

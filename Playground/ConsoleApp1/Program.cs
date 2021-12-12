@@ -55,11 +55,11 @@ namespace ConsoleApp1
 
             string s1 = "Contributors: nifanfa (Owner), LeonTheDev";
 
-            Console.WriteStr(s1, 2);
-
             Console.WriteStr(Convert.ToString(testClass.Size), 19);
             Console.WriteStr(Convert.ToString(testClass.Value), 20);
             Console.WriteStr(Convert.ToString(s1.Size), 21);
+
+            Console.WriteStr(s1, 2);
 
             StructTest* STP = (StructTest*)0xb8360;
             (&STP[0])->U1 = 0x52;
