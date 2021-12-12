@@ -36,7 +36,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             TestClass testClass = new TestClass();
-            testClass.Size = 100;
+            //testClass.Size = 100;
 
             //shutdown qemu
             //X64.Out16(0x604, 0x2000);
