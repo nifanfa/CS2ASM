@@ -6,27 +6,34 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
-            Console.Write("Hello World! CS2ASM By nifanfa And Contributors: LeonTheDev");
-            Console.BackgroundColor = ConsoleColor.Purple;
+            Banner();
+
+            Console.ResetColor();
+            Console.Write("Welcome to the CS2ASM demo!");
+            Console.ForegroundColor = ConsoleColor.LightGreen;
+            Console.WriteStrAt("Owner: nifanfa", 1);
+            Console.WriteStrAt("Contributors: LeonTheDev", 2);
+            Console.ResetColor();
+            for (; ; );
+        }
+
+        public static void Banner()
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
-            for (byte y = 10; y < 15; y++)
-                for (byte x = 35; x < 45; x++)
+            for (byte y = 9; y < 16; y++)
+            {
+                for (byte x = 34; x < 46; x++)
                 {
                     Console.WriteAt(' ', x, y);
-                    if (x == 38 && y == 12)
-                        Console.WriteAt('.', x, y);
-                    if (x == 39 && y == 12)
-                        Console.WriteAt('N', x, y);
-                    if (x == 40 && y == 12)
-                        Console.WriteAt('E', x, y);
-                    if (x == 41 && y == 12)
-                        Console.WriteAt('T', x, y);
                 }
-            Console.ResetColor();
-            //Shutdown after 2sec
-            //PIT.Wait(2000);
-            //x64.Out16(0x604, 0x2000);
-            for (; ; );
+            }
+            Console.WriteAt('C', 37, 12);
+            Console.WriteAt('S', 38, 12);
+            Console.WriteAt('2', 39, 12);
+            Console.WriteAt('A', 40, 12);
+            Console.WriteAt('S', 41, 12);
+            Console.WriteAt('M', 42, 12);
         }
     }
 }

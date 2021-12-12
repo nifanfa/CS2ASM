@@ -22,6 +22,14 @@
             }
         }
 
+        public static void WriteStrAt(string s, byte line)
+        {
+            for (byte i = 0; i < s.Length; i++)
+            {
+                Console.WriteAt(s[i], i, line);
+            }
+        }
+
         public static void ResetColor()
         {
             BackgroundColor = ConsoleColor.Black;
