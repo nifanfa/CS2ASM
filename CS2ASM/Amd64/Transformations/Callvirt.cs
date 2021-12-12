@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Callvirt)]
         public static void Callvirt(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Callvirt is not implemented");
+            Call(arch, ins, def);
+            //throw new NotImplementedException("Callvirt is not implemented");
         }
     }
 }

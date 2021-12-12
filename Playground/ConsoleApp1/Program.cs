@@ -8,6 +8,16 @@ namespace ConsoleApp1
     public class TestClass
     {
         public ulong Value = 123456;
+
+        public void WriteValue(byte line) 
+        {
+            Console.WriteStr(Convert.ToString(Value), line);
+        }
+
+        public void WriteLine(string s,byte line) 
+        {
+            Console.WriteStr(s, line);
+        }
     }
 
     public static unsafe class Program
@@ -37,6 +47,7 @@ namespace ConsoleApp1
         public static void Main()
         {
             TestClass testClass = new TestClass();
+            TestClass testClass1 = new TestClass();
             //testClass.Size = 100;
 
             //shutdown qemu
@@ -58,6 +69,13 @@ namespace ConsoleApp1
             Console.WriteStr(Convert.ToString(testClass.Size), 19);
             Console.WriteStr(Convert.ToString(testClass.Value), 20);
             Console.WriteStr(Convert.ToString(s1.Size), 21);
+
+            testClass.WriteLine("Hello World", 10);
+
+            testClass.Value = 123456;
+            testClass1.Value = 654321;
+            testClass.WriteValue(11);
+            testClass1.WriteValue(12);
 
             Console.WriteStr(s1, 2);
 
