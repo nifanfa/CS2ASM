@@ -317,12 +317,9 @@ namespace System.Platform.Amd64
                 PS2Keyboard.OnInterrupt();
             }
 
-            PIC.EOI(irq);
+            PIC.EndOfInterrupt(irq);
 
-            byte tempColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.LightCyan;
             Console.WriteAt(PS2Keyboard.KeyPressed, 0, 24);
-            Console.ForegroundColor = tempColor;
         }
 
         [EmptyMethod]

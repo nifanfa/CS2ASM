@@ -16,7 +16,7 @@
             x64.Out8(0xA1, 0x0);
         }
 
-        public static void EOI(ulong irq)
+        public static void EndOfInterrupt(ulong irq)
         {
             if (irq >= 40)
                 x64.Out8(0xA0, 0x20);
