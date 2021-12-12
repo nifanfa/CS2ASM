@@ -23,7 +23,7 @@ namespace ConsoleApp1
                         Console.WriteAt('T', x, y);
                 }
             Console.ResetColor();
-            PIT.Wait(1000);
+            PIT.Wait(2000);
             x64.Out16(0x604, 0x2000);
         }
     }
