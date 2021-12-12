@@ -60,7 +60,7 @@ namespace System.Platform.Amd64
     }
 }
 
-//When implemented switch implemented:
+//When switch implemented:
 /*          switch (KeyData)
             {
                 case 0x1E: return 'A';
