@@ -64,7 +64,7 @@ namespace CS2ASM.AMD64
             this.Append($"push r14");
             this.Append($"push r15");
             this.Append($"push %1"); //This will be cleared automatically after call System.Platform.Amd64.IDT.OnInterrupt
-            this.Append($"call System.Platform.Amd64.IDT.OnInterrupt.irq");
+            this.Append($"call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             this.Append($"pop r15");
             this.Append($"pop r14");
             this.Append($"pop r13");

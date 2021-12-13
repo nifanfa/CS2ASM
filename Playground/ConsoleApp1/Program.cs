@@ -21,6 +21,9 @@ namespace ConsoleApp1
         public static void Banner()
         {
             Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("CS2ASM By nifanfa And Contributors: LeonTheDev");
+            Console.BackgroundColor = ConsoleColor.Purple;
             Console.ForegroundColor = ConsoleColor.White;
             for (byte y = 9; y < 16; y++)
             {

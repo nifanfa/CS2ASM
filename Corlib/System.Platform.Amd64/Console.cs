@@ -6,7 +6,8 @@
         public const byte Height = 25;
 
         private static byte Color = 0;
-        private static ulong Position = 0;
+        public static ulong CursorX = 0;
+        public static ulong CursorY = 0;
 
         static Console()
         {
@@ -38,11 +39,23 @@
 
         public static void Write(char chr)
         {
-            byte* p = ((byte*)(0xb8000 + Position));
-            * p = (byte)chr;
+            byte* p = ((byte*)(0xb8000 + (CursorY * Width * 2) + (CursorX * 2)));
+            *p = (byte)chr;
             p++;
             *p = Color;
-            Position += 2;
+            CursorX++;
+            if (CursorX == Width)
+            {
+                CursorX = 0;
+                CursorY++;
+            }
+        }
+
+        public static void WriteLine(string s)
+        {
+            Write(s);
+            CursorX = 0;
+            CursorY++;
         }
 
         public static void WriteAt(char chr, byte x, byte y)
@@ -55,13 +68,15 @@
 
         public static void Clear()
         {
-            Position = 0;
+            CursorX = 0;
+            CursorY = 0;
             int Res = Width * Height;
             for (int i = 0; i < Res; i++)
             {
                 Write(' ');
             }
-            Position = 0;
+            CursorX = 0;
+            CursorY = 0;
         }
 
         public static byte ForegroundColor

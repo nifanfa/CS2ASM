@@ -75,7 +75,7 @@ namespace CS2ASM
                         result += ".";
                         dotP = true;
                     }
-                    result += meth.Parameters[i].Name;
+                    result += meth.Parameters[i].Type.TypeName.Replace("*", "");
                     if (i != meth.Parameters.Count - 1)
                         result += ".";
                 }
