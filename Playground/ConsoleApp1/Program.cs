@@ -11,7 +11,6 @@ namespace ConsoleApp1
 
             Console.ResetColor();
             Console.Write("Welcome to the CS2ASM demo!");
-            Console.ForegroundColor = ConsoleColor.LightGreen;
             Console.WriteStrAt("Owner: nifanfa", 1);
             Console.WriteStrAt("Contributors: LeonTheDev", 2);
             Console.ResetColor();
@@ -20,7 +19,6 @@ namespace ConsoleApp1
 
         public static void Banner()
         {
-            Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine("Hello World!");
             Console.WriteLine("CS2ASM By nifanfa And Contributors: LeonTheDev");
             Console.BackgroundColor = ConsoleColor.Purple;
@@ -32,12 +30,10 @@ namespace ConsoleApp1
                     Console.WriteAt(' ', x, y);
                 }
             }
-            Console.WriteAt('C', 37, 12);
-            Console.WriteAt('S', 38, 12);
-            Console.WriteAt('2', 39, 12);
-            Console.WriteAt('A', 40, 12);
-            Console.WriteAt('S', 41, 12);
-            Console.WriteAt('M', 42, 12);
+            Console.WriteAt('.', 38, 12);
+            Console.WriteAt('N', 39, 12);
+            Console.WriteAt('E', 40, 12);
+            Console.WriteAt('T', 41, 12);
         }
     }
 }
