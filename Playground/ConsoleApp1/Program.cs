@@ -10,17 +10,15 @@ namespace ConsoleApp1
             Banner();
 
             Console.ResetColor();
-            Console.Write("Welcome to the CS2ASM demo!");
-            Console.WriteStrAt("Owner: nifanfa", 1);
-            Console.WriteStrAt("Contributors: LeonTheDev", 2);
+            Console.WriteLine("Welcome to the CS2ASM demo!");
+            Console.WriteLine("Owner: nifanfa");
+            Console.WriteLine("Contributors: LeonTheDev");
             Console.ResetColor();
             for (; ; );
         }
 
         public static void Banner()
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("CS2ASM By nifanfa And Contributors: LeonTheDev");
             Console.BackgroundColor = ConsoleColor.Purple;
             Console.ForegroundColor = ConsoleColor.White;
             for (byte y = 9; y < 16; y++)
