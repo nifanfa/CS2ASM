@@ -9,7 +9,7 @@ namespace CS2ASM
 {
     public static class Util
     {
-        public static int SizeInStack(string Name)
+        public static int Size(string Name)
         {
             if (
                    Name == "System.Byte" ||
@@ -39,7 +39,7 @@ namespace CS2ASM
             }
         }
 
-        public static ulong SizeOrIndexInStack(TypeDef type, FieldDef def)
+        public static ulong SizeOrIndex(TypeDef type, FieldDef def)
         {
             List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
             TypeDef td = type;
@@ -56,10 +56,22 @@ namespace CS2ASM
                 foreach (var v2 in v1)
                 {
                     if (v2 == def) break;
-                    Index += (ulong)SizeInStack(v2.FieldType.FullName);
+                    Index += (ulong)Size(v2.FieldType.FullName);
                 }
             }
             return Index;
+        }
+
+        public static ulong SizeOf(ModuleDef module, string FullName)
+        {
+            foreach (var v in module.Types)
+            {
+                if (v.FullName == FullName)
+                {
+                    return SizeOrIndex(v, null);
+                }
+            }
+            throw new KeyNotFoundException();
         }
 
         public static string SafeMethodName(MethodDef meth)
@@ -81,18 +93,6 @@ namespace CS2ASM
                 }
             }
             return result;
-        }
-
-        public static ulong SizeOfObject(ModuleDef module) 
-        {
-            foreach(var v in module.Types) 
-            {
-                if(v.FullName == "System.Object") 
-                {
-                    return SizeOrIndexInStack(v, null);
-                }
-            }
-            return 0;
         }
 
         public static string SafeTypeName(TypeDef def)

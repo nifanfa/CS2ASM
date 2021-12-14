@@ -10,9 +10,9 @@ namespace ConsoleApp1
             x64.Out8(0x60, 0x00);
             Banner();
 
-            uint[] array = new uint[2];
-            array[0] = 123456789;
-            array[1] = 987654321;
+            byte[] array = new byte[2];
+            array[0] = 12;
+            array[1] = 32;
 
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));
