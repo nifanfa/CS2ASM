@@ -83,6 +83,18 @@ namespace CS2ASM
             return result;
         }
 
+        public static ulong SizeOfObject(ModuleDef module) 
+        {
+            foreach(var v in module.Types) 
+            {
+                if(v.FullName == "System.Object") 
+                {
+                    return SizeOrIndexInStack(v, null);
+                }
+            }
+            return 0;
+        }
+
         public static string SafeTypeName(TypeDef def)
         {
             return $"{def.Namespace}.{def.Name}";

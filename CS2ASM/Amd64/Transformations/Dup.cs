@@ -9,7 +9,6 @@ namespace CS2ASM
         [ILTransformation(Code.Dup)]
         public static void Dup(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Dup is not implemented");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldelem_U2)]
         public static void Ldelem_U2(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldelem_U2 is not implemented");
+            Ldelem(arch, ins, def);
         }
     }
 }

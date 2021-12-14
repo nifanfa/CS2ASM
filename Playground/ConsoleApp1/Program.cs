@@ -1,4 +1,5 @@
-﻿using System.Platform.Amd64;
+﻿using System;
+using System.Platform.Amd64;
 
 namespace ConsoleApp1
 {
@@ -8,6 +9,11 @@ namespace ConsoleApp1
         {
             x64.Out8(0x60, 0x00);
             Banner();
+
+            ulong[] array = new ulong[] { 123456789, 987654321 };
+
+            Console.WriteLine(Convert.ToString(array[0]));
+            Console.WriteLine(Convert.ToString(array[1]));
 
             Console.ResetColor();
             Console.WriteLine("Welcome to the CS2ASM demo!");

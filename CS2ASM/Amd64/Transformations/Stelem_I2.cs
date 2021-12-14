@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Stelem_I2)]
         public static void Stelem_I2(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stelem_I2 is not implemented");
+            Stelem(arch, ins, def);
         }
     }
 }

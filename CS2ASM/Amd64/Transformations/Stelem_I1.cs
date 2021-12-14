@@ -1,6 +1,7 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
+using System.Diagnostics;
 
 namespace CS2ASM
 {
@@ -9,7 +10,7 @@ namespace CS2ASM
         [ILTransformation(Code.Stelem_I1)]
         public static void Stelem_I1(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Stelem_I1 is not implemented");
+            Stelem(arch, ins, def);
         }
     }
 }

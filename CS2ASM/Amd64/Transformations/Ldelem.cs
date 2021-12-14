@@ -9,7 +9,15 @@ namespace CS2ASM
         [ILTransformation(Code.Ldelem)]
         public static void Ldelem(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldelem is not implemented");
+            arch.Append($"pop r14"); //index
+            arch.Append($"pop r15"); //ptr
+
+            arch.Append($"xor rdx,rdx");
+            arch.Append($"mov rax,8");
+            arch.Append($"mul r14");
+            arch.Append($"add r15,rax");
+            arch.Append($"add r15,{Util.SizeOfObject(def.Module)}");
+            arch.Append($"push qword [r15]");
         }
     }
 }
