@@ -10,7 +10,9 @@ namespace ConsoleApp1
             x64.Out8(0x60, 0x00);
             Banner();
 
-            ulong[] array = new ulong[] { 123456789, 987654321 };
+            uint[] array = new uint[2];
+            array[0] = 123456789;
+            array[1] = 987654321;
 
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));

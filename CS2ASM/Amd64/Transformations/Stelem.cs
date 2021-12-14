@@ -13,7 +13,6 @@ namespace CS2ASM
             arch.Append($"pop r13"); //value
             arch.Append($"pop r14"); //index
             arch.Append($"pop r15"); //ptr
-            arch.Append($"push r15"); //to replace dup
             arch.Append($"xor rdx,rdx");
             arch.Append($"mov rax,8");
             arch.Append($"mul r14");
