@@ -10,18 +10,17 @@ namespace ConsoleApp1
             x64.Out8(0x60, 0x00);
             Banner();
 
-            byte[] array = new byte[2];
-            array[0] = 12;
-            array[1] = 32;
+            ulong[] array = new ulong[2];
+            array[0] = 123456789;
+            array[1] = 54321;
+
+            Console.WriteLine("Welcome to the CS2ASM demo!");
+            Console.WriteLine("Owner: nifanfa");
+            Console.WriteLine("Contributors: LeonTheDev");
 
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));
 
-            Console.ResetColor();
-            Console.WriteLine("Welcome to the CS2ASM demo!");
-            Console.WriteLine("Owner: nifanfa");
-            Console.WriteLine("Contributors: LeonTheDev");
-            Console.ResetColor();
             for (; ; );
         }
 

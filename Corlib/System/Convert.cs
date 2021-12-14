@@ -7,24 +7,30 @@
 
 		public static string ToString(ulong val)
         {
-			for(ulong idx = 0; idx < 21; idx++) 
-			{
-				Result[idx] = ' ';
-			}
+			Result.Length = 21;
 
-			ulong i = 21;
+			ulong len = 0;
+			ulong val0 = val;
 
 			do
 			{
-				var d = val % 10;
-				val /= 10;
+				var d = val0 % 10;
+				val0 /= 10;
+				len++;
+			} while (val0 > 0);
+
+			Result.Length = len;
+			val0 = val;
+
+			do
+			{
+				var d = val0 % 10;
+				val0 /= 10;
 
 				d += 0x30;
-				i = i - 1;
-				Result[i] = (char)d;
-			} while (val > 0);
-
-			i++;
+				len = len - 1;
+				Result[len] = (char)d;
+			} while (val0 > 0);
 
 
 			return Result;
