@@ -40,6 +40,7 @@ namespace ConsoleApp1
             Console.WriteAt('N', 39, 12);
             Console.WriteAt('E', 40, 12);
             Console.WriteAt('T', 41, 12);
+            Console.ResetColor();
         }
     }
 }
