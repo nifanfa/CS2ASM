@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Platform.Amd64;
+using System.Runtime.CompilerServices;
 
 namespace ConsoleApp1
 {
@@ -20,6 +21,9 @@ namespace ConsoleApp1
 
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));
+
+            Console.WriteLine("Current Allocation:");
+            Console.WriteLine(Convert.ToString(Unsafe.AllocationCount));
 
             for (; ; );
         }
