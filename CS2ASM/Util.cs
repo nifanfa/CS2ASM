@@ -9,7 +9,7 @@ namespace CS2ASM
 {
     public static class Util
     {
-        public static int Size(string Name)
+        public static int SizeOfShallow(string Name)
         {
             if (
                    Name == "System.Byte" ||
@@ -39,7 +39,7 @@ namespace CS2ASM
             }
         }
 
-        public static ulong SizeOrIndex(TypeDef type, FieldDef def)
+        public static ulong SizeOfOrIndex(TypeDef type, FieldDef def)
         {
             List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
             TypeDef td = type;
@@ -56,7 +56,7 @@ namespace CS2ASM
                 foreach (var v2 in v1)
                 {
                     if (v2 == def) break;
-                    Index += (ulong)Size(v2.FieldType.FullName);
+                    Index += (ulong)SizeOfShallow(v2.FieldType.FullName);
                 }
             }
             return Index;
@@ -68,7 +68,7 @@ namespace CS2ASM
             {
                 if (v.FullName == FullName)
                 {
-                    return SizeOrIndex(v, null);
+                    return SizeOfOrIndex(v, null);
                 }
             }
             throw new KeyNotFoundException();

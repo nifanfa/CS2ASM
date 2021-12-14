@@ -11,8 +11,8 @@ namespace CS2ASM
         {
             arch.Append($"pop rax");
             arch.Append($"pop rdi");
-            arch.Append($"add rdi,{Util.SizeOrIndex(((FieldDef)ins.Operand).DeclaringType, (FieldDef)ins.Operand)}");
-            switch (Util.Size(((FieldDef)ins.Operand).FieldType.FullName)) 
+            arch.Append($"add rdi,{Util.SizeOfOrIndex(((FieldDef)ins.Operand).DeclaringType, (FieldDef)ins.Operand)}");
+            switch (Util.SizeOfShallow(((FieldDef)ins.Operand).FieldType.FullName)) 
             {
                 case 1:
                     arch.Append($"stosb");
