@@ -32,6 +32,19 @@ namespace CS2ASM.AMD64
             }
 
             this.Append($"[bits 64]");
+            
+            foreach(var T in def.Types) 
+                foreach(var M in T.Methods)
+                {
+                    if (M.IsStaticConstructor)
+                    {
+                        this.Append($"call {Util.SafeMethodName(M)}");
+                    }
+                }
+
+            this.Append($"call {Util.SafeMethodName(def.EntryPoint)}");
+            this.Append($"jmp die");
+
             //For IDT
             this.Append($"%macro procirq 1");
             this.Append($"push rax");
@@ -157,24 +170,6 @@ namespace CS2ASM.AMD64
 
         internal override void After()
         {
-        }
-
-        public override void InitializeStaticConstructor(ModuleDefMD def)
-        {
-            foreach (var T in def.Types)
-                foreach (var M in T.Methods)
-                {
-                    if (M.IsStaticConstructor)
-                    {
-                        this.Append($"call {Util.SafeMethodName(M)}");
-                    }
-                }
-        }
-
-        public override void JumpToEntry(ModuleDefMD def)
-        {
-            this.Append($"call {Util.SafeMethodName(def.EntryPoint)}");
-            this.Append($"jmp die");
         }
     }
 }
