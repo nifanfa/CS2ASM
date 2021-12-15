@@ -19,6 +19,12 @@ namespace ConsoleApp1
             Console.WriteLine("Owner: nifanfa");
             Console.WriteLine("Contributors: LeonTheDev");
 
+            Console.WriteLine($"array:");
+            Console.WriteLine($"Size:");
+            Console.WriteLine(Convert.ToString((ulong)array.Size));
+            Console.WriteLine($"Length:");
+            Console.WriteLine(Convert.ToString((ulong)array.Length));
+            Console.WriteLine($"Value:");
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));
 
