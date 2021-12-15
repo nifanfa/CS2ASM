@@ -98,21 +98,7 @@ namespace CS2ASM.AMD64
                     {
                         this.Append($";{v}");
                         this.Append($"{Util.SafeFieldName(typ, v)}:");
-                        switch (Util.SizeOfShallow(v.FieldType)) 
-                        {
-                            case 1:
-                                this.Append($"db {(v.HasConstant ? v.Constant.Value : 0)}");
-                                break;
-                            case 2:
-                                this.Append($"dw {(v.HasConstant ? v.Constant.Value : 0)}");
-                                break;
-                            case 4:
-                                this.Append($"dd {(v.HasConstant ? v.Constant.Value : 0)}");
-                                break;
-                            default:
-                                this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
-                                break;
-                        }
+                        this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
                     }
                 }
             }
