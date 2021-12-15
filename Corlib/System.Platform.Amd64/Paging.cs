@@ -7,7 +7,8 @@ namespace System.Platform.Amd64
         static Paging() 
         {
             //Map 512GiB
-
+            //Bug!
+            /*
             ulong* P4 = (ulong*)0x800000;
             ulong* P3 = (ulong*)0x810000;
             ulong* P2Start = (ulong*)0x820000;
@@ -26,6 +27,7 @@ namespace System.Platform.Amd64
 
             asm("mov rax,{P4}");
             asm("mov cr3,rax");
+            */
         }
     }
 }
