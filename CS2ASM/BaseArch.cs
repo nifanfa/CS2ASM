@@ -46,6 +46,8 @@ Br.OpCode.Code == Code. Beq_S
                    select Br;
         }
 
+        public abstract void InitializeStaticConstructor(ModuleDefMD def);
+        public abstract void JumpToEntry(ModuleDefMD def);
         internal abstract void After();
         public abstract void Before(ModuleDefMD def);
     }

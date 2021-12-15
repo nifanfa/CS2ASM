@@ -34,6 +34,8 @@ namespace CS2ASM
 
             arch.Before(def);
             arch.InitializeStaticFields(def.Types);
+            arch.InitializeStaticConstructor(def);
+            arch.JumpToEntry(def);
             foreach (var typ in def.Types)
             {
                 foreach (var meth in typ.Methods)
