@@ -12,7 +12,7 @@ namespace CS2ASM
             arch.Append("pop rax");
             arch.Append($"add rax,{Util.SizeOfOrIndex(((FieldDef)ins.Operand).DeclaringType, (FieldDef)ins.Operand)}");
             arch.Append($"xor rcx,rcx");
-            switch (Util.SizeOfShallow(((FieldDef)ins.Operand).FieldType.FullName))
+            switch (Util.SizeOfShallow(((FieldDef)ins.Operand).FieldType))
             {
                 case 1:
                     arch.Append($"mov cl,[rax]");

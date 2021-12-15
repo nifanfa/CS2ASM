@@ -16,23 +16,25 @@ namespace CS2ASM
     internal class Program
     {
         public static ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
+        public static BaseArch arch = null;
 
         static unsafe void Main(string[] args)
         {
             ModuleDefMD def = ModuleDefMD.Load("ConsoleApp1.dll");
 
-            BaseArch arch = null;
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
                     arch = new Amd64();
+                    arch.ImportTransformations(typeof(Amd64Transformation));
                     break;
             }
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
             arch.Before(def);
+            arch.InitializeStaticConstructor(def);
+            arch.JumpToEntry(def);
             arch.InitializeStaticFields(def.Types);
             foreach (var typ in def.Types)
             {
@@ -41,7 +43,7 @@ namespace CS2ASM
                     arch.Translate(meth);
                 }
             }
-            arch.After();
+            arch.After(def);
 
             stopwatch.Stop();
             Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");

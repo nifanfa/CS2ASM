@@ -11,7 +11,7 @@ namespace CS2ASM
         public static void Sizeof(BaseArch arch, Instruction ins, MethodDef def)
         {
             if (ins.Operand is TypeSpec)
-                arch.Append($"mov rax,{Util.SizeOfShallow(((TypeSpec)ins.Operand).ScopeType.FullName)}");
+                arch.Append($"mov rax,{Util.SizeOfShallow(((TypeSpec)ins.Operand).ScopeType)}");
             else
             {
                 arch.Append($"mov rax,{Util.SizeOfOrIndex((TypeDef)ins.Operand, null)}");

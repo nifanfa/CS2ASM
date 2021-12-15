@@ -9,8 +9,9 @@ namespace CS2ASM
 {
     public static class Util
     {
-        public static int SizeOfShallow(string Name)
+        public static int SizeOfShallow(IType type)
         {
+            string Name = type.FullName;
             if (
                    Name == "System.Byte" ||
                    Name == "System.SByte"
@@ -56,7 +57,7 @@ namespace CS2ASM
                 foreach (var v2 in v1)
                 {
                     if (v2 == def) break;
-                    Index += (ulong)SizeOfShallow(v2.FieldType.FullName);
+                    Index += (ulong)SizeOfShallow(v2.FieldType);
                 }
             }
             return Index;

@@ -97,20 +97,6 @@ ALIGN 4
     dw $ - GDT - 1                    ; 16-bit Size (Limit) of GDT.
     dd GDT                            ; 32-bit Base Address of GDT. (CPU will zero extend to 64-bit)
 
-[BITS 64]      
-_Main:
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    mov ss, ax
-
-    mov rbp,stack_bottom
-    mov rsp,rbp
-    
-    %include "Kernel.asm"
-
 ;Stack
 stack_top:
 resb 8192

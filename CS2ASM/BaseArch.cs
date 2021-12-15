@@ -1,5 +1,6 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,18 @@ namespace CS2ASM
 {
     public abstract unsafe class BaseArch
     {
+        public virtual void ImportTransformations(Type transformations)
+        {
+            ILBridgeMethods = new Dictionary<Code, MethodInfo>();
+            var methodInfos = from M in transformations.GetMethods()
+                              where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
+                              select M;
+            foreach (var v in methodInfos)
+            {
+                ILBridgeMethods.Add(v.GetCustomAttributes(true).OfType<ILTransformationAttribute>().First().code, v);
+            }
+        }
+
         public StringWriter _Code = new StringWriter();
         public int InstructionIndex = 0;
 
@@ -24,7 +37,7 @@ namespace CS2ASM
             _Code.WriteLine(s);
         }
 
-        public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
+        public Dictionary<Code, MethodInfo> ILBridgeMethods = null;
         public abstract void Translate(MethodDef meth);
         public abstract void InitializeStaticFields(IList<TypeDef> types);
         public IEnumerable<Instruction> GetAllBranches(MethodDef def)
@@ -46,7 +59,9 @@ Br.OpCode.Code == Code. Beq_S
                    select Br;
         }
 
-        internal abstract void After();
+        public abstract void InitializeStaticConstructor(ModuleDefMD def);
+        public abstract void JumpToEntry(ModuleDefMD def);
+        internal abstract void After(ModuleDefMD def);
         public abstract void Before(ModuleDefMD def);
     }
 }
