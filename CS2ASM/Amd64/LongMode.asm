@@ -97,12 +97,6 @@ ALIGN 4
     dw $ - GDT - 1                    ; 16-bit Size (Limit) of GDT.
     dd GDT                            ; 32-bit Base Address of GDT. (CPU will zero extend to 64-bit)
 
-;Stack
-stack_top:
-resb 8192
-stack_bottom:
-resb 8192
-
 ALIGN 4096
 ;Page Table
 p4_table:

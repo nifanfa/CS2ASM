@@ -63,6 +63,11 @@ endloop:
 %include "LongMode.asm"
 %include "Macros.asm"
 
+stack_top:
+resb 8192
+stack_bottom:
+resb 8192
+
 [BITS 64]      
 _Main:
     mov ax, DATA_SEG
