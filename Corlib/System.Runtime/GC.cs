@@ -1,17 +1,24 @@
-﻿
+﻿using static System.Runtime.Intrinsic;
+using System.Runtime.CompilerServices;
+
 namespace System.Runtime
 {
     public static unsafe class GC
     {
         public struct MemoryDescriptor
         {
-            public uint Address;
-            public uint Size;
+            public ulong Address;
+            public ulong Size;
         }
 
-        private static Pointer AllocateMemory(uint size)
+        public static void Dispose(object obj) 
         {
-            return Pointer.Zero;
+            ulong p = Unsafe.AddressOf(obj);
+            ulong size = obj.Size;
+            asm("mov rdi,{p}");
+            asm("mov rax,0");
+            asm("mov rcx,{size}");
+            asm("rep stosb");
         }
     }
 }

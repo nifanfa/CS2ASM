@@ -2,6 +2,7 @@
 using System.Platform.Amd64;
 using System.Runtime;
 using System.Runtime.CompilerServices;
+using static System.Runtime.Intrinsic;
 
 namespace ConsoleApp1
 {
@@ -31,6 +32,13 @@ namespace ConsoleApp1
 
             Console.WriteLine("Current Allocation:");
             Console.WriteLine(Convert.ToString(Unsafe.AllocationCount));
+
+            string s = "Hello World";
+            ulong p = Unsafe.AddressOf(s);
+            Console.WriteLine("Address of s:");
+            Console.WriteLine(Convert.ToString(p));
+            Console.WriteLine(s);
+            GC.Dispose(s);
 
             for (; ; );
         }
