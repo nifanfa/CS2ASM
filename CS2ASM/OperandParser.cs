@@ -6,15 +6,16 @@ namespace CS2ASM
 {
     public static unsafe class OperandParser
     {
-        public static ulong Ldc(Instruction ins)
+        public static object Ldc(Instruction ins)
         {
             if (ins.Operand is Local) { ins.Operand = ((Local)ins.Operand).Index; }
             return ins.OpCode.Code switch
             {
-                Code.Ldc_I4 => Convert.ToUInt64(ins.Operand),
-                Code.Ldc_I4_S => Convert.ToUInt64(ins.Operand),
+                Code.Ldc_I4 => $"0x{((int)ins.Operand):x2}",
+                Code.Ldc_I4_S => $"0x{((sbyte)ins.Operand):x2}",
+                Code.Ldc_I8 => $"0x{((long)ins.Operand):x2}",
 
-                Code.Ldc_I4_M1 => 0xFFFFFFFFFFFFFFFF,
+                Code.Ldc_I4_M1 => 0xFFFFFFFFFFFFFFFF, //-1
                 Code.Ldc_I4_0 => 0,
                 Code.Ldc_I4_1 => 1,
                 Code.Ldc_I4_2 => 2,
@@ -24,10 +25,6 @@ namespace CS2ASM
                 Code.Ldc_I4_6 => 6,
                 Code.Ldc_I4_7 => 7,
                 Code.Ldc_I4_8 => 8,
-
-                Code.Ldc_I8 => Convert.ToUInt64(ins.Operand),
-                Code.Ldc_R4 => Convert.ToUInt64(ins.Operand),
-                Code.Ldc_R8 => Convert.ToUInt64(ins.Operand),
             };
         }
 
@@ -52,7 +49,7 @@ namespace CS2ASM
             return ins.OpCode.Code switch
             {
                 Code.Ldloc => Convert.ToUInt64(ins.Operand),
-                Code.Ldloc_S => Convert.ToUInt64(ins.Operand),
+                Code.Ldloc_S => Convert.ToUInt64(ins.Operand),    
 
                 Code.Ldloc_0 => 0,
                 Code.Ldloc_1 => 1,
