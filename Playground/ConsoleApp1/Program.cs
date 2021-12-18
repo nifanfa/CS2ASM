@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Platform.Amd64;
+using System.Runtime;
 using System.Runtime.CompilerServices;
 
 namespace ConsoleApp1
