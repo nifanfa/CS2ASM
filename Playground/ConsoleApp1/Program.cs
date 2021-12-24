@@ -31,7 +31,7 @@ namespace ConsoleApp1
             Console.WriteLine(Convert.ToString(array[1]));
 
             Console.WriteLine("Current Allocation:");
-            Console.WriteLine(Convert.ToString(Unsafe.AllocationCount));
+            Console.WriteLine(Convert.ToString(GC.Allocation));
 
             string s = "Hello World";
             ulong p = Unsafe.AddressOf(s);
