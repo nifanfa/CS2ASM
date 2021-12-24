@@ -12,7 +12,7 @@ namespace CS2ASM
             arch.Append($"pop rdx");
             arch.Append($"pop rax");
             arch.Append($"cmp rax,rdx");
-            arch.Append($"setle bl");
+            arch.Append($"setl bl");
             arch.Append($"push rbx");
         }
     }
