@@ -30,7 +30,9 @@ namespace System.Runtime
 
         public static ulong Allocate(ulong size)
         {
-            if(MDs != null)
+            Allocation++;
+
+            if (MDs != null)
             {
                 for (ulong i = 0; i < MDCount; i++)
                 {
@@ -43,7 +45,6 @@ namespace System.Runtime
                 }
             }
 
-            Allocation++;
             ulong ptr = HeapStart;
             HeapStart = HeapStart + size;
             return ptr;
@@ -62,6 +63,8 @@ namespace System.Runtime
                     MDs[i].Address = p;
                 }
             }
+
+            Allocation--;
 
             asm("mov rdi,{p}");
             asm("xor rax,rax");
