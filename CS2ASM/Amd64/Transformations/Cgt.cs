@@ -8,13 +8,12 @@ namespace CS2ASM
         [ILTransformation(Code.Cgt)]
         public static void Cgt(BaseArch arch, Instruction ins, MethodDef def)
         {
+            arch.Append($"xor rbx,rbx");
             arch.Append($"pop rdx");
             arch.Append($"pop rax");
             arch.Append($"cmp rax,rdx");
-            arch.Append($"ja $+6");
-            arch.Append($"push 0");
-            arch.Append($"jmp $+4");
-            arch.Append($"push 1");
+            arch.Append($"setg bl");
+            arch.Append($"push rbx");
         }
     }
 }
