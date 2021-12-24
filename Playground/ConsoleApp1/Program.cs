@@ -38,7 +38,7 @@ namespace ConsoleApp1
             Console.WriteLine("Address of s:");
             Console.WriteLine(Convert.ToString(p));
             Console.WriteLine(s);
-            GC.Dispose(s);
+            s.Dispose();
 
             for (; ; );
         }

@@ -1,4 +1,5 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using System.Runtime;
+using static System.Runtime.Intrinsic;
 
 namespace System
 {
@@ -6,5 +7,10 @@ namespace System
     {
         //Newobj.cs
         public ulong Size;
+
+        public virtual void Dispose() 
+        {
+            GC.Dispose(this);
+        }
     }
 }
