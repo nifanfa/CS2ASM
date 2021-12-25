@@ -71,7 +71,6 @@ namespace CS2ASM.AMD64
             }
 
             this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
-            this.Append();
         }
 
         public static bool IsEmptyMethod(MethodDef def)
