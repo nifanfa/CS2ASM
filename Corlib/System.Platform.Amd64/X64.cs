@@ -9,6 +9,11 @@ namespace System.Platform.Amd64
             asm("hlt");
         }
 
+        public static void Pause()
+        {
+            asm("pause");
+        }
+
         public static void Movsb(void* dest, void* source, ulong count)
         {
             asm("mov rcx,{count}");

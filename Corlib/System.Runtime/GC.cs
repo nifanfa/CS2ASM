@@ -61,6 +61,7 @@ namespace System.Runtime
                 {
                     MDs[i].Size = size;
                     MDs[i].Address = p;
+                    break; //Must Exist
                 }
             }
 

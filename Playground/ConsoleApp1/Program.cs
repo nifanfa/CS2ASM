@@ -30,9 +30,6 @@ namespace ConsoleApp1
             Console.WriteLine(Convert.ToString(array[0]));
             Console.WriteLine(Convert.ToString(array[1]));
 
-            Console.WriteLine("Current Allocation:");
-            Console.WriteLine(Convert.ToString(GC.Allocation));
-
             string s = "Hello World";
             ulong p = Unsafe.AddressOf(s);
             Console.WriteLine("Address of s:");
@@ -40,7 +37,20 @@ namespace ConsoleApp1
             Console.WriteLine(s);
             s.Dispose();
 
-            for (; ; );
+            Console.WriteLine("Current Allocation:");
+
+            for (; ; ) 
+            {
+                ulong CursorX = Console.CursorX;
+                ulong CursorY = Console.CursorY;
+
+                Console.WriteLine(Convert.ToString(GC.Allocation));
+
+                Console.CursorX = CursorX;
+                Console.CursorY = CursorY;
+
+                x64.Pause();
+            }
         }
 
         public static void Banner()

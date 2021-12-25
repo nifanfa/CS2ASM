@@ -24,8 +24,6 @@ namespace CS2ASM.AMD64
             this.PointerSize = 8;
 
             this.Append($"[bits 64]");
-            //For IDT
-            
         }
 
         public override void Translate(MethodDef def)
