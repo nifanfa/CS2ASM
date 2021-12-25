@@ -1,7 +1,7 @@
 ﻿using static System.Runtime.Intrinsic;
 using System.Runtime.CompilerServices;
 
-namespace System.Runtime
+namespace System
 {
     public static unsafe class GC
     {
