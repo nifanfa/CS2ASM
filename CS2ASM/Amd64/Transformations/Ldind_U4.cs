@@ -8,8 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldind_U4)]
         public static void Ldind_U4(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop rax");
-            arch.Append($"push qword [rax]");
+            Ldind_U1(arch, ins, def);
         }
     }
 }
