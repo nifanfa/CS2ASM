@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldloca)]
         public static void Ldloca(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldloca is not implemented");
+            Ldloc(arch, ins, def);
         }
     }
 }

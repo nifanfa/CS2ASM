@@ -50,6 +50,8 @@ namespace CS2ASM
             {
                 Code.Ldloc => Convert.ToUInt64(ins.Operand),
                 Code.Ldloc_S => Convert.ToUInt64(ins.Operand),    
+                Code.Ldloca => Convert.ToUInt64(ins.Operand),    
+                Code.Ldloca_S => Convert.ToUInt64(ins.Operand),    
 
                 Code.Ldloc_0 => 0,
                 Code.Ldloc_1 => 1,

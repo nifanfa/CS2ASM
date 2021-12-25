@@ -12,5 +12,12 @@ namespace System
         {
             GC.Dispose(this);
         }
+
+        private static string DefaultString = "System.Object";
+
+        public virtual string ToString() 
+        {
+            return DefaultString;
+        }
     }
 }

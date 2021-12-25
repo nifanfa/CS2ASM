@@ -23,17 +23,17 @@ namespace ConsoleApp1
 
             Console.WriteLine($"array:");
             Console.WriteLine($"Size:");
-            Console.WriteLine(Convert.ToString((ulong)array.Size));
+            Console.WriteLine(array.Size.ToString());
             Console.WriteLine($"Length:");
-            Console.WriteLine(Convert.ToString((ulong)array.Length));
+            Console.WriteLine(((ulong)array.Length).ToString());
             Console.WriteLine($"Value:");
-            Console.WriteLine(Convert.ToString(array[0]));
-            Console.WriteLine(Convert.ToString(array[1]));
+            Console.WriteLine(array[0].ToString());
+            Console.WriteLine(array[1].ToString());
 
             string s = "Hello World";
             ulong p = Unsafe.AddressOf(s);
             Console.WriteLine("Address of s:");
-            Console.WriteLine(Convert.ToString(p));
+            Console.WriteLine(p.ToString());
             Console.WriteLine(s);
             s.Dispose();
 
@@ -44,7 +44,7 @@ namespace ConsoleApp1
                 ulong CursorX = Console.CursorX;
                 ulong CursorY = Console.CursorY;
 
-                Console.WriteLine(Convert.ToString(GC.Allocation));
+                Console.WriteLine(GC.Allocation.ToString());
 
                 Console.CursorX = CursorX;
                 Console.CursorY = CursorY;

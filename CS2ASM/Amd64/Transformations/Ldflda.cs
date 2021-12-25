@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldflda)]
         public static void Ldflda(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldflda is not implemented");
+            Ldfld(arch, ins, def);
         }
     }
 }
