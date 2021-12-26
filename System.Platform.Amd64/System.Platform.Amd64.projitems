@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0770ba2b-9ab3-4f3b-82a7-5c28f8be0d6d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>System.Platform.Amd64</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Console.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Paging.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PIC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PIT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PS2Keyboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RTC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)x64.cs" />
+  </ItemGroup>
+</Project>

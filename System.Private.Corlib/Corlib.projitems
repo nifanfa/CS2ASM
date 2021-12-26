@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3b64fca0-062d-4ca3-99a0-ad8ca8a49c80</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>System</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime.CompilerServices\EmptyMethodAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime.CompilerServices\Unsafe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Intrinsic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Array.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Boolean.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Byte.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Char.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Convert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Delegate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Int16.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Int32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Int64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIntPtr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntPtr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Object.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SByte.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)String.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UInt16.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UInt32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UInt64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ValueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Void.cs" />
+  </ItemGroup>
+</Project>

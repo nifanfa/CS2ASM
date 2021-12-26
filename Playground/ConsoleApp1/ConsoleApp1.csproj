@@ -12,9 +12,7 @@
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<OutputPath>..\..\bin</OutputPath>
 	</PropertyGroup>
-
-	<Import Project="..\..\Corlib\Corlib.projitems" Label="Shared" />
-
+	
 	<ItemGroup>
 	  <Compile Remove="ProgramOld.cs" />
 	</ItemGroup>
@@ -22,4 +20,8 @@
 	<ItemGroup>
 	  <None Include="ProgramOld.cs" />
 	</ItemGroup>
+
+	<Import Project="..\..\System.Platform.Amd64\System.Platform.Amd64.projitems" Label="Shared" />
+
+	<Import Project="..\..\System.Private.Corlib\Corlib.projitems" Label="Shared" />
 </Project>
