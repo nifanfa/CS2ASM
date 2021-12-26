@@ -9,15 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldind_I)]
         public static void Ldind_I(BaseArch arch, Instruction ins, MethodDef def)
         {
+            //This is for "this" keyword
             var prev = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) - 1];
-            if (prev.IsLdloc())
-            {
-                var p = def.Body.Variables[(int)OperandParser.Ldloc(prev)];
-                if (!p.Type.IsPointer)
-                {
-                    return;
-                }
-            }
             if (prev.IsLdarg())
             {
                 var p = def.Parameters[(int)OperandParser.Ldarg(prev)];
