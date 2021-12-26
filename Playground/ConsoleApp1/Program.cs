@@ -37,6 +37,18 @@ namespace ConsoleApp1
             Console.WriteLine(s);
             s.Dispose();
 
+            Console.Write("Boot Time:");
+            Console.Write(((ulong)RTC.Year).ToString());
+            Console.Write('/');
+            Console.Write(((ulong)RTC.Month).ToString());
+            Console.Write('/');
+            Console.Write(((ulong)RTC.Day).ToString());
+            Console.Write(' ');
+            Console.Write(((ulong)RTC.Hour).ToString());
+            Console.Write(':');
+            Console.Write(((ulong)RTC.Minute).ToString());
+            Console.WriteLine();
+
             Console.WriteLine("Current Allocation:");
 
             for (; ; ) 

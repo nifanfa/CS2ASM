@@ -31,6 +31,7 @@ namespace System
         public static ulong Allocate(ulong size)
         {
             Allocation++;
+            ulong ptr = 0;
 
             if (MDs != null)
             {
@@ -38,14 +39,15 @@ namespace System
                 {
                     if (MDs[i].Size >= size)
                     {
+                        ptr = MDs[i].Address;
                         MDs[i].Address = MDs[i].Address + size;
                         MDs[i].Size = MDs[i].Size - size;
-                        return MDs[i].Address;
+                        return ptr;
                     }
                 }
             }
 
-            ulong ptr = HeapStart;
+            ptr = HeapStart;
             HeapStart = HeapStart + size;
             return ptr;
         }

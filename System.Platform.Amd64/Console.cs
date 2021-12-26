@@ -58,6 +58,12 @@
             CursorY++;
         }
 
+        public static void WriteLine()
+        {
+            CursorX = 0;
+            CursorY++;
+        }
+
         public static void WriteAt(char chr, byte x, byte y)
         {
             byte* p = (byte*)0xb8000 + ((y * Width + x) * 2);
