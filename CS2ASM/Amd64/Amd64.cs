@@ -28,7 +28,7 @@ namespace CS2ASM.AMD64
 
         public override void Translate(MethodDef def)
         {
-            //this.Append($";{new string('>', 20)}{def}{new string('>', 20)}");
+            this.Append($";{new string('>', 20)}{def}{new string('>', 20)}");
 
             //Get All Branches
             var BrS = GetAllBranches(def);
@@ -53,7 +53,7 @@ namespace CS2ASM.AMD64
             {
                 var ins = def.Body.Instructions[InstructionIndex];
 
-                //this.Append($";{ins}");
+                this.Append($";{ins}");
 
                 //For Branches
                 foreach (var v in BrS)
@@ -68,7 +68,7 @@ namespace CS2ASM.AMD64
                 ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
             }
 
-            //this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
+            this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
         }
 
         public static bool IsEmptyMethod(MethodDef def)
