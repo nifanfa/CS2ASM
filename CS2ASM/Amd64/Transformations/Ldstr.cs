@@ -33,9 +33,10 @@ namespace CS2ASM
                 arch.Append($"push qword {((string)ins.Operand).Length}");
                 arch.Append($"call System.String.Ctor.Char.UInt64");
 
-                arch.Append($"jmp $+{bytes.Length + 2}");
+                arch.Append($"jmp {Utility.SafeMethodName(def)}.{ins.Offset:X4}.String.End");
                 arch.Append($"{Utility.SafeMethodName(def)}.{ins.Offset:X4}.String:");
                 arch.Append($"db {text}");
+                arch.Append($"{Utility.SafeMethodName(def)}.{ins.Offset:X4}.String.End:");
             }
         }
     }
