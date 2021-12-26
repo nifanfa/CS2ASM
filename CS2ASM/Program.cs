@@ -29,6 +29,7 @@ namespace CS2ASM
             {
                 case ProcessorArchitecture.Amd64:
                     arch = new Amd64();
+                    arch.Debug = false;
                     arch.ImportTransformations(typeof(Amd64Transformation));
                     break;
             }

@@ -22,7 +22,9 @@ namespace CS2ASM
             }
         }
 
+        public bool Debug = true;
         public StringWriter _Code = new StringWriter();
+
         public int InstructionIndex = 0;
 
         public int PointerSize = 8;
