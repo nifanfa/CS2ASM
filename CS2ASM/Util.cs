@@ -57,6 +57,7 @@ namespace CS2ASM
                 foreach (var v2 in v1)
                 {
                     if (v2 == def) break;
+                    if (v2.IsStatic) break;
                     Index += (ulong)SizeOfShallow(v2.FieldType);
                 }
             }
