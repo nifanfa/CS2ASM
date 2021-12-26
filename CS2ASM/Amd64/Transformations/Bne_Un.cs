@@ -12,7 +12,7 @@ namespace CS2ASM
             arch.Append($"pop rdx");
             arch.Append($"pop rax");
             arch.Append($"cmp rax,rdx");
-            arch.Append($"jne {Util.BrLabelName(ins, def)}");
+            arch.Append($"jne {Utility.BrLabelName(ins, def)}");
         }
     }
 }

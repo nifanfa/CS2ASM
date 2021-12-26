@@ -16,7 +16,7 @@ namespace CS2ASM
             arch.Append($"mov rax,8");
             arch.Append($"mul r14");
             arch.Append($"add r15,rax");
-            arch.Append($"add r15,{Util.SizeOf(def.Module,"System.Array")}");
+            arch.Append($"add r15,{Utility.SizeOf(def.Module,"System.Array")}");
             arch.Append($"push qword [r15]");
         }
     }

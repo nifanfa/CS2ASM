@@ -34,7 +34,7 @@ namespace CS2ASM.AMD64
             var BrS = GetAllBranches(def);
 
             //Label
-            this.Append($"{Util.SafeMethodName(def)}:");
+            this.Append($"{Utility.SafeMethodName(def)}:");
 
             if (!Amd64.IsEmptyMethod(def))
             {
@@ -60,7 +60,7 @@ namespace CS2ASM.AMD64
                 {
                     if (((Instruction)v.Operand).Offset == ins.Offset)
                     {
-                        this.Append($"{Util.BrLabelName(ins, def, true)}:");
+                        this.Append($"{Utility.BrLabelName(ins, def, true)}:");
                     }
                 }
 
@@ -94,7 +94,7 @@ namespace CS2ASM.AMD64
                     if (v.IsStatic)
                     {
                         this.Append($";{v}");
-                        this.Append($"{Util.SafeFieldName(typ, v)}:");
+                        this.Append($"{Utility.SafeFieldName(typ, v)}:");
                         this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
                     }
                 }
@@ -119,14 +119,14 @@ namespace CS2ASM.AMD64
                 {
                     if (M.IsStaticConstructor)
                     {
-                        this.Append($"call {Util.SafeMethodName(M)}");
+                        this.Append($"call {Utility.SafeMethodName(M)}");
                     }
                 }
         }
 
         public override void JumpToEntry(ModuleDefMD def)
         {
-            this.Append($"call {Util.SafeMethodName(def.EntryPoint)}");
+            this.Append($"call {Utility.SafeMethodName(def.EntryPoint)}");
             this.Append($"jmp die");
         }
     }

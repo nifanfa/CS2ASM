@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Call)]
         public static void Call(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"call {Util.SafeMethodName(((MethodDef)ins.Operand))}");
+            arch.Append($"call {Utility.SafeMethodName(((MethodDef)ins.Operand))}");
         }
     }
 }

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CS2ASM
 {
-    public static class Util
+    public static class Utility
     {
         public static int SizeOfShallow(IType type)
         {
@@ -78,7 +78,7 @@ namespace CS2ASM
 
         public static string SafeMethodName(MethodDef meth)
         {
-            string result = $"{Util.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
+            string result = $"{Utility.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
             bool dotP = false;
             for (int i = 0; i < meth.Parameters.Count; i++)
             {
@@ -109,7 +109,7 @@ namespace CS2ASM
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
-            return $"{Util.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
+            return $"{Utility.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
         }
 
         public static void Start(string file, string args)

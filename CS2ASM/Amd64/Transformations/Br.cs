@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Br)]
         public static void Br(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"jmp {Util.BrLabelName(ins, def)}");
+            arch.Append($"jmp {Utility.BrLabelName(ins, def)}");
         }
     }
 }

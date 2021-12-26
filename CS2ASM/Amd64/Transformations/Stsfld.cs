@@ -10,7 +10,7 @@ namespace CS2ASM
         public static void Stsfld(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append($"pop rax");
-            arch.Append($"mov [{Util.SafeFieldName(((FieldDef)ins.Operand).DeclaringType, (FieldDef)ins.Operand)}],rax");
+            arch.Append($"mov [{Utility.SafeFieldName(((FieldDef)ins.Operand).DeclaringType, (FieldDef)ins.Operand)}],rax");
         }
     }
 }
