@@ -112,7 +112,7 @@ IDT:
     .Base         dd 0
  
 ; Function to switch directly to long mode from real mode.
-; Identity maps the first 2MiB.
+; Identity maps the first 1GiB.
 ; Uses Intel syntax.
  
 ; es:edi    Should point to a valid page-aligned 16KiB buffer, for the PML4, PDPT, PD and a PT.
