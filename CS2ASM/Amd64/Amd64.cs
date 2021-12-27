@@ -78,7 +78,7 @@ namespace CS2ASM.AMD64
         {
             foreach(var v in def.CustomAttributes) 
             {
-                if(v.TypeFullName == "System.Runtime.CompilerServices.EmptyMethodAttribute") 
+                if(v.TypeFullName == "System.Runtime.CompilerServices.AssemblyMethodAttribute") 
                 {
                     return true;
                 }
