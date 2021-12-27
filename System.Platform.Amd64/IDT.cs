@@ -322,772 +322,2564 @@ namespace System.Platform.Amd64
             Console.WriteAt(PS2Keyboard.KeyPressed, 0, 24);
         }
 
-        [EmptyMethod]
-        private static void IRQ0() => asm("procirq 0");
-
-        [EmptyMethod]
-        private static void IRQ1() => asm("procirq 1");
-
-        [EmptyMethod]
-        private static void IRQ2() => asm("procirq 2");
-
-        [EmptyMethod]
-        private static void IRQ3() => asm("procirq 3");
-
-        [EmptyMethod]
-        private static void IRQ4() => asm("procirq 4");
-
-        [EmptyMethod]
-        private static void IRQ5() => asm("procirq 5");
-
-        [EmptyMethod]
-        private static void IRQ6() => asm("procirq 6");
-
-        [EmptyMethod]
-        private static void IRQ7() => asm("procirq 7");
-
-        [EmptyMethod]
-        private static void IRQ8() => asm("procirq 8");
-
-        [EmptyMethod]
-        private static void IRQ9() => asm("procirq 9");
-
-        [EmptyMethod]
-        private static void IRQ10() => asm("procirq 10");
-
-        [EmptyMethod]
-        private static void IRQ11() => asm("procirq 11");
-
-        [EmptyMethod]
-        private static void IRQ12() => asm("procirq 12");
-
-        [EmptyMethod]
-        private static void IRQ13() => asm("procirq 13");
-
-        [EmptyMethod]
-        private static void IRQ14() => asm("procirq 14");
-
-        [EmptyMethod]
-        private static void IRQ15() => asm("procirq 15");
-
-        [EmptyMethod]
-        private static void IRQ16() => asm("procirq 16");
-
-        [EmptyMethod]
-        private static void IRQ17() => asm("procirq 17");
-
-        [EmptyMethod]
-        private static void IRQ18() => asm("procirq 18");
-
-        [EmptyMethod]
-        private static void IRQ19() => asm("procirq 19");
-
-        [EmptyMethod]
-        private static void IRQ20() => asm("procirq 20");
-
-        [EmptyMethod]
-        private static void IRQ21() => asm("procirq 21");
-
-        [EmptyMethod]
-        private static void IRQ22() => asm("procirq 22");
-
-        [EmptyMethod]
-        private static void IRQ23() => asm("procirq 23");
-
-        [EmptyMethod]
-        private static void IRQ24() => asm("procirq 24");
-
-        [EmptyMethod]
-        private static void IRQ25() => asm("procirq 25");
-
-        [EmptyMethod]
-        private static void IRQ26() => asm("procirq 26");
-
-        [EmptyMethod]
-        private static void IRQ27() => asm("procirq 27");
-
-        [EmptyMethod]
-        private static void IRQ28() => asm("procirq 28");
-
-        [EmptyMethod]
-        private static void IRQ29() => asm("procirq 29");
-
-        [EmptyMethod]
-        private static void IRQ30() => asm("procirq 30");
-
-        [EmptyMethod]
-        private static void IRQ31() => asm("procirq 31");
-
-        [EmptyMethod]
-        private static void IRQ32() => asm("procirq 32");
-
-        [EmptyMethod]
-        private static void IRQ33() => asm("procirq 33");
-
-        [EmptyMethod]
-        private static void IRQ34() => asm("procirq 34");
-
-        [EmptyMethod]
-        private static void IRQ35() => asm("procirq 35");
-
-        [EmptyMethod]
-        private static void IRQ36() => asm("procirq 36");
-
-        [EmptyMethod]
-        private static void IRQ37() => asm("procirq 37");
-
-        [EmptyMethod]
-        private static void IRQ38() => asm("procirq 38");
-
-        [EmptyMethod]
-        private static void IRQ39() => asm("procirq 39");
-
-        [EmptyMethod]
-        private static void IRQ40() => asm("procirq 40");
-
-        [EmptyMethod]
-        private static void IRQ41() => asm("procirq 41");
-
-        [EmptyMethod]
-        private static void IRQ42() => asm("procirq 42");
-
-        [EmptyMethod]
-        private static void IRQ43() => asm("procirq 43");
-
-        [EmptyMethod]
-        private static void IRQ44() => asm("procirq 44");
-
-        [EmptyMethod]
-        private static void IRQ45() => asm("procirq 45");
-
-        [EmptyMethod]
-        private static void IRQ46() => asm("procirq 46");
-
-        [EmptyMethod]
-        private static void IRQ47() => asm("procirq 47");
-
-        [EmptyMethod]
-        private static void IRQ48() => asm("procirq 48");
-
-        [EmptyMethod]
-        private static void IRQ49() => asm("procirq 49");
-
-        [EmptyMethod]
-        private static void IRQ50() => asm("procirq 50");
-
-        [EmptyMethod]
-        private static void IRQ51() => asm("procirq 51");
-
-        [EmptyMethod]
-        private static void IRQ52() => asm("procirq 52");
-
-        [EmptyMethod]
-        private static void IRQ53() => asm("procirq 53");
-
-        [EmptyMethod]
-        private static void IRQ54() => asm("procirq 54");
-
-        [EmptyMethod]
-        private static void IRQ55() => asm("procirq 55");
-
-        [EmptyMethod]
-        private static void IRQ56() => asm("procirq 56");
-
-        [EmptyMethod]
-        private static void IRQ57() => asm("procirq 57");
-
-        [EmptyMethod]
-        private static void IRQ58() => asm("procirq 58");
-
-        [EmptyMethod]
-        private static void IRQ59() => asm("procirq 59");
-
-        [EmptyMethod]
-        private static void IRQ60() => asm("procirq 60");
-
-        [EmptyMethod]
-        private static void IRQ61() => asm("procirq 61");
-
-        [EmptyMethod]
-        private static void IRQ62() => asm("procirq 62");
-
-        [EmptyMethod]
-        private static void IRQ63() => asm("procirq 63");
-
-        [EmptyMethod]
-        private static void IRQ64() => asm("procirq 64");
-
-        [EmptyMethod]
-        private static void IRQ65() => asm("procirq 65");
-
-        [EmptyMethod]
-        private static void IRQ66() => asm("procirq 66");
-
-        [EmptyMethod]
-        private static void IRQ67() => asm("procirq 67");
-
-        [EmptyMethod]
-        private static void IRQ68() => asm("procirq 68");
-
-        [EmptyMethod]
-        private static void IRQ69() => asm("procirq 69");
-
-        [EmptyMethod]
-        private static void IRQ70() => asm("procirq 70");
-
-        [EmptyMethod]
-        private static void IRQ71() => asm("procirq 71");
-
-        [EmptyMethod]
-        private static void IRQ72() => asm("procirq 72");
-
-        [EmptyMethod]
-        private static void IRQ73() => asm("procirq 73");
-
-        [EmptyMethod]
-        private static void IRQ74() => asm("procirq 74");
-
-        [EmptyMethod]
-        private static void IRQ75() => asm("procirq 75");
-
-        [EmptyMethod]
-        private static void IRQ76() => asm("procirq 76");
-
-        [EmptyMethod]
-        private static void IRQ77() => asm("procirq 77");
-
-        [EmptyMethod]
-        private static void IRQ78() => asm("procirq 78");
-
-        [EmptyMethod]
-        private static void IRQ79() => asm("procirq 79");
-
-        [EmptyMethod]
-        private static void IRQ80() => asm("procirq 80");
-
-        [EmptyMethod]
-        private static void IRQ81() => asm("procirq 81");
-
-        [EmptyMethod]
-        private static void IRQ82() => asm("procirq 82");
-
-        [EmptyMethod]
-        private static void IRQ83() => asm("procirq 83");
-
-        [EmptyMethod]
-        private static void IRQ84() => asm("procirq 84");
-
-        [EmptyMethod]
-        private static void IRQ85() => asm("procirq 85");
-
-        [EmptyMethod]
-        private static void IRQ86() => asm("procirq 86");
-
-        [EmptyMethod]
-        private static void IRQ87() => asm("procirq 87");
-
-        [EmptyMethod]
-        private static void IRQ88() => asm("procirq 88");
-
-        [EmptyMethod]
-        private static void IRQ89() => asm("procirq 89");
-
-        [EmptyMethod]
-        private static void IRQ90() => asm("procirq 90");
-
-        [EmptyMethod]
-        private static void IRQ91() => asm("procirq 91");
-
-        [EmptyMethod]
-        private static void IRQ92() => asm("procirq 92");
-
-        [EmptyMethod]
-        private static void IRQ93() => asm("procirq 93");
-
-        [EmptyMethod]
-        private static void IRQ94() => asm("procirq 94");
-
-        [EmptyMethod]
-        private static void IRQ95() => asm("procirq 95");
-
-        [EmptyMethod]
-        private static void IRQ96() => asm("procirq 96");
-
-        [EmptyMethod]
-        private static void IRQ97() => asm("procirq 97");
-
-        [EmptyMethod]
-        private static void IRQ98() => asm("procirq 98");
-
-        [EmptyMethod]
-        private static void IRQ99() => asm("procirq 99");
-
-        [EmptyMethod]
-        private static void IRQ100() => asm("procirq 100");
-
-        [EmptyMethod]
-        private static void IRQ101() => asm("procirq 101");
-
-        [EmptyMethod]
-        private static void IRQ102() => asm("procirq 102");
-
-        [EmptyMethod]
-        private static void IRQ103() => asm("procirq 103");
-
-        [EmptyMethod]
-        private static void IRQ104() => asm("procirq 104");
-
-        [EmptyMethod]
-        private static void IRQ105() => asm("procirq 105");
-
-        [EmptyMethod]
-        private static void IRQ106() => asm("procirq 106");
-
-        [EmptyMethod]
-        private static void IRQ107() => asm("procirq 107");
-
-        [EmptyMethod]
-        private static void IRQ108() => asm("procirq 108");
-
-        [EmptyMethod]
-        private static void IRQ109() => asm("procirq 109");
-
-        [EmptyMethod]
-        private static void IRQ110() => asm("procirq 110");
-
-        [EmptyMethod]
-        private static void IRQ111() => asm("procirq 111");
-
-        [EmptyMethod]
-        private static void IRQ112() => asm("procirq 112");
-
-        [EmptyMethod]
-        private static void IRQ113() => asm("procirq 113");
-
-        [EmptyMethod]
-        private static void IRQ114() => asm("procirq 114");
-
-        [EmptyMethod]
-        private static void IRQ115() => asm("procirq 115");
-
-        [EmptyMethod]
-        private static void IRQ116() => asm("procirq 116");
-
-        [EmptyMethod]
-        private static void IRQ117() => asm("procirq 117");
-
-        [EmptyMethod]
-        private static void IRQ118() => asm("procirq 118");
-
-        [EmptyMethod]
-        private static void IRQ119() => asm("procirq 119");
-
-        [EmptyMethod]
-        private static void IRQ120() => asm("procirq 120");
-
-        [EmptyMethod]
-        private static void IRQ121() => asm("procirq 121");
-
-        [EmptyMethod]
-        private static void IRQ122() => asm("procirq 122");
-
-        [EmptyMethod]
-        private static void IRQ123() => asm("procirq 123");
-
-        [EmptyMethod]
-        private static void IRQ124() => asm("procirq 124");
-
-        [EmptyMethod]
-        private static void IRQ125() => asm("procirq 125");
-
-        [EmptyMethod]
-        private static void IRQ126() => asm("procirq 126");
-
-        [EmptyMethod]
-        private static void IRQ127() => asm("procirq 127");
-
-        [EmptyMethod]
-        private static void IRQ128() => asm("procirq 128");
-
-        [EmptyMethod]
-        private static void IRQ129() => asm("procirq 129");
-
-        [EmptyMethod]
-        private static void IRQ130() => asm("procirq 130");
-
-        [EmptyMethod]
-        private static void IRQ131() => asm("procirq 131");
-
-        [EmptyMethod]
-        private static void IRQ132() => asm("procirq 132");
-
-        [EmptyMethod]
-        private static void IRQ133() => asm("procirq 133");
-
-        [EmptyMethod]
-        private static void IRQ134() => asm("procirq 134");
-
-        [EmptyMethod]
-        private static void IRQ135() => asm("procirq 135");
-
-        [EmptyMethod]
-        private static void IRQ136() => asm("procirq 136");
-
-        [EmptyMethod]
-        private static void IRQ137() => asm("procirq 137");
-
-        [EmptyMethod]
-        private static void IRQ138() => asm("procirq 138");
-
-        [EmptyMethod]
-        private static void IRQ139() => asm("procirq 139");
-
-        [EmptyMethod]
-        private static void IRQ140() => asm("procirq 140");
-
-        [EmptyMethod]
-        private static void IRQ141() => asm("procirq 141");
-
-        [EmptyMethod]
-        private static void IRQ142() => asm("procirq 142");
-
-        [EmptyMethod]
-        private static void IRQ143() => asm("procirq 143");
-
-        [EmptyMethod]
-        private static void IRQ144() => asm("procirq 144");
-
-        [EmptyMethod]
-        private static void IRQ145() => asm("procirq 145");
-
-        [EmptyMethod]
-        private static void IRQ146() => asm("procirq 146");
-
-        [EmptyMethod]
-        private static void IRQ147() => asm("procirq 147");
-
-        [EmptyMethod]
-        private static void IRQ148() => asm("procirq 148");
-
-        [EmptyMethod]
-        private static void IRQ149() => asm("procirq 149");
-
-        [EmptyMethod]
-        private static void IRQ150() => asm("procirq 150");
-
-        [EmptyMethod]
-        private static void IRQ151() => asm("procirq 151");
-
-        [EmptyMethod]
-        private static void IRQ152() => asm("procirq 152");
-
-        [EmptyMethod]
-        private static void IRQ153() => asm("procirq 153");
-
-        [EmptyMethod]
-        private static void IRQ154() => asm("procirq 154");
-
-        [EmptyMethod]
-        private static void IRQ155() => asm("procirq 155");
-
-        [EmptyMethod]
-        private static void IRQ156() => asm("procirq 156");
-
-        [EmptyMethod]
-        private static void IRQ157() => asm("procirq 157");
-
-        [EmptyMethod]
-        private static void IRQ158() => asm("procirq 158");
-
-        [EmptyMethod]
-        private static void IRQ159() => asm("procirq 159");
-
-        [EmptyMethod]
-        private static void IRQ160() => asm("procirq 160");
-
-        [EmptyMethod]
-        private static void IRQ161() => asm("procirq 161");
-
-        [EmptyMethod]
-        private static void IRQ162() => asm("procirq 162");
-
-        [EmptyMethod]
-        private static void IRQ163() => asm("procirq 163");
-
-        [EmptyMethod]
-        private static void IRQ164() => asm("procirq 164");
-
-        [EmptyMethod]
-        private static void IRQ165() => asm("procirq 165");
-
-        [EmptyMethod]
-        private static void IRQ166() => asm("procirq 166");
-
-        [EmptyMethod]
-        private static void IRQ167() => asm("procirq 167");
-
-        [EmptyMethod]
-        private static void IRQ168() => asm("procirq 168");
-
-        [EmptyMethod]
-        private static void IRQ169() => asm("procirq 169");
-
-        [EmptyMethod]
-        private static void IRQ170() => asm("procirq 170");
-
-        [EmptyMethod]
-        private static void IRQ171() => asm("procirq 171");
-
-        [EmptyMethod]
-        private static void IRQ172() => asm("procirq 172");
-
-        [EmptyMethod]
-        private static void IRQ173() => asm("procirq 173");
-
-        [EmptyMethod]
-        private static void IRQ174() => asm("procirq 174");
-
-        [EmptyMethod]
-        private static void IRQ175() => asm("procirq 175");
-
-        [EmptyMethod]
-        private static void IRQ176() => asm("procirq 176");
-
-        [EmptyMethod]
-        private static void IRQ177() => asm("procirq 177");
-
-        [EmptyMethod]
-        private static void IRQ178() => asm("procirq 178");
-
-        [EmptyMethod]
-        private static void IRQ179() => asm("procirq 179");
-
-        [EmptyMethod]
-        private static void IRQ180() => asm("procirq 180");
-
-        [EmptyMethod]
-        private static void IRQ181() => asm("procirq 181");
-
-        [EmptyMethod]
-        private static void IRQ182() => asm("procirq 182");
-
-        [EmptyMethod]
-        private static void IRQ183() => asm("procirq 183");
-
-        [EmptyMethod]
-        private static void IRQ184() => asm("procirq 184");
-
-        [EmptyMethod]
-        private static void IRQ185() => asm("procirq 185");
-
-        [EmptyMethod]
-        private static void IRQ186() => asm("procirq 186");
-
-        [EmptyMethod]
-        private static void IRQ187() => asm("procirq 187");
-
-        [EmptyMethod]
-        private static void IRQ188() => asm("procirq 188");
-
-        [EmptyMethod]
-        private static void IRQ189() => asm("procirq 189");
-
-        [EmptyMethod]
-        private static void IRQ190() => asm("procirq 190");
-
-        [EmptyMethod]
-        private static void IRQ191() => asm("procirq 191");
-
-        [EmptyMethod]
-        private static void IRQ192() => asm("procirq 192");
-
-        [EmptyMethod]
-        private static void IRQ193() => asm("procirq 193");
-
-        [EmptyMethod]
-        private static void IRQ194() => asm("procirq 194");
-
-        [EmptyMethod]
-        private static void IRQ195() => asm("procirq 195");
-
-        [EmptyMethod]
-        private static void IRQ196() => asm("procirq 196");
-
-        [EmptyMethod]
-        private static void IRQ197() => asm("procirq 197");
-
-        [EmptyMethod]
-        private static void IRQ198() => asm("procirq 198");
-
-        [EmptyMethod]
-        private static void IRQ199() => asm("procirq 199");
-
-        [EmptyMethod]
-        private static void IRQ200() => asm("procirq 200");
-
-        [EmptyMethod]
-        private static void IRQ201() => asm("procirq 201");
-
-        [EmptyMethod]
-        private static void IRQ202() => asm("procirq 202");
-
-        [EmptyMethod]
-        private static void IRQ203() => asm("procirq 203");
-
-        [EmptyMethod]
-        private static void IRQ204() => asm("procirq 204");
-
-        [EmptyMethod]
-        private static void IRQ205() => asm("procirq 205");
-
-        [EmptyMethod]
-        private static void IRQ206() => asm("procirq 206");
-
-        [EmptyMethod]
-        private static void IRQ207() => asm("procirq 207");
-
-        [EmptyMethod]
-        private static void IRQ208() => asm("procirq 208");
-
-        [EmptyMethod]
-        private static void IRQ209() => asm("procirq 209");
-
-        [EmptyMethod]
-        private static void IRQ210() => asm("procirq 210");
-
-        [EmptyMethod]
-        private static void IRQ211() => asm("procirq 211");
-
-        [EmptyMethod]
-        private static void IRQ212() => asm("procirq 212");
-
-        [EmptyMethod]
-        private static void IRQ213() => asm("procirq 213");
-
-        [EmptyMethod]
-        private static void IRQ214() => asm("procirq 214");
-
-        [EmptyMethod]
-        private static void IRQ215() => asm("procirq 215");
-
-        [EmptyMethod]
-        private static void IRQ216() => asm("procirq 216");
-
-        [EmptyMethod]
-        private static void IRQ217() => asm("procirq 217");
-
-        [EmptyMethod]
-        private static void IRQ218() => asm("procirq 218");
-
-        [EmptyMethod]
-        private static void IRQ219() => asm("procirq 219");
-
-        [EmptyMethod]
-        private static void IRQ220() => asm("procirq 220");
-
-        [EmptyMethod]
-        private static void IRQ221() => asm("procirq 221");
-
-        [EmptyMethod]
-        private static void IRQ222() => asm("procirq 222");
-
-        [EmptyMethod]
-        private static void IRQ223() => asm("procirq 223");
-
-        [EmptyMethod]
-        private static void IRQ224() => asm("procirq 224");
-
-        [EmptyMethod]
-        private static void IRQ225() => asm("procirq 225");
-
-        [EmptyMethod]
-        private static void IRQ226() => asm("procirq 226");
-
-        [EmptyMethod]
-        private static void IRQ227() => asm("procirq 227");
-
-        [EmptyMethod]
-        private static void IRQ228() => asm("procirq 228");
-
-        [EmptyMethod]
-        private static void IRQ229() => asm("procirq 229");
-
-        [EmptyMethod]
-        private static void IRQ230() => asm("procirq 230");
-
-        [EmptyMethod]
-        private static void IRQ231() => asm("procirq 231");
-
-        [EmptyMethod]
-        private static void IRQ232() => asm("procirq 232");
-
-        [EmptyMethod]
-        private static void IRQ233() => asm("procirq 233");
-
-        [EmptyMethod]
-        private static void IRQ234() => asm("procirq 234");
-
-        [EmptyMethod]
-        private static void IRQ235() => asm("procirq 235");
-
-        [EmptyMethod]
-        private static void IRQ236() => asm("procirq 236");
-
-        [EmptyMethod]
-        private static void IRQ237() => asm("procirq 237");
-
-        [EmptyMethod]
-        private static void IRQ238() => asm("procirq 238");
-
-        [EmptyMethod]
-        private static void IRQ239() => asm("procirq 239");
-
-        [EmptyMethod]
-        private static void IRQ240() => asm("procirq 240");
-
-        [EmptyMethod]
-        private static void IRQ241() => asm("procirq 241");
-
-        [EmptyMethod]
-        private static void IRQ242() => asm("procirq 242");
-
-        [EmptyMethod]
-        private static void IRQ243() => asm("procirq 243");
-
-        [EmptyMethod]
-        private static void IRQ244() => asm("procirq 244");
-
-        [EmptyMethod]
-        private static void IRQ245() => asm("procirq 245");
-
-        [EmptyMethod]
-        private static void IRQ246() => asm("procirq 246");
-
-        [EmptyMethod]
-        private static void IRQ247() => asm("procirq 247");
-
-        [EmptyMethod]
-        private static void IRQ248() => asm("procirq 248");
-
-        [EmptyMethod]
-        private static void IRQ249() => asm("procirq 249");
-
-        [EmptyMethod]
-        private static void IRQ250() => asm("procirq 250");
-
-        [EmptyMethod]
-        private static void IRQ251() => asm("procirq 251");
-
-        [EmptyMethod]
-        private static void IRQ252() => asm("procirq 252");
-
-        [EmptyMethod]
-        private static void IRQ253() => asm("procirq 253");
-
-        [EmptyMethod]
-        private static void IRQ254() => asm("procirq 254");
-
-        [EmptyMethod]
-        private static void IRQ255() => asm("procirq 255");
+        [AssemblyMethod]
+        private static void IRQ0()
+        {
+            asm("pushaq");
+            asm("push 0");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ1()
+        {
+            asm("pushaq");
+            asm("push 1");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ2()
+        {
+            asm("pushaq");
+            asm("push 2");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ3()
+        {
+            asm("pushaq");
+            asm("push 3");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ4()
+        {
+            asm("pushaq");
+            asm("push 4");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ5()
+        {
+            asm("pushaq");
+            asm("push 5");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ6()
+        {
+            asm("pushaq");
+            asm("push 6");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ7()
+        {
+            asm("pushaq");
+            asm("push 7");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ8()
+        {
+            asm("pushaq");
+            asm("push 8");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ9()
+        {
+            asm("pushaq");
+            asm("push 9");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ10()
+        {
+            asm("pushaq");
+            asm("push 10");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ11()
+        {
+            asm("pushaq");
+            asm("push 11");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ12()
+        {
+            asm("pushaq");
+            asm("push 12");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ13()
+        {
+            asm("pushaq");
+            asm("push 13");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ14()
+        {
+            asm("pushaq");
+            asm("push 14");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ15()
+        {
+            asm("pushaq");
+            asm("push 15");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ16()
+        {
+            asm("pushaq");
+            asm("push 16");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ17()
+        {
+            asm("pushaq");
+            asm("push 17");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ18()
+        {
+            asm("pushaq");
+            asm("push 18");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ19()
+        {
+            asm("pushaq");
+            asm("push 19");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ20()
+        {
+            asm("pushaq");
+            asm("push 20");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ21()
+        {
+            asm("pushaq");
+            asm("push 21");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ22()
+        {
+            asm("pushaq");
+            asm("push 22");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ23()
+        {
+            asm("pushaq");
+            asm("push 23");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ24()
+        {
+            asm("pushaq");
+            asm("push 24");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ25()
+        {
+            asm("pushaq");
+            asm("push 25");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ26()
+        {
+            asm("pushaq");
+            asm("push 26");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ27()
+        {
+            asm("pushaq");
+            asm("push 27");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ28()
+        {
+            asm("pushaq");
+            asm("push 28");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ29()
+        {
+            asm("pushaq");
+            asm("push 29");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ30()
+        {
+            asm("pushaq");
+            asm("push 30");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ31()
+        {
+            asm("pushaq");
+            asm("push 31");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ32()
+        {
+            asm("pushaq");
+            asm("push 32");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ33()
+        {
+            asm("pushaq");
+            asm("push 33");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ34()
+        {
+            asm("pushaq");
+            asm("push 34");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ35()
+        {
+            asm("pushaq");
+            asm("push 35");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ36()
+        {
+            asm("pushaq");
+            asm("push 36");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ37()
+        {
+            asm("pushaq");
+            asm("push 37");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ38()
+        {
+            asm("pushaq");
+            asm("push 38");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ39()
+        {
+            asm("pushaq");
+            asm("push 39");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ40()
+        {
+            asm("pushaq");
+            asm("push 40");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ41()
+        {
+            asm("pushaq");
+            asm("push 41");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ42()
+        {
+            asm("pushaq");
+            asm("push 42");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ43()
+        {
+            asm("pushaq");
+            asm("push 43");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ44()
+        {
+            asm("pushaq");
+            asm("push 44");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ45()
+        {
+            asm("pushaq");
+            asm("push 45");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ46()
+        {
+            asm("pushaq");
+            asm("push 46");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ47()
+        {
+            asm("pushaq");
+            asm("push 47");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ48()
+        {
+            asm("pushaq");
+            asm("push 48");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ49()
+        {
+            asm("pushaq");
+            asm("push 49");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ50()
+        {
+            asm("pushaq");
+            asm("push 50");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ51()
+        {
+            asm("pushaq");
+            asm("push 51");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ52()
+        {
+            asm("pushaq");
+            asm("push 52");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ53()
+        {
+            asm("pushaq");
+            asm("push 53");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ54()
+        {
+            asm("pushaq");
+            asm("push 54");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ55()
+        {
+            asm("pushaq");
+            asm("push 55");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ56()
+        {
+            asm("pushaq");
+            asm("push 56");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ57()
+        {
+            asm("pushaq");
+            asm("push 57");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ58()
+        {
+            asm("pushaq");
+            asm("push 58");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ59()
+        {
+            asm("pushaq");
+            asm("push 59");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ60()
+        {
+            asm("pushaq");
+            asm("push 60");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ61()
+        {
+            asm("pushaq");
+            asm("push 61");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ62()
+        {
+            asm("pushaq");
+            asm("push 62");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ63()
+        {
+            asm("pushaq");
+            asm("push 63");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ64()
+        {
+            asm("pushaq");
+            asm("push 64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ65()
+        {
+            asm("pushaq");
+            asm("push 65");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ66()
+        {
+            asm("pushaq");
+            asm("push 66");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ67()
+        {
+            asm("pushaq");
+            asm("push 67");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ68()
+        {
+            asm("pushaq");
+            asm("push 68");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ69()
+        {
+            asm("pushaq");
+            asm("push 69");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ70()
+        {
+            asm("pushaq");
+            asm("push 70");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ71()
+        {
+            asm("pushaq");
+            asm("push 71");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ72()
+        {
+            asm("pushaq");
+            asm("push 72");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ73()
+        {
+            asm("pushaq");
+            asm("push 73");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ74()
+        {
+            asm("pushaq");
+            asm("push 74");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ75()
+        {
+            asm("pushaq");
+            asm("push 75");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ76()
+        {
+            asm("pushaq");
+            asm("push 76");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ77()
+        {
+            asm("pushaq");
+            asm("push 77");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ78()
+        {
+            asm("pushaq");
+            asm("push 78");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ79()
+        {
+            asm("pushaq");
+            asm("push 79");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ80()
+        {
+            asm("pushaq");
+            asm("push 80");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ81()
+        {
+            asm("pushaq");
+            asm("push 81");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ82()
+        {
+            asm("pushaq");
+            asm("push 82");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ83()
+        {
+            asm("pushaq");
+            asm("push 83");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ84()
+        {
+            asm("pushaq");
+            asm("push 84");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ85()
+        {
+            asm("pushaq");
+            asm("push 85");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ86()
+        {
+            asm("pushaq");
+            asm("push 86");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ87()
+        {
+            asm("pushaq");
+            asm("push 87");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ88()
+        {
+            asm("pushaq");
+            asm("push 88");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ89()
+        {
+            asm("pushaq");
+            asm("push 89");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ90()
+        {
+            asm("pushaq");
+            asm("push 90");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ91()
+        {
+            asm("pushaq");
+            asm("push 91");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ92()
+        {
+            asm("pushaq");
+            asm("push 92");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ93()
+        {
+            asm("pushaq");
+            asm("push 93");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ94()
+        {
+            asm("pushaq");
+            asm("push 94");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ95()
+        {
+            asm("pushaq");
+            asm("push 95");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ96()
+        {
+            asm("pushaq");
+            asm("push 96");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ97()
+        {
+            asm("pushaq");
+            asm("push 97");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ98()
+        {
+            asm("pushaq");
+            asm("push 98");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ99()
+        {
+            asm("pushaq");
+            asm("push 99");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ100()
+        {
+            asm("pushaq");
+            asm("push 100");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ101()
+        {
+            asm("pushaq");
+            asm("push 101");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ102()
+        {
+            asm("pushaq");
+            asm("push 102");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ103()
+        {
+            asm("pushaq");
+            asm("push 103");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ104()
+        {
+            asm("pushaq");
+            asm("push 104");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ105()
+        {
+            asm("pushaq");
+            asm("push 105");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ106()
+        {
+            asm("pushaq");
+            asm("push 106");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ107()
+        {
+            asm("pushaq");
+            asm("push 107");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ108()
+        {
+            asm("pushaq");
+            asm("push 108");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ109()
+        {
+            asm("pushaq");
+            asm("push 109");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ110()
+        {
+            asm("pushaq");
+            asm("push 110");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ111()
+        {
+            asm("pushaq");
+            asm("push 111");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ112()
+        {
+            asm("pushaq");
+            asm("push 112");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ113()
+        {
+            asm("pushaq");
+            asm("push 113");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ114()
+        {
+            asm("pushaq");
+            asm("push 114");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ115()
+        {
+            asm("pushaq");
+            asm("push 115");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ116()
+        {
+            asm("pushaq");
+            asm("push 116");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ117()
+        {
+            asm("pushaq");
+            asm("push 117");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ118()
+        {
+            asm("pushaq");
+            asm("push 118");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ119()
+        {
+            asm("pushaq");
+            asm("push 119");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ120()
+        {
+            asm("pushaq");
+            asm("push 120");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ121()
+        {
+            asm("pushaq");
+            asm("push 121");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ122()
+        {
+            asm("pushaq");
+            asm("push 122");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ123()
+        {
+            asm("pushaq");
+            asm("push 123");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ124()
+        {
+            asm("pushaq");
+            asm("push 124");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ125()
+        {
+            asm("pushaq");
+            asm("push 125");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ126()
+        {
+            asm("pushaq");
+            asm("push 126");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ127()
+        {
+            asm("pushaq");
+            asm("push 127");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ128()
+        {
+            asm("pushaq");
+            asm("push 128");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ129()
+        {
+            asm("pushaq");
+            asm("push 129");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ130()
+        {
+            asm("pushaq");
+            asm("push 130");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ131()
+        {
+            asm("pushaq");
+            asm("push 131");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ132()
+        {
+            asm("pushaq");
+            asm("push 132");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ133()
+        {
+            asm("pushaq");
+            asm("push 133");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ134()
+        {
+            asm("pushaq");
+            asm("push 134");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ135()
+        {
+            asm("pushaq");
+            asm("push 135");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ136()
+        {
+            asm("pushaq");
+            asm("push 136");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ137()
+        {
+            asm("pushaq");
+            asm("push 137");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ138()
+        {
+            asm("pushaq");
+            asm("push 138");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ139()
+        {
+            asm("pushaq");
+            asm("push 139");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ140()
+        {
+            asm("pushaq");
+            asm("push 140");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ141()
+        {
+            asm("pushaq");
+            asm("push 141");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ142()
+        {
+            asm("pushaq");
+            asm("push 142");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ143()
+        {
+            asm("pushaq");
+            asm("push 143");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ144()
+        {
+            asm("pushaq");
+            asm("push 144");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ145()
+        {
+            asm("pushaq");
+            asm("push 145");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ146()
+        {
+            asm("pushaq");
+            asm("push 146");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ147()
+        {
+            asm("pushaq");
+            asm("push 147");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ148()
+        {
+            asm("pushaq");
+            asm("push 148");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ149()
+        {
+            asm("pushaq");
+            asm("push 149");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ150()
+        {
+            asm("pushaq");
+            asm("push 150");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ151()
+        {
+            asm("pushaq");
+            asm("push 151");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ152()
+        {
+            asm("pushaq");
+            asm("push 152");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ153()
+        {
+            asm("pushaq");
+            asm("push 153");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ154()
+        {
+            asm("pushaq");
+            asm("push 154");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ155()
+        {
+            asm("pushaq");
+            asm("push 155");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ156()
+        {
+            asm("pushaq");
+            asm("push 156");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ157()
+        {
+            asm("pushaq");
+            asm("push 157");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ158()
+        {
+            asm("pushaq");
+            asm("push 158");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ159()
+        {
+            asm("pushaq");
+            asm("push 159");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ160()
+        {
+            asm("pushaq");
+            asm("push 160");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ161()
+        {
+            asm("pushaq");
+            asm("push 161");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ162()
+        {
+            asm("pushaq");
+            asm("push 162");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ163()
+        {
+            asm("pushaq");
+            asm("push 163");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ164()
+        {
+            asm("pushaq");
+            asm("push 164");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ165()
+        {
+            asm("pushaq");
+            asm("push 165");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ166()
+        {
+            asm("pushaq");
+            asm("push 166");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ167()
+        {
+            asm("pushaq");
+            asm("push 167");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ168()
+        {
+            asm("pushaq");
+            asm("push 168");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ169()
+        {
+            asm("pushaq");
+            asm("push 169");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ170()
+        {
+            asm("pushaq");
+            asm("push 170");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ171()
+        {
+            asm("pushaq");
+            asm("push 171");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ172()
+        {
+            asm("pushaq");
+            asm("push 172");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ173()
+        {
+            asm("pushaq");
+            asm("push 173");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ174()
+        {
+            asm("pushaq");
+            asm("push 174");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ175()
+        {
+            asm("pushaq");
+            asm("push 175");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ176()
+        {
+            asm("pushaq");
+            asm("push 176");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ177()
+        {
+            asm("pushaq");
+            asm("push 177");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ178()
+        {
+            asm("pushaq");
+            asm("push 178");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ179()
+        {
+            asm("pushaq");
+            asm("push 179");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ180()
+        {
+            asm("pushaq");
+            asm("push 180");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ181()
+        {
+            asm("pushaq");
+            asm("push 181");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ182()
+        {
+            asm("pushaq");
+            asm("push 182");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ183()
+        {
+            asm("pushaq");
+            asm("push 183");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ184()
+        {
+            asm("pushaq");
+            asm("push 184");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ185()
+        {
+            asm("pushaq");
+            asm("push 185");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ186()
+        {
+            asm("pushaq");
+            asm("push 186");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ187()
+        {
+            asm("pushaq");
+            asm("push 187");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ188()
+        {
+            asm("pushaq");
+            asm("push 188");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ189()
+        {
+            asm("pushaq");
+            asm("push 189");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ190()
+        {
+            asm("pushaq");
+            asm("push 190");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ191()
+        {
+            asm("pushaq");
+            asm("push 191");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ192()
+        {
+            asm("pushaq");
+            asm("push 192");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ193()
+        {
+            asm("pushaq");
+            asm("push 193");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ194()
+        {
+            asm("pushaq");
+            asm("push 194");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ195()
+        {
+            asm("pushaq");
+            asm("push 195");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ196()
+        {
+            asm("pushaq");
+            asm("push 196");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ197()
+        {
+            asm("pushaq");
+            asm("push 197");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ198()
+        {
+            asm("pushaq");
+            asm("push 198");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ199()
+        {
+            asm("pushaq");
+            asm("push 199");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ200()
+        {
+            asm("pushaq");
+            asm("push 200");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ201()
+        {
+            asm("pushaq");
+            asm("push 201");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ202()
+        {
+            asm("pushaq");
+            asm("push 202");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ203()
+        {
+            asm("pushaq");
+            asm("push 203");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ204()
+        {
+            asm("pushaq");
+            asm("push 204");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ205()
+        {
+            asm("pushaq");
+            asm("push 205");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ206()
+        {
+            asm("pushaq");
+            asm("push 206");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ207()
+        {
+            asm("pushaq");
+            asm("push 207");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ208()
+        {
+            asm("pushaq");
+            asm("push 208");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ209()
+        {
+            asm("pushaq");
+            asm("push 209");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ210()
+        {
+            asm("pushaq");
+            asm("push 210");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ211()
+        {
+            asm("pushaq");
+            asm("push 211");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ212()
+        {
+            asm("pushaq");
+            asm("push 212");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ213()
+        {
+            asm("pushaq");
+            asm("push 213");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ214()
+        {
+            asm("pushaq");
+            asm("push 214");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ215()
+        {
+            asm("pushaq");
+            asm("push 215");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ216()
+        {
+            asm("pushaq");
+            asm("push 216");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ217()
+        {
+            asm("pushaq");
+            asm("push 217");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ218()
+        {
+            asm("pushaq");
+            asm("push 218");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ219()
+        {
+            asm("pushaq");
+            asm("push 219");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ220()
+        {
+            asm("pushaq");
+            asm("push 220");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ221()
+        {
+            asm("pushaq");
+            asm("push 221");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ222()
+        {
+            asm("pushaq");
+            asm("push 222");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ223()
+        {
+            asm("pushaq");
+            asm("push 223");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ224()
+        {
+            asm("pushaq");
+            asm("push 224");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ225()
+        {
+            asm("pushaq");
+            asm("push 225");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ226()
+        {
+            asm("pushaq");
+            asm("push 226");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ227()
+        {
+            asm("pushaq");
+            asm("push 227");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ228()
+        {
+            asm("pushaq");
+            asm("push 228");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ229()
+        {
+            asm("pushaq");
+            asm("push 229");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ230()
+        {
+            asm("pushaq");
+            asm("push 230");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ231()
+        {
+            asm("pushaq");
+            asm("push 231");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ232()
+        {
+            asm("pushaq");
+            asm("push 232");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ233()
+        {
+            asm("pushaq");
+            asm("push 233");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ234()
+        {
+            asm("pushaq");
+            asm("push 234");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ235()
+        {
+            asm("pushaq");
+            asm("push 235");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ236()
+        {
+            asm("pushaq");
+            asm("push 236");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ237()
+        {
+            asm("pushaq");
+            asm("push 237");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ238()
+        {
+            asm("pushaq");
+            asm("push 238");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ239()
+        {
+            asm("pushaq");
+            asm("push 239");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ240()
+        {
+            asm("pushaq");
+            asm("push 240");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ241()
+        {
+            asm("pushaq");
+            asm("push 241");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ242()
+        {
+            asm("pushaq");
+            asm("push 242");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ243()
+        {
+            asm("pushaq");
+            asm("push 243");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ244()
+        {
+            asm("pushaq");
+            asm("push 244");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ245()
+        {
+            asm("pushaq");
+            asm("push 245");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ246()
+        {
+            asm("pushaq");
+            asm("push 246");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ247()
+        {
+            asm("pushaq");
+            asm("push 247");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ248()
+        {
+            asm("pushaq");
+            asm("push 248");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ249()
+        {
+            asm("pushaq");
+            asm("push 249");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ250()
+        {
+            asm("pushaq");
+            asm("push 250");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ251()
+        {
+            asm("pushaq");
+            asm("push 251");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ252()
+        {
+            asm("pushaq");
+            asm("push 252");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ253()
+        {
+            asm("pushaq");
+            asm("push 253");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ254()
+        {
+            asm("pushaq");
+            asm("push 254");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
+
+        [AssemblyMethod]
+        private static void IRQ255()
+        {
+            asm("pushaq");
+            asm("push 255");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("popaq");
+            asm("iretq");
+        }
     }
 }

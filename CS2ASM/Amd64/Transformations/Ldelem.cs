@@ -9,15 +9,15 @@ namespace CS2ASM
         [ILTransformation(Code.Ldelem)]
         public static void Ldelem(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"pop r14"); //index
-            arch.Append($"pop r15"); //ptr
+            arch.Append($"pop rdi"); //index
+            arch.Append($"pop rsi"); //ptr
 
             arch.Append($"xor rdx,rdx");
             arch.Append($"mov rax,8");
-            arch.Append($"mul r14");
-            arch.Append($"add r15,rax");
-            arch.Append($"add r15,{Utility.SizeOf(def.Module,"System.Array")}");
-            arch.Append($"push qword [r15]");
+            arch.Append($"mul rdi");
+            arch.Append($"add rsi,rax");
+            arch.Append($"add rsi,{Utility.SizeOf(def.Module,"System.Array")}");
+            arch.Append($"push qword [rsi]");
         }
     }
 }

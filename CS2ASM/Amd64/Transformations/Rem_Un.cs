@@ -10,9 +10,9 @@ namespace CS2ASM
         public static void Rem_Un(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append($"xor rdx,rdx");
-            arch.Append($"pop r8");
+            arch.Append($"pop rbx");
             arch.Append($"pop rax");
-            arch.Append($"div r8");
+            arch.Append($"div rbx");
             arch.Append($"push rdx");
         }
     }

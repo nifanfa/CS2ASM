@@ -10,9 +10,9 @@ namespace CS2ASM
         public static void Div(BaseArch arch, Instruction ins, MethodDef def)
         {
             arch.Append($"xor rdx,rdx");
-            arch.Append($"pop r8");
+            arch.Append($"pop rbx");
             arch.Append($"pop rax");
-            arch.Append($"idiv r8");
+            arch.Append($"idiv rbx");
             arch.Append($"push rax");
         }
     }

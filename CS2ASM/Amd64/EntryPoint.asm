@@ -68,7 +68,7 @@ endloop:
         hlt
         jmp   endloop
 
-%macro procirq 1
+%macro pushaq 0
 push rax
 push rcx
 push rdx
@@ -85,8 +85,9 @@ push r12
 push r13
 push r14
 push r15
-push %1
-call System.Platform.Amd64.IDT.OnInterrupt.UInt64
+%endmacro
+
+%macro popaq 0
 pop r15
 pop r14
 pop r13
@@ -103,7 +104,6 @@ pop rbx
 pop rdx
 pop rcx
 pop rax
-iretq
 %endmacro
 
 ALIGN 4

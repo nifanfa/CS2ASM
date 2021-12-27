@@ -16,14 +16,14 @@ namespace CS2ASM
             {
                 arch.Append($"pop rax");
             }
-            arch.Append($"pop r8");
+            arch.Append($"pop rbx");
 
             //Clean up local variables
             arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
-            arch.Append($"mov rbp,r8");
+            arch.Append($"mov rbp,rbx");
 
-            arch.Append($"pop r8");
+            arch.Append($"pop rbx");
 
             //Clean up arguments
             arch.Append($"add rsp,{def.Parameters.Count * 8}");
@@ -33,7 +33,7 @@ namespace CS2ASM
                 arch.Append($"push rax");
             }
 
-            arch.Append($"push r8");
+            arch.Append($"push rbx");
 
             arch.Append($"ret");
         }

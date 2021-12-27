@@ -1,6 +1,6 @@
 ﻿namespace System.Runtime.CompilerServices
 {
-    public class EmptyMethodAttribute : Attribute
+    public class AssemblyMethodAttribute : Attribute
     {
     }
 }

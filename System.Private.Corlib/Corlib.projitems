@@ -9,7 +9,7 @@
     <Import_RootNamespace>System</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Runtime.CompilerServices\EmptyMethodAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime.CompilerServices\AssemblyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime.CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\Intrinsic.cs" />

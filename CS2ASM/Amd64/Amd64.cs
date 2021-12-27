@@ -40,13 +40,13 @@ namespace CS2ASM.AMD64
             if (!Amd64.IsEmptyMethod(def))
             {
                 //Call.cs Line 19
-                this.Append($"mov r8,rbp");
+                this.Append($"mov rbx,rbp");
                 this.Append($"mov rbp,rsp");
 
                 //For Variables
                 //pop at Ret.cs
                 this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
-                this.Append($"push r8");
+                this.Append($"push rbx");
             }
             
             //Start Parse IL Code
