@@ -15,7 +15,7 @@ namespace System
 
         private static string DefaultString = "System.Object";
 
-        public virtual string ToString() 
+        public virtual string ToString(ulong Argument = 0) 
         {
             return DefaultString;
         }

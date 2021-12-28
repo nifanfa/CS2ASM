@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ConsoleColor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Paging.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PCI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PIC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PIT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PS2Keyboard.cs" />

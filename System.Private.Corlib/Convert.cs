@@ -5,35 +5,77 @@
 		//Preventing memory overflow
 		private static string Result = "                     ";
 
-		public static string ToString(ulong val)
+		public static string ToString(ulong val,bool hex = false)
         {
-			Result.Length = 21;
-
-			ulong len = 0;
-			ulong val0 = val;
-
-			do
+            if (hex) 
 			{
-				var d = val0 % 10;
-				val0 /= 10;
-				len++;
-			} while (val0 > 0);
 
-			Result.Length = len;
-			val0 = val;
+				Result.Length = 16;
 
-			do
+				ulong len = 0;
+				ulong val0 = val;
+
+				do
+				{
+					var d = val0 % 16;
+					val0 /= 16;
+					len++;
+				} while (val0 > 0);
+
+				Result.Length = len;
+				val0 = val;
+
+				do
+				{
+					var d = val0 % 16;
+					val0 /= 16;
+
+					if (d > 9)
+					{
+						d += 0x37;
+					}
+					else
+					{
+						d += 0x30;
+					}
+
+					len = len - 1;
+					Result[len] = (char)d;
+				} while (val0 > 0);
+
+
+				return Result;
+            }
+            else 
 			{
-				var d = val0 % 10;
-				val0 /= 10;
+				Result.Length = 21;
 
-				d += 0x30;
-				len = len - 1;
-				Result[len] = (char)d;
-			} while (val0 > 0);
+				ulong len = 0;
+				ulong val0 = val;
+
+				do
+				{
+					var d = val0 % 10;
+					val0 /= 10;
+					len++;
+				} while (val0 > 0);
+
+				Result.Length = len;
+				val0 = val;
+
+				do
+				{
+					var d = val0 % 10;
+					val0 /= 10;
+
+					d += 0x30;
+					len = len - 1;
+					Result[len] = (char)d;
+				} while (val0 > 0);
 
 
-			return Result;
-        }
+				return Result;
+			}
+		}
     }
 }

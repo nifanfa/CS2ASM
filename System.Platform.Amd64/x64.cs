@@ -22,6 +22,23 @@ namespace System.Platform.Amd64
             asm("rep movsb");
         }
 
+        public static void Out32(ushort port, uint value)
+        {
+            asm("mov rdx,{port}");
+            asm("mov rax,{value}");
+            asm("out dx,eax");
+        }
+
+        public static uint In32(ushort port)
+        {
+            uint data = 0;
+            asm("mov rdx,{port}");
+            asm("xor rax,rax");
+            asm("in eax,dx");
+            asm("mov qword {data},rax");
+            return data;
+        }
+
         public static byte In8(ushort port)
         {
             byte data = 0;
