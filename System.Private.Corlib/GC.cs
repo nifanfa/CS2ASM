@@ -52,10 +52,12 @@ namespace System
             return ptr;
         }
 
+        //Call.cs
         public static void Dispose(object obj) 
         {
             ulong p = Unsafe.AddressOf(obj);
             ulong size = obj.Size;
+            obj = null;
 
             for (int i = 0; i < MDCount; i++)
             {
@@ -68,11 +70,6 @@ namespace System
             }
 
             Allocation--;
-
-            asm("mov rdi,{p}");
-            asm("xor rax,rax");
-            asm("mov rcx,{size}");
-            asm("rep stosb");
         }
     }
 }
