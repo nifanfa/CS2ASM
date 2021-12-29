@@ -29,14 +29,15 @@ namespace CS2ASM
                 {
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
-                arch.Append($"push qword {Utility.SafeMethodName(def)}.{ins.Offset:X4}.String");
+                arch.Append($"push qword STR_{bytes.GetHashCode():X2}");
                 arch.Append($"push qword {((string)ins.Operand).Length}");
                 arch.Append($"call System.String.Ctor.Char.UInt64");
 
-                arch.Append($"jmp {Utility.SafeMethodName(def)}.{ins.Offset:X4}.String.End");
-                arch.Append($"{Utility.SafeMethodName(def)}.{ins.Offset:X4}.String:");
+                arch.Append($"jmp STRE_{bytes.GetHashCode():X2}");
+                arch.Append($"STR_{bytes.GetHashCode():X2}:");
                 arch.Append($"db {text}");
-                arch.Append($"{Utility.SafeMethodName(def)}.{ins.Offset:X4}.String.End:");
+                arch.Append($"STRE_{bytes.GetHashCode():X2}:");
+                arch.StringCount++;
             }
         }
     }

@@ -109,7 +109,7 @@ namespace CS2ASM
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
-            return $"{Utility.SafeMethodName(def)}.IL.{(Create ? ins.Offset : (((Instruction)(ins.Operand)).Offset)):X4}";
+            return $"LB_{def.GetHashCode():X4}{(Create ? ins.Offset : ((Instruction)(ins.Operand)).Offset):X4}";
         }
 
         public static void Start(string file, string args)
