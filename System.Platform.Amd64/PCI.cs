@@ -8,7 +8,13 @@
         public ushort VendorID;
         public byte ClassID;
         public byte SubClassID;
+
         public uint Bar0;
+        public uint Bar1;
+        public uint Bar2;
+        public uint Bar3;
+        public uint Bar4;
+        public uint Bar5;
     }
 
     public static unsafe class PCI
@@ -59,9 +65,21 @@
                 device.Slot = slot;
                 device.Function = 0;
                 device.VendorID = vendorID;
-                device.Bar0 = ReadRegister(device.Bus, device.Slot, device.Function, 16);
+
+                device.Bar0 = ReadRegister(device.Bus, device.Slot, device.Function, 0x10);
+                device.Bar1 = ReadRegister(device.Bus, device.Slot, device.Function, 0x14);
+                device.Bar2 = ReadRegister(device.Bus, device.Slot, device.Function, 0x18);
+                device.Bar3 = ReadRegister(device.Bus, device.Slot, device.Function, 0x1C);
+                device.Bar4 = ReadRegister(device.Bus, device.Slot, device.Function, 0x20);
+                device.Bar5 = ReadRegister(device.Bus, device.Slot, device.Function, 0x24);
+
                 device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 11) & 0xFF);
                 device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10) & 0xFF);
+                
+                //Enable PCI Device
+                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x01);
+                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x02);
+                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x04);
 
                 Devices[index] = device;
 
@@ -80,6 +98,13 @@
             uint xAddr = PCI.GetAddressBase(Bus, Slot, Function) | ((uint)(aRegister & 0xFC));
             x64.Out32(0xCF8, xAddr);
             return x64.In32(0xCFC);
+        }
+
+        public static void WriteRegister16(ushort Bus, ushort Slot, ushort Function, byte aRegister, ushort Value)
+        {
+            uint xAddr = GetAddressBase(Bus, Slot, Function) | ((uint)(aRegister & 0xFC));
+            x64.Out32(0xCF8, xAddr);
+            x64.Out16(0xCFC, Value);
         }
 
         public static ushort GetVendorID(ushort Bus, ushort Slot, ushort Function)
