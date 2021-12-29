@@ -39,6 +39,16 @@ namespace System.Platform.Amd64
             return data;
         }
 
+        public static ushort In16(ushort port)
+        {
+            ushort data = 0;
+            asm("mov rdx,{port}");
+            asm("xor rax,rax");
+            asm("in ax,dx");
+            asm("mov qword {data},rax");
+            return data;
+        }
+
         public static byte In8(ushort port)
         {
             byte data = 0;
