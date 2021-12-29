@@ -50,7 +50,7 @@ multiboot_header:
         ;dd 00
         ;dd 1024
         ;dd 768
-        ;dd 24
+        ;dd 32
 
 multiboot_entry:
         mov    esp, KERNEL_STACK       ;Setup the stack
@@ -59,6 +59,7 @@ multiboot_entry:
 
         push   eax                     ;2nd argument is magic number
         push   ebx                     ;1st argument multiboot info pointer
+        mov [multiboot_ptr],ebx
         call   LongMode                ;Call _Main 
         ;add    esp, 8                  ;Cleanup 8 bytes pushed as arguments
 
@@ -67,6 +68,9 @@ die:
 endloop:
         hlt
         jmp   endloop
+
+multiboot_ptr:
+dq 0
 
 %macro pushaq 0
 push rax
