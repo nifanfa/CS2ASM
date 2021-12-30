@@ -29,14 +29,14 @@ namespace CS2ASM
                 {
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
-                arch.Append($"push qword STR_{bytes.GetHashCode():X2}");
+                //Every object has its unique hash code this is why i use it
+                arch.Append($"push qword LB_{bytes.GetHashCode():X2}");
                 arch.Append($"push qword {((string)ins.Operand).Length}");
                 arch.Append($"call System.String.Ctor.Char.UInt64");
-
-                arch.Append($"jmp STRE_{bytes.GetHashCode():X2}");
-                arch.Append($"STR_{bytes.GetHashCode():X2}:");
+                arch.Append($"jmp LB_{nextIns.GetHashCode():X2}");
+                arch.Append($"LB_{bytes.GetHashCode():X2}:");
                 arch.Append($"db {text}");
-                arch.Append($"STRE_{bytes.GetHashCode():X2}:");
+                arch.Append($"LB_{nextIns.GetHashCode():X2}:");
                 arch.StringCount++;
             }
         }

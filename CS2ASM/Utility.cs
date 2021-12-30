@@ -109,6 +109,7 @@ namespace CS2ASM
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
         {
+            //Every object has its unique hash code this is why i use it
             return $"LB_{def.GetHashCode():X4}{(Create ? ins.Offset : ((Instruction)(ins.Operand)).Offset):X4}";
         }
 
