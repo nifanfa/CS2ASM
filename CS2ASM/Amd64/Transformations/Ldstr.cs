@@ -37,7 +37,6 @@ namespace CS2ASM
                 arch.Append($"LB_{bytes.GetHashCode():X2}:");
                 arch.Append($"db {text}");
                 arch.Append($"LB_{nextIns.GetHashCode():X2}:");
-                arch.StringCount++;
             }
         }
     }
