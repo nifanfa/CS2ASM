@@ -39,7 +39,7 @@
 						d += 0x30;
 					}
 
-					len = len - 1;
+					len--;
 					Result[len] = (char)d;
 				} while (val0 > 0);
 
@@ -69,7 +69,7 @@
 					val0 /= 10;
 
 					d += 0x30;
-					len = len - 1;
+					len--;
 					Result[len] = (char)d;
 				} while (val0 > 0);
 
