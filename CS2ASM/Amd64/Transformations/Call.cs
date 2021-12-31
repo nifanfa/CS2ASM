@@ -14,7 +14,7 @@ namespace CS2ASM
             var prevIns = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) - 1];
             if(prevIns.OpCode.Code == Code.Ldstr) 
             {
-                Console.WriteLine($"Warning: This string({prevIns.Operand}) will be disposed automatically");
+                Console.WriteLine($"Warning: The string \"{prevIns.Operand}\" will be disposed automatically (call from Call.cs)");
                 arch.Append("push qword [rsp]");
             }
             arch.Append($"call {Utility.SafeMethodName(((MethodDef)ins.Operand))}");
