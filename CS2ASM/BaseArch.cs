@@ -42,7 +42,7 @@ namespace CS2ASM
         public Dictionary<Code, MethodInfo> ILBridgeMethods = null;
         
         public abstract void Translate(MethodDef meth);
-        public abstract void InitializeStaticFields(IList<TypeDef> types);
+        public abstract void InitializeStaticFields(TypeDef typ);
         public IEnumerable<Instruction> GetAllBranches(MethodDef def)
         {
             return from Br in def.Body.Instructions

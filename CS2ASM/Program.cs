@@ -36,13 +36,13 @@ namespace CS2ASM
             arch.Before(def);
             arch.InitializeStaticConstructor(def);
             arch.JumpToEntry(def);
-            arch.InitializeStaticFields(def.Types);
             foreach (var typ in def.Types)
             {
                 foreach (var meth in typ.Methods)
                 {
                     arch.Translate(meth);
                 }
+                arch.InitializeStaticFields(typ);
             }
             arch.After(def);
 

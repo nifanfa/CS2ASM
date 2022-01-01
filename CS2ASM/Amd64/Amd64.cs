@@ -82,19 +82,16 @@ namespace CS2ASM.AMD64
             return false;
         }
 
-        public override void InitializeStaticFields(IList<TypeDef> types)
+        public override void InitializeStaticFields(TypeDef typ)
         {
-            foreach (var typ in types)
+            foreach (var v in typ.Fields)
             {
-                foreach (var v in typ.Fields)
+                //Ldsfld
+                //Stsfld
+                if (v.IsStatic)
                 {
-                    //Ldsfld
-                    //Stsfld
-                    if (v.IsStatic)
-                    {
-                        this.Append($"{Utility.SafeFieldName(typ, v)}:");
-                        this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
-                    }
+                    this.Append($"{Utility.SafeFieldName(typ, v)}:");
+                    this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
                 }
             }
         }
