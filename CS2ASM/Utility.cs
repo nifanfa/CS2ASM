@@ -40,7 +40,7 @@ namespace CS2ASM
             }
         }
 
-        public static ulong SizeOfOrIndex(TypeDef type, FieldDef def)
+        public static ulong SizeOfOrIndex(TypeDef type, string name)
         {
             List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
             TypeDef td = type;
@@ -56,7 +56,7 @@ namespace CS2ASM
             {
                 foreach (var v2 in v1)
                 {
-                    if (v2 == def) break;
+                    if (v2.Name == name) break;
                     if (v2.IsStatic) break;
                     Index += (ulong)SizeOfShallow(v2.FieldType);
                 }
@@ -76,24 +76,22 @@ namespace CS2ASM
             throw new KeyNotFoundException();
         }
 
-        public static string SafeMethodName(MethodDef meth)
+        public static string SafeMethodName(MethodDef meth, MethodSig msig)
         {
             string result = $"{Utility.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
             bool dotP = false;
-            for (int i = 0; i < meth.Parameters.Count; i++)
+            for (int i = 0; i < msig.Params.Count; i++)
             {
-                if (meth.Parameters[i].Name != string.Empty)
+                if (!dotP)
                 {
-                    if (!dotP)
-                    {
-                        result += ".";
-                        dotP = true;
-                    }
-                    result += meth.Parameters[i].Type.TypeName.Replace("*", "");
-                    if (i != meth.Parameters.Count - 1)
-                        result += ".";
+                    result += ".";
+                    dotP = true;
                 }
+                result += msig.Params[i].TypeName.Replace("*", "");
+                if (i != msig.Params.Count - 1)
+                    result += ".";
             }
+            result = result.Replace("`", "");
             return result;
         }
 

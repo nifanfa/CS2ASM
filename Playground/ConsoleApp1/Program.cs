@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Platform.Amd64;
 using System.Runtime;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,15 @@ namespace ConsoleApp1
             x64.Out8(0x60, 0x00);
             Banner();
 
+            List<ulong> list = new List<ulong>(10);
+            list.Add(0x8899AABBCCDDEEFF);
+            list.Add(0xFFEEDDCCBBAA9988);
+            Console.WriteLine(list[0].ToString(16));
+            Console.WriteLine(list[1].ToString(16));
+
+            for (; ; );
+
+            /*
             ulong[] array = new ulong[2];
             array[0] = 123456789;
             array[1] = 54321;
@@ -63,6 +73,7 @@ namespace ConsoleApp1
 
                 x64.Pause();
             }
+            */
         }
 
         public static void Banner()

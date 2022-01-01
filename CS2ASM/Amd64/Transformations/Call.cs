@@ -16,10 +16,13 @@ namespace CS2ASM
             {
                 //It crashes VirtualBox but works in qemu
                 //Console.WriteLine($"Warning: The string \"{prevIns.Operand}\" will be disposed automatically (call from Call.cs)");
+                //rsp maybe wrong
                 //arch.Append("push qword [rsp]");
             }
-            arch.Append($"call {Utility.SafeMethodName(((MethodDef)ins.Operand))}");
-            if (prevIns.OpCode.Code == Code.Ldstr)
+            if (ins.Operand is MemberRef)
+                arch.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)ins.Operand).DeclaringType.ScopeType, Name = ((MemberRef)ins.Operand).Name }, ((MemberRef)ins.Operand).MethodSig)}");
+            else
+                arch.Append($"call {Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}"); if (prevIns.OpCode.Code == Code.Ldstr)
             {
                 //arch.Append("call System.GC.Dispose.Object");
             }

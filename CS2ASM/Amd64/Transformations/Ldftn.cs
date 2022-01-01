@@ -12,7 +12,7 @@ namespace CS2ASM
         {
             if((ins.Operand is MethodDef)) 
             {
-                arch.Append($"push qword {Utility.SafeMethodName((MethodDef)ins.Operand)}");
+                arch.Append($"push qword {Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}");
             }
             else
             {

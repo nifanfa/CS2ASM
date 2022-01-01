@@ -8,7 +8,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldc_I4)]
         public static void Ldc_I4(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push {OperandParser.Ldc(ins)}");
+            arch.Append($"mov rax,{OperandParser.Ldc(ins)}");
+            arch.Append($"push rax");
         }
     }
 }

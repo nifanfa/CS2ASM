@@ -8,7 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Conv_I2)]
         public static void Conv_I2(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"and qword [rsp],0xFFFF");
+            //arch.Append($"and qword [rsp],0xFFFF");
         }
     }
 }
