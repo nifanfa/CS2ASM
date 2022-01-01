@@ -9,20 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldind_I)]
         public static void Ldind_I(BaseArch arch, Instruction ins, MethodDef def)
         {
-            //This is for "this" keyword
-            var prev = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) - 1];
-            if (prev.IsLdarg())
-            {
-                var p = def.Parameters[(int)OperandParser.Ldarg(prev)];
-                if (!p.Type.IsPointer)
-                {
-                    return;
-                }
-            }
-
-            Debugger.Break();
-            arch.Append($"pop rax");
-            arch.Append($"push qword [rax]");
+            Ldind_I8(arch, ins, def);
+            Conv_I4(arch, ins, def);
         }
     }
 }

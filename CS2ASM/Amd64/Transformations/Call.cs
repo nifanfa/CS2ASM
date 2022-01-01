@@ -16,7 +16,6 @@ namespace CS2ASM
             {
                 //It crashes VirtualBox but works in qemu
                 //Console.WriteLine($"Warning: The string \"{prevIns.Operand}\" will be disposed automatically (call from Call.cs)");
-                //rsp maybe wrong
                 //arch.Append("push qword [rsp]");
             }
 

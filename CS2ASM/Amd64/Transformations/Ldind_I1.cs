@@ -8,7 +8,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldind_I1)]
         public static void Ldind_I1(BaseArch arch, Instruction ins, MethodDef def)
         {
-            Ldind_I(arch, ins, def);
+            Ldind_I8(arch, ins, def);
+            Conv_I1(arch, ins, def);
         }
     }
 }
