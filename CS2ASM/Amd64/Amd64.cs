@@ -9,11 +9,7 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 
 namespace CS2ASM.AMD64
 {
@@ -48,7 +44,7 @@ namespace CS2ASM.AMD64
                 this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
                 this.Append($"push rbx");
             }
-            
+
             //Start Parse IL Code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
             {
@@ -76,9 +72,9 @@ namespace CS2ASM.AMD64
 
         public static bool IsEmptyMethod(MethodDef def)
         {
-            foreach(var v in def.CustomAttributes) 
+            foreach (var v in def.CustomAttributes)
             {
-                if(v.TypeFullName == "System.Runtime.CompilerServices.AssemblyMethodAttribute") 
+                if (v.TypeFullName == "System.Runtime.CompilerServices.AssemblyMethodAttribute")
                 {
                     return true;
                 }
@@ -121,14 +117,14 @@ namespace CS2ASM.AMD64
                 {
                     if (M.IsStaticConstructor)
                     {
-                        this.Append($"call {Utility.SafeMethodName(M,M.MethodSig)}");
+                        this.Append($"call {Utility.SafeMethodName(M, M.MethodSig)}");
                     }
                 }
         }
 
         public override void JumpToEntry(ModuleDefMD def)
         {
-            this.Append($"call {Utility.SafeMethodName(def.EntryPoint,def.EntryPoint.MethodSig)}");
+            this.Append($"call {Utility.SafeMethodName(def.EntryPoint, def.EntryPoint.MethodSig)}");
             this.Append($"jmp die");
         }
     }
