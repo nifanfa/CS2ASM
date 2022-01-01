@@ -19,10 +19,13 @@ namespace CS2ASM
                 //rsp maybe wrong
                 //arch.Append("push qword [rsp]");
             }
+
             if (ins.Operand is MemberRef)
                 arch.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)ins.Operand).DeclaringType.ScopeType, Name = ((MemberRef)ins.Operand).Name }, ((MemberRef)ins.Operand).MethodSig)}");
             else
-                arch.Append($"call {Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}"); if (prevIns.OpCode.Code == Code.Ldstr)
+                arch.Append($"call {Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}"); 
+            
+            if (prevIns.OpCode.Code == Code.Ldstr)
             {
                 //arch.Append("call System.GC.Dispose.Object");
             }
