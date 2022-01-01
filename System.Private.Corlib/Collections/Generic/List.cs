@@ -2,51 +2,27 @@
 {
     public class List<T>
     {
-        T[] ts;
-        private ulong index = 0;
+        private T[] value;
 
-        public List(ulong length)
+        public ulong Count = 0;
+
+        public List(ulong initsize)
         {
-            ts = new T[length];
+            value = new T[initsize];
         }
 
         public T this[int index] 
         {
             get 
             {
-                return ts[index];
+                return value[index];
             }
         }
 
         public void Add(T t) 
         {
-            ts[index] = t;
-            index++;
-        }
-    }
-
-    public class TList
-    {
-        ulong[] ts;
-        private ulong index = 0;
-
-        public TList(ulong length)
-        {
-            ts = new ulong[length];
-        }
-
-        public ulong this[int index]
-        {
-            get
-            {
-                return ts[index];
-            }
-        }
-
-        public void Add(ulong t)
-        {
-            ts[index] = t;
-            index++;
+            value[Count] = t;
+            Count++;
         }
     }
 }
