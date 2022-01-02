@@ -11,18 +11,18 @@ namespace System
             public ulong Address;
             public ulong BlockSize;
         }
-        private static MemoryDescriptor* MDs = null;
-        private const int MDCount = 64;
+        private static MemoryDescriptor* Descs = null;
+        private const int DescCount = 64;
 
         public static ulong HeapStart = 10 * 1024 * 1024;
         public static ulong Allocation = 0;
 
         static GC() 
         {
-            MemoryDescriptor* desc = stackalloc MemoryDescriptor[MDCount];
-            MDs = desc;
+            MemoryDescriptor* desc = stackalloc MemoryDescriptor[DescCount];
+            Descs = desc;
 
-            for(int i = 0; i < MDCount; i++) 
+            for(int i = 0; i < DescCount; i++) 
             {
                 desc[i].Address = 0;
                 desc[i].BlockSize = 0;
@@ -34,19 +34,19 @@ namespace System
         {
             Allocation++;
             ulong ptr = 0;
-            for (ulong i = 0; i < MDCount; i++)
+            for (ulong i = 0; i < DescCount; i++)
             {
-                if (MDs == null) break;
-                if ((&MDs[i])->BlockSize < size) continue;
+                if (Descs == null) break;
+                if ((&Descs[i])->BlockSize < size) continue;
 
                 //In this case is CS2ASM got some problem
                 //TO-DO find out what caused this problem (wrong size)
                 if (size > 0xFFFFFFFF) break;
-                if ((&MDs[i])->BlockSize > 0xFFFFFFFF) break;
+                if ((&Descs[i])->BlockSize > 0xFFFFFFFF) break;
 
-                ptr = (&MDs[i])->Address;
-                (&MDs[i])->Address = (&MDs[i])->Address + size;
-                (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                ptr = (&Descs[i])->Address;
+                (&Descs[i])->Address = (&Descs[i])->Address + size;
+                (&Descs[i])->BlockSize = (&Descs[i])->BlockSize - size;
                 return ptr;
             }
 
@@ -58,18 +58,18 @@ namespace System
         //Call.cs
         public static void Dispose(object obj) 
         {
-            if (MDs == null) return;
+            if (Descs == null) return;
 
             ulong p = Unsafe.AddressOf(obj);
             ulong size = obj.Size;
             obj = null;
 
-            for (int i = 0; i < MDCount; i++)
+            for (int i = 0; i < DescCount; i++)
             {
-                if ((&MDs[i])->BlockSize == 0)
+                if ((&Descs[i])->BlockSize == 0)
                 {
-                    (&MDs[i])->BlockSize = size;
-                    (&MDs[i])->Address = p;
+                    (&Descs[i])->BlockSize = size;
+                    (&Descs[i])->Address = p;
                     break; //Must Exist
                 }
                 continue;
