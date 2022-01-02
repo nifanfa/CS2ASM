@@ -12,7 +12,8 @@ namespace CS2ASM
         {
             if((ins.Operand is MethodDef)) 
             {
-                arch.Append($"push qword {Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}");
+                arch.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}");
+                arch.Append($"push rax");
             }
             else
             {

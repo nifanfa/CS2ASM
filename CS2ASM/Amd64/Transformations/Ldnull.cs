@@ -10,7 +10,8 @@ namespace CS2ASM
         public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def)
         {
             //Here can be implementation of disposing
-            arch.Append($"push qword 0");
+            arch.Append($"mov qword rax,0");
+            arch.Append($"push rax");
         }
     }
 }

@@ -17,7 +17,8 @@ namespace CS2ASM
             arch.Append($"mul rdi");
             arch.Append($"add rsi,rax");
             arch.Append($"add rsi,{Utility.SizeOf(def.Module,"System.Array")}");
-            arch.Append($"push qword [rsi]");
+            arch.Append($"mov qword rax,[rsi]");
+            arch.Append($"push rax");
         }
     }
 }

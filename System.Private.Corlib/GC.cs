@@ -34,16 +34,15 @@ namespace System
         {
             Allocation++;
             ulong ptr = 0;
-            ulong _size = size;
             if (MDs != null)
             {
                 for (ulong i = 0; i < MDCount; i++)
                 {
-                    if ((&MDs[i])->BlockSize >= _size)
+                    if ((&MDs[i])->BlockSize >= size)
                     {
                         ptr = (&MDs[i])->Address;
-                        (&MDs[i])->Address = (&MDs[i])->Address + _size;
-                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - _size;
+                        (&MDs[i])->Address = (&MDs[i])->Address + size;
+                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
                         (&MDs[i])->BlockSize = 0;
                         return ptr;
                     }
@@ -52,7 +51,7 @@ namespace System
             }
 
             ptr = HeapStart;
-            HeapStart = HeapStart + _size;
+            HeapStart = HeapStart + size;
             return ptr;
         }
 

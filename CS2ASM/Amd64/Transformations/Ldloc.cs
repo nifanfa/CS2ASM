@@ -9,7 +9,8 @@ namespace CS2ASM
         public static void Ldloc(BaseArch arch, Instruction ins, MethodDef def)
         {
             ulong Index = OperandParser.Ldloc(ins) + 1;
-            arch.Append($"push qword [rbp-{Index * 8}]");
+            arch.Append($"mov qword rax,[rbp-{Index * 8}]");
+            arch.Append($"push rax");
         }
     }
 }

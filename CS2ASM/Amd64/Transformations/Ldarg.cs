@@ -9,7 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldarg)]
         public static void Ldarg(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"push qword [rbp+{((ulong)def.Parameters.Count + 0 - OperandParser.Ldarg(ins)) * 8}]");
+            arch.Append($"mov qword rax,[rbp+{((ulong)def.Parameters.Count + 0 - OperandParser.Ldarg(ins)) * 8}]");
+            arch.Append($"push rax");
         }
     }
 }

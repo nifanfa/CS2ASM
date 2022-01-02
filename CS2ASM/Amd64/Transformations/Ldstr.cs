@@ -30,8 +30,10 @@ namespace CS2ASM
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
                 //Every object has its unique hash code this is why i use it
-                arch.Append($"push qword LB_{bytes.GetHashCode():X2}");
-                arch.Append($"push qword {((string)ins.Operand).Length}");
+                arch.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
+                arch.Append($"push rax");
+                arch.Append($"mov qword rax,{((string)ins.Operand).Length}");
+                arch.Append($"push rax");
                 arch.Append($"call System.String.Ctor.Char.UInt64");
                 arch.Append($"jmp LB_{nextIns.GetHashCode():X2}");
                 arch.Append($"LB_{bytes.GetHashCode():X2}:");
