@@ -12,7 +12,7 @@ namespace System
             public ulong BlockSize;
         }
         private static MemoryDescriptor* MDs = null;
-        private const int MDCount = 1024;
+        private const int MDCount = 64;
 
         public static ulong HeapStart = 10 * 1024 * 1024;
         public static ulong Allocation = 0;
