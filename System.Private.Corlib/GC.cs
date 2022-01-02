@@ -34,20 +34,20 @@ namespace System
         {
             Allocation++;
             ulong ptr = 0;
-            if (MDs != null)
+            for (ulong i = 0; i < MDCount; i++)
             {
-                for (ulong i = 0; i < MDCount; i++)
-                {
-                    if ((&MDs[i])->BlockSize >= size)
-                    {
-                        ptr = (&MDs[i])->Address;
-                        (&MDs[i])->Address = (&MDs[i])->Address + size;
-                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
-                        (&MDs[i])->BlockSize = 0;
-                        return ptr;
-                    }
-                    continue;
-                }
+                if (MDs == null) break;
+                if ((&MDs[i])->BlockSize < size) continue;
+
+                //In this case is CS2ASM got some problem
+                //TO-DO find out what caused this problem (wrong size)
+                if (size > 0xFFFFFFFF) break;
+                if ((&MDs[i])->BlockSize > 0xFFFFFFFF) break;
+
+                ptr = (&MDs[i])->Address;
+                (&MDs[i])->Address = (&MDs[i])->Address + size;
+                (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                return ptr;
             }
 
             ptr = HeapStart;
@@ -58,6 +58,8 @@ namespace System
         //Call.cs
         public static void Dispose(object obj) 
         {
+            if (MDs == null) return;
+
             ulong p = Unsafe.AddressOf(obj);
             ulong size = obj.Size;
             obj = null;
