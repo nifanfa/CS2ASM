@@ -32,7 +32,7 @@ namespace CS2ASM
                 //Move up stack
                 for(int i = 0; i < argumentNum; i++) 
                 {
-                    arch.Append($"mov rax,[rsp+{(i+1) * 8}]");
+                    arch.Append($"mov rax,[rsp+{(i+2) * 8}]");
                     arch.Append($"mov [rsp+{(i) * 8}],rax");
                 }
 
