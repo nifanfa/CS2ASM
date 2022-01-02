@@ -30,20 +30,20 @@ namespace System
             }
         }
 
-        public static ulong Allocate(ulong s)
+        public static ulong Allocate(ulong size)
         {
             Allocation++;
             ulong ptr = 0;
-            ulong size = s;
+            ulong _size = size;
             if (MDs != null)
             {
                 for (ulong i = 0; i < MDCount; i++)
                 {
-                    if ((&MDs[i])->BlockSize >= size)
+                    if ((&MDs[i])->BlockSize >= _size)
                     {
                         ptr = (&MDs[i])->Address;
-                        (&MDs[i])->Address = (&MDs[i])->Address + size;
-                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        (&MDs[i])->Address = (&MDs[i])->Address + _size;
+                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - _size;
                         (&MDs[i])->BlockSize = 0;
                         return ptr;
                     }
@@ -52,7 +52,7 @@ namespace System
             }
 
             ptr = HeapStart;
-            HeapStart = HeapStart + size;
+            HeapStart = HeapStart + _size;
             return ptr;
         }
 
