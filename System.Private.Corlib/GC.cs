@@ -39,12 +39,11 @@ namespace System
             {
                 for (ulong i = 0; i < MDCount; i++)
                 {
-                    if (MDs[i].BlockSize >= size)
+                    if ((&MDs[i])->BlockSize >= size)
                     {
-                        ptr = MDs[i].Address;
-                        MDs[i].Address = MDs[i].Address + size;
-                        //MDs[i].BlockSize = MDs[i].BlockSize - size;
-                        MDs[i].BlockSize = 0;
+                        ptr = (&MDs[i])->Address;
+                        (&MDs[i])->Address = (&MDs[i])->Address + size;
+                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
                         return ptr;
                     }
                     continue;
@@ -65,10 +64,10 @@ namespace System
 
             for (int i = 0; i < MDCount; i++)
             {
-                if (MDs[i].BlockSize == 0)
+                if ((&MDs[i])->BlockSize == 0)
                 {
-                    MDs[i].BlockSize = size;
-                    MDs[i].Address = p;
+                    (&MDs[i])->BlockSize = size;
+                    (&MDs[i])->Address = p;
                     break; //Must Exist
                 }
                 continue;
