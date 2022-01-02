@@ -1,5 +1,6 @@
 ﻿using static System.Runtime.Intrinsic;
 using System.Runtime.CompilerServices;
+using System.Platform.Amd64;
 
 namespace System
 {
@@ -41,8 +42,9 @@ namespace System
                     if (MDs[i].Size >= size)
                     {
                         ptr = MDs[i].Address;
-                        MDs[i].Address = MDs[i].Address + size;
-                        MDs[i].Size = MDs[i].Size - size;
+                        //MDs[i].Address = MDs[i].Address + size;
+                        //MDs[i].Size = MDs[i].Size - size;
+                        MDs[i].Size = 0;
                         return ptr;
                     }
                     continue;
@@ -71,6 +73,8 @@ namespace System
                 }
                 continue;
             }
+
+            x64.Stosb((void*)p, 0, size);
 
             Allocation--;
         }

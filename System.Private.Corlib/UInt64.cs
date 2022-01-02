@@ -14,7 +14,7 @@ namespace System
         {
             if(format == x2) 
             {
-                //format.Dispose();
+                format.Dispose();
                 return Convert.ToString(this, true);
             }
             return Convert.ToString(this);

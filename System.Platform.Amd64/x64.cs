@@ -22,6 +22,14 @@ namespace System.Platform.Amd64
             asm("rep movsb");
         }
 
+        public static void Stosb(void* dest, byte value, ulong count)
+        {
+            asm("mov rcx,{count}");
+            asm("mov rdi,{dest}");
+            asm("mov rax,{value}");
+            asm("rep stosb");
+        }
+
         public static void Out32(ushort port, uint value)
         {
             asm("mov rdx,{port}");
