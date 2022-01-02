@@ -25,6 +25,8 @@ namespace ConsoleApp1
             Console.WriteLine(list1.Size.ToString());
 
             string s = "dispose me";
+            Console.WriteLine("size of s:");
+            Console.WriteLine(s.Size.ToString());
             Console.Write("Address of s:0x");
             Console.WriteLine(Unsafe.AddressOf(s).ToString("x2"));
             s.Dispose();
