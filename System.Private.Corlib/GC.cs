@@ -36,19 +36,18 @@ namespace System
             ulong ptr = 0;
             if (MDs != null)
             {
-                ulong i = 0;
-                do
+                for (ulong i = 0; i < MDCount; i++)
                 {
-                    if ((&MDs[i])->Size >= size) 
+                    if ((&MDs[i])->BlockSize >= size)
                     {
                         ptr = (&MDs[i])->Address;
                         (&MDs[i])->Address = (&MDs[i])->Address + size;
                         (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        (&MDs[i])->BlockSize = 0;
                         return ptr;
                     }
-                    i++;
                     continue;
-                } while (i != MDCount);
+                }
             }
 
             ptr = HeapStart;
