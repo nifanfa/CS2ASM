@@ -34,20 +34,22 @@ namespace System
         {
             Allocation++;
             ulong ptr = 0;
-
-            ulong i = 0;
-            do
+            if (MDs != null)
             {
-                if ((&MDs[i])->Size >= size)
+                ulong i = 0;
+                do
                 {
-                    ptr = (&MDs[i])->Address;
-                    (&MDs[i])->Address = (&MDs[i])->Address + size;
-                    (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
-                    return ptr;
-                }
-                i++;
-                continue;
-            } while (i != MDCount);
+                    if ((&MDs[i])->Size >= size) 
+                    {
+                        ptr = (&MDs[i])->Address;
+                        (&MDs[i])->Address = (&MDs[i])->Address + size;
+                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        return ptr;
+                    }
+                    i++;
+                    continue;
+                } while (i != MDCount);
+            }
 
             ptr = HeapStart;
             HeapStart = HeapStart + size;
