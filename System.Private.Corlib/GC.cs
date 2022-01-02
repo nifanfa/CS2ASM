@@ -9,7 +9,7 @@ namespace System
         public struct MemoryDescriptor
         {
             public ulong Address;
-            public ulong Size;
+            public ulong BlockSize;
         }
         private static MemoryDescriptor* MDs = null;
         private const int MDCount = 1024;
@@ -25,7 +25,7 @@ namespace System
             for(int i = 0; i < MDCount; i++) 
             {
                 desc[i].Address = 0;
-                desc[i].Size = 0;
+                desc[i].BlockSize = 0;
                 continue;
             }
         }
@@ -39,12 +39,12 @@ namespace System
             {
                 for (ulong i = 0; i < MDCount; i++)
                 {
-                    if (MDs[i].Size >= size)
+                    if (MDs[i].BlockSize >= size)
                     {
                         ptr = MDs[i].Address;
-                        //MDs[i].Address = MDs[i].Address + size;
-                        //MDs[i].Size = MDs[i].Size - size;
-                        MDs[i].Size = 0;
+                        MDs[i].Address = MDs[i].Address + size;
+                        //MDs[i].BlockSize = MDs[i].BlockSize - size;
+                        MDs[i].BlockSize = 0;
                         return ptr;
                     }
                     continue;
@@ -65,9 +65,9 @@ namespace System
 
             for (int i = 0; i < MDCount; i++)
             {
-                if (MDs[i].Size == 0)
+                if (MDs[i].BlockSize == 0)
                 {
-                    MDs[i].Size = size;
+                    MDs[i].BlockSize = size;
                     MDs[i].Address = p;
                     break; //Must Exist
                 }
