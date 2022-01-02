@@ -42,7 +42,7 @@ namespace System
                 //In this case is CS2ASM got some problem
                 //TO-DO find out what caused this problem (wrong size)
                 if (size > 0xFFFFFFFF) break;
-                if ((&Descs[i])->BlockSize > 0xFFFFFFFF) break;
+                if ((&Descs[i])->BlockSize > 0xFFFFFFFF) continue;
 
                 ptr = (&Descs[i])->Address;
                 (&Descs[i])->Address = (&Descs[i])->Address + size;
