@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldarga_S)]
         public static void Ldarga_S(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Ldarga_S is not implemented");
+            Ldarg_S(arch, ins, def);
         }
     }
 }

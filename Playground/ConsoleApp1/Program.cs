@@ -11,16 +11,27 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
-            x64.Out8(0x60, 0x00);
-            Banner();
+            //x64.Out8(0x60, 0x00);
+            //Banner();
 
-            List<ulong> list = new List<ulong>(10);
-            list.Add(0x8899AABBCCDDEEFF);
-            list.Add(0xFFEEDDCCBBAA9988);
-            Console.WriteLine(list[0].ToString(16));
-            Console.WriteLine(list[1].ToString(16));
+            //List<ulong> list = new List<ulong>(10);
+            //list.Add(0x8899AABBCCDDEEFF);
+            //list.Add(0xFFEEDDCCBBAA9988);
+            //Console.WriteLine(list[0].ToString("x2"));
+            //Console.WriteLine(list[1].ToString("x2"));
 
-            for (; ; );
+            List<ulong> list1 = new List<ulong>(10);
+            Console.WriteLine("size of list1:");
+            Console.WriteLine(list1.Size.ToString());
+
+            string s = "dispose me";
+            Console.Write("Address of s:0x");
+            Console.WriteLine(Unsafe.AddressOf(s).ToString("x2"));
+            s.Dispose();
+
+            for (; ; ) 
+            {
+            }
 
             /*
             ulong[] array = new ulong[2];

@@ -25,6 +25,7 @@ namespace System
             {
                 desc[i].Address = 0;
                 desc[i].Size = 0;
+                continue;
             }
         }
 
@@ -44,6 +45,7 @@ namespace System
                         MDs[i].Size = MDs[i].Size - size;
                         return ptr;
                     }
+                    continue;
                 }
             }
 
@@ -67,6 +69,7 @@ namespace System
                     MDs[i].Address = p;
                     break; //Must Exist
                 }
+                continue;
             }
 
             Allocation--;

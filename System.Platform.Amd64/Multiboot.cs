@@ -79,7 +79,7 @@ namespace System.Platform.Amd64
             Header = (MultibootHeader*)p;
 
             Console.Write("Multiboot Info Pointer:0x");
-            Console.Write(((ulong)Header).ToString(16));
+            Console.Write(((ulong)Header).ToString("x2"));
             Console.WriteLine();
         }
     }

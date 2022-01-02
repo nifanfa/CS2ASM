@@ -41,10 +41,10 @@
                     Console.Write(((ulong)Devices[i].Function).ToString());
                     Console.Write(" ");
                     Console.Write("Bar0:0x");
-                    Console.Write(((ulong)Devices[i].Bar0).ToString(16));
+                    Console.Write(((ulong)Devices[i].Bar0).ToString("x2"));
                     Console.Write(" ");
                     Console.Write("VendorID:0x");
-                    Console.Write(((ulong)Devices[i].VendorID).ToString(16));
+                    Console.Write(((ulong)Devices[i].VendorID).ToString("x2"));
                     Console.WriteLine();
                 }
             }

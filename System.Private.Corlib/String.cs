@@ -38,5 +38,21 @@ namespace System
             Str.Value = Char;
             return Str;
         }
+
+        public static bool operator == (string a,string b) 
+        {
+            if (a.Length != b.Length) return false;
+
+            for (ulong i = 0; i < a.Length; i++) 
+            {
+                if (a[i] != b[i]) return false;
+            }
+            return true;
+        }
+
+        public static bool operator !=(string a, string b)
+        {
+            return !(a == b);
+        }
     }
 }

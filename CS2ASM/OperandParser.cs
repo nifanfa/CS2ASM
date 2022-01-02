@@ -68,6 +68,8 @@ namespace CS2ASM
             {
                 Code.Ldarg => Convert.ToUInt64(ins.Operand),
                 Code.Ldarg_S => Convert.ToUInt64(ins.Operand),
+                Code.Ldarga => Convert.ToUInt64(ins.Operand),
+                Code.Ldarga_S => Convert.ToUInt64(ins.Operand),
 
                 Code.Ldarg_0 => 0,
                 Code.Ldarg_1 => 1,
