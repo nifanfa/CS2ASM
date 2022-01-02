@@ -36,12 +36,12 @@ namespace System
             ulong ptr = 0;
             for (ulong i = 0; i < DescCount; i++)
             {
-                if (Descs == null) break;
+                if (Descs == null) continue;
                 if ((&Descs[i])->BlockSize < size) continue;
 
                 //In this case is CS2ASM got some problem
                 //TO-DO find out what caused this problem (wrong size)
-                if (size > 0xFFFFFFFF) break;
+                if (size > 0xFFFFFFFF) continue;
                 if ((&Descs[i])->BlockSize > 0xFFFFFFFF) continue;
 
                 ptr = (&Descs[i])->Address;
