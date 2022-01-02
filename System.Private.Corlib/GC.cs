@@ -43,7 +43,8 @@ namespace System
                     {
                         ptr = (&MDs[i])->Address;
                         (&MDs[i])->Address = (&MDs[i])->Address + size;
-                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        //(&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        (&MDs[i])->BlockSize = 0;
                         return ptr;
                     }
                     continue;
