@@ -30,11 +30,11 @@ namespace System
             }
         }
 
-        public static ulong Allocate(ulong size)
+        public static ulong Allocate(ulong s)
         {
             Allocation++;
             ulong ptr = 0;
-
+            ulong size = s;
             if (MDs != null)
             {
                 for (ulong i = 0; i < MDCount; i++)
@@ -43,7 +43,7 @@ namespace System
                     {
                         ptr = (&MDs[i])->Address;
                         (&MDs[i])->Address = (&MDs[i])->Address + size;
-                        //(&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
+                        (&MDs[i])->BlockSize = (&MDs[i])->BlockSize - size;
                         (&MDs[i])->BlockSize = 0;
                         return ptr;
                     }
