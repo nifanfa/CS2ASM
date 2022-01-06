@@ -215,9 +215,9 @@ p2_table:
 resb 4096
 
 stack_top:
-resb 8192
+resb 1024
 stack_bottom:
-resb 8192
+resb 1024
 
 [BITS 64]      
 _Main:
