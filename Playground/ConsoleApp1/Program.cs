@@ -21,6 +21,7 @@ namespace ConsoleApp1
             //Console.WriteLine(list[1].ToString("x2"));
 
             List<ulong> list1 = new List<ulong>(10);
+            Console.WriteLine(list1[0].ToString());
             Console.WriteLine("size of list1:");
             Console.WriteLine(list1.Size.ToString());
 
@@ -30,6 +31,8 @@ namespace ConsoleApp1
             Console.Write("Address of s:0x");
             Console.WriteLine(Unsafe.AddressOf(s).ToString("x2"));
             s.Dispose();
+
+            Serial.WriteLine("Hello World From OS!");
 
             for (; ; ) 
             {

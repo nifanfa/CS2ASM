@@ -4,7 +4,7 @@ namespace System
 {
     public unsafe class Array
     {
-        public int Length;
+        public ulong Length;
 
         [CompilerMethod(Methods.ArrayCtor)]
         public static object Ctor(int length)
@@ -16,7 +16,7 @@ namespace System
             ulong* p = stackalloc ulong[length];
             array.Size = array.Size + (ulong)(length * 8);
 
-            array.Length = length;
+            array.Length = (ulong)length;
 
             return array;
         }

@@ -5,5 +5,5 @@ echo QEMU is not installed
 pause
 exit
 )else (
-%qemu% -m 8192 -cdrom output.iso
+%qemu% -m 8192 -serial stdio -cdrom output.iso
 )

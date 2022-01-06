@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)PIT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PS2Keyboard.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RTC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serial.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SSE.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)x64.cs" />
   </ItemGroup>
