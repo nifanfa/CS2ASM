@@ -20,7 +20,7 @@ namespace CS2ASM
             }
 
             Sizeof(arch, new Instruction() { Operand = ins.Operand is MemberRef ? ((MemberRef)ins.Operand).DeclaringType.ScopeType : ((MethodDef)ins.Operand).DeclaringType }, def);
-            arch.Append($"call System.GC.Allocate.UInt64");
+            arch.Append($"call {arch.GetCompilerMethod(Methods.Allocate)}");
 
             //Get result value from System.GC.Allocate.UInt64 and make a copy for ldloc because call will pop the params
             arch.Append($"pop r15");

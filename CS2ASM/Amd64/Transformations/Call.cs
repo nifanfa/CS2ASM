@@ -26,7 +26,7 @@ namespace CS2ASM
             
             if (prevIns.OpCode.Code == Code.Ldstr)
             {
-                //arch.Append("call System.GC.Dispose.Object");
+                //arch.Append($"call {arch.GetCompilerMethod(Methods.Dispose)}");
             }
         }
     }

@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Newarr)]
         public static void Newarr(BaseArch arch, Instruction ins, MethodDef def)
         {
-            arch.Append($"call System.Array.Ctor.Int32");
+            arch.Append($"call {arch.GetCompilerMethod(Methods.ArrayCtor)}");
         }
     }
 }

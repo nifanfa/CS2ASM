@@ -10,7 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Collections\Generic\List.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\AssemblyMethodAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\CompilerMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\Intrinsic.cs" />
@@ -34,8 +36,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)UInt64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Void.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\" />
   </ItemGroup>
 </Project>

@@ -30,6 +30,7 @@ namespace System
             }
         }
 
+        [CompilerMethod(Methods.Allocate)]
         public static ulong Allocate(ulong size)
         {
             Allocation++;
@@ -54,6 +55,7 @@ namespace System
         }
 
         //Call.cs
+        [CompilerMethod(Methods.Dispose)]
         public static void Dispose(object obj) 
         {
             if (Descs == null) return;

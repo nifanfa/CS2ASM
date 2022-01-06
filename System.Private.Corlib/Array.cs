@@ -1,9 +1,12 @@
-﻿namespace System
+﻿using System.Runtime.CompilerServices;
+
+namespace System
 {
     public unsafe class Array
     {
         public int Length;
 
+        [CompilerMethod(Methods.ArrayCtor)]
         public static object Ctor(int length)
         {
             //The allocation between object and stackalloc should be the same time

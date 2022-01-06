@@ -4,6 +4,7 @@ namespace System.Runtime.CompilerServices
 {
     public static class Unsafe
     {
+        [CompilerMethod(Methods.Stackalloc)]
         public static ulong Stackalloc(ulong size)
         {
             return GC.Allocate(size);

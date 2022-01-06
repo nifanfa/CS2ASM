@@ -34,7 +34,7 @@ namespace CS2ASM
                 arch.Append($"push rax");
                 arch.Append($"mov qword rax,{((string)ins.Operand).Length}");
                 arch.Append($"push rax");
-                arch.Append($"call System.String.Ctor.Char.UInt64");
+                arch.Append($"call {arch.GetCompilerMethod(Methods.StringCtor)}");
                 arch.Append($"jmp LB_{nextIns.GetHashCode():X2}");
                 arch.Append($"LB_{bytes.GetHashCode():X2}:");
                 arch.Append($"db {text}");

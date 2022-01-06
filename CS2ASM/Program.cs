@@ -33,6 +33,7 @@ namespace CS2ASM
                     arch.ImportTransformations(typeof(Amd64Transformation));
                     break;
             }
+            arch.ImportCompilerMethods(def);
             arch.Before(def);
             arch.InitializeStaticConstructor(def);
             arch.JumpToEntry(def);

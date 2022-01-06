@@ -2,17 +2,58 @@
 using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
 namespace CS2ASM
 {
+    public enum Methods
+    {
+        Allocate,
+        StringCtor,
+        Dispose,
+        ArrayCtor,
+        Stackalloc
+    }
+
     public abstract unsafe class BaseArch
     {
+        public Dictionary<Methods, MethodDef> CompilerMethods = new Dictionary<Methods, MethodDef>();
+
+        public virtual void ImportCompilerMethods(ModuleDef def) 
+        {
+            foreach(var t in def.Types) 
+            {
+                foreach(var m in t.Methods) 
+                {
+                    foreach(var a in m.CustomAttributes) 
+                    {
+                        if (a.TypeFullName == "System.Runtime.CompilerServices.CompilerMethodAttribute") 
+                        {
+                            var v = a.ConstructorArguments[0].Value;
+                            if (Enum.IsDefined(typeof(Methods), v)) 
+                            {
+                                CompilerMethods.Add((Methods)v, m);
+                            }
+                            else 
+                            {
+                                throw new KeyNotFoundException();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public string GetCompilerMethod(Methods methods) 
+        {
+            return Utility.SafeMethodName(CompilerMethods[methods], CompilerMethods[methods].MethodSig);
+        }
+
         public virtual void ImportTransformations(Type transformations)
         {
-            ILBridgeMethods = new Dictionary<Code, MethodInfo>();
             var methodInfos = from M in transformations.GetMethods()
                               where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
                               select M;
@@ -39,7 +80,7 @@ namespace CS2ASM
             _Code.WriteLine(s);
         }
 
-        public Dictionary<Code, MethodInfo> ILBridgeMethods = null;
+        public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
         
         public abstract void Translate(MethodDef meth);
         public abstract void InitializeStaticFields(TypeDef typ);
