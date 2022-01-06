@@ -42,10 +42,9 @@ namespace System
                     (&Descs[i])->BlockSize >= size
                     )
                 {
-                    //(&Descs[i])->Address = (&Descs[i])->Address + size;
-                    //(&Descs[i])->BlockSize = (&Descs[i])->BlockSize - size;                    (&Descs[i])->BlockSize = 0;
-                    (&Descs[i])->BlockSize = 0;
-                    return (&Descs[i])->Address;
+                    (&Descs[i])->Address = (&Descs[i])->Address + size;
+                    (&Descs[i])->BlockSize = (&Descs[i])->BlockSize - size;                    (&Descs[i])->BlockSize = 0;
+                    return (&Descs[i])->Address - size;
                 }
             }
 
