@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "Playground\C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Private.Corlib", "System.Private.Corlib\System.Private.Corlib.shproj", "{3B64FCA0-062D-4CA3-99A0-AD8CA8A49C80}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Platform.Amd64", "System.Platform.Amd64\System.Platform.Amd64.shproj", "{0770BA2B-9AB3-4F3B-82A7-5C28F8BE0D6D}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Amd64", "Amd64\Amd64.shproj", "{0770BA2B-9AB3-4F3B-82A7-5C28F8BE0D6D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
