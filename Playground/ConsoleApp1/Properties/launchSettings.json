@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Boot using QEMU": {
+      "commandName": "Executable",
+      "executablePath": "cmd.exe",
+      "commandLineArgs": "/c CS2ASM.exe ConsoleApp1.dll"
+    }
+  }
+}
