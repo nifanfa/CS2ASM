@@ -20,6 +20,8 @@ namespace ConsoleApp1
             //Console.WriteLine(list[0].ToString("x2"));
             //Console.WriteLine(list[1].ToString("x2"));
 
+            Banner();
+
             List<ulong> list1 = new List<ulong>(10);
             Console.WriteLine(list1[0].ToString());
             Console.WriteLine("size of list1:");
@@ -36,6 +38,16 @@ namespace ConsoleApp1
 
             for (; ; ) 
             {
+                char c = Console.ReadKey();
+                if(c == '\n') 
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(c);
+                }
+                asm("hlt");
             }
 
             /*

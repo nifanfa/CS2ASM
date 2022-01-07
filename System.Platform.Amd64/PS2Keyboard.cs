@@ -8,7 +8,7 @@ namespace System.Platform.Amd64
             PIC.ClearMask(0x21);
         }
 
-        public static char KeyPressed = ' ';
+        public static char KeyPressed = '?';
 
         public static void OnInterrupt() 
         {
@@ -42,6 +42,7 @@ namespace System.Platform.Amd64
             else if (KeyData == 0x16) return 'U';
             else if (KeyData == 0x2F) return 'V';
             else if (KeyData == 0x11) return 'W';
+            else if (KeyData == 0x1C) return '\n'; //Enter
             else if (KeyData == 0x2D) return 'X';
             else if (KeyData == 0x15) return 'Y';
             else if (KeyData == 0x2C) return 'Z';

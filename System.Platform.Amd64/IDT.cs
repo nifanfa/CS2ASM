@@ -318,8 +318,6 @@ namespace System.Platform.Amd64
             }
 
             PIC.EndOfInterrupt(irq);
-
-            Console.WriteAt(PS2Keyboard.KeyPressed, 0, 24);
         }
 
         [AssemblyMethod]

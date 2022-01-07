@@ -1,4 +1,6 @@
-﻿namespace System.Platform.Amd64
+﻿using static System.Runtime.Intrinsic;
+
+namespace System.Platform.Amd64
 {
     public static unsafe class Console
     {
@@ -13,6 +15,24 @@
         {
             ResetColor();
             Clear();
+
+            EnableCursor();
+            SetCursorStyle(0b1110);
+        }
+
+        private static void SetCursorStyle(byte style)
+        {
+            x64.Out8(0x3D4, 0x0A);
+            x64.Out8(0x3D5, style);
+        }
+
+        private static void EnableCursor()
+        {
+            x64.Out8(0x3D4, 0x0A);
+            x64.Out8(0x3D5, (byte)((x64.In8(0x3D5) & 0xC0) | 0));
+
+            x64.Out8(0x3D4, 0x0B);
+            x64.Out8(0x3D5, (byte)((x64.In8(0x3D5) & 0xE0) | 15));
         }
 
         public static void Write(string s)
@@ -49,6 +69,27 @@
                 CursorX = 0;
                 CursorY++;
             }
+            UpdateCursor();
+        }
+
+        private static void UpdateCursor()
+        {
+            ulong pos = (CursorY * Width) + CursorX;
+            x64.Out8(0x3D4, 0x0F);
+            x64.Out8(0x3D5, (byte)(pos & 0xFF));
+            x64.Out8(0x3D4, 0x0E);
+            x64.Out8(0x3D5, (byte)((pos >> 8) & 0xFF));
+        }
+
+        public static char ReadKey()
+        {
+            char Key = '?';
+
+            while (PS2Keyboard.KeyPressed == '?') asm("hlt");
+            Key = PS2Keyboard.KeyPressed;
+            while (Key == PS2Keyboard.KeyPressed) asm("hlt");
+
+            return Key;
         }
 
         public static void WriteLine(string s)
@@ -56,12 +97,14 @@
             Write(s);
             CursorX = 0;
             CursorY++;
+            UpdateCursor();
         }
 
         public static void WriteLine()
         {
             CursorX = 0;
-            CursorY++;
+            CursorY++; 
+            UpdateCursor();
         }
 
         public static void WriteAt(char chr, byte x, byte y)
