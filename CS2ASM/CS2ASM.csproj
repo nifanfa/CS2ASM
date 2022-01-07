@@ -24,14 +24,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Amd64\grub2\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+	  
     <None Update="Amd64QEMU.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Amd64\EntryPoint.asm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\grub2.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Amd64\LongMode.asm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
