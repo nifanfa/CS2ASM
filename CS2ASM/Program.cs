@@ -20,22 +20,11 @@ namespace CS2ASM
 
         static unsafe void Main(string[] args)
         {
-            ModuleDefMD def = null;
-            if (args.Length == 0) 
+            if(args.Length == 0) 
             {
-                if (File.Exists("ConsoleApp1.dll")) 
-                {
-                    def = ModuleDefMD.Load("ConsoleApp1.dll");
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
+                throw new ArgumentNullException();
             }
-            else 
-            {
-                def = ModuleDefMD.Load(args[0]);
-            }
+            ModuleDefMD def = ModuleDefMD.Load(args[0]);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
