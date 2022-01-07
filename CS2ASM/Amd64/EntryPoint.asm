@@ -214,11 +214,6 @@ resb 4096
 p2_table:
 resb 4096
 
-stack_top:
-resb 1024
-stack_bottom:
-resb 1024
-
 [BITS 64]      
 _Main:
     mov ax, 0x0010
@@ -228,7 +223,7 @@ _Main:
     mov gs, ax
     mov ss, ax
 
-    mov rbp,stack_bottom
+    mov rbp,KERNEL_STACK-1024
     mov rsp,rbp
     
     %include "Kernel.asm"
