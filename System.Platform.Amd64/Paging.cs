@@ -4,32 +4,61 @@ namespace System.Platform.Amd64
 {
     public static unsafe class Paging
     {
+        public static ulong* pml4 = (ulong*)0x3FE000;
+
         static Paging()
         {
-            //Map 512GiB In PageTable
-            ulong* p4 = (ulong*)0x3FE000;
-            ulong* p3 = (ulong*)0x3FF000;
-            ulong* p2 = (ulong*)0x400000;
-
-            p4[0] = (((ulong)p3)) | 0b11;
-
-            for (ulong i = 0; i < 512; i++)
+            for (ulong i = 0; i < 0x100000000; i += 0x200000)
             {
-                p3[i] = ((ulong)p2 + (i * 4096)) | 0b11;
+                Map(i, i);
             }
 
-            for (ulong i = 0; i < 512 * 512; i++)
-            {
-                p2[i] = (i * 0x200000) | 0b10000011;
-            }
-
-            asm("mov rax,cr3");
-            asm("mov rbx,{p4}");
-            asm("or rax,rbx");
+            void* p = pml4;
+            asm("xor rax,rax");
+            asm("mov eax,{p}");
             asm("mov cr3,rax");
             asm("mov rax,cr0");
             asm("or rax,0x80000001");
             asm("mov cr0,rax");
+        }
+
+        public static void Map(ulong Virt,ulong Phys) 
+        {
+            ulong pml4_entry = (Virt & ((ulong)0x1ff << 39)) >> 39;
+            ulong pml3_entry = (Virt & ((ulong)0x1ff << 30)) >> 30;
+            ulong pml2_entry = (Virt & ((ulong)0x1ff << 21)) >> 21;
+            ulong pml1_entry = (Virt & ((ulong)0x1ff << 12)) >> 12;
+
+            ulong* pml3 = Next(pml4, pml4_entry);
+            ulong* pml2 = Next(pml3, pml3_entry);
+
+            pml2[pml2_entry] = Phys | 0b10000011;
+        }
+
+        public static ulong* Next(ulong* Curr,ulong Entry) 
+        {
+            ulong* p = null;
+            
+            if((Curr[Entry]) != 0) 
+            {
+                p = (ulong*)(Curr[Entry] & 0xFFFF_FFFF_FFFF_F000);
+            }
+            else 
+            {
+                p = Alloc();
+                Curr[Entry] = ((ulong)p) | 0b11;
+            }
+
+            return p;
+        }
+
+        public static ulong Ind = 0;
+
+        public static ulong* Alloc() 
+        {
+            ulong r = 0x400000 + (Ind * 4096);
+            Ind++;
+            return (ulong*)r;
         }
     }
 }
