@@ -308,6 +308,13 @@ namespace System.Platform.Amd64
 
         private static void OnInterrupt(ulong irq)
         {
+            if (irq < 32)
+            {
+                Console.Write("CPU Exception: 0x");
+                Console.Write(irq.ToString("x2"));
+                Console.Write(" Was Thrown System Halted!");
+                asm("jmp die");
+            }
             if (irq == 0x20)
             {
                 PIT.OnInterrupt();

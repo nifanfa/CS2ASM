@@ -4,30 +4,28 @@ namespace System.Platform.Amd64
 {
     public static unsafe class Paging
     {
-        static Paging() 
+        static Paging()
         {
-            //Map 512GiB
-            //Bug!
-            /*
-            ulong* P4 = (ulong*)0x800000;
-            ulong* P3 = (ulong*)0x810000;
-            ulong* P2Start = (ulong*)0x820000;
-            P4[0] = (ulong)P3 | 0b11;
+            //Map 512GiB In PageTable
+            ulong* p4 = (ulong*)0x3FE000;
+            ulong* p3 = (ulong*)0x3FF000;
+            ulong* p2 = (ulong*)0x400000;
 
-            //512*512
-            for(ulong i = 0; i < 0x40000; i++) 
+            p4[0] = (((ulong)p3)) | 0b11;
+
+            for (ulong i = 0; i < 512; i++)
             {
-                P2Start[i] = (i * 0x200000) | 0b10000011;
+                p3[i] = ((ulong)p2 + (i * 4096)) | 0b11;
             }
 
-            for(ulong i = 0; i < 512; i++) 
+            for (ulong i = 0; i < 512 * 512; i++)
             {
-                P3[i] = (ulong)P2Start + (4096 * i) | 0b11;
+                p2[i] = (((i * 0x200000) >> 12) << 12) | 0b10000011;
             }
 
-            asm("mov rax,{P4}");
+            asm("xor rax,rax");
+            asm("mov eax,{p4}");
             asm("mov cr3,rax");
-            */
         }
     }
 }
