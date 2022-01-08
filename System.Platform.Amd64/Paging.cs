@@ -23,9 +23,13 @@ namespace System.Platform.Amd64
                 p2[i] = (((i * 0x200000) >> 12) << 12) | 0b10000011;
             }
 
-            asm("xor rax,rax");
-            asm("mov eax,{p4}");
+            asm("mov rax,cr3");
+            asm("mov rbx,{p4}");
+            asm("or rax,rbx");
             asm("mov cr3,rax");
+            asm("mov rax,cr0");
+            asm("or rax,0x80000001");
+            asm("mov cr0,rax");
         }
     }
 }

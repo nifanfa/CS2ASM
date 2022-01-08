@@ -123,20 +123,20 @@ IDT:
 ; ss:esp    Should point to memory that can be used as a small (1 uint32_t) stack
  
 LongMode:
-    mov edi, p4_table
+    mov edi, 0x3FE000
     ; Zero out the 16KiB buffer.
     ; Since we are doing a rep stosd, count should be bytes/4.   
     push di                           ; REP STOSD alters DI.
     
     ; map first P4 entry to P3 table
-    mov eax, p3_table
+    mov eax, 0x3FF000
     or eax, 0b11 ; present + writable
-    mov [p4_table], eax
+    mov [0x3FE000], eax
 
     ; map first P3 entry to P2 table
-    mov eax, p2_table
+    mov eax, 0x400000
     or eax, 0b11 ; present + writable
-    mov [p3_table], eax
+    mov [0x3FF000], eax
 
     ; map each P2 entry to a huge 2MiB page
     mov ecx, 0         ; counter variable
@@ -146,7 +146,7 @@ LongMode:
     mov eax, 0x200000  ; 2MiB
     mul ecx            ; start address of ecx-th page
     or eax, 0b10000011 ; present + writable + huge
-    mov [p2_table + ecx * 8], eax ; map ecx-th entry
+    mov [0x400000 + ecx * 8], eax ; map ecx-th entry
 
     inc ecx            ; increase counter
     cmp ecx, 512       ; if counter == 512, the whole P2 table is mapped
@@ -205,14 +205,6 @@ ALIGN 4
 .Pointer:
     dw $ - GDT - 1                    ; 16-bit Size (Limit) of GDT.
     dd GDT                            ; 32-bit Base Address of GDT. (CPU will zero extend to 64-bit)
-
-ALIGN 4096
-p4_table:
-resb 4096
-p3_table:
-resb 4096
-p2_table:
-resb 4096
 
 [BITS 64]      
 _Main:
