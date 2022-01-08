@@ -20,7 +20,7 @@ namespace System.Platform.Amd64
 
             for (ulong i = 0; i < 512 * 512; i++)
             {
-                p2[i] = (((i * 0x200000) >> 12) << 12) | 0b10000011;
+                p2[i] = (i * 0x200000) | 0b10000011;
             }
 
             asm("mov rax,cr3");
