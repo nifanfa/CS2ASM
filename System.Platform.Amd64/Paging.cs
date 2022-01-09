@@ -39,14 +39,14 @@ namespace System.Platform.Amd64
         {
             ulong* p = null;
             
-            if((Curr[Entry]) != 0) 
+            if(((Curr[Entry]) & 0x01) != 0) 
             {
-                p = (ulong*)(Curr[Entry] & 0xFFFF_FFFF_FFFF_F000);
+                p = (ulong*)(Curr[Entry] & 0x000F_FFFF_FFFF_F000);
             }
             else 
             {
                 p = Alloc();
-                Curr[Entry] = ((ulong)p) | 0b11;
+                Curr[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
             }
 
             return p;
