@@ -42,19 +42,6 @@ namespace System.Platform.Amd64
             x64.Invlpg(Phys);
         }
 
-        public static ulong GetPhysicalAddress(ulong Virt)
-        {
-            ulong pml4_entry = (Virt & ((ulong)0x1ff << 39)) >> 39;
-            ulong pml3_entry = (Virt & ((ulong)0x1ff << 30)) >> 30;
-            ulong pml2_entry = (Virt & ((ulong)0x1ff << 21)) >> 21;
-            ulong pml1_entry = (Virt & ((ulong)0x1ff << 12)) >> 12;
-
-            ulong* pml3 = Next(pml4, pml4_entry);
-            ulong* pml2 = Next(pml3, pml3_entry);
-
-            return pml2[pml2_entry] & 0x000F_FFFF_FFFF_F000;
-        }
-
         public static ulong* Next(ulong* Curr,ulong Entry) 
         {
             ulong* p = null;
