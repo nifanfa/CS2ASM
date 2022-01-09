@@ -5,7 +5,6 @@ namespace System.Platform.Amd64
     public static unsafe class Paging
     {
         public static ulong* pml4 = (ulong*)0x3FE000;
-        private static bool configured = false;
 
         static Paging()
         {
@@ -21,7 +20,6 @@ namespace System.Platform.Amd64
             asm("xor rax,rax");
             asm("mov eax,{p}");
             asm("mov cr3,rax");
-            configured = true;
         }
 
         /// <summary>
@@ -41,8 +39,7 @@ namespace System.Platform.Amd64
 
             pml2[pml2_entry] = Phys | 0b10000011;
 
-            if(configured)
-                x64.Invlpg(Phys);
+            x64.Invlpg(Phys);
         }
 
         public static ulong GetPhysicalAddress(ulong Virt)
