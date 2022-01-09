@@ -57,6 +57,11 @@ namespace System.Platform.Amd64
             return data;
         }
 
+        public static void Invlpg(ulong ptr)
+        {
+            asm("invlpg {ptr}");
+        }
+
         public static byte In8(ushort port)
         {
             byte data = 0;
