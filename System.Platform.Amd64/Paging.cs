@@ -25,35 +25,35 @@ namespace System.Platform.Amd64
         /// <summary>
         /// Map 2MiB Physical Address At Virtual Address Specificed
         /// </summary>
-        /// <param name="Virt"></param>
-        /// <param name="Phys"></param>
-        public static void Map(ulong Virt,ulong Phys) 
+        /// <param name="VirtualAddress"></param>
+        /// <param name="PhysicalAddress"></param>
+        public static void Map(ulong VirtualAddress, ulong PhysicalAddress, ulong Attribute = 0) 
         {
-            ulong pml4_entry = (Virt & ((ulong)0x1ff << 39)) >> 39;
-            ulong pml3_entry = (Virt & ((ulong)0x1ff << 30)) >> 30;
-            ulong pml2_entry = (Virt & ((ulong)0x1ff << 21)) >> 21;
-            ulong pml1_entry = (Virt & ((ulong)0x1ff << 12)) >> 12;
+            ulong pml4_entry = (VirtualAddress & ((ulong)0x1ff << 39)) >> 39;
+            ulong pml3_entry = (VirtualAddress & ((ulong)0x1ff << 30)) >> 30;
+            ulong pml2_entry = (VirtualAddress & ((ulong)0x1ff << 21)) >> 21;
+            ulong pml1_entry = (VirtualAddress & ((ulong)0x1ff << 12)) >> 12;
 
             ulong* pml3 = Next(pml4, pml4_entry);
             ulong* pml2 = Next(pml3, pml3_entry);
 
-            pml2[pml2_entry] = Phys | 0b10000011;
+            pml2[pml2_entry] = PhysicalAddress | 0b10000011 | Attribute;
 
-            x64.Invlpg(Phys);
+            x64.Invlpg(PhysicalAddress);
         }
 
-        public static ulong* Next(ulong* Curr,ulong Entry) 
+        public static ulong* Next(ulong* CurrentDirectory,ulong Entry) 
         {
             ulong* p = null;
             
-            if(((Curr[Entry]) & 0x01) != 0) 
+            if(((CurrentDirectory[Entry]) & 0x01) != 0) 
             {
-                p = (ulong*)(Curr[Entry] & 0x000F_FFFF_FFFF_F000);
+                p = (ulong*)(CurrentDirectory[Entry] & 0x000F_FFFF_FFFF_F000);
             }
             else 
             {
                 p = AllocateTable();
-                Curr[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
+                CurrentDirectory[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
             }
 
             return p;
