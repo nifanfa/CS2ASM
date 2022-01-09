@@ -42,18 +42,18 @@ namespace System.Platform.Amd64
             x64.Invlpg(PhysicalAddress);
         }
 
-        public static ulong* Next(ulong* CurrentDirectory,ulong Entry) 
+        public static ulong* Next(ulong* Directory,ulong Entry) 
         {
             ulong* p = null;
             
-            if(((CurrentDirectory[Entry]) & 0x01) != 0) 
+            if(((Directory[Entry]) & 0x01) != 0) 
             {
-                p = (ulong*)(CurrentDirectory[Entry] & 0x000F_FFFF_FFFF_F000);
+                p = (ulong*)(Directory[Entry] & 0x000F_FFFF_FFFF_F000);
             }
             else 
             {
                 p = AllocateTable();
-                CurrentDirectory[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
+                Directory[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
             }
 
             return p;
