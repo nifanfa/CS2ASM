@@ -6,11 +6,11 @@ namespace System.Platform.Amd64
     {
         public const ulong PageSize = 0x200000;
 
-        public static ulong* pml4 = (ulong*)0x3FE000;
+        public static ulong* PML4 = (ulong*)0x3FE000;
 
         static Paging()
         {
-            x64.Stosb(pml4, 0x00, 4096);
+            x64.Stosb(PML4, 0x00, 4096);
 
             //Map the first 1GiB
             for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += PageSize)
@@ -18,7 +18,7 @@ namespace System.Platform.Amd64
                 Map(i, i);
             }
 
-            void* p = pml4;
+            void* p = PML4;
             asm("xor rax,rax");
             asm("mov eax,{p}");
             asm("mov cr3,rax");
@@ -36,7 +36,7 @@ namespace System.Platform.Amd64
             ulong pml2_entry = (VirtualAddress & ((ulong)0x1ff << 21)) >> 21;
             ulong pml1_entry = (VirtualAddress & ((ulong)0x1ff << 12)) >> 12;
 
-            ulong* pml3 = Next(pml4, pml4_entry);
+            ulong* pml3 = Next(PML4, pml4_entry);
             ulong* pml2 = Next(pml3, pml3_entry);
 
             pml2[pml2_entry] = PhysicalAddress | 0b10000011 | Attribute;
