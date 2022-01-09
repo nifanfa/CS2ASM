@@ -52,12 +52,12 @@ namespace System.Platform.Amd64
             return p;
         }
 
-        public static ulong Ind = 0;
+        public static ulong P = 0;
 
         public static ulong* Alloc() 
         {
-            ulong r = 0x400000 + (Ind * 4096);
-            Ind++;
+            ulong r = 0x400000 + (P * 4096);
+            P++;
             return (ulong*)r;
         }
     }
