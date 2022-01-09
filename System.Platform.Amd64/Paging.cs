@@ -10,7 +10,7 @@ namespace System.Platform.Amd64
         {
             x64.Stosb(pml4, 0x00, 4096);
 
-            for (ulong i = 0; i < 0x100000000; i += 0x200000)
+            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 8UL; i += 0x200000)
             {
                 Map(i, i);
             }
@@ -21,6 +21,11 @@ namespace System.Platform.Amd64
             asm("mov cr3,rax");
         }
 
+        /// <summary>
+        /// Map 2MiB Physical Address At Virtual Address Specificed
+        /// </summary>
+        /// <param name="Virt"></param>
+        /// <param name="Phys"></param>
         public static void Map(ulong Virt,ulong Phys) 
         {
             ulong pml4_entry = (Virt & ((ulong)0x1ff << 39)) >> 39;
