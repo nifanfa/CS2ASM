@@ -50,20 +50,20 @@ namespace System.Platform.Amd64
             }
             else 
             {
-                p = Alloc();
+                p = AllocateTable();
                 Curr[Entry] = (((ulong)p) & 0x000F_FFFF_FFFF_F000) | 0b11;
             }
 
             return p;
         }
 
-        public static ulong P = 0;
+        private static ulong p = 0;
 
-        public static ulong* Alloc() 
+        public static ulong* AllocateTable() 
         {
-            ulong* r = (ulong*)(0x400000 + (P * 4096));
+            ulong* r = (ulong*)(0x400000 + (p * 4096));
             x64.Stosb(r, 0x00, 4096);
-            P++;
+            p++;
             return r;
         }
     }
