@@ -4,6 +4,8 @@ namespace System.Platform.Amd64
 {
     public static unsafe class Paging
     {
+        public const ulong PageSize = 0x200000;
+
         public static ulong* pml4 = (ulong*)0x3FE000;
 
         static Paging()
@@ -11,7 +13,7 @@ namespace System.Platform.Amd64
             x64.Stosb(pml4, 0x00, 4096);
 
             //Map the first 1GiB
-            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += 0x200000)
+            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += PageSize)
             {
                 Map(i, i);
             }
