@@ -8,6 +8,8 @@ namespace System.Platform.Amd64
 
         static Paging()
         {
+            x64.Stosb(pml4, 0x00, 4096);
+
             for (ulong i = 0; i < 0x100000000; i += 0x200000)
             {
                 Map(i, i);
@@ -17,9 +19,6 @@ namespace System.Platform.Amd64
             asm("xor rax,rax");
             asm("mov eax,{p}");
             asm("mov cr3,rax");
-            asm("mov rax,cr0");
-            asm("or rax,0x80000001");
-            asm("mov cr0,rax");
         }
 
         public static void Map(ulong Virt,ulong Phys) 
@@ -56,9 +55,10 @@ namespace System.Platform.Amd64
 
         public static ulong* Alloc() 
         {
-            ulong r = 0x400000 + (P * 4096);
+            ulong* r = (ulong*)(0x400000 + (P * 4096));
+            x64.Stosb(r, 0x00, 4096);
             P++;
-            return (ulong*)r;
+            return r;
         }
     }
 }
