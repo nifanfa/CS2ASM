@@ -10,7 +10,8 @@ namespace System.Platform.Amd64
         {
             x64.Stosb(pml4, 0x00, 4096);
 
-            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 8UL; i += 0x200000)
+            //Map the first 1GiB
+            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += 0x200000)
             {
                 Map(i, i);
             }
