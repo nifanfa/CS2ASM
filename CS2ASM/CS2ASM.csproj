@@ -28,7 +28,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
 	  
-    <None Update="Amd64QEMU.bat">
+    <None Update="QEMU.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Amd64\EntryPoint.asm">
