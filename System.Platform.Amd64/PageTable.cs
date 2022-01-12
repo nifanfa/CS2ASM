@@ -2,13 +2,13 @@
 
 namespace System.Platform.Amd64
 {
-    public static unsafe class Paging
+    public static unsafe class PageTable
     {
         public const ulong PageSize = 0x200000;
 
         public static ulong* PML4 = (ulong*)0x3FE000;
 
-        static Paging()
+        static PageTable()
         {
             x64.Stosb(PML4, 0x00, 4096);
 

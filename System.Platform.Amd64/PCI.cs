@@ -76,11 +76,6 @@
                 device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 11) & 0xFF);
                 device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10) & 0xFF);
                 
-                //Enable PCI Device
-                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x01);
-                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x02);
-                WriteRegister16(device.Bus, device.Slot, device.Function, 0x04, 0x04);
-
                 Devices[index] = device;
 
                 index++;
