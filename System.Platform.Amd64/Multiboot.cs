@@ -75,12 +75,14 @@ namespace System.Platform.Amd64
         static Multiboot() 
         {
             void* p = null;
-            asm("mov qword {p},multiboot_ptr");
+            asm("mov rbx,[multiboot_ptr]");
+            asm("mov qword {p},rbx");
+
             Header = (MultibootHeader*)p;
+            VBEInfo = (VBEInfo*)Header->VBEInfo;
 
             Console.Write("Multiboot Info Pointer:0x");
-            Console.Write(((ulong)Header).ToString("x2"));
-            Console.WriteLine();
+            Console.WriteLine(((ulong)Header).ToString("x2"));
         }
     }
 }
