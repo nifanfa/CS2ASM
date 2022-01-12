@@ -30,6 +30,14 @@ namespace System.Platform.Amd64
             asm("rep stosb");
         }
 
+        public static void Stosd(void* dest, uint value, ulong count)
+        {
+            asm("mov rcx,{count}");
+            asm("mov rdi,{dest}");
+            asm("mov rax,{value}");
+            asm("rep stosd");
+        }
+
         public static void Out32(ushort port, uint value)
         {
             asm("mov rdx,{port}");
