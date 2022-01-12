@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Neg)]
         public static void Neg(BaseArch arch, Instruction ins, MethodDef def)
         {
-            throw new NotImplementedException("Neg is not implemented");
+            arch.Append("pop rbx");
+            arch.Append("xor rdx,rdx");
+            arch.Append("neg rbx");
+            arch.Append("push rbx");
         }
     }
 }

@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)PIC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PIT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PS2Keyboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PS2Mouse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RTC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serial.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SSE.cs" />

@@ -319,9 +319,9 @@ namespace System.Platform.Amd64
             {
                 PIT.OnInterrupt();
             }
-            if (irq == 0x21)
+            if (irq == 0x2C)
             {
-                PS2Keyboard.OnInterrupt();
+                PS2Mouse.OnInterrupt();
             }
 
             PIC.EndOfInterrupt(irq);
