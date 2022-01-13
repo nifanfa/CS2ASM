@@ -40,6 +40,7 @@ namespace System.Platform.Amd64
             else if (KeyData == 0x26) return 'L';
             else if (KeyData == 0x32) return 'M';
             else if (KeyData == 0x31) return 'N';
+            else if (KeyData == 0x39) return ' ';
             else if (KeyData == 0x18) return 'O';
             else if (KeyData == 0x19) return 'P';
             else if (KeyData == 0x10) return 'Q';
