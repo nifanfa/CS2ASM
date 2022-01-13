@@ -43,6 +43,10 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine();
                 }
+                else if (c == '\b')
+                {
+                    Console.Back();
+                }
                 else
                 {
                     Console.Write(c);

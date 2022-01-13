@@ -43,6 +43,14 @@ namespace System.Platform.Amd64
             }
         }
 
+        public static void Back() 
+        {
+            if (CursorX == 0) return;
+            CursorX--;
+            WriteAt(' ', CursorX, CursorY);
+            UpdateCursor();
+        }
+
         public static void WriteStrAt(string s, byte line)
         {
             for (byte i = 0; i < s.Length; i++)
@@ -68,6 +76,12 @@ namespace System.Platform.Amd64
             {
                 CursorX = 0;
                 CursorY++;
+            }
+            if (CursorY >= Height - 1)
+            {
+                x64.Movsb((void*)0xb8000, (void*)0xB80A0, 0xF00);
+                for (ulong i = 0; i < Width; i++) WriteAt(' ', i, CursorY);
+                CursorY--;
             }
             UpdateCursor();
         }
@@ -109,7 +123,7 @@ namespace System.Platform.Amd64
             UpdateCursor();
         }
 
-        public static void WriteAt(char chr, byte x, byte y)
+        public static void WriteAt(char chr, ulong x, ulong y)
         {
             byte* p = (byte*)0xb8000 + ((y * Width + x) * 2);
             *p = (byte)chr;
@@ -121,13 +135,13 @@ namespace System.Platform.Amd64
         {
             CursorX = 0;
             CursorY = 0;
-            int Res = Width * Height;
-            for (int i = 0; i < Res; i++)
+            for(ulong x = 0; x < Width; x++) 
             {
-                Write(' ');
+                for(ulong y = 0; y < Height; y++) 
+                {
+                    WriteAt(' ', x, y);
+                }
             }
-            CursorX = 0;
-            CursorY = 0;
         }
 
         public static byte ForegroundColor

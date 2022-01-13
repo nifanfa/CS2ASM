@@ -63,6 +63,7 @@ namespace System.Platform.Amd64
             else if (KeyData == 0x09) return '8';
             else if (KeyData == 0x0A) return '9';
             else if (KeyData == 0x0B) return '0';
+            else if (KeyData == 0x0E) return '\b';
             else return '?';
         }
     }
