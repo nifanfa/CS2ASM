@@ -85,9 +85,11 @@ namespace System.Platform.Amd64
         {
             char Key = '?';
 
-            while (PS2Keyboard.KeyPressed == '?') asm("hlt");
-            Key = PS2Keyboard.KeyPressed;
-            while (Key == PS2Keyboard.KeyPressed) asm("hlt");
+            while (true) 
+            {
+                Key = PS2Keyboard.GetKey();
+                if (Key != '?') break;
+            };
 
             return Key;
         }

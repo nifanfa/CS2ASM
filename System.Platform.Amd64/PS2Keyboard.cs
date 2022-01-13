@@ -8,11 +8,18 @@ namespace System.Platform.Amd64
             PIC.ClearMask(0x21);
         }
 
-        public static char KeyPressed = '?';
+        private static char Key = '?';
+
+        public static char GetKey()
+        {
+            char c = Key;
+            Key = '?';
+            return c;
+        }
 
         public static void OnInterrupt() 
         {
-            KeyPressed = ProcessKey();
+            Key = ProcessKey();
         }
 
         private static char ProcessKey()
