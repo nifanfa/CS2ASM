@@ -77,13 +77,18 @@ namespace System.Platform.Amd64
                 CursorX = 0;
                 CursorY++;
             }
+            MoveUp();
+            UpdateCursor();
+        }
+
+        private static void MoveUp()
+        {
             if (CursorY >= Height - 1)
             {
                 x64.Movsb((void*)0xb8000, (void*)0xB80A0, 0xF00);
                 for (ulong i = 0; i < Width; i++) WriteAt(' ', i, CursorY);
                 CursorY--;
             }
-            UpdateCursor();
         }
 
         private static void UpdateCursor()
@@ -113,13 +118,15 @@ namespace System.Platform.Amd64
             Write(s);
             CursorX = 0;
             CursorY++;
+            MoveUp();
             UpdateCursor();
         }
 
         public static void WriteLine()
         {
             CursorX = 0;
-            CursorY++; 
+            CursorY++;
+            MoveUp();
             UpdateCursor();
         }
 
