@@ -1,8 +1,10 @@
-﻿namespace System.Runtime
+﻿using System.Runtime.CompilerServices;
+
+namespace System.Runtime
 {
     public static class Intrinsic
     {
-        //Ldstr.cs
+        [CompilerMethod(Methods.ASM)]
         public static void asm(string comment) 
         { }
     }

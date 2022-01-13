@@ -10,7 +10,7 @@ namespace CS2ASM.AMD64
     {
         public static bool NewMethod(BaseArch arch, Instruction ins, MethodDef def, Instruction nextIns)
         {
-            if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
+            if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand) == arch.CompilerMethods[Methods.ASM])
             {
                 string comment = (string)ins.Operand;
                 int paramCount = def.Parameters.Count;

@@ -2,6 +2,7 @@
 {
     public enum Methods
     {
+        ASM,
         Allocate,
         StringCtor,
         Dispose,

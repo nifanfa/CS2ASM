@@ -11,6 +11,7 @@ namespace CS2ASM
 {
     public enum Methods
     {
+        ASM,
         Allocate,
         StringCtor,
         Dispose,
