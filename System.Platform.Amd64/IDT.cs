@@ -319,6 +319,10 @@ namespace System.Platform.Amd64
             {
                 PIT.OnInterrupt();
             }
+            if (irq == 0x21)
+            {
+                PS2Keyboard.OnInterrupt();
+            }
             if (irq == 0x2C)
             {
                 PS2Mouse.OnInterrupt();
