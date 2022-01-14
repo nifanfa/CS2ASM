@@ -9,7 +9,9 @@ namespace CS2ASM
         [ILTransformation(Code.Ldlen)]
         public static void Ldlen(Context context)
         {
-            throw new NotImplementedException("Ldlen is not implemented");
+            context.Append($"pop rsi");
+            context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
+            context.Append($"push rsi");
         }
     }
 }

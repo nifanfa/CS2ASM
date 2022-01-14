@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ret)]
         public static void Ret(Context context)
         {
-            if (Amd64.IsEmptyMethod(context.def)) return;
+            if (Amd64.IsAssemblyMethod(context.def)) return;
 
             //Call.cs
             if (context.def.HasReturnType)

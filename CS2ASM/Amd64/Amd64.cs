@@ -33,7 +33,7 @@ namespace CS2ASM.AMD64
             //Label
             this.Append($"{Utility.SafeMethodName(def, def.MethodSig)}:");
 
-            if (!Amd64.IsEmptyMethod(def))
+            if (!Amd64.IsAssemblyMethod(def))
             {
                 //Call.cs Line 19
                 this.Append($"mov rbx,rbp");
@@ -71,7 +71,7 @@ namespace CS2ASM.AMD64
                 this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
         }
 
-        public static bool IsEmptyMethod(MethodDef def)
+        public static bool IsAssemblyMethod(MethodDef def)
         {
             foreach (var v in def.CustomAttributes)
             {

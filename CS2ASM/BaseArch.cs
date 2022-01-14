@@ -47,6 +47,10 @@ namespace CS2ASM
                     }
                 }
             }
+            if (CompilerMethods.Count != Enum.GetNames(typeof(Methods)).Length) 
+            {
+                throw new KeyNotFoundException();
+            }
         }
 
         public string GetCompilerMethod(Methods methods) 
