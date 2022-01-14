@@ -10,11 +10,11 @@ namespace CS2ASM
         [ILTransformation(Code.Sizeof)]
         public static void Sizeof(Context context)
         {
-            if (context.ins.Operand is TypeSpec)
-                context.Append($"mov rax,{Utility.SizeOfShallow(((TypeSpec)context.ins.Operand).ScopeType)}");
+            if (context.operand is TypeSpec)
+                context.Append($"mov rax,{Utility.SizeOfShallow(((TypeSpec)context.operand).ScopeType)}");
             else
             {
-                context.Append($"mov rax,{Utility.SizeOfOrIndex((TypeDef)context.ins.Operand, null)}");
+                context.Append($"mov rax,{Utility.SizeOfOrIndex((TypeDef)context.operand, null)}");
             }
 
             context.Append($"push rax");

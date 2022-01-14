@@ -10,7 +10,7 @@ namespace CS2ASM
         public static void Stsfld(Context context)
         {
             context.Append($"pop rax");
-            context.Append($"mov [{Utility.SafeFieldName(((FieldDef)context.ins.Operand).DeclaringType, (FieldDef)context.ins.Operand)}],rax");
+            context.Append($"mov [{Utility.SafeFieldName(((FieldDef)context.operand).DeclaringType, (FieldDef)context.operand)}],rax");
         }
     }
 }

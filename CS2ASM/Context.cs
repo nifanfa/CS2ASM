@@ -13,6 +13,13 @@ namespace CS2ASM
         public Instruction ins;
         public MethodDef def;
         public BaseArch arch;
+        public object operand 
+        {
+            get 
+            {
+                return ins.Operand;
+            }
+        }
 
         public int numberOfVariable 
         {

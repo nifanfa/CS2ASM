@@ -11,8 +11,8 @@ namespace CS2ASM
         {
             context.Append($"pop rax");
             context.Append($"pop rdi");
-            context.Append($"add rdi,{Utility.SizeOfOrIndex(context.ins.Operand is MemberRef ? (TypeDef)((MemberRef)context.ins.Operand).DeclaringType.ScopeType : ((FieldDef)context.ins.Operand).DeclaringType, context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).Name : ((FieldDef)context.ins.Operand).Name)}");
-            switch (Utility.SizeOfShallow(context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).FieldSig.Type : ((FieldDef)context.ins.Operand).FieldType)) 
+            context.Append($"add rdi,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
+            switch (Utility.SizeOfShallow(context.operand is MemberRef ? ((MemberRef)context.operand).FieldSig.Type : ((FieldDef)context.operand).FieldType)) 
             {
                 case 1:
                     context.Append($"stosb");

@@ -10,9 +10,9 @@ namespace CS2ASM
         [ILTransformation(Code.Ldftn)]
         public static void Ldftn(Context context)
         {
-            if((context.ins.Operand is MethodDef)) 
+            if((context.operand is MethodDef)) 
             {
-                context.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)context.ins.Operand, ((MethodDef)context.ins.Operand).MethodSig)}");
+                context.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)context.operand, ((MethodDef)context.operand).MethodSig)}");
                 context.Append($"push rax");
             }
             else

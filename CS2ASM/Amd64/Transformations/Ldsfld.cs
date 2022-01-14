@@ -10,7 +10,7 @@ namespace CS2ASM
         public static void Ldsfld(Context context)
         {
             //context.Append($"push qword [{def.DeclaringType.SafeTypeName() + "_" + ((FieldDef)ins.Operand).Name}]");
-            context.Append($"mov qword rax,[{Utility.SafeFieldName(((FieldDef)context.ins.Operand).DeclaringType, (FieldDef)context.ins.Operand)}]");
+            context.Append($"mov qword rax,[{Utility.SafeFieldName(((FieldDef)context.operand).DeclaringType, (FieldDef)context.operand)}]");
             context.Append($"push rax");
         }
     }

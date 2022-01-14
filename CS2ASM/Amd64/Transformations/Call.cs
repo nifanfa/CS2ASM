@@ -47,10 +47,10 @@ namespace CS2ASM
                 //context.Append("push qword [rsp]");
             }
 
-            if (context.ins.Operand is MemberRef)
-                context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.ins.Operand).DeclaringType.ScopeType, Name = ((MemberRef)context.ins.Operand).Name }, context.methodSig)}");
+            if (context.operand is MemberRef)
+                context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType, Name = ((MemberRef)context.operand).Name }, context.methodSig)}");
             else
-                context.Append($"call {Utility.SafeMethodName((MethodDef)context.ins.Operand, context.methodSig)}"); 
+                context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}"); 
             
             if (context.prevInstruction.OpCode.Code == Code.Ldstr)
             {

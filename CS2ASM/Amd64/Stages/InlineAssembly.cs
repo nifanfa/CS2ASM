@@ -12,7 +12,7 @@ namespace CS2ASM.AMD64
         {
             if (context.nextInstruction.OpCode.Code == Code.Call && ((MethodDef)context.nextInstruction.Operand) == context.arch.CompilerMethods[Methods.ASM])
             {
-                string comment = (string)context.ins.Operand;
+                string comment = (string)context.operand;
                 int paramCount = context.def.Parameters.Count;
 
                 string cpy = comment;
@@ -41,7 +41,7 @@ namespace CS2ASM.AMD64
                         }
                     }
 
-                    if (comment == (string)context.ins.Operand)
+                    if (comment == (string)context.operand)
                     {
                         throw new Exception($"\"{cpy}\" is not a valid variable of the context");
                     }

@@ -21,7 +21,7 @@ namespace CS2ASM
             }
             else
             {
-                var bytes = Encoding.Unicode.GetBytes((string)context.ins.Operand);
+                var bytes = Encoding.Unicode.GetBytes((string)context.operand);
                 var text = "";
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -30,7 +30,7 @@ namespace CS2ASM
                 //Every object has its unique hash code this is why i use it
                 context.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
                 context.Append($"push rax");
-                context.Append($"mov qword rax,{((string)context.ins.Operand).Length}");
+                context.Append($"mov qword rax,{((string)context.operand).Length}");
                 context.Append($"push rax");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");

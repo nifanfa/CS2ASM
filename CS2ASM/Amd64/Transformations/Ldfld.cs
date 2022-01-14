@@ -10,9 +10,9 @@ namespace CS2ASM
         public static void Ldfld(Context context)
         {
             context.Append("pop rax");
-            context.Append($"add rax,{Utility.SizeOfOrIndex(context.ins.Operand is MemberRef ? (TypeDef)((MemberRef)context.ins.Operand).DeclaringType.ScopeType : ((FieldDef)context.ins.Operand).DeclaringType, context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).Name : ((FieldDef)context.ins.Operand).Name)}");
+            context.Append($"add rax,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
             context.Append($"xor rcx,rcx");
-            switch (Utility.SizeOfShallow(context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).FieldSig.Type : ((FieldDef)context.ins.Operand).FieldType))
+            switch (Utility.SizeOfShallow(context.operand is MemberRef ? ((MemberRef)context.operand).FieldSig.Type : ((FieldDef)context.operand).FieldType))
             {
                 case 1:
                     context.Append($"mov cl,[rax]");
