@@ -1,4 +1,4 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 using System.Platform.Amd64;
 
 namespace ConsoleApp1
@@ -27,7 +27,7 @@ namespace ConsoleApp1
 
         public static void Clear(uint Color) 
         {
-            x64.Stosd(Ptr, Color, (ulong)(Width * Height));
+            Native.Stosd(Ptr, Color, (ulong)(Width * Height));
         }
 
         public static void DrawPoint(ushort X,ushort Y,uint Color) 
@@ -37,8 +37,8 @@ namespace ConsoleApp1
 
         public static void WriteRegister(ushort IndexValue,ushort DataValue)
         {
-            x64.Out16(0x01CE, IndexValue);
-            x64.Out16(0x01CF, DataValue);
+            Native.Out16(0x01CE, IndexValue);
+            Native.Out16(0x01CF, DataValue);
         }
 
         public static void SetVideoMode(ushort XRes, ushort YRes)

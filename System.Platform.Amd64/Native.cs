@@ -1,8 +1,8 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 
 namespace System.Platform.Amd64
 {
-    public static unsafe class x64
+    public static unsafe class Native
     {
         public static void Hlt()
         {

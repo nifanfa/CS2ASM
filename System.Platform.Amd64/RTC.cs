@@ -6,22 +6,22 @@
 
         public static byte Get(byte index)
         {
-            x64.Out8(0x70, index);
-            byte result = x64.In8(0x71);
+            Native.Out8(0x70, index);
+            byte result = Native.In8(0x71);
 
             return result;
         }
 
         public static void Set(byte index, byte value)
         {
-            x64.Out8(0x70, index);
-            x64.Out8(0x71, value);
+            Native.Out8(0x70, index);
+            Native.Out8(0x71, value);
         }
 
         private static void Delay()
         {
-            x64.In8(0x80);
-            x64.Out8(0x80, 0);
+            Native.In8(0x80);
+            Native.Out8(0x80, 0);
         }
 
         public static byte Second

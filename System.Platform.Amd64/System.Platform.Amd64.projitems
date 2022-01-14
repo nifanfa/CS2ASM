@@ -22,6 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)RTC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serial.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SSE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)x64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Native.cs" />
   </ItemGroup>
 </Project>

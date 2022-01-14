@@ -1,4 +1,4 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 using System.Runtime.CompilerServices;
 using System.Platform.Amd64;
 
@@ -74,7 +74,7 @@ namespace System
                 continue;
             }
 
-            x64.Stosb((void*)p, 0, size);
+            Platform.Amd64.Native.Stosb((void*)p, 0, size);
 
             Allocation--;
         }

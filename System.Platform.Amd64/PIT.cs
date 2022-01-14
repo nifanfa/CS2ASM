@@ -1,4 +1,4 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 
 namespace System.Platform.Amd64
 {
@@ -10,9 +10,9 @@ namespace System.Platform.Amd64
         {
             ushort timerCount = 1193182 / 1000;
 
-            x64.Out8(0x43, 0x36);
-            x64.Out8(0x40, (byte)(timerCount & 0xFF));
-            x64.Out8(0x40, (byte)((timerCount & 0xFF00) >> 8));
+            Native.Out8(0x43, 0x36);
+            Native.Out8(0x40, (byte)(timerCount & 0xFF));
+            Native.Out8(0x40, (byte)((timerCount & 0xFF00) >> 8));
 
             PIC.ClearMask(0x20);
         }

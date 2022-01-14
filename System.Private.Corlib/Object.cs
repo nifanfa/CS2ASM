@@ -1,5 +1,5 @@
 ﻿using System.Runtime;
-using static System.Runtime.Intrinsic;
+using static System.Runtime.CompilerServices.Native;
 
 namespace System
 {

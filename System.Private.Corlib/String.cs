@@ -1,7 +1,7 @@
 ﻿using System.Platform.Amd64;
 using System.Runtime;
 using System.Runtime.CompilerServices;
-using static System.Runtime.Intrinsic;
+using static System.Runtime.CompilerServices.Native;
 
 namespace System
 {
@@ -33,7 +33,7 @@ namespace System
         {
             String Str = new String();
             char* Char = stackalloc char[(int)length];
-            x64.Movsb(Char, chr, length * 2);
+            Platform.Amd64.Native.Movsb(Char, chr, length * 2);
             Str.Length = length;
             Str.Size = Str.Size + length * 2;
             Str.Value = Char;

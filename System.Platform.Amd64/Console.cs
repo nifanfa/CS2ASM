@@ -1,4 +1,4 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 
 namespace System.Platform.Amd64
 {
@@ -22,17 +22,17 @@ namespace System.Platform.Amd64
 
         private static void SetCursorStyle(byte style)
         {
-            x64.Out8(0x3D4, 0x0A);
-            x64.Out8(0x3D5, style);
+            Native.Out8(0x3D4, 0x0A);
+            Native.Out8(0x3D5, style);
         }
 
         private static void EnableCursor()
         {
-            x64.Out8(0x3D4, 0x0A);
-            x64.Out8(0x3D5, (byte)((x64.In8(0x3D5) & 0xC0) | 0));
+            Native.Out8(0x3D4, 0x0A);
+            Native.Out8(0x3D5, (byte)((Native.In8(0x3D5) & 0xC0) | 0));
 
-            x64.Out8(0x3D4, 0x0B);
-            x64.Out8(0x3D5, (byte)((x64.In8(0x3D5) & 0xE0) | 15));
+            Native.Out8(0x3D4, 0x0B);
+            Native.Out8(0x3D5, (byte)((Native.In8(0x3D5) & 0xE0) | 15));
         }
 
         public static void Write(string s)
@@ -85,7 +85,7 @@ namespace System.Platform.Amd64
         {
             if (CursorY >= Height - 1)
             {
-                x64.Movsb((void*)0xb8000, (void*)0xB80A0, 0xF00);
+                Native.Movsb((void*)0xb8000, (void*)0xB80A0, 0xF00);
                 for (ulong i = 0; i < Width; i++) WriteAt(' ', i, CursorY);
                 CursorY--;
             }
@@ -94,10 +94,10 @@ namespace System.Platform.Amd64
         private static void UpdateCursor()
         {
             ulong pos = (CursorY * Width) + CursorX;
-            x64.Out8(0x3D4, 0x0F);
-            x64.Out8(0x3D5, (byte)(pos & 0xFF));
-            x64.Out8(0x3D4, 0x0E);
-            x64.Out8(0x3D5, (byte)((pos >> 8) & 0xFF));
+            Native.Out8(0x3D4, 0x0F);
+            Native.Out8(0x3D5, (byte)(pos & 0xFF));
+            Native.Out8(0x3D4, 0x0E);
+            Native.Out8(0x3D5, (byte)((pos >> 8) & 0xFF));
         }
 
         public static char ReadKey()

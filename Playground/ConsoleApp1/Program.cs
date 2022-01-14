@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Platform.Amd64;
 using System.Runtime;
 using System.Runtime.CompilerServices;
-using static System.Runtime.Intrinsic;
+using static System.Runtime.CompilerServices.Native;
 
 namespace ConsoleApp1
 {

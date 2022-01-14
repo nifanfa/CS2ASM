@@ -1,8 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace System.Runtime
+﻿namespace System.Runtime.CompilerServices
 {
-    public static class Intrinsic
+    public static class Native
     {
         [CompilerMethod(Methods.ASM)]
         public static void asm(string comment) 

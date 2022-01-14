@@ -1,4 +1,4 @@
-﻿using static System.Platform.Amd64.x64;
+﻿using static System.Platform.Amd64.Native;
 
 namespace System.Platform.Amd64
 {

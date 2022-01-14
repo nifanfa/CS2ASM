@@ -1,4 +1,4 @@
-﻿using static System.Runtime.Intrinsic;
+﻿using static System.Runtime.CompilerServices.Native;
 
 namespace System.Platform.Amd64
 {
@@ -10,7 +10,7 @@ namespace System.Platform.Amd64
 
         static PageTable()
         {
-            x64.Stosb(PML4, 0x00, 4096);
+            Native.Stosb(PML4, 0x00, 4096);
 
             //Map the first 1GiB
             for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += PageSize)
@@ -41,7 +41,7 @@ namespace System.Platform.Amd64
 
             pml2[pml2_entry] = PhysicalAddress | 0b10000011 | Attribute;
 
-            x64.Invlpg(PhysicalAddress);
+            Native.Invlpg(PhysicalAddress);
         }
 
         public static ulong* Next(ulong* Directory,ulong Entry) 
@@ -66,7 +66,7 @@ namespace System.Platform.Amd64
         public static ulong* AllocateTable() 
         {
             ulong* r = (ulong*)(0x400000 + (p * 4096));
-            x64.Stosb(r, 0x00, 4096);
+            Native.Stosb(r, 0x00, 4096);
             p++;
             return r;
         }

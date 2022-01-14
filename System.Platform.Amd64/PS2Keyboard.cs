@@ -25,7 +25,7 @@ namespace System.Platform.Amd64
         private static char ProcessKey()
         {
             // TODO: Use switch when implemented
-            byte KeyData = x64.In8(0x60);
+            byte KeyData = Native.In8(0x60);
             if (KeyData == 0x1E) return 'A';
             else if (KeyData == 0x30) return 'B';
             else if (KeyData == 0x2E) return 'C';
