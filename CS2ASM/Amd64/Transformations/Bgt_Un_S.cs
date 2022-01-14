@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Bgt_Un_S)]
         public static void Bgt_Un_S(Context context)
         {
-            throw new NotImplementedException("Bgt_Un_S is not implemented");
+            Bgt(context);
         }
     }
 }

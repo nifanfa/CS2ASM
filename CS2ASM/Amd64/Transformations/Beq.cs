@@ -9,7 +9,6 @@ namespace CS2ASM
         [ILTransformation(Code.Beq)]
         public static void Beq(Context context)
         {
-            //WIP
             context.Append($"pop rdx");
             context.Append($"pop rax");
             context.Append($"cmp rax,rdx");

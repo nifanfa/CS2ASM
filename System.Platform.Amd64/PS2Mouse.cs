@@ -21,12 +21,6 @@ namespace System.Platform.Amd64
         {
             PIC.ClearMask(0x2c);
 
-            ScreenWidth = 1024;
-            ScreenHeight = 768;
-
-            X = ScreenWidth / 2;
-            Y = ScreenHeight / 2;
-
             byte _status;
 
             Hlt();
@@ -51,14 +45,7 @@ namespace System.Platform.Amd64
 
             WriteRegister(0xF2);
 
-            byte result = ReadRegister();
-            if (result == 3)
-            {
-                Console.WriteLine("Wheel Available");
-            }
-
             MouseStatus = MouseStatus.None;
-            Console.WriteLine("PS/2 mouse enabled!");
         }
 
         private static int Phase = 0;

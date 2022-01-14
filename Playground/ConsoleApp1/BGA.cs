@@ -32,7 +32,8 @@ namespace ConsoleApp1
 
         public static void DrawPoint(ushort X,ushort Y,uint Color) 
         {
-            Ptr[Width * Y + X] = Color;
+            if (X > 0 && Y > 0) 
+                Ptr[Width * Y + X] = Color;
         }
 
         public static void WriteRegister(ushort IndexValue,ushort DataValue)

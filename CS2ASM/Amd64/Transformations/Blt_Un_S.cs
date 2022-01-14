@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Blt_Un_S)]
         public static void Blt_Un_S(Context context)
         {
-            throw new NotImplementedException("Blt_Un_S is not implemented");
+            Blt(context);
         }
     }
 }

@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Ble)]
         public static void Ble(Context context)
         {
-            throw new NotImplementedException("Ble is not implemented");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"cmp rax,rdx");
+            context.Append($"jbe {Utility.BrLabelName(context.ins, context.def)}");
         }
     }
 }

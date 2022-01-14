@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Blt)]
         public static void Blt(Context context)
         {
-            throw new NotImplementedException("Blt is not implemented");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"cmp rax,rdx");
+            context.Append($"jb {Utility.BrLabelName(context.ins, context.def)}");
         }
     }
 }

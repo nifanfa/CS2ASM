@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Bge)]
         public static void Bge(Context context)
         {
-            throw new NotImplementedException("Bge is not implemented");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"cmp rax,rdx");
+            context.Append($"jae {Utility.BrLabelName(context.ins, context.def)}");
         }
     }
 }

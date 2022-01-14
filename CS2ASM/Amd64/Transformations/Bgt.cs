@@ -9,7 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Bgt)]
         public static void Bgt(Context context)
         {
-            throw new NotImplementedException("Bgt is not implemented");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"cmp rax,rdx");
+            context.Append($"ja {Utility.BrLabelName(context.ins, context.def)}");
         }
     }
 }
