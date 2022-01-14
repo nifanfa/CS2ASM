@@ -12,7 +12,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldstr)]
         public static void Ldstr(Context context)
         {
-            if (context.nextInstruction.Operand is MethodDef && ((MethodDef)context.nextInstruction.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
+            if (context.nextInstruction.Operand is MethodDef && ((MethodDef)context.nextInstruction.Operand) == context.arch.CompilerMethods[Methods.ASM])
             {
                 if (!InlineAssembly.NewMethod(context))
                 {
