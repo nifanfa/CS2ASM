@@ -7,13 +7,13 @@ namespace System
         public ulong Length;
 
         [CompilerMethod(Methods.ArrayCtor)]
-        public static object Ctor(int length,int itemSize)
+        public static object Ctor(ulong length, ulong itemSize)
         {
             //The allocation between object and stackalloc should be the same time
             Array array = new Array();
 
-            //Fill the memory area check out Stelem.cs
-            ulong* p = stackalloc ulong[length];
+            //Memory reservation. check out Stelem.cs
+            Unsafe.Stackalloc(length * itemSize);
             array.Size = array.Size + (ulong)(length * itemSize);
 
             array.Length = (ulong)length;
