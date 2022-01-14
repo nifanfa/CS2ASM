@@ -6,7 +6,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Clt)]
-        public static void Clt(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Clt(Context context)
         {
             context.Append($"xor rbx,rbx");
             context.Append($"pop rdx");

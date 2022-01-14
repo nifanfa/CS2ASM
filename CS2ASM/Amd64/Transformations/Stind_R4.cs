@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Stind_R4)]
-        public static void Stind_R4(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Stind_R4(Context context)
         {
             throw new NotImplementedException("Stind_R4 is not implemented");
         }

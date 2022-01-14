@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Box)]
-        public static void Box(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Box(Context context)
         {
             throw new NotImplementedException("Box is not implemented");
         }

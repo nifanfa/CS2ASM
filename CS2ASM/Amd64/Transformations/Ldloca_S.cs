@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldloca_S)]
-        public static void Ldloca_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldloca_S(Context context)
         {
-            Ldloc_S(arch, ins, def, context);
+            Ldloc_S(context);
         }
     }
 }

@@ -6,13 +6,12 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldind_I8)]
-        public static void Ldind_I8(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldind_I8(Context context)
         {
             //This is for "this" keyword
-            var prev = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) - 1];
-            if (prev.IsLdarg())
+            if (context.prevInstruction.IsLdarg())
             {
-                var p = def.Parameters[(int)OperandParser.Ldarg(prev)];
+                var p = context.def.Parameters[(int)OperandParser.Ldarg(context.prevInstruction)];
                 if (!p.Type.IsPointer)
                 {
                     return;

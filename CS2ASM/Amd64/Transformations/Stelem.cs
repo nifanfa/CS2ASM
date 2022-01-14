@@ -8,7 +8,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Stelem)]
-        public static void Stelem(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Stelem(Context context)
         {
             context.Append($"pop rbx"); //value
             context.Append($"pop rdi"); //index
@@ -17,7 +17,7 @@ namespace CS2ASM
             context.Append($"mov rax,8");
             context.Append($"mul rdi");
             context.Append($"add rsi,rax");
-            context.Append($"add rsi,{Utility.SizeOf(def.Module, "System.Array")}");
+            context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
             context.Append($"mov qword [rsi],rbx");
         }
     }

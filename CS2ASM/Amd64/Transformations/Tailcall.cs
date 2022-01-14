@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Tailcall)]
-        public static void Tailcall(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Tailcall(Context context)
         {
             throw new NotImplementedException("Tailcall is not implemented");
         }

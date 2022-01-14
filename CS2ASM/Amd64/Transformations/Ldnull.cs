@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldnull)]
-        public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldnull(Context context)
         {
             //Here can be implementation of disposing
             context.Append($"mov qword rax,0");

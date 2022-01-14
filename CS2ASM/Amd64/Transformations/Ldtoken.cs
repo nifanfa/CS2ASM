@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldtoken)]
-        public static void Ldtoken(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldtoken(Context context)
         {
             throw new NotImplementedException("Ldtoken is not implemented");
         }

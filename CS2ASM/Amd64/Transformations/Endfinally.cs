@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Endfinally)]
-        public static void Endfinally(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Endfinally(Context context)
         {
             throw new NotImplementedException("Endfinally is not implemented");
         }

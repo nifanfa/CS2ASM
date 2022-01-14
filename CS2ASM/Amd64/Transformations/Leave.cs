@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Leave)]
-        public static void Leave(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Leave(Context context)
         {
             throw new NotImplementedException("Leave is not implemented");
         }

@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Newarr)]
-        public static void Newarr(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Newarr(Context context)
         {
-            context.Append($"call {arch.GetCompilerMethod(Methods.ArrayCtor)}");
+            context.Append($"call {context.arch.GetCompilerMethod(Methods.ArrayCtor)}");
         }
     }
 }

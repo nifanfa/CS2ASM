@@ -9,7 +9,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Call)]
-        public static void Call(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Call(Context context)
         {
             //This is for calling c/c++ code
             if(context.numberOfVariable <= 6)
@@ -47,10 +47,10 @@ namespace CS2ASM
                 //context.Append("push qword [rsp]");
             }
 
-            if (ins.Operand is MemberRef)
-                context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)ins.Operand).DeclaringType.ScopeType, Name = ((MemberRef)ins.Operand).Name }, context.methodSig)}");
+            if (context.ins.Operand is MemberRef)
+                context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.ins.Operand).DeclaringType.ScopeType, Name = ((MemberRef)context.ins.Operand).Name }, context.methodSig)}");
             else
-                context.Append($"call {Utility.SafeMethodName((MethodDef)ins.Operand, context.methodSig)}"); 
+                context.Append($"call {Utility.SafeMethodName((MethodDef)context.ins.Operand, context.methodSig)}"); 
             
             if (context.prevInstruction.OpCode.Code == Code.Ldstr)
             {

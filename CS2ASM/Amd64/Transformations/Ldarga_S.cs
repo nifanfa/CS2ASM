@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldarga_S)]
-        public static void Ldarga_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldarga_S(Context context)
         {
-            Ldarg_S(arch, ins, def, context);
+            Ldarg_S(context);
         }
     }
 }

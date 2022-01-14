@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Isinst)]
-        public static void Isinst(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Isinst(Context context)
         {
             throw new NotImplementedException("Isinst is not implemented");
         }

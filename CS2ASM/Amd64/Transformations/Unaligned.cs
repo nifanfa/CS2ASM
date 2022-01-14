@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Unaligned)]
-        public static void Unaligned(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Unaligned(Context context)
         {
             throw new NotImplementedException("Unaligned is not implemented");
         }

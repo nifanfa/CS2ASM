@@ -9,9 +9,10 @@ namespace CS2ASM
 {
     public class Context
     {
-        private StringBuilder text;
+        public StringBuilder text;
         public Instruction ins;
         public MethodDef def;
+        public BaseArch arch;
 
         public int numberOfVariable 
         {
@@ -51,11 +52,12 @@ namespace CS2ASM
             }
         }
 
-        public Context(StringBuilder sb,Instruction ins, MethodDef def)
+        public Context(StringBuilder sb,Instruction ins, MethodDef def,BaseArch arch)
         {
             text = sb;
             this.ins = ins;
             this.def = def;
+            this.arch = arch;
         }
 
         internal void Append(string v)

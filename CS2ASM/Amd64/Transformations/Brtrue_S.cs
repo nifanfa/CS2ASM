@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Brtrue_S)]
-        public static void Brtrue_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Brtrue_S(Context context)
         {
-            Brtrue(arch, ins, def, context);
+            Brtrue(context);
         }
     }
 }

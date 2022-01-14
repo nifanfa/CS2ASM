@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Bge)]
-        public static void Bge(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Bge(Context context)
         {
             throw new NotImplementedException("Bge is not implemented");
         }

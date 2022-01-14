@@ -8,11 +8,11 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldftn)]
-        public static void Ldftn(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldftn(Context context)
         {
-            if((ins.Operand is MethodDef)) 
+            if((context.ins.Operand is MethodDef)) 
             {
-                context.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)ins.Operand, ((MethodDef)ins.Operand).MethodSig)}");
+                context.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)context.ins.Operand, ((MethodDef)context.ins.Operand).MethodSig)}");
                 context.Append($"push rax");
             }
             else

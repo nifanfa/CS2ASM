@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Dup)]
-        public static void Dup(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Dup(Context context)
         {
             throw new NotImplementedException("Dup is not implemented");
         }

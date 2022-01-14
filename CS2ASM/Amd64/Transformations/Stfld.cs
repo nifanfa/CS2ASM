@@ -7,12 +7,12 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Stfld)]
-        public static void Stfld(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Stfld(Context context)
         {
             context.Append($"pop rax");
             context.Append($"pop rdi");
-            context.Append($"add rdi,{Utility.SizeOfOrIndex(ins.Operand is MemberRef ? (TypeDef)((MemberRef)ins.Operand).DeclaringType.ScopeType : ((FieldDef)ins.Operand).DeclaringType, ins.Operand is MemberRef ? ((MemberRef)ins.Operand).Name : ((FieldDef)ins.Operand).Name)}");
-            switch (Utility.SizeOfShallow(ins.Operand is MemberRef ? ((MemberRef)ins.Operand).FieldSig.Type : ((FieldDef)ins.Operand).FieldType)) 
+            context.Append($"add rdi,{Utility.SizeOfOrIndex(context.ins.Operand is MemberRef ? (TypeDef)((MemberRef)context.ins.Operand).DeclaringType.ScopeType : ((FieldDef)context.ins.Operand).DeclaringType, context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).Name : ((FieldDef)context.ins.Operand).Name)}");
+            switch (Utility.SizeOfShallow(context.ins.Operand is MemberRef ? ((MemberRef)context.ins.Operand).FieldSig.Type : ((FieldDef)context.ins.Operand).FieldType)) 
             {
                 case 1:
                     context.Append($"stosb");

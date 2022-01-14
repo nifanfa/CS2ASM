@@ -6,9 +6,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Cgt_Un)]
-        public static void Cgt_Un(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Cgt_Un(Context context)
         {
-            Cgt(arch, ins, def, context);
+            Cgt(context);
         }
     }
 }

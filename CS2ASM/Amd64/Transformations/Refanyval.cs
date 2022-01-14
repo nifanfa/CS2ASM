@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Refanyval)]
-        public static void Refanyval(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Refanyval(Context context)
         {
             throw new NotImplementedException("Refanyval is not implemented");
         }

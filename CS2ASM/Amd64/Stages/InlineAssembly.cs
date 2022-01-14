@@ -8,12 +8,12 @@ namespace CS2ASM.AMD64
 {
     public static class InlineAssembly
     {
-        public static bool NewMethod(BaseArch arch, Instruction ins, MethodDef def, Instruction nextIns, Context context)
+        public static bool NewMethod(Context context)
         {
-            if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand) == arch.CompilerMethods[Methods.ASM])
+            if (context.nextInstruction.OpCode.Code == Code.Call && ((MethodDef)context.nextInstruction.Operand) == context.arch.CompilerMethods[Methods.ASM])
             {
-                string comment = (string)ins.Operand;
-                int paramCount = def.Parameters.Count;
+                string comment = (string)context.ins.Operand;
+                int paramCount = context.def.Parameters.Count;
 
                 string cpy = comment;
                 if (cpy.IndexOf("{") != -1 && cpy.IndexOf("}") != -1)
@@ -21,7 +21,7 @@ namespace CS2ASM.AMD64
                     cpy = cpy.Substring(cpy.IndexOf("{") + 1);
                     cpy = cpy.Substring(0, cpy.IndexOf("}"));
 
-                    foreach (var v in def.Parameters)
+                    foreach (var v in context.def.Parameters)
                     {
                         if (v.Name == cpy)
                         {
@@ -31,7 +31,7 @@ namespace CS2ASM.AMD64
                         }
                     }
 
-                    foreach (var v in def.Body.Variables)
+                    foreach (var v in context.def.Body.Variables)
                     {
                         if (v.Name == cpy)
                         {
@@ -41,14 +41,14 @@ namespace CS2ASM.AMD64
                         }
                     }
 
-                    if (comment == (string)ins.Operand)
+                    if (comment == (string)context.ins.Operand)
                     {
                         throw new Exception($"\"{cpy}\" is not a valid variable of the context");
                     }
                 }
             End:
                 context.Append($"{comment}");
-                arch.SkipNextInstruction();
+                context.arch.SkipNextInstruction();
 
                 return true;
             }

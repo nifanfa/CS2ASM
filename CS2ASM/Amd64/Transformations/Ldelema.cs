@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldelema)]
-        public static void Ldelema(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldelema(Context context)
         {
-            Ldelem(arch, ins, def, context);
+            Ldelem(context);
         }
     }
 }

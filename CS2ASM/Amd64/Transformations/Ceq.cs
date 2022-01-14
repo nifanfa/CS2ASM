@@ -6,7 +6,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ceq)]
-        public static void Ceq(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ceq(Context context)
         {
             context.Append($"xor rbx,rbx");
             context.Append($"pop rdx");

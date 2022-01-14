@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Volatile)]
-        public static void Volatile(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Volatile(Context context)
         {
             throw new NotImplementedException("Volatile is not implemented");
         }

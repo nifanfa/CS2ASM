@@ -10,18 +10,18 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldstr)]
-        public static void Ldstr(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Ldstr(Context context)
         {
             if (context.nextInstruction.Operand is MethodDef && ((MethodDef)context.nextInstruction.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
             {
-                if (!InlineAssembly.NewMethod(arch, ins, def, context.nextInstruction, context))
+                if (!InlineAssembly.NewMethod(context))
                 {
                     throw new NotImplementedException();
                 }
             }
             else
             {
-                var bytes = Encoding.Unicode.GetBytes((string)ins.Operand);
+                var bytes = Encoding.Unicode.GetBytes((string)context.ins.Operand);
                 var text = "";
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -30,9 +30,9 @@ namespace CS2ASM
                 //Every object has its unique hash code this is why i use it
                 context.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
                 context.Append($"push rax");
-                context.Append($"mov qword rax,{((string)ins.Operand).Length}");
+                context.Append($"mov qword rax,{((string)context.ins.Operand).Length}");
                 context.Append($"push rax");
-                context.Append($"call {arch.GetCompilerMethod(Methods.StringCtor)}");
+                context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
                 context.Append($"db {text}");

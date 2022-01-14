@@ -8,13 +8,13 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Sizeof)]
-        public static void Sizeof(BaseArch arch, Instruction ins, MethodDef def, Context context)
+        public static void Sizeof(Context context)
         {
-            if (ins.Operand is TypeSpec)
-                context.Append($"mov rax,{Utility.SizeOfShallow(((TypeSpec)ins.Operand).ScopeType)}");
+            if (context.ins.Operand is TypeSpec)
+                context.Append($"mov rax,{Utility.SizeOfShallow(((TypeSpec)context.ins.Operand).ScopeType)}");
             else
             {
-                context.Append($"mov rax,{Utility.SizeOfOrIndex((TypeDef)ins.Operand, null)}");
+                context.Append($"mov rax,{Utility.SizeOfOrIndex((TypeDef)context.ins.Operand, null)}");
             }
 
             context.Append($"push rax");
