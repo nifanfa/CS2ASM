@@ -20,6 +20,7 @@ namespace CS2ASM
 
         static unsafe void Main(string[] args)
         {
+            //If you are debugging check out launchSettings.json
             if(args.Length == 0) 
             {
                 throw new ArgumentNullException();
