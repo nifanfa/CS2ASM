@@ -9,6 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Dup)]
         public static void Dup(Context context)
         {
+            //dangerous
             context.Append($"mov rax,[rsp]");
             context.Append($"push rax");
         }
