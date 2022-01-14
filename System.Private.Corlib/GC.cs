@@ -1,4 +1,4 @@
-﻿using static System.Runtime.CompilerServices.Native;
+﻿using static System.Runtime.CompilerServices.Unsafe;
 using System.Runtime.CompilerServices;
 using System.Platform.Amd64;
 

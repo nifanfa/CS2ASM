@@ -1,7 +1,7 @@
 ﻿using System.Platform.Amd64;
 using System.Runtime;
 using System.Runtime.CompilerServices;
-using static System.Runtime.CompilerServices.Native;
+using static System.Runtime.CompilerServices.Unsafe;
 
 namespace System
 {

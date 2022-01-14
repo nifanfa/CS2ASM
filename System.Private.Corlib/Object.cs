@@ -1,5 +1,5 @@
 ﻿using System.Runtime;
-using static System.Runtime.CompilerServices.Native;
+using static System.Runtime.CompilerServices.Unsafe;
 
 namespace System
 {

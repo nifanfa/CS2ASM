@@ -1,9 +1,13 @@
-﻿using static System.Runtime.CompilerServices.Native;
+﻿using static System.Runtime.CompilerServices.Unsafe;
 
 namespace System.Runtime.CompilerServices
 {
     public static class Unsafe
     {
+        [CompilerMethod(Methods.ASM)]
+        public static void asm(string comment)
+        { }
+
         [CompilerMethod(Methods.Stackalloc)]
         public static ulong Stackalloc(ulong size)
         {

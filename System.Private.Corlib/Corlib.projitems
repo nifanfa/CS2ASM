@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\CompilerMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\Native.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Array.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boolean.cs" />

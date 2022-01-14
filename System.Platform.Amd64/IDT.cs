@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using static System.Runtime.CompilerServices.Native;
+using static System.Runtime.CompilerServices.Unsafe;
 
 namespace System.Platform.Amd64
 {
