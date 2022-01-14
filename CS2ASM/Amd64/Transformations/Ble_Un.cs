@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ble_Un)]
         public static void Ble_Un(Context context)
         {
-            throw new NotImplementedException("Ble_Un is not implemented");
+            Ble(context);
         }
     }
 }

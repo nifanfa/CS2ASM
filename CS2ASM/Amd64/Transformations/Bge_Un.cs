@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Bge_Un)]
         public static void Bge_Un(Context context)
         {
-            throw new NotImplementedException("Bge_Un is not implemented");
+            Bge(context);
         }
     }
 }
