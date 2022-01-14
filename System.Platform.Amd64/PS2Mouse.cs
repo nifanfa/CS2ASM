@@ -49,7 +49,7 @@ namespace System.Platform.Amd64
         }
 
         private static int Phase = 0;
-        public static byte[] MData = new byte[3];
+        public static ulong[] MData = new ulong[3];
         private static int aX;
         private static int aY;
 
@@ -104,7 +104,7 @@ namespace System.Platform.Amd64
                 MData[2] = D;
                 Phase = 1;
 
-                MData[0] = (byte)(MData[0] & 0x07);
+                MData[0] &= 0x07;
 
                 MouseStatus = MouseStatus.None;
                 if(MData[0] == 0x01) 
@@ -117,14 +117,14 @@ namespace System.Platform.Amd64
                 }
 
                 if (MData[1] > 127)
-                    aX = -(255 - MData[1]);
+                    aX = -(255 - (byte)MData[1]);
                 else
-                    aX = MData[1];
+                    aX = (int)MData[1];
 
                 if (MData[2] > 127)
-                    aY = -(255 - MData[2]);
+                    aY = -(255 - (byte)MData[2]);
                 else
-                    aY = MData[2];
+                    aY = (int)MData[2];
 
                 X = X + aX;
                 Y = Y - aY;

@@ -13,6 +13,23 @@ namespace CS2ASM
         public Instruction ins;
         public MethodDef def;
         public BaseArch arch;
+
+        public IList<Instruction> instructions 
+        {
+            get 
+            {
+                return def.Body.Instructions;
+            }
+        }
+
+        public int currentInstructionIndex 
+        {
+            get 
+            {
+                return instructions.IndexOf(ins);
+            }
+        }
+
         public object operand 
         {
             get 
