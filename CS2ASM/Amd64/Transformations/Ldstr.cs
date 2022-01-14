@@ -12,11 +12,9 @@ namespace CS2ASM
         [ILTransformation(Code.Ldstr)]
         public static void Ldstr(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            var nextIns = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) + 1];
-
-            if (nextIns.Operand is MethodDef && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
+            if (context.nextInstruction.Operand is MethodDef && ((MethodDef)context.nextInstruction.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
             {
-                if (!InlineAssembly.NewMethod(arch, ins, def, nextIns,context))
+                if (!InlineAssembly.NewMethod(arch, ins, def, context.nextInstruction, context))
                 {
                     throw new NotImplementedException();
                 }
@@ -35,10 +33,10 @@ namespace CS2ASM
                 context.Append($"mov qword rax,{((string)ins.Operand).Length}");
                 context.Append($"push rax");
                 context.Append($"call {arch.GetCompilerMethod(Methods.StringCtor)}");
-                context.Append($"jmp LB_{nextIns.GetHashCode():X2}");
+                context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
                 context.Append($"db {text}");
-                context.Append($"LB_{nextIns.GetHashCode():X2}:");
+                context.Append($"LB_{context.nextInstruction.GetHashCode():X2}:");
             }
         }
     }
