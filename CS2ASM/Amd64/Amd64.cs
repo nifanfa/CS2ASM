@@ -63,7 +63,9 @@ namespace CS2ASM.AMD64
                 }
 
                 //Compile IL Instructions
-                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def });
+                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { this, ins, def,
+                    new Context(this.text)
+                });
             }
 
             if (Debug)

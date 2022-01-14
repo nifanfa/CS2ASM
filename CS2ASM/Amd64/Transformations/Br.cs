@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Br)]
-        public static void Br(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Br(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"jmp {Utility.BrLabelName(ins, def)}");
+            context.Append($"jmp {Utility.BrLabelName(ins, def)}");
         }
     }
 }

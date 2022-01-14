@@ -6,13 +6,13 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Shr)]
-        public static void Shr(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Shr(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"xor rdx,rdx");
-            arch.Append($"pop rcx");
-            arch.Append($"pop rax");
-            arch.Append($"shr rax,cl");
-            arch.Append($"push rax");
+            context.Append($"xor rdx,rdx");
+            context.Append($"pop rcx");
+            context.Append($"pop rax");
+            context.Append($"shr rax,cl");
+            context.Append($"push rax");
         }
     }
 }

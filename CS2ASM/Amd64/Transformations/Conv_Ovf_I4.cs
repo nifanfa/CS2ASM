@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Conv_Ovf_I4)]
-        public static void Conv_Ovf_I4(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Conv_Ovf_I4(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Conv_Ovf_I4 is not implemented");
         }

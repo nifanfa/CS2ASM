@@ -6,7 +6,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Conv_U2)]
-        public static void Conv_U2(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Conv_U2(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
         }
     }

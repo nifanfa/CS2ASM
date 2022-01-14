@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Prefix1)]
-        public static void Prefix1(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Prefix1(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Prefix1 is not implemented");
         }

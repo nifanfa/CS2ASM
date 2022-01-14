@@ -6,11 +6,11 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Not)]
-        public static void Not(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Not(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"pop rax");
-            arch.Append($"not rax");
-            arch.Append($"push rax");
+            context.Append($"pop rax");
+            context.Append($"not rax");
+            context.Append($"push rax");
         }
     }
 }

@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldflda)]
-        public static void Ldflda(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldflda(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            Ldfld(arch, ins, def);
+            Ldfld(arch, ins, def, context);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Endfilter)]
-        public static void Endfilter(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Endfilter(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Endfilter is not implemented");
         }

@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Localloc)]
-        public static void Localloc(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Localloc(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"call {arch.GetCompilerMethod(Methods.Stackalloc)}");
+            context.Append($"call {arch.GetCompilerMethod(Methods.Stackalloc)}");
         }
     }
 }

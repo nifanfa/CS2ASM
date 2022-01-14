@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Stelem_I8)]
-        public static void Stelem_I8(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Stelem_I8(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            Stelem(arch, ins, def);
+            Stelem(arch, ins, def, context);
         }
     }
 }

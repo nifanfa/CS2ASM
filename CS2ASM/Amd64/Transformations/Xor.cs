@@ -6,12 +6,12 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Xor)]
-        public static void Xor(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Xor(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"pop rdx");
-            arch.Append($"pop rax");
-            arch.Append($"xor rax,rdx");
-            arch.Append($"push rax");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"xor rax,rdx");
+            context.Append($"push rax");
         }
     }
 }

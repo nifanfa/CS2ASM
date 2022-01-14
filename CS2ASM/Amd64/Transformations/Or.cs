@@ -6,13 +6,13 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Or)]
-        public static void Or(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Or(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            arch.Append($"xor rdx,rdx");
-            arch.Append($"pop rdx");
-            arch.Append($"pop rax");
-            arch.Append($"or rax,rdx");
-            arch.Append($"push rax");
+            context.Append($"xor rdx,rdx");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
+            context.Append($"or rax,rdx");
+            context.Append($"push rax");
         }
     }
 }

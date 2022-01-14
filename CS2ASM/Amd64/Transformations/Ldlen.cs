@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldlen)]
-        public static void Ldlen(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldlen(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Ldlen is not implemented");
         }

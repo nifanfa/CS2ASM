@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Bne_Un_S)]
-        public static void Bne_Un_S(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Bne_Un_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            Bne_Un(arch, ins, def);
+            Bne_Un(arch, ins, def, context);
         }
     }
 }

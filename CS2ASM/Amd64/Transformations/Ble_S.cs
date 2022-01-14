@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ble_S)]
-        public static void Ble_S(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ble_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Ble_S is not implemented");
         }

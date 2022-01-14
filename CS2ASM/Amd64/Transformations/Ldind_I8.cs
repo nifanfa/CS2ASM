@@ -6,7 +6,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldind_I8)]
-        public static void Ldind_I8(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldind_I8(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             //This is for "this" keyword
             var prev = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) - 1];
@@ -19,8 +19,8 @@ namespace CS2ASM
                 }
             }
 
-            arch.Append($"pop rax");
-            arch.Append($"push qword [rax]");
+            context.Append($"pop rax");
+            context.Append($"push qword [rax]");
         }
     }
 }

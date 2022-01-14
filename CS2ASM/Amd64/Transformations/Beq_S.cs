@@ -7,9 +7,9 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Beq_S)]
-        public static void Beq_S(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Beq_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
-            Beq(arch, ins, def);
+            Beq(arch, ins, def, context);
         }
     }
 }

@@ -7,11 +7,11 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldnull)]
-        public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldnull(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             //Here can be implementation of disposing
-            arch.Append($"mov qword rax,0");
-            arch.Append($"push rax");
+            context.Append($"mov qword rax,0");
+            context.Append($"push rax");
         }
     }
 }

@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldobj)]
-        public static void Ldobj(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldobj(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Ldobj is not implemented");
         }

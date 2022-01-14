@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Blt_Un_S)]
-        public static void Blt_Un_S(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Blt_Un_S(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Blt_Un_S is not implemented");
         }

@@ -7,35 +7,35 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ret)]
-        public static void Ret(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ret(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             if (Amd64.IsEmptyMethod(def)) return;
 
             //Call.cs
             if (def.HasReturnType)
             {
-                arch.Append($"pop rax");
+                context.Append($"pop rax");
             }
-            arch.Append($"pop rbx");
+            context.Append($"pop rbx");
 
             //Clean up local variables
-            arch.Append($"add rsp,{def.Body.Variables.Count * 8}");
+            context.Append($"add rsp,{def.Body.Variables.Count * 8}");
 
-            arch.Append($"mov rbp,rbx");
+            context.Append($"mov rbp,rbx");
 
-            arch.Append($"pop rbx");
+            context.Append($"pop rbx");
 
             //Clean up arguments
-            arch.Append($"add rsp,{def.Parameters.Count * 8}");
+            context.Append($"add rsp,{def.Parameters.Count * 8}");
 
             if (def.HasReturnType)
             {
-                arch.Append($"push rax");
+                context.Append($"push rax");
             }
 
-            arch.Append($"push rbx");
+            context.Append($"push rbx");
 
-            arch.Append($"ret");
+            context.Append($"ret");
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CS2ASM.AMD64
 {
     public static class InlineAssembly
     {
-        public static bool NewMethod(BaseArch arch, Instruction ins, MethodDef def, Instruction nextIns)
+        public static bool NewMethod(BaseArch arch, Instruction ins, MethodDef def, Instruction nextIns, Context context)
         {
             if (nextIns.OpCode.Code == Code.Call && ((MethodDef)nextIns.Operand) == arch.CompilerMethods[Methods.ASM])
             {
@@ -47,7 +47,7 @@ namespace CS2ASM.AMD64
                     }
                 }
             End:
-                arch.Append($"{comment}");
+                context.Append($"{comment}");
                 arch.SkipNextInstruction();
 
                 return true;

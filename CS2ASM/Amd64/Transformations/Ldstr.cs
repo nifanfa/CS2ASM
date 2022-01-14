@@ -10,13 +10,13 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldstr)]
-        public static void Ldstr(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Ldstr(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             var nextIns = def.Body.Instructions[def.Body.Instructions.IndexOf(ins) + 1];
 
             if (nextIns.Operand is MethodDef && ((MethodDef)nextIns.Operand).FullName == "System.Void System.Runtime.Intrinsic::asm(System.String)")
             {
-                if (!InlineAssembly.NewMethod(arch, ins, def, nextIns))
+                if (!InlineAssembly.NewMethod(arch, ins, def, nextIns,context))
                 {
                     throw new NotImplementedException();
                 }
@@ -30,15 +30,15 @@ namespace CS2ASM
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
                 //Every object has its unique hash code this is why i use it
-                arch.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
-                arch.Append($"push rax");
-                arch.Append($"mov qword rax,{((string)ins.Operand).Length}");
-                arch.Append($"push rax");
-                arch.Append($"call {arch.GetCompilerMethod(Methods.StringCtor)}");
-                arch.Append($"jmp LB_{nextIns.GetHashCode():X2}");
-                arch.Append($"LB_{bytes.GetHashCode():X2}:");
-                arch.Append($"db {text}");
-                arch.Append($"LB_{nextIns.GetHashCode():X2}:");
+                context.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
+                context.Append($"push rax");
+                context.Append($"mov qword rax,{((string)ins.Operand).Length}");
+                context.Append($"push rax");
+                context.Append($"call {arch.GetCompilerMethod(Methods.StringCtor)}");
+                context.Append($"jmp LB_{nextIns.GetHashCode():X2}");
+                context.Append($"LB_{bytes.GetHashCode():X2}:");
+                context.Append($"db {text}");
+                context.Append($"LB_{nextIns.GetHashCode():X2}:");
             }
         }
     }

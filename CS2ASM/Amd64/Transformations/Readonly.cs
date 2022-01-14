@@ -7,7 +7,7 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Readonly)]
-        public static void Readonly(BaseArch arch, Instruction ins, MethodDef def)
+        public static void Readonly(BaseArch arch, Instruction ins, MethodDef def, Context context)
         {
             throw new NotImplementedException("Readonly is not implemented");
         }

@@ -58,7 +58,7 @@ namespace CS2ASM
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
-                    File.WriteAllText(@"Amd64\Kernel.asm", arch._Code.ToString());
+                    File.WriteAllText(@"Amd64\Kernel.asm", arch.text.ToString());
 
                     Utility.Start(@"Amd64\nasm.exe", "-fbin EntryPoint.asm -o kernel -l Kernel.lst");
                     File.Move(@"Amd64\kernel", @"Amd64\grub2\boot\kernel", true);

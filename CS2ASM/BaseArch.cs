@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace CS2ASM
 {
@@ -65,7 +66,7 @@ namespace CS2ASM
         }
 
         public bool Debug = true;
-        public StringWriter _Code = new StringWriter();
+        public StringBuilder text = new StringBuilder();
 
         public int InstructionIndex = 0;
 
@@ -78,7 +79,7 @@ namespace CS2ASM
 
         public virtual void Append(string s = "")
         {
-            _Code.WriteLine(s);
+            text.AppendLine(s);
         }
 
         public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
