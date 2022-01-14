@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Stelem_I8)]
         public static void Stelem_I8(Context context)
         {
-            Stelem(context);
+            DoStelem(context, 8);
         }
     }
 }

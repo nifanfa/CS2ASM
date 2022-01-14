@@ -9,6 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Newarr)]
         public static void Newarr(Context context)
         {
+            context.Append($"mov rax,{Utility.SizeOfShallow((IType)context.operand)}");
+            context.Append("push rax");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.ArrayCtor)}");
         }
     }

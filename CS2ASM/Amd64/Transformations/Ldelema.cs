@@ -13,7 +13,7 @@ namespace CS2ASM
             context.Append($"pop rsi"); //ptr
 
             context.Append($"xor rdx,rdx");
-            context.Append($"mov rax,8");
+            context.Append($"mov rax,{Utility.SizeOfShallow((IType)context.operand)}");
             context.Append($"mul rdi");
             context.Append($"add rsi,rax");
             context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");

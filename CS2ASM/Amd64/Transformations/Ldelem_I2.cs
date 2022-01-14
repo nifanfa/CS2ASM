@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldelem_I2)]
         public static void Ldelem_I2(Context context)
         {
-            Ldelem(context);
+            DoLdelem(context, 2);
         }
     }
 }
