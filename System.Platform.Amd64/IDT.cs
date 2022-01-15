@@ -317,7 +317,7 @@ namespace System.Platform.Amd64
                     asm("mov {cr2},rax");
                     if ((cr2 >> 5) < 0x1000)
                     {
-                        Console.WriteLine("CPU Exception: Null Pointer Exception!");
+                        Console.WriteLine("CPU Exception: Null Reference Exception!");
                     }
                 }
                 else
