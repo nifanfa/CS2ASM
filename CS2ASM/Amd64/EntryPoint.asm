@@ -57,8 +57,8 @@ multiboot_entry:
         push   0                       ;Reset EFLAGS
         popf
 
-        push   eax                     ;2nd argument is magic number
-        push   ebx                     ;1st argument multiboot info pointer
+        ;push   eax                     ;2nd argument is magic number
+        ;push   ebx                     ;1st argument multiboot info pointer
         mov [multiboot_ptr],ebx
         call   LongMode                ;Call _Main 
         ;add    esp, 8                  ;Cleanup 8 bytes pushed as arguments
