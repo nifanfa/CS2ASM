@@ -310,9 +310,22 @@ namespace System.Platform.Amd64
         {
             if (irq < 32)
             {
-                Console.Write("CPU Exception: 0x");
-                Console.Write(irq.ToString("x2"));
-                Console.Write(" Was Thrown System Halted!");
+                if(irq == 0x0E) 
+                {
+                    ulong CR2 = 0;
+                    asm("mov rax,cr2");
+                    asm("mov {CR2},rax");
+                    if ((CR2 >> 5) < 0x1000)
+                    {
+                        Console.WriteLine("CPU Exception: Null Pointer Exception!");
+                    }
+                }
+                else
+                {
+                    Console.Write("CPU Exception: 0x");
+                    Console.Write(irq.ToString("x2"));
+                    Console.WriteLine(" System Halted!");
+                }
                 asm("jmp die");
             }
             if (irq == 0x20)

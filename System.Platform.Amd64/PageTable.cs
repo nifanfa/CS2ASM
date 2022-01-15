@@ -4,7 +4,8 @@ namespace System.Platform.Amd64
 {
     public static unsafe class PageTable
     {
-        public const ulong PageSize = 0x200000;
+        //public const ulong PageSize = 0x200000;
+        public const ulong PageSize = 4096;
 
         public static ulong* PML4 = (ulong*)0x3FE000;
 
@@ -12,8 +13,8 @@ namespace System.Platform.Amd64
         {
             Native.Stosb(PML4, 0x00, 4096);
 
-            //Map the first 1GiB
-            for (ulong i = 0; i < 1024UL * 1024UL * 1024UL * 1UL; i += PageSize)
+            //Map the first 64MiB
+            for (ulong i = 4096; i < 1024UL * 1024UL * 64UL; i += PageSize)
             {
                 Map(i, i);
             }
@@ -29,7 +30,7 @@ namespace System.Platform.Amd64
         /// </summary>
         /// <param name="VirtualAddress"></param>
         /// <param name="PhysicalAddress"></param>
-        public static void Map(ulong VirtualAddress, ulong PhysicalAddress, ulong Attribute = 0) 
+        public static void Map(ulong VirtualAddress, ulong PhysicalAddress, ulong Attribute = 0b11) 
         {
             ulong pml4_entry = (VirtualAddress & ((ulong)0x1ff << 39)) >> 39;
             ulong pml3_entry = (VirtualAddress & ((ulong)0x1ff << 30)) >> 30;
@@ -38,8 +39,10 @@ namespace System.Platform.Amd64
 
             ulong* pml3 = Next(PML4, pml4_entry);
             ulong* pml2 = Next(pml3, pml3_entry);
+            ulong* pml1 = Next(pml2, pml2_entry);
 
-            pml2[pml2_entry] = PhysicalAddress | 0b10000011 | Attribute;
+            //pml2[pml2_entry] = PhysicalAddress | 0b10000011 | Attribute;
+            pml1[pml1_entry] = PhysicalAddress | Attribute;
 
             Native.Invlpg(PhysicalAddress);
         }
