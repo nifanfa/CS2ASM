@@ -9,6 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldflda)]
         public static void Ldflda(Context context)
         {
+            if (context.nextInstruction.OpCode.Code == Code.Initobj) return;
             Ldfld(context);
         }
     }
