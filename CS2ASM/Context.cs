@@ -15,14 +15,6 @@ namespace CS2ASM
         public MethodDef def;
         public BaseArch arch;
 
-        public bool isExternal 
-        {
-            get 
-            {
-                return !((MethodDef)operand).HasBody;
-            }
-        }
-
         public bool hasReturn 
         {
             get 

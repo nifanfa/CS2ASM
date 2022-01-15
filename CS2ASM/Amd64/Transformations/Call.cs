@@ -43,15 +43,10 @@ namespace CS2ASM
             {
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
-            if (context.isExternal)
-            {
-                context.Append($"add rsp,{context.def.Parameters.Count * 8}"); //cleanup arguments
-            }
 
             if (context.prevInstruction.OpCode.Code == Code.Ldstr 
                 && context.numberOfVariable == 1
-                && !context.hasReturn
-                && !context.isExternal) 
+                && !context.hasReturn) 
             {
                 Console.WriteLine($"Warning: The string \"{context.prevInstruction.Operand}\" will be disposed automatically");
                 context.Append("mov r15,[rsp]");
@@ -64,8 +59,7 @@ namespace CS2ASM
                 context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}");
 
             if (context.prevInstruction.OpCode.Code == Code.Ldstr
-                && !context.hasReturn
-                && !context.isExternal)
+                && !context.hasReturn)
             {
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.Dispose)}");
             }
