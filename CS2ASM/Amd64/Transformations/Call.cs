@@ -39,22 +39,35 @@ namespace CS2ASM
                     context.Append($"mov r9,[rsp+{(context.numberOfVariable - 6) * 8}]");
                 }
             }
-
-            if(context.prevInstruction.OpCode.Code == Code.Ldstr) 
+            else
             {
-                //It crashes VirtualBox but works in qemu
-                //Console.WriteLine($"Warning: The string \"{prevIns.Operand}\" will be disposed automatically (call from Call.cs)");
-                //context.Append("push qword [rsp]");
+                throw new ArgumentOutOfRangeException("Too much argument");
+            }
+            if (context.isExternal)
+            {
+                context.Append($"add rsp,{context.def.Parameters.Count * 8}"); //cleanup arguments
+            }
+
+            if (context.prevInstruction.OpCode.Code == Code.Ldstr 
+                && context.numberOfVariable == 1
+                && !context.hasReturn
+                && !context.isExternal) 
+            {
+                Console.WriteLine($"Warning: The string \"{context.prevInstruction.Operand}\" will be disposed automatically");
+                context.Append("mov r15,[rsp]");
+                context.Append("push r15");
             }
 
             if (context.operand is MemberRef)
                 context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType, Name = ((MemberRef)context.operand).Name }, context.methodSig)}");
             else
-                context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}"); 
-            
-            if (context.prevInstruction.OpCode.Code == Code.Ldstr)
+                context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}");
+
+            if (context.prevInstruction.OpCode.Code == Code.Ldstr
+                && !context.hasReturn
+                && !context.isExternal)
             {
-                //context.Append($"call {arch.GetCompilerMethod(Methods.Dispose)}");
+                context.Append($"call {context.arch.GetCompilerMethod(Methods.Dispose)}");
             }
         }
     }

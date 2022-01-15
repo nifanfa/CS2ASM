@@ -2,6 +2,7 @@
 using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -13,6 +14,22 @@ namespace CS2ASM
         public Instruction ins;
         public MethodDef def;
         public BaseArch arch;
+
+        public bool isExternal 
+        {
+            get 
+            {
+                return !((MethodDef)operand).HasBody;
+            }
+        }
+
+        public bool hasReturn 
+        {
+            get 
+            {
+                return methodSig.RetType.ElementType != ElementType.Void;
+            }
+        }
 
         public IList<Instruction> instructions 
         {
@@ -42,10 +59,7 @@ namespace CS2ASM
         {
             get
             {
-                if (ins.Operand is MemberRef)
-                    return ((MemberRef)ins.Operand).MethodSig.Params.Count;
-                else
-                    return ((MethodDef)ins.Operand).MethodSig.Params.Count;
+                return methodSig.Params.Count;
             }
         }
 
@@ -55,8 +69,11 @@ namespace CS2ASM
             {
                 if (ins.Operand is MemberRef)
                     return ((MemberRef)ins.Operand).MethodSig;
-                else
+                if (ins.Operand is MethodDef)
                     return ((MethodDef)ins.Operand).MethodSig;
+                if (ins.Operand is MethodSig)
+                    return ((MethodSig)ins.Operand);
+                return null;
             }
         }
 
