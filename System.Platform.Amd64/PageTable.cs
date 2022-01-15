@@ -10,7 +10,7 @@ namespace System.Platform.Amd64
             Huge = 0x200000
         }
 
-        public static ulong* PML4 = (ulong*)0x2FE000;
+        public static ulong* PML4 = (ulong*)0x200000;
 
         static PageTable()
         {
@@ -83,7 +83,7 @@ namespace System.Platform.Amd64
 
         public static ulong* AllocateTable()
         {
-            ulong* r = (ulong*)(0x300000 + (p * 4096));
+            ulong* r = (PML4 + 4096) + (p * 4096);
             Native.Stosb(r, 0x00, 4096);
             p++;
             return r;
