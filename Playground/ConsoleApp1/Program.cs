@@ -34,7 +34,7 @@ namespace ConsoleApp1
             Console.WriteLine(s.Size.ToString());
             Console.Write("Address of s:0x");
             Console.WriteLine(Unsafe.AddressOf(s).ToString("x2"));
-            s.Dispose();
+            //s.Dispose();
 
             Serial.WriteLine("Hello World From OS!");
 
