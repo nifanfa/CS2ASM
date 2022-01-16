@@ -21,6 +21,7 @@ namespace ConsoleApp1
                 if(PCI.Devices[i].VendorID == 0x1234) 
                 {
                     Ptr = (uint*)PCI.Devices[i].Bar0;
+                    return;
                 }
             }
         }

@@ -17,7 +17,7 @@ namespace System
     public unsafe class String
     {
         public ulong Length;
-        private char* Value;
+        public char* Value;
 
         public char this[ulong index] 
         {
