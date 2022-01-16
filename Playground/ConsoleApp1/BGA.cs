@@ -31,7 +31,7 @@ namespace ConsoleApp1
             Native.Stosd(Ptr, Color, (ulong)(Width * Height));
         }
 
-        public static void DrawPoint(ushort X,ushort Y,uint Color) 
+        public static void DrawPoint(int X, int Y,uint Color) 
         {
             if (X > 0 && Y > 0) 
                 Ptr[Width * Y + X] = Color;

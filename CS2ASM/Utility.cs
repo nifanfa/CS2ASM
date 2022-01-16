@@ -96,6 +96,8 @@ namespace CS2ASM
                     result += ".";
             }
             result = result.Replace("`", "");
+            result = result.Replace("[", "");
+            result = result.Replace("]", "");
             return result;
         }
 
