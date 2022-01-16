@@ -10,7 +10,10 @@ namespace CS2ASM
         public static void Ldflda(Context context)
         {
             if (context.nextInstruction.OpCode.Code == Code.Initobj) return;
-            Ldfld(context);
+
+            context.Append("pop rax");
+            context.Append($"add rax,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
+            context.Append("push rax");
         }
     }
 }
