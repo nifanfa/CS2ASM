@@ -8,6 +8,7 @@ namespace CS2ASM
         [ILTransformation(Code.Conv_U2)]
         public static void Conv_U2(Context context)
         {
+            Conv_I2(context);
         }
     }
 }
