@@ -51,7 +51,7 @@ namespace CS2ASM
         {
             get
             {
-                return methodSig.Params.Count;
+                return methodSig.Params.Count + (methodSig.HasThis ? 1 : 0);
             }
         }
 

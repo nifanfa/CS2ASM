@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\AssemblyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\CompilerMethodAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\DebugAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Array.cs" />
@@ -25,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Int16.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Int32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Int64.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\InteropServices\CallingConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UIntPtr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IntPtr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Object.cs" />

@@ -28,6 +28,7 @@ namespace System
             }
         }
 
+        [Debug]
         [CompilerMethod(Methods.StringCtor)]
         public static string Ctor(char* chr, ulong length)
         {

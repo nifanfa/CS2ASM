@@ -61,6 +61,7 @@ namespace CS2ASM
             if (context.prevInstruction.OpCode.Code == Code.Ldstr
                 && !context.hasReturn)
             {
+                context.Append($"mov rdi,[rsp]");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.Dispose)}");
             }
         }

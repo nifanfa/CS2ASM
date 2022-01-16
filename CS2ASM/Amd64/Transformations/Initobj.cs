@@ -15,9 +15,10 @@ namespace CS2ASM
                 context.Append($"add rsp,8"); //clean ldloc/ldsflda
 
             Sizeof(new Context(context.text, new Instruction() { Operand = (TypeDef)context.operand }, context.def, context.arch));
+            context.Append($"mov rdi,[rsp]");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
 
-            if(context.prevInstruction.OpCode.Code == Code.Ldsflda) 
+            if(context.prevInstruction.OpCode.Code == Code.Ldsflda)
             {
                 Stsfld(new Context(context.text, context.prevInstruction, context.def, context.arch));
             }else if(

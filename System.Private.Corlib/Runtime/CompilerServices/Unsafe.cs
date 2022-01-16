@@ -8,6 +8,7 @@ namespace System.Runtime.CompilerServices
         public static void asm(string comment)
         { }
 
+        [Debug]
         [CompilerMethod(Methods.Stackalloc)]
         public static ulong Stackalloc(ulong size)
         {

@@ -9,7 +9,9 @@
 
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace CS2ASM.AMD64
 {
@@ -38,6 +40,40 @@ namespace CS2ASM.AMD64
                 //Call.cs Line 19
                 this.Append($"mov rbx,rbp");
                 this.Append($"mov rbp,rsp");
+
+                int cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
+                //if (IsDebugMethod(def))
+                if (cnt <= 6)
+                {
+                    if (cnt >= 1)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 0) * 8}],rdi");
+                    }
+                    if (cnt >= 2)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 1) * 8}],rsi");
+                    }
+                    if (cnt >= 3)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 2) * 8}],rdx");
+                    }
+                    if (cnt >= 4)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 3) * 8}],rcx");
+                    }
+                    if (cnt >= 5)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 4) * 8}],r8");
+                    }
+                    if (cnt >= 6)
+                    {
+                        this.Append($"mov [rsp+{(cnt - 5) * 8}],r9");
+                    }
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Too much argument");
+                }
 
                 //For Variables
                 //pop at Ret.cs
@@ -76,6 +112,18 @@ namespace CS2ASM.AMD64
             foreach (var v in def.CustomAttributes)
             {
                 if (v.TypeFullName == "System.Runtime.CompilerServices.AssemblyMethodAttribute")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool IsDebugMethod(MethodDef def)
+        {
+            foreach (var v in def.CustomAttributes)
+            {
+                if (v.TypeFullName == "System.Runtime.CompilerServices.DebugAttribute")
                 {
                     return true;
                 }

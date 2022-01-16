@@ -9,6 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Localloc)]
         public static void Localloc(Context context)
         {
+            context.Append($"mov rdi,[rsp]");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Stackalloc)}");
         }
     }

@@ -306,6 +306,7 @@ namespace System.Platform.Amd64
             (&Entry[Index])->Reserved1 = 0;
         }
 
+        [Debug]
         private static void OnInterrupt(ulong irq)
         {
             if (irq < 32)
@@ -348,7 +349,7 @@ namespace System.Platform.Amd64
         private static void IRQ0()
         {
             asm("pushaq");
-            asm("push 0");
+            asm("mov qword rdi,0"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -358,7 +359,7 @@ namespace System.Platform.Amd64
         private static void IRQ1()
         {
             asm("pushaq");
-            asm("push 1");
+            asm("mov qword rdi,1"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -368,7 +369,7 @@ namespace System.Platform.Amd64
         private static void IRQ2()
         {
             asm("pushaq");
-            asm("push 2");
+            asm("mov qword rdi,2"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -378,7 +379,7 @@ namespace System.Platform.Amd64
         private static void IRQ3()
         {
             asm("pushaq");
-            asm("push 3");
+            asm("mov qword rdi,3"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -388,7 +389,7 @@ namespace System.Platform.Amd64
         private static void IRQ4()
         {
             asm("pushaq");
-            asm("push 4");
+            asm("mov qword rdi,4"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -398,7 +399,7 @@ namespace System.Platform.Amd64
         private static void IRQ5()
         {
             asm("pushaq");
-            asm("push 5");
+            asm("mov qword rdi,5"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -408,7 +409,7 @@ namespace System.Platform.Amd64
         private static void IRQ6()
         {
             asm("pushaq");
-            asm("push 6");
+            asm("mov qword rdi,6"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -418,7 +419,7 @@ namespace System.Platform.Amd64
         private static void IRQ7()
         {
             asm("pushaq");
-            asm("push 7");
+            asm("mov qword rdi,7"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -428,7 +429,7 @@ namespace System.Platform.Amd64
         private static void IRQ8()
         {
             asm("pushaq");
-            asm("push 8");
+            asm("mov qword rdi,8"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -438,7 +439,7 @@ namespace System.Platform.Amd64
         private static void IRQ9()
         {
             asm("pushaq");
-            asm("push 9");
+            asm("mov qword rdi,9"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -448,7 +449,7 @@ namespace System.Platform.Amd64
         private static void IRQ10()
         {
             asm("pushaq");
-            asm("push 10");
+            asm("mov qword rdi,10"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -458,7 +459,7 @@ namespace System.Platform.Amd64
         private static void IRQ11()
         {
             asm("pushaq");
-            asm("push 11");
+            asm("mov qword rdi,11"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -468,7 +469,7 @@ namespace System.Platform.Amd64
         private static void IRQ12()
         {
             asm("pushaq");
-            asm("push 12");
+            asm("mov qword rdi,12"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -478,7 +479,7 @@ namespace System.Platform.Amd64
         private static void IRQ13()
         {
             asm("pushaq");
-            asm("push 13");
+            asm("mov qword rdi,13"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -488,7 +489,7 @@ namespace System.Platform.Amd64
         private static void IRQ14()
         {
             asm("pushaq");
-            asm("push 14");
+            asm("mov qword rdi,14"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -498,7 +499,7 @@ namespace System.Platform.Amd64
         private static void IRQ15()
         {
             asm("pushaq");
-            asm("push 15");
+            asm("mov qword rdi,15"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -508,7 +509,7 @@ namespace System.Platform.Amd64
         private static void IRQ16()
         {
             asm("pushaq");
-            asm("push 16");
+            asm("mov qword rdi,16"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -518,7 +519,7 @@ namespace System.Platform.Amd64
         private static void IRQ17()
         {
             asm("pushaq");
-            asm("push 17");
+            asm("mov qword rdi,17"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -528,7 +529,7 @@ namespace System.Platform.Amd64
         private static void IRQ18()
         {
             asm("pushaq");
-            asm("push 18");
+            asm("mov qword rdi,18"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -538,7 +539,7 @@ namespace System.Platform.Amd64
         private static void IRQ19()
         {
             asm("pushaq");
-            asm("push 19");
+            asm("mov qword rdi,19"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -548,7 +549,7 @@ namespace System.Platform.Amd64
         private static void IRQ20()
         {
             asm("pushaq");
-            asm("push 20");
+            asm("mov qword rdi,20"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -558,7 +559,7 @@ namespace System.Platform.Amd64
         private static void IRQ21()
         {
             asm("pushaq");
-            asm("push 21");
+            asm("mov qword rdi,21"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -568,7 +569,7 @@ namespace System.Platform.Amd64
         private static void IRQ22()
         {
             asm("pushaq");
-            asm("push 22");
+            asm("mov qword rdi,22"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -578,7 +579,7 @@ namespace System.Platform.Amd64
         private static void IRQ23()
         {
             asm("pushaq");
-            asm("push 23");
+            asm("mov qword rdi,23"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -588,7 +589,7 @@ namespace System.Platform.Amd64
         private static void IRQ24()
         {
             asm("pushaq");
-            asm("push 24");
+            asm("mov qword rdi,24"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -598,7 +599,7 @@ namespace System.Platform.Amd64
         private static void IRQ25()
         {
             asm("pushaq");
-            asm("push 25");
+            asm("mov qword rdi,25"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -608,7 +609,7 @@ namespace System.Platform.Amd64
         private static void IRQ26()
         {
             asm("pushaq");
-            asm("push 26");
+            asm("mov qword rdi,26"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -618,7 +619,7 @@ namespace System.Platform.Amd64
         private static void IRQ27()
         {
             asm("pushaq");
-            asm("push 27");
+            asm("mov qword rdi,27"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -628,7 +629,7 @@ namespace System.Platform.Amd64
         private static void IRQ28()
         {
             asm("pushaq");
-            asm("push 28");
+            asm("mov qword rdi,28"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -638,7 +639,7 @@ namespace System.Platform.Amd64
         private static void IRQ29()
         {
             asm("pushaq");
-            asm("push 29");
+            asm("mov qword rdi,29"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -648,7 +649,7 @@ namespace System.Platform.Amd64
         private static void IRQ30()
         {
             asm("pushaq");
-            asm("push 30");
+            asm("mov qword rdi,30"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -658,7 +659,7 @@ namespace System.Platform.Amd64
         private static void IRQ31()
         {
             asm("pushaq");
-            asm("push 31");
+            asm("mov qword rdi,31"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -668,7 +669,7 @@ namespace System.Platform.Amd64
         private static void IRQ32()
         {
             asm("pushaq");
-            asm("push 32");
+            asm("mov qword rdi,32"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -678,7 +679,7 @@ namespace System.Platform.Amd64
         private static void IRQ33()
         {
             asm("pushaq");
-            asm("push 33");
+            asm("mov qword rdi,33"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -688,7 +689,7 @@ namespace System.Platform.Amd64
         private static void IRQ34()
         {
             asm("pushaq");
-            asm("push 34");
+            asm("mov qword rdi,34"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -698,7 +699,7 @@ namespace System.Platform.Amd64
         private static void IRQ35()
         {
             asm("pushaq");
-            asm("push 35");
+            asm("mov qword rdi,35"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -708,7 +709,7 @@ namespace System.Platform.Amd64
         private static void IRQ36()
         {
             asm("pushaq");
-            asm("push 36");
+            asm("mov qword rdi,36"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -718,7 +719,7 @@ namespace System.Platform.Amd64
         private static void IRQ37()
         {
             asm("pushaq");
-            asm("push 37");
+            asm("mov qword rdi,37"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -728,7 +729,7 @@ namespace System.Platform.Amd64
         private static void IRQ38()
         {
             asm("pushaq");
-            asm("push 38");
+            asm("mov qword rdi,38"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -738,7 +739,7 @@ namespace System.Platform.Amd64
         private static void IRQ39()
         {
             asm("pushaq");
-            asm("push 39");
+            asm("mov qword rdi,39"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -748,7 +749,7 @@ namespace System.Platform.Amd64
         private static void IRQ40()
         {
             asm("pushaq");
-            asm("push 40");
+            asm("mov qword rdi,40"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -758,7 +759,7 @@ namespace System.Platform.Amd64
         private static void IRQ41()
         {
             asm("pushaq");
-            asm("push 41");
+            asm("mov qword rdi,41"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -768,7 +769,7 @@ namespace System.Platform.Amd64
         private static void IRQ42()
         {
             asm("pushaq");
-            asm("push 42");
+            asm("mov qword rdi,42"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -778,7 +779,7 @@ namespace System.Platform.Amd64
         private static void IRQ43()
         {
             asm("pushaq");
-            asm("push 43");
+            asm("mov qword rdi,43"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -788,7 +789,7 @@ namespace System.Platform.Amd64
         private static void IRQ44()
         {
             asm("pushaq");
-            asm("push 44");
+            asm("mov qword rdi,44"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -798,7 +799,7 @@ namespace System.Platform.Amd64
         private static void IRQ45()
         {
             asm("pushaq");
-            asm("push 45");
+            asm("mov qword rdi,45"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -808,7 +809,7 @@ namespace System.Platform.Amd64
         private static void IRQ46()
         {
             asm("pushaq");
-            asm("push 46");
+            asm("mov qword rdi,46"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -818,7 +819,7 @@ namespace System.Platform.Amd64
         private static void IRQ47()
         {
             asm("pushaq");
-            asm("push 47");
+            asm("mov qword rdi,47"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -828,7 +829,7 @@ namespace System.Platform.Amd64
         private static void IRQ48()
         {
             asm("pushaq");
-            asm("push 48");
+            asm("mov qword rdi,48"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -838,7 +839,7 @@ namespace System.Platform.Amd64
         private static void IRQ49()
         {
             asm("pushaq");
-            asm("push 49");
+            asm("mov qword rdi,49"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -848,7 +849,7 @@ namespace System.Platform.Amd64
         private static void IRQ50()
         {
             asm("pushaq");
-            asm("push 50");
+            asm("mov qword rdi,50"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -858,7 +859,7 @@ namespace System.Platform.Amd64
         private static void IRQ51()
         {
             asm("pushaq");
-            asm("push 51");
+            asm("mov qword rdi,51"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -868,7 +869,7 @@ namespace System.Platform.Amd64
         private static void IRQ52()
         {
             asm("pushaq");
-            asm("push 52");
+            asm("mov qword rdi,52"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -878,7 +879,7 @@ namespace System.Platform.Amd64
         private static void IRQ53()
         {
             asm("pushaq");
-            asm("push 53");
+            asm("mov qword rdi,53"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -888,7 +889,7 @@ namespace System.Platform.Amd64
         private static void IRQ54()
         {
             asm("pushaq");
-            asm("push 54");
+            asm("mov qword rdi,54"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -898,7 +899,7 @@ namespace System.Platform.Amd64
         private static void IRQ55()
         {
             asm("pushaq");
-            asm("push 55");
+            asm("mov qword rdi,55"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -908,7 +909,7 @@ namespace System.Platform.Amd64
         private static void IRQ56()
         {
             asm("pushaq");
-            asm("push 56");
+            asm("mov qword rdi,56"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -918,7 +919,7 @@ namespace System.Platform.Amd64
         private static void IRQ57()
         {
             asm("pushaq");
-            asm("push 57");
+            asm("mov qword rdi,57"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -928,7 +929,7 @@ namespace System.Platform.Amd64
         private static void IRQ58()
         {
             asm("pushaq");
-            asm("push 58");
+            asm("mov qword rdi,58"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -938,7 +939,7 @@ namespace System.Platform.Amd64
         private static void IRQ59()
         {
             asm("pushaq");
-            asm("push 59");
+            asm("mov qword rdi,59"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -948,7 +949,7 @@ namespace System.Platform.Amd64
         private static void IRQ60()
         {
             asm("pushaq");
-            asm("push 60");
+            asm("mov qword rdi,60"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -958,7 +959,7 @@ namespace System.Platform.Amd64
         private static void IRQ61()
         {
             asm("pushaq");
-            asm("push 61");
+            asm("mov qword rdi,61"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -968,7 +969,7 @@ namespace System.Platform.Amd64
         private static void IRQ62()
         {
             asm("pushaq");
-            asm("push 62");
+            asm("mov qword rdi,62"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -978,7 +979,7 @@ namespace System.Platform.Amd64
         private static void IRQ63()
         {
             asm("pushaq");
-            asm("push 63");
+            asm("mov qword rdi,63"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -988,7 +989,7 @@ namespace System.Platform.Amd64
         private static void IRQ64()
         {
             asm("pushaq");
-            asm("push 64");
+            asm("mov qword rdi,64"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -998,7 +999,7 @@ namespace System.Platform.Amd64
         private static void IRQ65()
         {
             asm("pushaq");
-            asm("push 65");
+            asm("mov qword rdi,65"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1008,7 +1009,7 @@ namespace System.Platform.Amd64
         private static void IRQ66()
         {
             asm("pushaq");
-            asm("push 66");
+            asm("mov qword rdi,66"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1018,7 +1019,7 @@ namespace System.Platform.Amd64
         private static void IRQ67()
         {
             asm("pushaq");
-            asm("push 67");
+            asm("mov qword rdi,67"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1028,7 +1029,7 @@ namespace System.Platform.Amd64
         private static void IRQ68()
         {
             asm("pushaq");
-            asm("push 68");
+            asm("mov qword rdi,68"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1038,7 +1039,7 @@ namespace System.Platform.Amd64
         private static void IRQ69()
         {
             asm("pushaq");
-            asm("push 69");
+            asm("mov qword rdi,69"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1048,7 +1049,7 @@ namespace System.Platform.Amd64
         private static void IRQ70()
         {
             asm("pushaq");
-            asm("push 70");
+            asm("mov qword rdi,70"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1058,7 +1059,7 @@ namespace System.Platform.Amd64
         private static void IRQ71()
         {
             asm("pushaq");
-            asm("push 71");
+            asm("mov qword rdi,71"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1068,7 +1069,7 @@ namespace System.Platform.Amd64
         private static void IRQ72()
         {
             asm("pushaq");
-            asm("push 72");
+            asm("mov qword rdi,72"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1078,7 +1079,7 @@ namespace System.Platform.Amd64
         private static void IRQ73()
         {
             asm("pushaq");
-            asm("push 73");
+            asm("mov qword rdi,73"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1088,7 +1089,7 @@ namespace System.Platform.Amd64
         private static void IRQ74()
         {
             asm("pushaq");
-            asm("push 74");
+            asm("mov qword rdi,74"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1098,7 +1099,7 @@ namespace System.Platform.Amd64
         private static void IRQ75()
         {
             asm("pushaq");
-            asm("push 75");
+            asm("mov qword rdi,75"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1108,7 +1109,7 @@ namespace System.Platform.Amd64
         private static void IRQ76()
         {
             asm("pushaq");
-            asm("push 76");
+            asm("mov qword rdi,76"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1118,7 +1119,7 @@ namespace System.Platform.Amd64
         private static void IRQ77()
         {
             asm("pushaq");
-            asm("push 77");
+            asm("mov qword rdi,77"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1128,7 +1129,7 @@ namespace System.Platform.Amd64
         private static void IRQ78()
         {
             asm("pushaq");
-            asm("push 78");
+            asm("mov qword rdi,78"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1138,7 +1139,7 @@ namespace System.Platform.Amd64
         private static void IRQ79()
         {
             asm("pushaq");
-            asm("push 79");
+            asm("mov qword rdi,79"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1148,7 +1149,7 @@ namespace System.Platform.Amd64
         private static void IRQ80()
         {
             asm("pushaq");
-            asm("push 80");
+            asm("mov qword rdi,80"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1158,7 +1159,7 @@ namespace System.Platform.Amd64
         private static void IRQ81()
         {
             asm("pushaq");
-            asm("push 81");
+            asm("mov qword rdi,81"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1168,7 +1169,7 @@ namespace System.Platform.Amd64
         private static void IRQ82()
         {
             asm("pushaq");
-            asm("push 82");
+            asm("mov qword rdi,82"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1178,7 +1179,7 @@ namespace System.Platform.Amd64
         private static void IRQ83()
         {
             asm("pushaq");
-            asm("push 83");
+            asm("mov qword rdi,83"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1188,7 +1189,7 @@ namespace System.Platform.Amd64
         private static void IRQ84()
         {
             asm("pushaq");
-            asm("push 84");
+            asm("mov qword rdi,84"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1198,7 +1199,7 @@ namespace System.Platform.Amd64
         private static void IRQ85()
         {
             asm("pushaq");
-            asm("push 85");
+            asm("mov qword rdi,85"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1208,7 +1209,7 @@ namespace System.Platform.Amd64
         private static void IRQ86()
         {
             asm("pushaq");
-            asm("push 86");
+            asm("mov qword rdi,86"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1218,7 +1219,7 @@ namespace System.Platform.Amd64
         private static void IRQ87()
         {
             asm("pushaq");
-            asm("push 87");
+            asm("mov qword rdi,87"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1228,7 +1229,7 @@ namespace System.Platform.Amd64
         private static void IRQ88()
         {
             asm("pushaq");
-            asm("push 88");
+            asm("mov qword rdi,88"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1238,7 +1239,7 @@ namespace System.Platform.Amd64
         private static void IRQ89()
         {
             asm("pushaq");
-            asm("push 89");
+            asm("mov qword rdi,89"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1248,7 +1249,7 @@ namespace System.Platform.Amd64
         private static void IRQ90()
         {
             asm("pushaq");
-            asm("push 90");
+            asm("mov qword rdi,90"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1258,7 +1259,7 @@ namespace System.Platform.Amd64
         private static void IRQ91()
         {
             asm("pushaq");
-            asm("push 91");
+            asm("mov qword rdi,91"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1268,7 +1269,7 @@ namespace System.Platform.Amd64
         private static void IRQ92()
         {
             asm("pushaq");
-            asm("push 92");
+            asm("mov qword rdi,92"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1278,7 +1279,7 @@ namespace System.Platform.Amd64
         private static void IRQ93()
         {
             asm("pushaq");
-            asm("push 93");
+            asm("mov qword rdi,93"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1288,7 +1289,7 @@ namespace System.Platform.Amd64
         private static void IRQ94()
         {
             asm("pushaq");
-            asm("push 94");
+            asm("mov qword rdi,94"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1298,7 +1299,7 @@ namespace System.Platform.Amd64
         private static void IRQ95()
         {
             asm("pushaq");
-            asm("push 95");
+            asm("mov qword rdi,95"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1308,7 +1309,7 @@ namespace System.Platform.Amd64
         private static void IRQ96()
         {
             asm("pushaq");
-            asm("push 96");
+            asm("mov qword rdi,96"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1318,7 +1319,7 @@ namespace System.Platform.Amd64
         private static void IRQ97()
         {
             asm("pushaq");
-            asm("push 97");
+            asm("mov qword rdi,97"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1328,7 +1329,7 @@ namespace System.Platform.Amd64
         private static void IRQ98()
         {
             asm("pushaq");
-            asm("push 98");
+            asm("mov qword rdi,98"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1338,7 +1339,7 @@ namespace System.Platform.Amd64
         private static void IRQ99()
         {
             asm("pushaq");
-            asm("push 99");
+            asm("mov qword rdi,99"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1348,7 +1349,7 @@ namespace System.Platform.Amd64
         private static void IRQ100()
         {
             asm("pushaq");
-            asm("push 100");
+            asm("mov qword rdi,100"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1358,7 +1359,7 @@ namespace System.Platform.Amd64
         private static void IRQ101()
         {
             asm("pushaq");
-            asm("push 101");
+            asm("mov qword rdi,101"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1368,7 +1369,7 @@ namespace System.Platform.Amd64
         private static void IRQ102()
         {
             asm("pushaq");
-            asm("push 102");
+            asm("mov qword rdi,102"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1378,7 +1379,7 @@ namespace System.Platform.Amd64
         private static void IRQ103()
         {
             asm("pushaq");
-            asm("push 103");
+            asm("mov qword rdi,103"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1388,7 +1389,7 @@ namespace System.Platform.Amd64
         private static void IRQ104()
         {
             asm("pushaq");
-            asm("push 104");
+            asm("mov qword rdi,104"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1398,7 +1399,7 @@ namespace System.Platform.Amd64
         private static void IRQ105()
         {
             asm("pushaq");
-            asm("push 105");
+            asm("mov qword rdi,105"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1408,7 +1409,7 @@ namespace System.Platform.Amd64
         private static void IRQ106()
         {
             asm("pushaq");
-            asm("push 106");
+            asm("mov qword rdi,106"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1418,7 +1419,7 @@ namespace System.Platform.Amd64
         private static void IRQ107()
         {
             asm("pushaq");
-            asm("push 107");
+            asm("mov qword rdi,107"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1428,7 +1429,7 @@ namespace System.Platform.Amd64
         private static void IRQ108()
         {
             asm("pushaq");
-            asm("push 108");
+            asm("mov qword rdi,108"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1438,7 +1439,7 @@ namespace System.Platform.Amd64
         private static void IRQ109()
         {
             asm("pushaq");
-            asm("push 109");
+            asm("mov qword rdi,109"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1448,7 +1449,7 @@ namespace System.Platform.Amd64
         private static void IRQ110()
         {
             asm("pushaq");
-            asm("push 110");
+            asm("mov qword rdi,110"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1458,7 +1459,7 @@ namespace System.Platform.Amd64
         private static void IRQ111()
         {
             asm("pushaq");
-            asm("push 111");
+            asm("mov qword rdi,111"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1468,7 +1469,7 @@ namespace System.Platform.Amd64
         private static void IRQ112()
         {
             asm("pushaq");
-            asm("push 112");
+            asm("mov qword rdi,112"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1478,7 +1479,7 @@ namespace System.Platform.Amd64
         private static void IRQ113()
         {
             asm("pushaq");
-            asm("push 113");
+            asm("mov qword rdi,113"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1488,7 +1489,7 @@ namespace System.Platform.Amd64
         private static void IRQ114()
         {
             asm("pushaq");
-            asm("push 114");
+            asm("mov qword rdi,114"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1498,7 +1499,7 @@ namespace System.Platform.Amd64
         private static void IRQ115()
         {
             asm("pushaq");
-            asm("push 115");
+            asm("mov qword rdi,115"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1508,7 +1509,7 @@ namespace System.Platform.Amd64
         private static void IRQ116()
         {
             asm("pushaq");
-            asm("push 116");
+            asm("mov qword rdi,116"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1518,7 +1519,7 @@ namespace System.Platform.Amd64
         private static void IRQ117()
         {
             asm("pushaq");
-            asm("push 117");
+            asm("mov qword rdi,117"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1528,7 +1529,7 @@ namespace System.Platform.Amd64
         private static void IRQ118()
         {
             asm("pushaq");
-            asm("push 118");
+            asm("mov qword rdi,118"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1538,7 +1539,7 @@ namespace System.Platform.Amd64
         private static void IRQ119()
         {
             asm("pushaq");
-            asm("push 119");
+            asm("mov qword rdi,119"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1548,7 +1549,7 @@ namespace System.Platform.Amd64
         private static void IRQ120()
         {
             asm("pushaq");
-            asm("push 120");
+            asm("mov qword rdi,120"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1558,7 +1559,7 @@ namespace System.Platform.Amd64
         private static void IRQ121()
         {
             asm("pushaq");
-            asm("push 121");
+            asm("mov qword rdi,121"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1568,7 +1569,7 @@ namespace System.Platform.Amd64
         private static void IRQ122()
         {
             asm("pushaq");
-            asm("push 122");
+            asm("mov qword rdi,122"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1578,7 +1579,7 @@ namespace System.Platform.Amd64
         private static void IRQ123()
         {
             asm("pushaq");
-            asm("push 123");
+            asm("mov qword rdi,123"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1588,7 +1589,7 @@ namespace System.Platform.Amd64
         private static void IRQ124()
         {
             asm("pushaq");
-            asm("push 124");
+            asm("mov qword rdi,124"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1598,7 +1599,7 @@ namespace System.Platform.Amd64
         private static void IRQ125()
         {
             asm("pushaq");
-            asm("push 125");
+            asm("mov qword rdi,125"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1608,7 +1609,7 @@ namespace System.Platform.Amd64
         private static void IRQ126()
         {
             asm("pushaq");
-            asm("push 126");
+            asm("mov qword rdi,126"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1618,7 +1619,7 @@ namespace System.Platform.Amd64
         private static void IRQ127()
         {
             asm("pushaq");
-            asm("push 127");
+            asm("mov qword rdi,127"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1628,7 +1629,7 @@ namespace System.Platform.Amd64
         private static void IRQ128()
         {
             asm("pushaq");
-            asm("push 128");
+            asm("mov qword rdi,128"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1638,7 +1639,7 @@ namespace System.Platform.Amd64
         private static void IRQ129()
         {
             asm("pushaq");
-            asm("push 129");
+            asm("mov qword rdi,129"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1648,7 +1649,7 @@ namespace System.Platform.Amd64
         private static void IRQ130()
         {
             asm("pushaq");
-            asm("push 130");
+            asm("mov qword rdi,130"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1658,7 +1659,7 @@ namespace System.Platform.Amd64
         private static void IRQ131()
         {
             asm("pushaq");
-            asm("push 131");
+            asm("mov qword rdi,131"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1668,7 +1669,7 @@ namespace System.Platform.Amd64
         private static void IRQ132()
         {
             asm("pushaq");
-            asm("push 132");
+            asm("mov qword rdi,132"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1678,7 +1679,7 @@ namespace System.Platform.Amd64
         private static void IRQ133()
         {
             asm("pushaq");
-            asm("push 133");
+            asm("mov qword rdi,133"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1688,7 +1689,7 @@ namespace System.Platform.Amd64
         private static void IRQ134()
         {
             asm("pushaq");
-            asm("push 134");
+            asm("mov qword rdi,134"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1698,7 +1699,7 @@ namespace System.Platform.Amd64
         private static void IRQ135()
         {
             asm("pushaq");
-            asm("push 135");
+            asm("mov qword rdi,135"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1708,7 +1709,7 @@ namespace System.Platform.Amd64
         private static void IRQ136()
         {
             asm("pushaq");
-            asm("push 136");
+            asm("mov qword rdi,136"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1718,7 +1719,7 @@ namespace System.Platform.Amd64
         private static void IRQ137()
         {
             asm("pushaq");
-            asm("push 137");
+            asm("mov qword rdi,137"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1728,7 +1729,7 @@ namespace System.Platform.Amd64
         private static void IRQ138()
         {
             asm("pushaq");
-            asm("push 138");
+            asm("mov qword rdi,138"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1738,7 +1739,7 @@ namespace System.Platform.Amd64
         private static void IRQ139()
         {
             asm("pushaq");
-            asm("push 139");
+            asm("mov qword rdi,139"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1748,7 +1749,7 @@ namespace System.Platform.Amd64
         private static void IRQ140()
         {
             asm("pushaq");
-            asm("push 140");
+            asm("mov qword rdi,140"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1758,7 +1759,7 @@ namespace System.Platform.Amd64
         private static void IRQ141()
         {
             asm("pushaq");
-            asm("push 141");
+            asm("mov qword rdi,141"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1768,7 +1769,7 @@ namespace System.Platform.Amd64
         private static void IRQ142()
         {
             asm("pushaq");
-            asm("push 142");
+            asm("mov qword rdi,142"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1778,7 +1779,7 @@ namespace System.Platform.Amd64
         private static void IRQ143()
         {
             asm("pushaq");
-            asm("push 143");
+            asm("mov qword rdi,143"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1788,7 +1789,7 @@ namespace System.Platform.Amd64
         private static void IRQ144()
         {
             asm("pushaq");
-            asm("push 144");
+            asm("mov qword rdi,144"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1798,7 +1799,7 @@ namespace System.Platform.Amd64
         private static void IRQ145()
         {
             asm("pushaq");
-            asm("push 145");
+            asm("mov qword rdi,145"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1808,7 +1809,7 @@ namespace System.Platform.Amd64
         private static void IRQ146()
         {
             asm("pushaq");
-            asm("push 146");
+            asm("mov qword rdi,146"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1818,7 +1819,7 @@ namespace System.Platform.Amd64
         private static void IRQ147()
         {
             asm("pushaq");
-            asm("push 147");
+            asm("mov qword rdi,147"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1828,7 +1829,7 @@ namespace System.Platform.Amd64
         private static void IRQ148()
         {
             asm("pushaq");
-            asm("push 148");
+            asm("mov qword rdi,148"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1838,7 +1839,7 @@ namespace System.Platform.Amd64
         private static void IRQ149()
         {
             asm("pushaq");
-            asm("push 149");
+            asm("mov qword rdi,149"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1848,7 +1849,7 @@ namespace System.Platform.Amd64
         private static void IRQ150()
         {
             asm("pushaq");
-            asm("push 150");
+            asm("mov qword rdi,150"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1858,7 +1859,7 @@ namespace System.Platform.Amd64
         private static void IRQ151()
         {
             asm("pushaq");
-            asm("push 151");
+            asm("mov qword rdi,151"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1868,7 +1869,7 @@ namespace System.Platform.Amd64
         private static void IRQ152()
         {
             asm("pushaq");
-            asm("push 152");
+            asm("mov qword rdi,152"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1878,7 +1879,7 @@ namespace System.Platform.Amd64
         private static void IRQ153()
         {
             asm("pushaq");
-            asm("push 153");
+            asm("mov qword rdi,153"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1888,7 +1889,7 @@ namespace System.Platform.Amd64
         private static void IRQ154()
         {
             asm("pushaq");
-            asm("push 154");
+            asm("mov qword rdi,154"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1898,7 +1899,7 @@ namespace System.Platform.Amd64
         private static void IRQ155()
         {
             asm("pushaq");
-            asm("push 155");
+            asm("mov qword rdi,155"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1908,7 +1909,7 @@ namespace System.Platform.Amd64
         private static void IRQ156()
         {
             asm("pushaq");
-            asm("push 156");
+            asm("mov qword rdi,156"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1918,7 +1919,7 @@ namespace System.Platform.Amd64
         private static void IRQ157()
         {
             asm("pushaq");
-            asm("push 157");
+            asm("mov qword rdi,157"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1928,7 +1929,7 @@ namespace System.Platform.Amd64
         private static void IRQ158()
         {
             asm("pushaq");
-            asm("push 158");
+            asm("mov qword rdi,158"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1938,7 +1939,7 @@ namespace System.Platform.Amd64
         private static void IRQ159()
         {
             asm("pushaq");
-            asm("push 159");
+            asm("mov qword rdi,159"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1948,7 +1949,7 @@ namespace System.Platform.Amd64
         private static void IRQ160()
         {
             asm("pushaq");
-            asm("push 160");
+            asm("mov qword rdi,160"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1958,7 +1959,7 @@ namespace System.Platform.Amd64
         private static void IRQ161()
         {
             asm("pushaq");
-            asm("push 161");
+            asm("mov qword rdi,161"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1968,7 +1969,7 @@ namespace System.Platform.Amd64
         private static void IRQ162()
         {
             asm("pushaq");
-            asm("push 162");
+            asm("mov qword rdi,162"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1978,7 +1979,7 @@ namespace System.Platform.Amd64
         private static void IRQ163()
         {
             asm("pushaq");
-            asm("push 163");
+            asm("mov qword rdi,163"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1988,7 +1989,7 @@ namespace System.Platform.Amd64
         private static void IRQ164()
         {
             asm("pushaq");
-            asm("push 164");
+            asm("mov qword rdi,164"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -1998,7 +1999,7 @@ namespace System.Platform.Amd64
         private static void IRQ165()
         {
             asm("pushaq");
-            asm("push 165");
+            asm("mov qword rdi,165"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2008,7 +2009,7 @@ namespace System.Platform.Amd64
         private static void IRQ166()
         {
             asm("pushaq");
-            asm("push 166");
+            asm("mov qword rdi,166"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2018,7 +2019,7 @@ namespace System.Platform.Amd64
         private static void IRQ167()
         {
             asm("pushaq");
-            asm("push 167");
+            asm("mov qword rdi,167"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2028,7 +2029,7 @@ namespace System.Platform.Amd64
         private static void IRQ168()
         {
             asm("pushaq");
-            asm("push 168");
+            asm("mov qword rdi,168"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2038,7 +2039,7 @@ namespace System.Platform.Amd64
         private static void IRQ169()
         {
             asm("pushaq");
-            asm("push 169");
+            asm("mov qword rdi,169"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2048,7 +2049,7 @@ namespace System.Platform.Amd64
         private static void IRQ170()
         {
             asm("pushaq");
-            asm("push 170");
+            asm("mov qword rdi,170"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2058,7 +2059,7 @@ namespace System.Platform.Amd64
         private static void IRQ171()
         {
             asm("pushaq");
-            asm("push 171");
+            asm("mov qword rdi,171"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2068,7 +2069,7 @@ namespace System.Platform.Amd64
         private static void IRQ172()
         {
             asm("pushaq");
-            asm("push 172");
+            asm("mov qword rdi,172"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2078,7 +2079,7 @@ namespace System.Platform.Amd64
         private static void IRQ173()
         {
             asm("pushaq");
-            asm("push 173");
+            asm("mov qword rdi,173"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2088,7 +2089,7 @@ namespace System.Platform.Amd64
         private static void IRQ174()
         {
             asm("pushaq");
-            asm("push 174");
+            asm("mov qword rdi,174"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2098,7 +2099,7 @@ namespace System.Platform.Amd64
         private static void IRQ175()
         {
             asm("pushaq");
-            asm("push 175");
+            asm("mov qword rdi,175"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2108,7 +2109,7 @@ namespace System.Platform.Amd64
         private static void IRQ176()
         {
             asm("pushaq");
-            asm("push 176");
+            asm("mov qword rdi,176"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2118,7 +2119,7 @@ namespace System.Platform.Amd64
         private static void IRQ177()
         {
             asm("pushaq");
-            asm("push 177");
+            asm("mov qword rdi,177"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2128,7 +2129,7 @@ namespace System.Platform.Amd64
         private static void IRQ178()
         {
             asm("pushaq");
-            asm("push 178");
+            asm("mov qword rdi,178"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2138,7 +2139,7 @@ namespace System.Platform.Amd64
         private static void IRQ179()
         {
             asm("pushaq");
-            asm("push 179");
+            asm("mov qword rdi,179"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2148,7 +2149,7 @@ namespace System.Platform.Amd64
         private static void IRQ180()
         {
             asm("pushaq");
-            asm("push 180");
+            asm("mov qword rdi,180"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2158,7 +2159,7 @@ namespace System.Platform.Amd64
         private static void IRQ181()
         {
             asm("pushaq");
-            asm("push 181");
+            asm("mov qword rdi,181"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2168,7 +2169,7 @@ namespace System.Platform.Amd64
         private static void IRQ182()
         {
             asm("pushaq");
-            asm("push 182");
+            asm("mov qword rdi,182"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2178,7 +2179,7 @@ namespace System.Platform.Amd64
         private static void IRQ183()
         {
             asm("pushaq");
-            asm("push 183");
+            asm("mov qword rdi,183"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2188,7 +2189,7 @@ namespace System.Platform.Amd64
         private static void IRQ184()
         {
             asm("pushaq");
-            asm("push 184");
+            asm("mov qword rdi,184"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2198,7 +2199,7 @@ namespace System.Platform.Amd64
         private static void IRQ185()
         {
             asm("pushaq");
-            asm("push 185");
+            asm("mov qword rdi,185"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2208,7 +2209,7 @@ namespace System.Platform.Amd64
         private static void IRQ186()
         {
             asm("pushaq");
-            asm("push 186");
+            asm("mov qword rdi,186"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2218,7 +2219,7 @@ namespace System.Platform.Amd64
         private static void IRQ187()
         {
             asm("pushaq");
-            asm("push 187");
+            asm("mov qword rdi,187"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2228,7 +2229,7 @@ namespace System.Platform.Amd64
         private static void IRQ188()
         {
             asm("pushaq");
-            asm("push 188");
+            asm("mov qword rdi,188"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2238,7 +2239,7 @@ namespace System.Platform.Amd64
         private static void IRQ189()
         {
             asm("pushaq");
-            asm("push 189");
+            asm("mov qword rdi,189"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2248,7 +2249,7 @@ namespace System.Platform.Amd64
         private static void IRQ190()
         {
             asm("pushaq");
-            asm("push 190");
+            asm("mov qword rdi,190"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2258,7 +2259,7 @@ namespace System.Platform.Amd64
         private static void IRQ191()
         {
             asm("pushaq");
-            asm("push 191");
+            asm("mov qword rdi,191"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2268,7 +2269,7 @@ namespace System.Platform.Amd64
         private static void IRQ192()
         {
             asm("pushaq");
-            asm("push 192");
+            asm("mov qword rdi,192"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2278,7 +2279,7 @@ namespace System.Platform.Amd64
         private static void IRQ193()
         {
             asm("pushaq");
-            asm("push 193");
+            asm("mov qword rdi,193"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2288,7 +2289,7 @@ namespace System.Platform.Amd64
         private static void IRQ194()
         {
             asm("pushaq");
-            asm("push 194");
+            asm("mov qword rdi,194"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2298,7 +2299,7 @@ namespace System.Platform.Amd64
         private static void IRQ195()
         {
             asm("pushaq");
-            asm("push 195");
+            asm("mov qword rdi,195"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2308,7 +2309,7 @@ namespace System.Platform.Amd64
         private static void IRQ196()
         {
             asm("pushaq");
-            asm("push 196");
+            asm("mov qword rdi,196"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2318,7 +2319,7 @@ namespace System.Platform.Amd64
         private static void IRQ197()
         {
             asm("pushaq");
-            asm("push 197");
+            asm("mov qword rdi,197"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2328,7 +2329,7 @@ namespace System.Platform.Amd64
         private static void IRQ198()
         {
             asm("pushaq");
-            asm("push 198");
+            asm("mov qword rdi,198"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2338,7 +2339,7 @@ namespace System.Platform.Amd64
         private static void IRQ199()
         {
             asm("pushaq");
-            asm("push 199");
+            asm("mov qword rdi,199"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2348,7 +2349,7 @@ namespace System.Platform.Amd64
         private static void IRQ200()
         {
             asm("pushaq");
-            asm("push 200");
+            asm("mov qword rdi,200"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2358,7 +2359,7 @@ namespace System.Platform.Amd64
         private static void IRQ201()
         {
             asm("pushaq");
-            asm("push 201");
+            asm("mov qword rdi,201"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2368,7 +2369,7 @@ namespace System.Platform.Amd64
         private static void IRQ202()
         {
             asm("pushaq");
-            asm("push 202");
+            asm("mov qword rdi,202"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2378,7 +2379,7 @@ namespace System.Platform.Amd64
         private static void IRQ203()
         {
             asm("pushaq");
-            asm("push 203");
+            asm("mov qword rdi,203"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2388,7 +2389,7 @@ namespace System.Platform.Amd64
         private static void IRQ204()
         {
             asm("pushaq");
-            asm("push 204");
+            asm("mov qword rdi,204"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2398,7 +2399,7 @@ namespace System.Platform.Amd64
         private static void IRQ205()
         {
             asm("pushaq");
-            asm("push 205");
+            asm("mov qword rdi,205"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2408,7 +2409,7 @@ namespace System.Platform.Amd64
         private static void IRQ206()
         {
             asm("pushaq");
-            asm("push 206");
+            asm("mov qword rdi,206"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2418,7 +2419,7 @@ namespace System.Platform.Amd64
         private static void IRQ207()
         {
             asm("pushaq");
-            asm("push 207");
+            asm("mov qword rdi,207"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2428,7 +2429,7 @@ namespace System.Platform.Amd64
         private static void IRQ208()
         {
             asm("pushaq");
-            asm("push 208");
+            asm("mov qword rdi,208"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2438,7 +2439,7 @@ namespace System.Platform.Amd64
         private static void IRQ209()
         {
             asm("pushaq");
-            asm("push 209");
+            asm("mov qword rdi,209"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2448,7 +2449,7 @@ namespace System.Platform.Amd64
         private static void IRQ210()
         {
             asm("pushaq");
-            asm("push 210");
+            asm("mov qword rdi,210"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2458,7 +2459,7 @@ namespace System.Platform.Amd64
         private static void IRQ211()
         {
             asm("pushaq");
-            asm("push 211");
+            asm("mov qword rdi,211"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2468,7 +2469,7 @@ namespace System.Platform.Amd64
         private static void IRQ212()
         {
             asm("pushaq");
-            asm("push 212");
+            asm("mov qword rdi,212"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2478,7 +2479,7 @@ namespace System.Platform.Amd64
         private static void IRQ213()
         {
             asm("pushaq");
-            asm("push 213");
+            asm("mov qword rdi,213"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2488,7 +2489,7 @@ namespace System.Platform.Amd64
         private static void IRQ214()
         {
             asm("pushaq");
-            asm("push 214");
+            asm("mov qword rdi,214"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2498,7 +2499,7 @@ namespace System.Platform.Amd64
         private static void IRQ215()
         {
             asm("pushaq");
-            asm("push 215");
+            asm("mov qword rdi,215"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2508,7 +2509,7 @@ namespace System.Platform.Amd64
         private static void IRQ216()
         {
             asm("pushaq");
-            asm("push 216");
+            asm("mov qword rdi,216"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2518,7 +2519,7 @@ namespace System.Platform.Amd64
         private static void IRQ217()
         {
             asm("pushaq");
-            asm("push 217");
+            asm("mov qword rdi,217"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2528,7 +2529,7 @@ namespace System.Platform.Amd64
         private static void IRQ218()
         {
             asm("pushaq");
-            asm("push 218");
+            asm("mov qword rdi,218"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2538,7 +2539,7 @@ namespace System.Platform.Amd64
         private static void IRQ219()
         {
             asm("pushaq");
-            asm("push 219");
+            asm("mov qword rdi,219"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2548,7 +2549,7 @@ namespace System.Platform.Amd64
         private static void IRQ220()
         {
             asm("pushaq");
-            asm("push 220");
+            asm("mov qword rdi,220"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2558,7 +2559,7 @@ namespace System.Platform.Amd64
         private static void IRQ221()
         {
             asm("pushaq");
-            asm("push 221");
+            asm("mov qword rdi,221"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2568,7 +2569,7 @@ namespace System.Platform.Amd64
         private static void IRQ222()
         {
             asm("pushaq");
-            asm("push 222");
+            asm("mov qword rdi,222"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2578,7 +2579,7 @@ namespace System.Platform.Amd64
         private static void IRQ223()
         {
             asm("pushaq");
-            asm("push 223");
+            asm("mov qword rdi,223"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2588,7 +2589,7 @@ namespace System.Platform.Amd64
         private static void IRQ224()
         {
             asm("pushaq");
-            asm("push 224");
+            asm("mov qword rdi,224"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2598,7 +2599,7 @@ namespace System.Platform.Amd64
         private static void IRQ225()
         {
             asm("pushaq");
-            asm("push 225");
+            asm("mov qword rdi,225"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2608,7 +2609,7 @@ namespace System.Platform.Amd64
         private static void IRQ226()
         {
             asm("pushaq");
-            asm("push 226");
+            asm("mov qword rdi,226"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2618,7 +2619,7 @@ namespace System.Platform.Amd64
         private static void IRQ227()
         {
             asm("pushaq");
-            asm("push 227");
+            asm("mov qword rdi,227"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2628,7 +2629,7 @@ namespace System.Platform.Amd64
         private static void IRQ228()
         {
             asm("pushaq");
-            asm("push 228");
+            asm("mov qword rdi,228"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2638,7 +2639,7 @@ namespace System.Platform.Amd64
         private static void IRQ229()
         {
             asm("pushaq");
-            asm("push 229");
+            asm("mov qword rdi,229"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2648,7 +2649,7 @@ namespace System.Platform.Amd64
         private static void IRQ230()
         {
             asm("pushaq");
-            asm("push 230");
+            asm("mov qword rdi,230"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2658,7 +2659,7 @@ namespace System.Platform.Amd64
         private static void IRQ231()
         {
             asm("pushaq");
-            asm("push 231");
+            asm("mov qword rdi,231"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2668,7 +2669,7 @@ namespace System.Platform.Amd64
         private static void IRQ232()
         {
             asm("pushaq");
-            asm("push 232");
+            asm("mov qword rdi,232"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2678,7 +2679,7 @@ namespace System.Platform.Amd64
         private static void IRQ233()
         {
             asm("pushaq");
-            asm("push 233");
+            asm("mov qword rdi,233"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2688,7 +2689,7 @@ namespace System.Platform.Amd64
         private static void IRQ234()
         {
             asm("pushaq");
-            asm("push 234");
+            asm("mov qword rdi,234"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2698,7 +2699,7 @@ namespace System.Platform.Amd64
         private static void IRQ235()
         {
             asm("pushaq");
-            asm("push 235");
+            asm("mov qword rdi,235"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2708,7 +2709,7 @@ namespace System.Platform.Amd64
         private static void IRQ236()
         {
             asm("pushaq");
-            asm("push 236");
+            asm("mov qword rdi,236"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2718,7 +2719,7 @@ namespace System.Platform.Amd64
         private static void IRQ237()
         {
             asm("pushaq");
-            asm("push 237");
+            asm("mov qword rdi,237"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2728,7 +2729,7 @@ namespace System.Platform.Amd64
         private static void IRQ238()
         {
             asm("pushaq");
-            asm("push 238");
+            asm("mov qword rdi,238"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2738,7 +2739,7 @@ namespace System.Platform.Amd64
         private static void IRQ239()
         {
             asm("pushaq");
-            asm("push 239");
+            asm("mov qword rdi,239"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2748,7 +2749,7 @@ namespace System.Platform.Amd64
         private static void IRQ240()
         {
             asm("pushaq");
-            asm("push 240");
+            asm("mov qword rdi,240"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2758,7 +2759,7 @@ namespace System.Platform.Amd64
         private static void IRQ241()
         {
             asm("pushaq");
-            asm("push 241");
+            asm("mov qword rdi,241"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2768,7 +2769,7 @@ namespace System.Platform.Amd64
         private static void IRQ242()
         {
             asm("pushaq");
-            asm("push 242");
+            asm("mov qword rdi,242"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2778,7 +2779,7 @@ namespace System.Platform.Amd64
         private static void IRQ243()
         {
             asm("pushaq");
-            asm("push 243");
+            asm("mov qword rdi,243"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2788,7 +2789,7 @@ namespace System.Platform.Amd64
         private static void IRQ244()
         {
             asm("pushaq");
-            asm("push 244");
+            asm("mov qword rdi,244"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2798,7 +2799,7 @@ namespace System.Platform.Amd64
         private static void IRQ245()
         {
             asm("pushaq");
-            asm("push 245");
+            asm("mov qword rdi,245"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2808,7 +2809,7 @@ namespace System.Platform.Amd64
         private static void IRQ246()
         {
             asm("pushaq");
-            asm("push 246");
+            asm("mov qword rdi,246"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2818,7 +2819,7 @@ namespace System.Platform.Amd64
         private static void IRQ247()
         {
             asm("pushaq");
-            asm("push 247");
+            asm("mov qword rdi,247"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2828,7 +2829,7 @@ namespace System.Platform.Amd64
         private static void IRQ248()
         {
             asm("pushaq");
-            asm("push 248");
+            asm("mov qword rdi,248"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2838,7 +2839,7 @@ namespace System.Platform.Amd64
         private static void IRQ249()
         {
             asm("pushaq");
-            asm("push 249");
+            asm("mov qword rdi,249"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2848,7 +2849,7 @@ namespace System.Platform.Amd64
         private static void IRQ250()
         {
             asm("pushaq");
-            asm("push 250");
+            asm("mov qword rdi,250"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2858,7 +2859,7 @@ namespace System.Platform.Amd64
         private static void IRQ251()
         {
             asm("pushaq");
-            asm("push 251");
+            asm("mov qword rdi,251"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2868,7 +2869,7 @@ namespace System.Platform.Amd64
         private static void IRQ252()
         {
             asm("pushaq");
-            asm("push 252");
+            asm("mov qword rdi,252"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2878,7 +2879,7 @@ namespace System.Platform.Amd64
         private static void IRQ253()
         {
             asm("pushaq");
-            asm("push 253");
+            asm("mov qword rdi,253"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2888,7 +2889,7 @@ namespace System.Platform.Amd64
         private static void IRQ254()
         {
             asm("pushaq");
-            asm("push 254");
+            asm("mov qword rdi,254"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");
@@ -2898,7 +2899,7 @@ namespace System.Platform.Amd64
         private static void IRQ255()
         {
             asm("pushaq");
-            asm("push 255");
+            asm("mov qword rdi,255"); asm("push rdi");
             asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
             asm("popaq");
             asm("iretq");

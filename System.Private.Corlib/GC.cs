@@ -30,6 +30,7 @@ namespace System
             }
         }
 
+        [Debug]
         [CompilerMethod(Methods.Allocate)]
         public static ulong Allocate(ulong size)
         {
