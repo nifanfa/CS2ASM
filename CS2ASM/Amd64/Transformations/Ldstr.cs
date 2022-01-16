@@ -3,6 +3,7 @@ using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace CS2ASM
@@ -44,9 +45,13 @@ namespace CS2ASM
                 context.Append($"push LB_{bytes.GetHashCode():X2}");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
-                context.Append($"dq {Utility.SizeOf(context.def.Module,"System.String")+ (ulong)(((string)context.operand).Length*2)}");
-                context.Append($"dq {((string)context.operand).Length}");
-                context.Append($"dq LB_{bytes.GetHashCode():X2}+24");
+                if(Utility.SizeOf(context.def.Module, "System.String")!= 24) 
+                {
+                    throw new InvalidDataException("Do not modify the structure of Object or String");
+                }
+                context.Append($"dq {Utility.SizeOf(context.def.Module,"System.String")+ (ulong)(((string)context.operand).Length*2)}"); //object.Size
+                context.Append($"dq {((string)context.operand).Length}"); //string.Length
+                context.Append($"dq LB_{bytes.GetHashCode():X2}+24"); //string.Value
                 context.Append($"db {text}");
                 context.Append($"LB_{context.nextInstruction.GetHashCode():X2}:");
             }
