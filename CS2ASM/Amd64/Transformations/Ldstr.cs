@@ -32,8 +32,8 @@ namespace CS2ASM
                 context.Append($"push rax");
                 context.Append($"mov qword rax,{((string)context.operand).Length}");
                 context.Append($"push rax");
-                context.Append($"mov rdi,[rsp+8]");
-                context.Append($"mov rsi,[rsp]");
+                context.Append($"pop rsi");
+                context.Append($"pop rdi");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");

@@ -20,7 +20,7 @@ namespace CS2ASM
                 argumentNum = ((MethodDef)context.operand).MethodSig.Params.Count;
             }
             Sizeof(new Context(context.text, new Instruction() { Operand = context.operand is MemberRef ? ((MemberRef)context.operand).DeclaringType.ScopeType : ((MethodDef)context.operand).DeclaringType }, context.def, context.arch));
-            context.Append($"mov rdi,[rsp]");
+            context.Append($"pop rdi");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
 
             //Get result value from System.GC.Allocate.UInt64 and make a copy for ldloc because call will pop the params
@@ -81,6 +81,7 @@ namespace CS2ASM
             {
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
+            context.Append($"add rsp,{context.numberOfVariable * 8}");
             if (context.operand is MemberRef)
             {
                 context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType,Name = ((MemberRef)context.operand).Name}, ((MemberRef)context.operand).MethodSig)}");

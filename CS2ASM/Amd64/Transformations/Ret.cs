@@ -16,25 +16,14 @@ namespace CS2ASM
             {
                 context.Append($"pop rax");
             }
+            context.Append($"add rsp,{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0) + (ulong)context.def.Body.Variables.Count + 1) * 8}");
+            context.Append($"pop rbp");
             context.Append($"pop rbx");
-
-            //Clean up local variables
-            context.Append($"add rsp,{context.def.Body.Variables.Count * 8}");
-
-            context.Append($"mov rbp,rbx");
-
-            context.Append($"pop rbx");
-
-            //Clean up arguments
-            context.Append($"add rsp,{context.def.Parameters.Count * 8}");
-
             if (context.def.HasReturnType)
             {
                 context.Append($"push rax");
             }
-
             context.Append($"push rbx");
-
             context.Append($"ret");
         }
     }

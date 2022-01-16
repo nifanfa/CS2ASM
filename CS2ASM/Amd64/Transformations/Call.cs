@@ -43,7 +43,9 @@ namespace CS2ASM
             {
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
+            context.Append($"add rsp,{context.numberOfVariable * 8}");
 
+            /*
             if (context.prevInstruction.OpCode.Code == Code.Ldstr 
                 && context.numberOfVariable == 1
                 && !context.hasReturn) 
@@ -52,18 +54,21 @@ namespace CS2ASM
                 context.Append("mov r15,[rsp]");
                 context.Append("push r15");
             }
+            */
 
             if (context.operand is MemberRef)
                 context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType, Name = ((MemberRef)context.operand).Name }, context.methodSig)}");
             else
                 context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}");
 
+            /*
             if (context.prevInstruction.OpCode.Code == Code.Ldstr
                 && !context.hasReturn)
             {
                 context.Append($"mov rdi,[rsp]");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.Dispose)}");
             }
+            */
         }
     }
 }

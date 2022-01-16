@@ -26,7 +26,7 @@ namespace CS2ASM.AMD64
                         if (v.Name == cpy)
                         {
                             //ldarg
-                            comment = comment.Replace($"{{{cpy}}}", $"[rbp+{(paramCount + 0 - v.Index) * 8}]");
+                            comment = comment.Replace($"{{{cpy}}}", $"[rbp-{(paramCount + 0 - v.Index) * 8}]");
                             goto End;
                         }
                     }
@@ -36,7 +36,7 @@ namespace CS2ASM.AMD64
                         if (v.Name == cpy)
                         {
                             //ldloc
-                            comment = comment.Replace($"{{{cpy}}}", $"[rbp-{(v.Index + 1) * 8}]");
+                            comment = comment.Replace($"{{{cpy}}}", $"[rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0)+(ulong)v.Index + 1) * 8}]");
                             goto End;
                         }
                     }

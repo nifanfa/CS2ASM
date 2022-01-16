@@ -10,7 +10,7 @@ namespace CS2ASM
         public static void Starg(Context context)
         {
             context.Append($"pop rax");
-            context.Append($"mov [rbp+{((ulong)context.def.Parameters.Count + 0 - OperandParser.Starg(context.ins)) * 8}],rax");
+            context.Append($"mov [rbp-{((ulong)context.def.Parameters.Count + 0 - OperandParser.Starg(context.ins)) * 8}],rax");
         }
     }
 }

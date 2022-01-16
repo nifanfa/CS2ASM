@@ -7,10 +7,10 @@ namespace CS2ASM
     {
         [ILTransformation(Code.Stloc)]
         public static void Stloc(Context context)
-        {
+        { 
             ulong Index = OperandParser.Stloc(context.ins) + 1;
             context.Append($"pop rax");
-            context.Append($"mov [rbp-{Index * 8}],rax");
+            context.Append($"mov [rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0) + Index) * 8}],rax");
         }
     }
 }

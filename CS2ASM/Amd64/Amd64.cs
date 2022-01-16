@@ -37,48 +37,44 @@ namespace CS2ASM.AMD64
 
             if (!Amd64.IsAssemblyMethod(def))
             {
-                //Call.cs Line 19
-                this.Append($"mov rbx,rbp");
-                this.Append($"mov rbp,rsp");
-
                 int cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
+                //Call.cs Line 19
+                this.Append($"push rbp");
+                this.Append($"mov rbp,rsp");
+                this.Append($"sub rsp,{(cnt + def.Body.Variables.Count + 1) * 8}");
+
                 //if (IsDebugMethod(def))
                 if (cnt <= 6)
                 {
                     if (cnt >= 1)
                     {
-                        this.Append($"mov [rbp+{(cnt - 0) * 8}],rdi");
+                        this.Append($"mov [rbp-{(cnt - 0) * 8}],rdi");
                     }
                     if (cnt >= 2)
                     {
-                        this.Append($"mov [rbp+{(cnt - 1) * 8}],rsi");
+                        this.Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
                     }
                     if (cnt >= 3)
                     {
-                        this.Append($"mov [rbp+{(cnt - 2) * 8}],rdx");
+                        this.Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
                     }
                     if (cnt >= 4)
                     {
-                        this.Append($"mov [rbp+{(cnt - 3) * 8}],rcx");
+                        this.Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
                     }
                     if (cnt >= 5)
                     {
-                        this.Append($"mov [rbp+{(cnt - 4) * 8}],r8");
+                        this.Append($"mov [rbp-{(cnt - 4) * 8}],r8");
                     }
                     if (cnt >= 6)
                     {
-                        this.Append($"mov [rbp+{(cnt - 5) * 8}],r9");
+                        this.Append($"mov [rbp-{(cnt - 5) * 8}],r9");
                     }
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException("Too much argument");
                 }
-
-                //For Variables
-                //pop at Ret.cs
-                this.Append($"sub rsp,{def.Body.Variables.Count * 8}");
-                this.Append($"push rbx");
             }
 
             //Start Parse IL Code

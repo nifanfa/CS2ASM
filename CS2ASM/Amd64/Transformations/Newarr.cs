@@ -11,8 +11,8 @@ namespace CS2ASM
         {
             context.Append($"mov rax,{Utility.SizeOfShallow((IType)context.operand)}");
             context.Append("push rax");
-            context.Append($"mov rdi,[rsp+8]");
-            context.Append($"mov rsi,[rsp]");
+            context.Append($"pop rsi");
+            context.Append($"pop rdi");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.ArrayCtor)}");
         }
     }

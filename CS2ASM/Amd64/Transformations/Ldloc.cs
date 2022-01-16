@@ -9,7 +9,7 @@ namespace CS2ASM
         public static void Ldloc(Context context)
         {
             ulong Index = OperandParser.Ldloc(context.ins) + 1;
-            context.Append($"mov qword rax,[rbp-{Index * 8}]");
+            context.Append($"mov qword rax,[rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0) + Index) * 8}]");
             context.Append($"push rax");
         }
     }
