@@ -26,34 +26,33 @@ namespace System.Platform.Amd64
         {
             // TODO: Use switch when implemented
             byte KeyData = Native.In8(0x60);
-            if (KeyData == 0x1E) return 'A';
-            else if (KeyData == 0x30) return 'B';
-            else if (KeyData == 0x2E) return 'C';
-            else if (KeyData == 0x20) return 'D';
-            else if (KeyData == 0x12) return 'E';
-            else if (KeyData == 0x21) return 'F';
-            else if (KeyData == 0x22) return 'G';
-            else if (KeyData == 0x23) return 'H';
-            else if (KeyData == 0x17) return 'I';
-            else if (KeyData == 0x24) return 'J';
-            else if (KeyData == 0x25) return 'K';
-            else if (KeyData == 0x26) return 'L';
-            else if (KeyData == 0x32) return 'M';
-            else if (KeyData == 0x31) return 'N';
-            else if (KeyData == 0x39) return ' ';
-            else if (KeyData == 0x18) return 'O';
-            else if (KeyData == 0x19) return 'P';
-            else if (KeyData == 0x10) return 'Q';
-            else if (KeyData == 0x13) return 'R';
-            else if (KeyData == 0x1F) return 'S';
-            else if (KeyData == 0x14) return 'T';
-            else if (KeyData == 0x16) return 'U';
-            else if (KeyData == 0x2F) return 'V';
-            else if (KeyData == 0x11) return 'W';
-            else if (KeyData == 0x1C) return '\n'; //Enter
-            else if (KeyData == 0x2D) return 'X';
-            else if (KeyData == 0x15) return 'Y';
-            else if (KeyData == 0x2C) return 'Z';
+            if (false) return '?';
+            else if (KeyData == 0x1E) return 'a';
+            else if (KeyData == 0x30) return 'b';
+            else if (KeyData == 0x2E) return 'c';
+            else if (KeyData == 0x20) return 'd';
+            else if (KeyData == 0x12) return 'e';
+            else if (KeyData == 0x21) return 'f';
+            else if (KeyData == 0x22) return 'g';
+            else if (KeyData == 0x23) return 'h';
+            else if (KeyData == 0x17) return 'i';
+            else if (KeyData == 0x24) return 'j';
+            else if (KeyData == 0x25) return 'k';
+            else if (KeyData == 0x26) return 'l';
+            else if (KeyData == 0x32) return 'm';
+            else if (KeyData == 0x31) return 'n';
+            else if (KeyData == 0x18) return 'o';
+            else if (KeyData == 0x19) return 'p';
+            else if (KeyData == 0x10) return 'q';
+            else if (KeyData == 0x13) return 'r';
+            else if (KeyData == 0x1F) return 's';
+            else if (KeyData == 0x14) return 't';
+            else if (KeyData == 0x16) return 'u';
+            else if (KeyData == 0x2F) return 'v';
+            else if (KeyData == 0x11) return 'w';
+            else if (KeyData == 0x2D) return 'x';
+            else if (KeyData == 0x15) return 'y';
+            else if (KeyData == 0x2C) return 'z';
             else if (KeyData == 0x02) return '1';
             else if (KeyData == 0x03) return '2';
             else if (KeyData == 0x04) return '3';
@@ -64,7 +63,9 @@ namespace System.Platform.Amd64
             else if (KeyData == 0x09) return '8';
             else if (KeyData == 0x0A) return '9';
             else if (KeyData == 0x0B) return '0';
+            else if (KeyData == 0x1C) return '\n'; //Enter
             else if (KeyData == 0x0E) return '\b';
+            else if (KeyData == 0x39) return ' ';
             else return '?';
         }
     }
