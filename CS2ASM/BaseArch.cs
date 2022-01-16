@@ -17,7 +17,8 @@ namespace CS2ASM
         StringCtor,
         Dispose,
         ArrayCtor,
-        Stackalloc
+        Stackalloc,
+        InitialiseStatics
     }
 
     public abstract unsafe class BaseArch

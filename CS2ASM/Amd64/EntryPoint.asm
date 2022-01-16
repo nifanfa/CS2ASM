@@ -225,5 +225,7 @@ _Main:
 
     mov rbp,KERNEL_STACK-1024
     mov rsp,rbp
+
+    jmp EntryPoint
     
     %include "Kernel.asm"

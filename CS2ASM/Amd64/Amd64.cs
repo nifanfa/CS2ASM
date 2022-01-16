@@ -22,6 +22,7 @@ namespace CS2ASM.AMD64
             this.PointerSize = 8;
 
             this.Append($"[bits 64]");
+            this.Append($"EntryPoint:");
         }
 
         public override void Translate(MethodDef def)
@@ -75,6 +76,11 @@ namespace CS2ASM.AMD64
                 {
                     throw new ArgumentOutOfRangeException("Too much argument");
                 }
+            }
+
+            if(def == CompilerMethods[Methods.InitialiseStatics])
+            {
+                this.InitializeStaticConstructor((ModuleDefMD)def.Module);
             }
 
             //Start Parse IL Code

@@ -4,6 +4,12 @@ namespace System.Runtime.CompilerServices
 {
     public static class Unsafe
     {
+        [CompilerMethod(Methods.InitialiseStatics)]
+        public static void InitialiseStatics() 
+        {
+            //This method will be filled by the compiler
+        }
+
         [CompilerMethod(Methods.ASM)]
         public static void asm(string comment)
         { }

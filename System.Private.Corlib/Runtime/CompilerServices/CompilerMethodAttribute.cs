@@ -7,7 +7,8 @@
         StringCtor,
         Dispose,
         ArrayCtor,
-        Stackalloc
+        Stackalloc,
+        InitialiseStatics
     }
 
     class CompilerMethodAttribute : Attribute

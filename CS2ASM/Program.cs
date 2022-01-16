@@ -40,7 +40,6 @@ namespace CS2ASM
             }
             arch.ImportCompilerMethods(def);
             arch.Before(def);
-            arch.InitializeStaticConstructor(def);
             arch.JumpToEntry(def);
             foreach (var typ in def.Types)
             {
