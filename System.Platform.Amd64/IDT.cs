@@ -306,7 +306,6 @@ namespace System.Platform.Amd64
             (&Entry[Index])->Reserved1 = 0;
         }
 
-        [Debug]
         private static void OnInterrupt(ulong irq)
         {
             if (irq < 32)

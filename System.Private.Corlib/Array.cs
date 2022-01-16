@@ -6,7 +6,6 @@ namespace System
     {
         public ulong Length;
 
-        [Debug]
         [CompilerMethod(Methods.ArrayCtor)]
         public static object Ctor(ulong length, ulong itemSize)
         {
