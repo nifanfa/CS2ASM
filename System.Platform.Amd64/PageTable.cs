@@ -23,8 +23,8 @@ namespace System.Platform.Amd64
             {
                 Map(i, i, PageSize.Typical);
             }
-            //Map the first 2MiB-1GiB
-            for (i = (ulong)PageSize.Huge; i < 1024UL * 1024UL * 1024UL * 1UL; i += (ulong)PageSize.Huge)
+            //Map the first 2MiB-4GiB
+            for (i = (ulong)PageSize.Huge; i < 1024UL * 1024UL * 1024UL * 4UL; i += (ulong)PageSize.Huge)
             {
                 Map(i, i);
             }
