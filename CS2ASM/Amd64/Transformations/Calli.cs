@@ -43,10 +43,6 @@ namespace CS2ASM
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
             context.Append($"add rsp,{context.numberOfVariable * 8}");
-            if (context.numberOfVariable != 0)
-            {
-                throw new Exception("I don't know how to tell if it's external via MethodSig. There is a stackoverflow risk if you don't do it through Calli");
-            }
             context.Append("pop rax");
             context.Append("call rax");
         }
