@@ -28,12 +28,25 @@ namespace CS2ASM
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
                 //Every object has its unique hash code this is why i use it
+
+                //Instance
+                /*
                 context.Append($"mov rdi,LB_{bytes.GetHashCode():X2}");
                 context.Append($"mov rsi,{((string)context.operand).Length}");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"push rax");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
+                context.Append($"db {text}");
+                context.Append($"LB_{context.nextInstruction.GetHashCode():X2}:");
+                */
+                //Static
+                context.Append($"push LB_{bytes.GetHashCode():X2}");
+                context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
+                context.Append($"LB_{bytes.GetHashCode():X2}:");
+                context.Append($"dq {Utility.SizeOf(context.def.Module,"System.String")+ (ulong)(((string)context.operand).Length*2)}");
+                context.Append($"dq {((string)context.operand).Length}");
+                context.Append($"dq LB_{bytes.GetHashCode():X2}+24");
                 context.Append($"db {text}");
                 context.Append($"LB_{context.nextInstruction.GetHashCode():X2}:");
             }

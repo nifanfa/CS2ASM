@@ -11,6 +11,9 @@ namespace System
      * char* value size:8
      * Unicode string size:∞
      */
+    /// <summary>
+    /// You don't have to dispose strings.
+    /// </summary>
     public unsafe class String
     {
         public ulong Length;
