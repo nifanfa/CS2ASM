@@ -28,12 +28,8 @@ namespace CS2ASM
                     text += bytes[i] + (i + 1 == bytes.Length ? "" : ",");
                 }
                 //Every object has its unique hash code this is why i use it
-                context.Append($"mov qword rax,LB_{bytes.GetHashCode():X2}");
-                context.Append($"push rax");
-                context.Append($"mov qword rax,{((string)context.operand).Length}");
-                context.Append($"push rax");
-                context.Append($"pop rsi");
-                context.Append($"pop rdi");
+                context.Append($"mov rdi,LB_{bytes.GetHashCode():X2}");
+                context.Append($"mov rsi,{((string)context.operand).Length}");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"push rax");
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
