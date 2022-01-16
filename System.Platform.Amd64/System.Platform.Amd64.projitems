@@ -9,6 +9,7 @@
     <Import_RootNamespace>System.Platform.Amd64</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ACPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Console.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConsoleColor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDT.cs" />
