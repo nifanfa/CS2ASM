@@ -48,17 +48,6 @@ namespace CS2ASM
             if (rsv != 0)
                 context.Append($"add rsp,{rsv}");
 
-            /*
-            if (context.prevInstruction.OpCode.Code == Code.Ldstr 
-                && context.numberOfVariable == 1
-                && !context.hasReturn) 
-            {
-                Console.WriteLine($"Warning: The string \"{context.prevInstruction.Operand}\" will be disposed automatically");
-                context.Append("mov r15,[rsp]");
-                context.Append("push r15");
-            }
-            */
-
             if (context.operand is MemberRef)
                 context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType, Name = ((MemberRef)context.operand).Name }, context.methodSig)}");
             else
@@ -67,15 +56,6 @@ namespace CS2ASM
             {
                 context.Append($"push rax");
             }
-
-            /*
-            if (context.prevInstruction.OpCode.Code == Code.Ldstr
-                && !context.hasReturn)
-            {
-                context.Append($"mov rdi,[rsp]");
-                context.Append($"call {context.arch.GetCompilerMethod(Methods.Dispose)}");
-            }
-            */
         }
     }
 }
