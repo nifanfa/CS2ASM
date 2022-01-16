@@ -17,6 +17,7 @@ namespace CS2ASM
             Sizeof(new Context(context.text, new Instruction() { Operand = (TypeDef)context.operand }, context.def, context.arch));
             context.Append($"pop rdi");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
+            context.Append($"push rax");
 
             if(context.prevInstruction.OpCode.Code == Code.Ldsflda)
             {

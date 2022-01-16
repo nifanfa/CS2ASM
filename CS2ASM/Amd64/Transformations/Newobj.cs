@@ -22,6 +22,7 @@ namespace CS2ASM
             Sizeof(new Context(context.text, new Instruction() { Operand = context.operand is MemberRef ? ((MemberRef)context.operand).DeclaringType.ScopeType : ((MethodDef)context.operand).DeclaringType }, context.def, context.arch));
             context.Append($"pop rdi");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
+            context.Append($"push rax");
 
             //Get result value from System.GC.Allocate.UInt64 and make a copy for ldloc because call will pop the params
             context.Append($"pop r15");
@@ -89,6 +90,10 @@ namespace CS2ASM
             else
             {
                 context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, ((MethodDef)context.operand).MethodSig)}");
+            }
+            if (context.hasReturn)
+            {
+                context.Append($"push rax");
             }
         }
     }

@@ -45,6 +45,10 @@ namespace CS2ASM
             context.Append($"add rsp,{context.numberOfVariable * 8}");
             context.Append("pop rax");
             context.Append("call rax");
+            if (context.hasReturn)
+            {
+                context.Append($"push rax");
+            }
         }
     }
 }

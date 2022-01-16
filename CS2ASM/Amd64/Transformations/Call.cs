@@ -60,6 +60,10 @@ namespace CS2ASM
                 context.Append($"call {Utility.SafeMethodName(new MethodDefUser() { DeclaringType = (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType, Name = ((MemberRef)context.operand).Name }, context.methodSig)}");
             else
                 context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}");
+            if (context.hasReturn) 
+            {
+                context.Append($"push rax");
+            }
 
             /*
             if (context.prevInstruction.OpCode.Code == Code.Ldstr

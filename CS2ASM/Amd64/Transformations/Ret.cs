@@ -22,12 +22,6 @@ namespace CS2ASM
                 context.Append($"add rsp,{rsv}");
 
             context.Append($"pop rbp");
-            if (context.def.HasReturnType)
-            {
-                context.Append($"pop rbx");
-                context.Append($"push rax");
-                context.Append($"push rbx");
-            }
             context.Append($"ret");
         }
     }

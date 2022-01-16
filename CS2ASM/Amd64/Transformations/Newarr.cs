@@ -14,6 +14,7 @@ namespace CS2ASM
             context.Append($"pop rsi");
             context.Append($"pop rdi");
             context.Append($"call {context.arch.GetCompilerMethod(Methods.ArrayCtor)}");
+            context.Append($"push rax");
         }
     }
 }
