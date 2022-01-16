@@ -42,7 +42,11 @@ namespace CS2ASM
             {
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
-            context.Append($"add rsp,{context.numberOfVariable * 8}");
+
+            int rsv = context.numberOfVariable * 8;
+            if (rsv != 0)
+                context.Append($"add rsp,{rsv}");
+
             context.Append("pop rax");
             context.Append("call rax");
             if (context.hasReturn)
