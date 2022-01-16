@@ -47,27 +47,27 @@ namespace CS2ASM.AMD64
                 {
                     if (cnt >= 1)
                     {
-                        this.Append($"mov [rbp-{(cnt - 0) * 8}],rdi");
+                        this.Append($"mov [rbp+{(cnt - 0) * 8}],rdi");
                     }
                     if (cnt >= 2)
                     {
-                        this.Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
+                        this.Append($"mov [rbp+{(cnt - 1) * 8}],rsi");
                     }
                     if (cnt >= 3)
                     {
-                        this.Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
+                        this.Append($"mov [rbp+{(cnt - 2) * 8}],rdx");
                     }
                     if (cnt >= 4)
                     {
-                        this.Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
+                        this.Append($"mov [rbp+{(cnt - 3) * 8}],rcx");
                     }
                     if (cnt >= 5)
                     {
-                        this.Append($"mov [rbp-{(cnt - 4) * 8}],r8");
+                        this.Append($"mov [rbp+{(cnt - 4) * 8}],r8");
                     }
                     if (cnt >= 6)
                     {
-                        this.Append($"mov [rbp-{(cnt - 5) * 8}],r9");
+                        this.Append($"mov [rbp+{(cnt - 5) * 8}],r9");
                     }
                 }
                 else
