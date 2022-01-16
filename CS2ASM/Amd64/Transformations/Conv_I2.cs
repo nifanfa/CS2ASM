@@ -8,7 +8,11 @@ namespace CS2ASM
         [ILTransformation(Code.Conv_I2)]
         public static void Conv_I2(Context context)
         {
-            context.Append($"and qword [rsp],0xFFFF");
+            context.Append($"xor rdx,rdx");
+            context.Append($"mov rbx,0xFFFF");
+            context.Append($"pop rax");
+            context.Append($"and rax,rbx");
+            context.Append($"push rax");
         }
     }
 }
