@@ -41,7 +41,7 @@ namespace CS2ASM.AMD64
                 //Call.cs Line 19
                 this.Append($"push rbp");
                 this.Append($"mov rbp,rsp");
-                this.Append($"sub rsp,{(cnt + def.Body.Variables.Count + 1) * 8}");
+                this.Append($"sub rsp,{(cnt + def.Body.Variables.Count) * 8}");
 
                 //if (IsDebugMethod(def))
                 if (cnt <= 6)
