@@ -11,6 +11,10 @@ namespace CS2ASM
     {
         public static int SizeOfShallow(IType type)
         {
+            if (type.FullName.Contains("e__FixedBuffer")) 
+            {
+                return (int)((TypeDef)type.ScopeType).ClassSize;
+            }
             string Name = type.FullName;
             if (
                    Name == "System.Byte" ||
