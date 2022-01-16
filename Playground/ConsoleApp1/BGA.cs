@@ -13,6 +13,7 @@ namespace ConsoleApp1
         public static uint* Ptr;
         public static ushort Width;
         public static ushort Height;
+        public static uint* Buffer;
 
         public static void Setup() 
         {
@@ -28,13 +29,18 @@ namespace ConsoleApp1
 
         public static void Clear(uint Color) 
         {
-            Native.Stosd(Ptr, Color, (ulong)(Width * Height));
+            Native.Stosd(Buffer, Color, (ulong)(Width * Height));
         }
 
         public static void DrawPoint(int X, int Y,uint Color) 
         {
-            if (X > 0 && Y > 0) 
-                Ptr[Width * Y + X] = Color;
+            if (X > 0 && Y > 0)
+                Buffer[Width * Y + X] = Color;
+        }
+
+        public static void Update() 
+        {
+            Native.Movsd(Ptr, Buffer, (ulong)(Width * Height));
         }
 
         public static void WriteRegister(ushort IndexValue,ushort DataValue)
@@ -52,6 +58,8 @@ namespace ConsoleApp1
             WriteRegister(2, YRes);
             WriteRegister(3, 32);
             WriteRegister(4, (ushort)(1 | 0x40));
+            uint* p = stackalloc uint[XRes * YRes];
+            Buffer = p;
         }
     }
 }
