@@ -349,7 +349,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,0"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -359,7 +359,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,1"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -369,7 +369,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,2"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -379,7 +379,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,3"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -389,7 +389,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,4"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -399,7 +399,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,5"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -409,7 +409,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,6"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -419,7 +419,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,7"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -429,7 +429,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,8"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -439,7 +439,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,9"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -449,7 +449,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,10"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -459,7 +459,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,11"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -469,7 +469,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,12"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -479,7 +479,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,13"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -489,7 +489,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,14"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -499,7 +499,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,15"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -509,7 +509,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,16"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -519,7 +519,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,17"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -529,7 +529,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,18"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -539,7 +539,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,19"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -549,7 +549,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,20"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -559,7 +559,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,21"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -569,7 +569,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,22"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -579,7 +579,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,23"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -589,7 +589,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,24"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -599,7 +599,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,25"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -609,7 +609,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,26"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -619,7 +619,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,27"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -629,7 +629,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,28"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -639,7 +639,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,29"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -649,7 +649,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,30"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -659,7 +659,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,31"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -669,7 +669,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,32"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -679,7 +679,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,33"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -689,7 +689,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,34"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -699,7 +699,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,35"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -709,7 +709,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,36"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -719,7 +719,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,37"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -729,7 +729,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,38"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -739,7 +739,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,39"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -749,7 +749,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,40"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -759,7 +759,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,41"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -769,7 +769,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,42"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -779,7 +779,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,43"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -789,7 +789,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,44"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -799,7 +799,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,45"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -809,7 +809,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,46"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -819,7 +819,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,47"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -829,7 +829,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,48"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -839,7 +839,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,49"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -849,7 +849,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,50"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -859,7 +859,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,51"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -869,7 +869,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,52"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -879,7 +879,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,53"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -889,7 +889,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,54"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -899,7 +899,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,55"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -909,7 +909,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,56"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -919,7 +919,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,57"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -929,7 +929,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,58"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -939,7 +939,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,59"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -949,7 +949,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,60"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -959,7 +959,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,61"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -969,7 +969,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,62"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -979,7 +979,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,63"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -989,7 +989,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,64"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -999,7 +999,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,65"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1009,7 +1009,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,66"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1019,7 +1019,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,67"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1029,7 +1029,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,68"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1039,7 +1039,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,69"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1049,7 +1049,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,70"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1059,7 +1059,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,71"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1069,7 +1069,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,72"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1079,7 +1079,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,73"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1089,7 +1089,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,74"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1099,7 +1099,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,75"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1109,7 +1109,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,76"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1119,7 +1119,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,77"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1129,7 +1129,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,78"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1139,7 +1139,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,79"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1149,7 +1149,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,80"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1159,7 +1159,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,81"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1169,7 +1169,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,82"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1179,7 +1179,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,83"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1189,7 +1189,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,84"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1199,7 +1199,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,85"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1209,7 +1209,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,86"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1219,7 +1219,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,87"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1229,7 +1229,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,88"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1239,7 +1239,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,89"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1249,7 +1249,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,90"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1259,7 +1259,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,91"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1269,7 +1269,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,92"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1279,7 +1279,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,93"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1289,7 +1289,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,94"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1299,7 +1299,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,95"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1309,7 +1309,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,96"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1319,7 +1319,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,97"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1329,7 +1329,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,98"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1339,7 +1339,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,99"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1349,7 +1349,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,100"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1359,7 +1359,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,101"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1369,7 +1369,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,102"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1379,7 +1379,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,103"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1389,7 +1389,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,104"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1399,7 +1399,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,105"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1409,7 +1409,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,106"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1419,7 +1419,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,107"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1429,7 +1429,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,108"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1439,7 +1439,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,109"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1449,7 +1449,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,110"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1459,7 +1459,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,111"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1469,7 +1469,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,112"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1479,7 +1479,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,113"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1489,7 +1489,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,114"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1499,7 +1499,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,115"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1509,7 +1509,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,116"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1519,7 +1519,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,117"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1529,7 +1529,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,118"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1539,7 +1539,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,119"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1549,7 +1549,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,120"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1559,7 +1559,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,121"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1569,7 +1569,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,122"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1579,7 +1579,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,123"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1589,7 +1589,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,124"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1599,7 +1599,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,125"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1609,7 +1609,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,126"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1619,7 +1619,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,127"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1629,7 +1629,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,128"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1639,7 +1639,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,129"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1649,7 +1649,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,130"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1659,7 +1659,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,131"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1669,7 +1669,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,132"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1679,7 +1679,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,133"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1689,7 +1689,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,134"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1699,7 +1699,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,135"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1709,7 +1709,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,136"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1719,7 +1719,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,137"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1729,7 +1729,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,138"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1739,7 +1739,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,139"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1749,7 +1749,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,140"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1759,7 +1759,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,141"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1769,7 +1769,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,142"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1779,7 +1779,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,143"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1789,7 +1789,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,144"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1799,7 +1799,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,145"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1809,7 +1809,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,146"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1819,7 +1819,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,147"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1829,7 +1829,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,148"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1839,7 +1839,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,149"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1849,7 +1849,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,150"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1859,7 +1859,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,151"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1869,7 +1869,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,152"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1879,7 +1879,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,153"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1889,7 +1889,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,154"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1899,7 +1899,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,155"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1909,7 +1909,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,156"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1919,7 +1919,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,157"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1929,7 +1929,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,158"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1939,7 +1939,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,159"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1949,7 +1949,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,160"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1959,7 +1959,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,161"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1969,7 +1969,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,162"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1979,7 +1979,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,163"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1989,7 +1989,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,164"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -1999,7 +1999,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,165"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2009,7 +2009,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,166"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2019,7 +2019,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,167"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2029,7 +2029,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,168"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2039,7 +2039,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,169"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2049,7 +2049,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,170"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2059,7 +2059,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,171"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2069,7 +2069,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,172"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2079,7 +2079,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,173"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2089,7 +2089,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,174"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2099,7 +2099,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,175"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2109,7 +2109,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,176"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2119,7 +2119,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,177"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2129,7 +2129,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,178"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2139,7 +2139,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,179"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2149,7 +2149,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,180"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2159,7 +2159,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,181"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2169,7 +2169,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,182"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2179,7 +2179,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,183"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2189,7 +2189,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,184"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2199,7 +2199,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,185"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2209,7 +2209,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,186"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2219,7 +2219,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,187"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2229,7 +2229,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,188"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2239,7 +2239,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,189"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2249,7 +2249,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,190"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2259,7 +2259,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,191"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2269,7 +2269,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,192"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2279,7 +2279,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,193"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2289,7 +2289,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,194"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2299,7 +2299,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,195"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2309,7 +2309,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,196"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2319,7 +2319,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,197"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2329,7 +2329,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,198"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2339,7 +2339,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,199"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2349,7 +2349,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,200"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2359,7 +2359,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,201"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2369,7 +2369,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,202"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2379,7 +2379,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,203"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2389,7 +2389,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,204"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2399,7 +2399,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,205"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2409,7 +2409,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,206"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2419,7 +2419,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,207"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2429,7 +2429,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,208"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2439,7 +2439,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,209"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2449,7 +2449,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,210"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2459,7 +2459,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,211"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2469,7 +2469,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,212"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2479,7 +2479,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,213"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2489,7 +2489,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,214"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2499,7 +2499,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,215"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2509,7 +2509,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,216"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2519,7 +2519,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,217"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2529,7 +2529,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,218"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2539,7 +2539,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,219"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2549,7 +2549,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,220"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2559,7 +2559,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,221"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2569,7 +2569,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,222"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2579,7 +2579,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,223"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2589,7 +2589,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,224"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2599,7 +2599,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,225"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2609,7 +2609,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,226"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2619,7 +2619,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,227"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2629,7 +2629,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,228"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2639,7 +2639,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,229"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2649,7 +2649,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,230"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2659,7 +2659,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,231"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2669,7 +2669,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,232"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2679,7 +2679,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,233"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2689,7 +2689,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,234"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2699,7 +2699,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,235"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2709,7 +2709,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,236"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2719,7 +2719,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,237"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2729,7 +2729,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,238"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2739,7 +2739,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,239"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2749,7 +2749,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,240"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2759,7 +2759,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,241"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2769,7 +2769,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,242"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2779,7 +2779,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,243"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2789,7 +2789,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,244"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2799,7 +2799,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,245"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2809,7 +2809,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,246"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2819,7 +2819,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,247"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2829,7 +2829,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,248"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2839,7 +2839,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,249"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2849,7 +2849,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,250"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2859,7 +2859,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,251"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2869,7 +2869,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,252"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2879,7 +2879,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,253"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2889,7 +2889,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,254"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }
@@ -2899,7 +2899,7 @@ namespace System.Platform.Amd64
         {
             asm("pushaq");
             asm("mov qword rdi,255"); 
-            asm("call System.Platform.Amd64.IDT.OnInterrupt.UInt64");
+            asm("call System.Platform.Amd64.IDT.OnInterrupt_UInt64");
             asm("popaq");
             asm("iretq");
         }

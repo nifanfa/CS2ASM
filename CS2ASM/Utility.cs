@@ -88,12 +88,12 @@ namespace CS2ASM
             {
                 if (!dotP)
                 {
-                    result += ".";
+                    result += "_";
                     dotP = true;
                 }
                 result += msig.Params[i].TypeName.Replace("*", "");
                 if (i != msig.Params.Count - 1)
-                    result += ".";
+                    result += "_";
             }
             result = result.Replace("`", "");
             result = result.Replace("[", "");
