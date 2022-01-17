@@ -17,6 +17,8 @@ namespace CS2ASM.AMD64
 {
     public unsafe class Amd64 : BaseArch
     {
+        public Amd64(ModuleDefMD md) : base(md) { }
+
         public override void Before(ModuleDefMD def)
         {
             this.PointerSize = 8;

@@ -33,7 +33,7 @@ namespace CS2ASM
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
-                    arch = new Amd64();
+                    arch = new Amd64(def);
                     arch.Debug = true;
                     arch.ImportTransformations(typeof(Amd64Transformation));
                     break;

@@ -24,6 +24,24 @@ namespace CS2ASM
     public abstract unsafe class BaseArch
     {
         public Dictionary<Methods, MethodDef> CompilerMethods = new Dictionary<Methods, MethodDef>();
+        public ModuleDefMD module;
+
+        public BaseArch(ModuleDefMD md)
+        {
+            module = md;
+            if (Utility.SizeOf(module, "System.Object") != 8) 
+            {
+                throw new Exception("Invalid Structure Of System.Object");
+            }
+            if (Utility.SizeOf(module, "System.Array") != 16)
+            {
+                throw new Exception("Invalid Structure Of System.Array");
+            }
+            if (Utility.SizeOf(module, "System.String") != 24)
+            {
+                throw new Exception("Invalid Structure Of System.String");
+            }
+        }
 
         public virtual void ImportCompilerMethods(ModuleDef def) 
         {
