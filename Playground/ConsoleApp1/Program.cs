@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Platform.Amd64;
-using System.Runtime;
 using System.Runtime.CompilerServices;
 using static System.Runtime.CompilerServices.Unsafe;
 
@@ -11,37 +9,72 @@ namespace ConsoleApp1
     {
         public static void Main()
         {
-            Unsafe.InitialiseStatics();
+            RuntimeHelpers.InitialiseStatics();
 
-            //x64.Out8(0x60, 0x00);
+            if (Multiboot.VBEInfo->PhysBase !=0)
+            {
+                BGA.Ptr = (uint*)(Multiboot.VBEInfo->PhysBase);
+                BGA.SetVideoMode(1024, 768);
+            }
+            else
+            {
+                BGA.Setup();
+                BGA.SetVideoMode(800, 600);
+            }
+            PS2Mouse.X = 800/2;
+            PS2Mouse.Y = 600/2;
+
+            int[] cursor = new int[]
+            {
+                1,0,0,0,0,0,0,0,0,0,0,0,
+                1,1,0,0,0,0,0,0,0,0,0,0,
+                1,2,1,0,0,0,0,0,0,0,0,0,
+                1,2,2,1,0,0,0,0,0,0,0,0,
+                1,2,2,2,1,0,0,0,0,0,0,0,
+                1,2,2,2,2,1,0,0,0,0,0,0,
+                1,2,2,2,2,2,1,0,0,0,0,0,
+                1,2,2,2,2,2,2,1,0,0,0,0,
+                1,2,2,2,2,2,2,2,1,0,0,0,
+                1,2,2,2,2,2,2,2,2,1,0,0,
+                1,2,2,2,2,2,2,2,2,2,1,0,
+                1,2,2,2,2,2,2,2,2,2,2,1,
+                1,2,2,2,2,2,2,1,1,1,1,1,
+                1,2,2,2,1,2,2,1,0,0,0,0,
+                1,2,2,1,0,1,2,2,1,0,0,0,
+                1,2,1,0,0,1,2,2,1,0,0,0,
+                1,1,0,0,0,0,1,2,2,1,0,0,
+                0,0,0,0,0,0,1,2,2,1,0,0,
+                0,0,0,0,0,0,0,1,2,2,1,0,
+                0,0,0,0,0,0,0,1,2,2,1,0,
+                0,0,0,0,0,0,0,0,1,1,0,0
+            };
+
+            for (; ; )
+            {
+                BGA.Clear(0x0);
+                ASC16.DrawString("FPS: ", 10, 10, 0xFFFFFFFF);
+                ASC16.DrawString(((ulong)FPSMeter.FPS).ToString(), 42, 10, 0xFFFFFFFF);
+                DrawCursor(cursor, PS2Mouse.X, PS2Mouse.Y);
+                BGA.Update();
+                FPSMeter.Update();
+            }
+
+            /*
+            ACPI.Initialize();
+
             //Banner();
-
-            //List<ulong> list = new List<ulong>(10);
-            //list.Add(0x8899AABBCCDDEEFF);
-            //list.Add(0xFFEEDDCCBBAA9988);
-            //Console.WriteLine(list[0].ToString("x2"));
-            //Console.WriteLine(list[1].ToString("x2"));
-
-            Banner();
-
-            List<ulong> list1 = new List<ulong>(10);
-            Console.WriteLine(list1[0].ToString());
-            Console.WriteLine("size of list1:");
-            Console.WriteLine(list1.Size.ToString());
-
-            string s = "dispose me";
-            Console.WriteLine("size of s:");
-            Console.WriteLine(s.Size.ToString());
-            Console.Write("Address of s:0x");
-            Console.WriteLine(Unsafe.AddressOf(s).ToString("x2"));
-            //s.Dispose();
+            
+            Console.WriteLine("Shutdown After 2 Seconds");
 
             Serial.WriteLine("Hello World From OS!");
 
-            for (; ; ) 
+            PIT.Wait(2000);
+            ACPI.Shutdown();
+
+            for (; ; )
             {
                 char c = Console.ReadKey();
-                if(c == '\n') 
+                if (c == '\n')
                 {
                     Console.WriteLine();
                 }
@@ -55,59 +88,20 @@ namespace ConsoleApp1
                 }
                 asm("hlt");
             }
-
-            /*
-            ulong[] array = new ulong[2];
-            array[0] = 123456789;
-            array[1] = 54321;
-
-            Console.WriteLine("Welcome to the CS2ASM demo!");
-            Console.WriteLine("Owner: nifanfa");
-            Console.WriteLine("Contributors: LeonTheDev");
-
-            Console.WriteLine($"array:");
-            Console.WriteLine($"Size:");
-            Console.WriteLine(array.Size.ToString());
-            Console.WriteLine($"Length:");
-            Console.WriteLine(((ulong)array.Length).ToString());
-            Console.WriteLine($"Value:");
-            Console.WriteLine(array[0].ToString());
-            Console.WriteLine(array[1].ToString());
-
-            string s = "Hello World";
-            ulong p = Unsafe.AddressOf(s);
-            Console.WriteLine("Address of s:");
-            Console.WriteLine(p.ToString());
-            Console.WriteLine(s);
-            s.Dispose();
-
-            Console.Write("Boot Time:");
-            Console.Write(((ulong)RTC.Year).ToString());
-            Console.Write('/');
-            Console.Write(((ulong)RTC.Month).ToString());
-            Console.Write('/');
-            Console.Write(((ulong)RTC.Day).ToString());
-            Console.Write(' ');
-            Console.Write(((ulong)RTC.Hour).ToString());
-            Console.Write(':');
-            Console.Write(((ulong)RTC.Minute).ToString());
-            Console.WriteLine();
-
-            Console.WriteLine("Current Allocation:");
-
-            for (; ; ) 
-            {
-                ulong CursorX = Console.CursorX;
-                ulong CursorY = Console.CursorY;
-
-                Console.WriteLine(GC.Allocation.ToString());
-
-                Console.CursorX = CursorX;
-                Console.CursorY = CursorY;
-
-                x64.Pause();
-            }
             */
+        }
+
+        private static void DrawCursor(int[] cursor, int x, int y)
+        {
+            for (int h = 0; h < 21; h++)
+                for (int w = 0; w < 12; w++)
+                {
+                    if (cursor[h * 12 + w] == 1)
+                        BGA.DrawPoint(w + x, h + y, 0xFFFFFFFF);
+
+                    if (cursor[h * 12 + w] == 2)
+                        BGA.DrawPoint(w + x, h + y, 0x0);
+                }
         }
 
         public static void Banner()
