@@ -11,6 +11,7 @@ namespace ConsoleApp1
         {
             RuntimeHelpers.InitialiseStatics();
 
+            //To enable multiboot vbe. check out CS2ASM/Amd64/EntryPoint.asm
             if (Multiboot.VBEInfo->PhysBase !=0)
             {
                 BGA.Ptr = (uint*)(Multiboot.VBEInfo->PhysBase);
