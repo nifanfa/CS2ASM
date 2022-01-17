@@ -61,7 +61,7 @@ multiboot_entry:
         push 0                         ;Reserve
         push   ebx                     ;1st argument multiboot info pointer
         push 0                         ;Reserve
-        call   EnterLongMode                ;Call _Main 
+        call   EnterLongMode           ;Call _Main 
 
 die:
         cli
