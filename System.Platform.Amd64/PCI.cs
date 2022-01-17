@@ -9,6 +9,8 @@
         public byte ClassID;
         public byte SubClassID;
 
+        public byte IRQ;
+
         public uint Bar0;
         public uint Bar1;
         public uint Bar2;
@@ -74,8 +76,10 @@
                 device.Bar5 = ReadRegister(device.Bus, device.Slot, device.Function, 0x24);
 
                 device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 11) & 0xFF);
-                device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10) & 0xFF);
-                
+                device.SubClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10) & 0xFF);
+
+                device.IRQ = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 60) & 0xFF);
+
                 Devices[index] = device;
 
                 index++;
