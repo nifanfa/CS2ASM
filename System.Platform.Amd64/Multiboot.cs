@@ -2,7 +2,7 @@
 
 namespace System.Platform.Amd64
 {
-    public unsafe struct MultibootHeader 
+    public unsafe struct MultibootInfo 
     {
         public uint Flags;
         public uint MemLow;
@@ -64,25 +64,5 @@ namespace System.Platform.Amd64
         public uint PhysBase;
         public uint OffScreenMemoryOff;
         public ushort OffScreenMemorySize;
-    }
-
-    public static unsafe class Multiboot
-    {
-        public static MultibootHeader* Header;
-        //We can't use VBE now because we do only mapped the first 1GiB
-        public static VBEInfo* VBEInfo;
-
-        static Multiboot() 
-        {
-            void* p = null;
-            asm("mov rbx,[multiboot_ptr]");
-            asm("mov qword {p},rbx");
-
-            Header = (MultibootHeader*)p;
-            VBEInfo = (VBEInfo*)Header->VBEInfo;
-
-            Console.Write("Multiboot Info Pointer:0x");
-            Console.WriteLine(((ulong)Header).ToString("x2"));
-        }
     }
 }

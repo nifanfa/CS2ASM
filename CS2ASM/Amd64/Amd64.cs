@@ -24,7 +24,6 @@ namespace CS2ASM.AMD64
             this.PointerSize = 8;
 
             this.Append($"[bits 64]");
-            this.Append($"EntryPoint:");
         }
 
         public override void Translate(MethodDef def)
@@ -177,8 +176,8 @@ namespace CS2ASM.AMD64
 
         public override void JumpToEntry(ModuleDefMD def)
         {
-            this.Append($"call {Utility.SafeMethodName(def.EntryPoint, def.EntryPoint.MethodSig)}");
-            this.Append($"jmp die");
+            this.Append($"call {GetCompilerMethod(Methods.EntryPoint)}");
+            this.Append($"jmp $");
         }
     }
 }

@@ -8,7 +8,8 @@
         Dispose,
         ArrayCtor,
         Stackalloc,
-        InitialiseStatics
+        InitialiseStatics,
+        EntryPoint
     }
 
     class CompilerMethodAttribute : Attribute

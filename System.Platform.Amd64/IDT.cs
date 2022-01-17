@@ -326,7 +326,7 @@ namespace System.Platform.Amd64
                     Console.Write(irq.ToString("x2"));
                     Console.WriteLine(" System Halted!");
                 }
-                asm("jmp die");
+                asm("jmp $");
             }
             if (irq == 0x20)
             {

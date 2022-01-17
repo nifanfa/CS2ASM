@@ -7,12 +7,23 @@ namespace ConsoleApp1
 {
     public static unsafe class Program
     {
-        public static void Main()
+        public static void Main() { }
+
+        [CompilerMethod(Methods.EntryPoint)]
+        public static void KMain(MultibootInfo* Info,ulong MagicNumber)
         {
             RuntimeHelpers.InitialiseStatics();
 
+            Console.Write("Multiboot Pointer:0x");
+            Console.WriteLine(((ulong)Info).ToString("x2"));
+            Console.Write("MagicNumber:0x");
+            Console.WriteLine(((ulong)MagicNumber).ToString("x2"));
+
+            for (; ; );
+
+            /*
             //To enable multiboot vbe. check out CS2ASM/Amd64/EntryPoint.asm
-            if (Multiboot.VBEInfo->PhysBase !=0)
+            if (Multiboot.VBEInfo->PhysBase != 0)
             {
                 BGA.Ptr = (uint*)(Multiboot.VBEInfo->PhysBase);
                 BGA.SetVideoMode(1024, 768);
@@ -22,8 +33,8 @@ namespace ConsoleApp1
                 BGA.Setup();
                 BGA.SetVideoMode(800, 600);
             }
-            PS2Mouse.X = 800/2;
-            PS2Mouse.Y = 600/2;
+            PS2Mouse.X = 800 / 2;
+            PS2Mouse.Y = 600 / 2;
 
             int[] cursor = new int[]
             {
@@ -59,6 +70,7 @@ namespace ConsoleApp1
                 BGA.Update();
                 FPSMeter.Update();
             }
+            */
 
             /*
             ACPI.Initialize();
