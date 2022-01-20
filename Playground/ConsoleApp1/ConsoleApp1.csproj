@@ -12,6 +12,15 @@
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<OutputPath>..\..\bin</OutputPath>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <NoWarn>1701;1702;0028</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <NoWarn>1701;1702;0028</NoWarn>
+	</PropertyGroup>
 	
 	<ItemGroup>
 	  <Compile Remove="ProgramOld.cs" />

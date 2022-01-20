@@ -126,13 +126,21 @@ Br.OpCode.Code == Code. Bne_Un_S ||
 Br.OpCode.Code == Code. Beq ||
 Br.OpCode.Code == Code. Beq_S ||
 Br.OpCode.Code == Code. Ble ||
+Br.OpCode.Code == Code. Blt ||
+Br.OpCode.Code == Code. Blt_S ||
+Br.OpCode.Code == Code. Blt_Un ||
+Br.OpCode.Code == Code. Blt_Un_S ||
 Br.OpCode.Code == Code. Ble_S ||
 Br.OpCode.Code == Code. Ble_Un ||
 Br.OpCode.Code == Code. Ble_Un_S ||
 Br.OpCode.Code == Code. Bge ||
 Br.OpCode.Code == Code. Bge_Un ||
 Br.OpCode.Code == Code. Bge_S ||
-Br.OpCode.Code == Code. Bge_Un_S
+Br.OpCode.Code == Code. Bge_Un_S ||
+Br.OpCode.Code == Code. Bgt ||
+Br.OpCode.Code == Code. Bgt_S ||
+Br.OpCode.Code == Code. Bgt_Un ||
+Br.OpCode.Code == Code. Bgt_Un_S
 )
                    select Br;
         }
