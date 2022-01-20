@@ -128,7 +128,7 @@ Br.OpCode.Code == Code. Beq_S ||
 Br.OpCode.Code == Code. Ble ||
 Br.OpCode.Code == Code. Ble_S ||
 Br.OpCode.Code == Code. Ble_Un ||
-Br.OpCode.Code == Code. Ble_Un ||
+Br.OpCode.Code == Code. Ble_Un_S ||
 Br.OpCode.Code == Code. Bge ||
 Br.OpCode.Code == Code. Bge_Un ||
 Br.OpCode.Code == Code. Bge_S ||

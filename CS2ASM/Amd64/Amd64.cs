@@ -28,6 +28,7 @@ namespace CS2ASM.AMD64
 
         public override void Translate(MethodDef def)
         {
+            if (!def.HasBody) return;
             if (Debug)
                 this.Append($";{new string('>', 20)}{def}{new string('>', 20)}");
 
