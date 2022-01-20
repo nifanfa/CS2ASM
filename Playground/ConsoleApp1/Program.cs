@@ -10,7 +10,7 @@ namespace ConsoleApp1
         public static void Main() { }
 
         [CompilerMethod(Methods.EntryPoint)]
-        public static void main(MultibootInfo* Info,ulong MagicNumber)
+        public static void Main(MultibootInfo* Info,ulong MagicNumber)
         {
             RuntimeHelpers.InitialiseStatics();
 
