@@ -108,7 +108,7 @@ namespace CS2ASM
 
         public static string SafeFieldName(TypeDef type, FieldDef field)
         {
-            return $"{type.Namespace}.{field.Name}";
+            return $"{type.Namespace}.{type.Name}.{field.Name}";
         }
 
         public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
