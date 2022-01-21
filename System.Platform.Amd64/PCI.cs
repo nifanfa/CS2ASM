@@ -22,7 +22,7 @@
 
         public void WriteRegister(ushort Register,ushort Value) 
         {
-            PCI.WriteRegister16(Bus, Slot, Function, (byte)Register, Value);
+            PCI.WriteRegister16(Bus, Slot, Function, (byte)Register, (ushort)(ReadRegister(Register) | Value));
         }
 
         public ushort ReadRegister(ushort Register)
@@ -105,7 +105,7 @@
 
                 device.ClassID = ReadRegister8(device.Bus, device.Slot, device.Function, 11);
                 device.SubClassID = ReadRegister8(device.Bus, device.Slot, device.Function, 10);
-                device.IRQ = ReadRegister8(device.Bus, device.Slot, device.Function, 60);
+                device.IRQ = (byte)(0x20 + ReadRegister8(device.Bus, device.Slot, device.Function, 60));
 
                 device.DeviceID = ReadRegister16(device.Bus, device.Slot, device.Function, 2);
 
