@@ -11,11 +11,11 @@ namespace CS2ASM
             if (ins.Operand is Local) { ins.Operand = ((Local)ins.Operand).Index; }
             return ins.OpCode.Code switch
             {
-                Code.Ldc_I4 => $"0x{((int)ins.Operand):x2}",
-                Code.Ldc_I4_S => $"0x{((sbyte)ins.Operand):x2}",
-                Code.Ldc_I8 => $"0x{((long)ins.Operand):x2}",
+                Code.Ldc_I4 => ins.Operand,
+                Code.Ldc_I4_S => ins.Operand,
+                Code.Ldc_I8 => ins.Operand,
 
-                Code.Ldc_I4_M1 => 0xFFFFFFFFFFFFFFFF, //-1
+                Code.Ldc_I4_M1 => -1, //-1
                 Code.Ldc_I4_0 => 0,
                 Code.Ldc_I4_1 => 1,
                 Code.Ldc_I4_2 => 2,
