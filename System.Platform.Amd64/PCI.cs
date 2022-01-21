@@ -6,9 +6,10 @@
         public ushort Slot;
         public ushort Function;
         public ushort VendorID;
+        public ushort DeviceID;
+
         public byte ClassID;
         public byte SubClassID;
-
         public byte IRQ;
 
         public uint Bar0;
@@ -17,12 +18,38 @@
         public uint Bar3;
         public uint Bar4;
         public uint Bar5;
+
+        public void WriteRegister(ushort Register,ushort Value) 
+        {
+            PCI.WriteRegister16(Bus, Slot, Function, (byte)Register, Value);
+        }
+
+        public ushort ReadRegister(ushort Register)
+        {
+            return (ushort)(PCI.ReadRegister(Bus, Slot, Function, (byte)Register) >> 16);
+        }
     }
 
     public static unsafe class PCI
     {
         public static PCIDevice[] Devices = new PCIDevice[32];
         public static int index = 0;
+
+        public static PCIDevice GetDevice(ushort VendorID,ushort DeviceID) 
+        {
+            for(ulong i = 0; i < Devices.Length; i++) 
+            {
+                if (
+                    Devices[i] != null &&
+                    Devices[i].VendorID == VendorID &&
+                    Devices[i].DeviceID == DeviceID
+                    ) 
+                {
+                    return Devices[i];
+                }
+            }
+            return null;
+        }
 
         static PCI()
         {
@@ -75,13 +102,13 @@
                 device.Bar4 = ReadRegister(device.Bus, device.Slot, device.Function, 0x20);
                 device.Bar5 = ReadRegister(device.Bus, device.Slot, device.Function, 0x24);
 
-                device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 11) & 0xFF);
-                device.SubClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10) & 0xFF);
+                device.ClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 11));
+                device.SubClassID = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 10));
+                device.IRQ = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 60));
 
-                device.IRQ = (byte)(ReadRegister(device.Bus, device.Slot, device.Function, 60) & 0xFF);
+                device.DeviceID = (ushort)(ReadRegister(device.Bus, device.Slot, device.Function, 2) >> 16);
 
                 Devices[index] = device;
-
                 index++;
 
                 if(device.ClassID == 0x06 && device.SubClassID == 0x04) 
