@@ -63,6 +63,11 @@ namespace System
             ulong size = obj.Size;
             obj = null;
 
+            Free(p, size);
+        }
+
+        internal static void Free(ulong p, ulong size)
+        {
             for (int i = 0; i < DescCount; i++)
             {
                 if ((&Descs[i])->BlockSize == 0)
@@ -75,7 +80,6 @@ namespace System
             }
 
             Platform.Amd64.Native.Stosb((void*)p, 0, size);
-
             Allocation--;
         }
     }
