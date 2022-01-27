@@ -89,6 +89,7 @@ namespace CS2ASM.AMD64
             }
 
             Context ctx = new Context(this.text, null, def, this);
+            ctx.StackOperationCount = 0;
 
             //Start Parse IL Code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
