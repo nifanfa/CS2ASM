@@ -10,8 +10,10 @@ namespace CS2ASM
         public static void Ldlen(Context context)
         {
             context.Append($"pop rsi");
+            context.StackOperationCount -= 1;
             context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
             context.Append($"push rsi");
+            context.StackOperationCount += 1;
         }
     }
 }

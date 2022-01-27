@@ -11,6 +11,7 @@ namespace CS2ASM
         {
             context.Append($"pop rax");
             context.Append($"pop rdi");
+            context.StackOperationCount -= 2;
             context.Append($"add rdi,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
             switch (Utility.SizeOfShallow(context.operand is MemberRef ? ((MemberRef)context.operand).FieldSig.Type : ((FieldDef)context.operand).FieldType)) 
             {

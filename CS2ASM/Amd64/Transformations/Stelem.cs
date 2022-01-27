@@ -18,6 +18,7 @@ namespace CS2ASM
             context.Append($"pop rbx"); //value
             context.Append($"pop rdi"); //index
             context.Append($"pop rsi"); //ptr
+            context.StackOperationCount -= 3;
             context.Append($"xor rdx,rdx");
             context.Append($"mov rax,{size}");
             context.Append($"mul rdi");

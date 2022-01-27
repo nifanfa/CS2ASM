@@ -9,6 +9,7 @@ namespace CS2ASM
         public static void Pop(Context context)
         {
             context.Append($"add rsp,8");
+            context.StackOperationCount -= 1;
         }
     }
 }

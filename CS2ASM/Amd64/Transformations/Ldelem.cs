@@ -16,6 +16,7 @@ namespace CS2ASM
         {
             context.Append($"pop rdi"); //index
             context.Append($"pop rsi"); //ptr
+            context.StackOperationCount -= 2;
 
             context.Append($"xor rdx,rdx");
             context.Append($"mov rax,{size}");
@@ -39,6 +40,7 @@ namespace CS2ASM
                     break;
             }
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

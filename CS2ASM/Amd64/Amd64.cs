@@ -88,6 +88,8 @@ namespace CS2ASM.AMD64
                 this.InitializeStaticConstructor((ModuleDefMD)def.Module);
             }
 
+            Context ctx = new Context(this.text, null, def, this);
+
             //Start Parse IL Code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
             {
@@ -105,10 +107,15 @@ namespace CS2ASM.AMD64
                     }
                 }
 
+                ctx.ins = ins;
+
                 //Compile IL Instructions
-                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] {new Context(this.text,ins,def,this)
-                });
+                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { ctx });
+                this.Append($";stack op count;{ctx.StackOperationCount}");
             }
+
+            if (ctx.StackOperationCount != 0)
+                this.Append($";Stack issue: {ctx.StackOperationCount}");
 
             if (Debug)
                 this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");

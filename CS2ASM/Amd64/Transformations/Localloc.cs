@@ -10,8 +10,10 @@ namespace CS2ASM
         public static void Localloc(Context context)
         {
             context.Append($"pop rdi");
+            context.StackOperationCount -= 1;
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Stackalloc)}");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

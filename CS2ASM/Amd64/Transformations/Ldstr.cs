@@ -36,6 +36,7 @@ namespace CS2ASM
                 context.Append($"mov rsi,{((string)context.operand).Length}");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
                 context.Append($"push rax");
+                context.StackOperationCount += 1;
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
                 context.Append($"db {text}");
@@ -43,6 +44,7 @@ namespace CS2ASM
                 */
                 //Static
                 context.Append($"push LB_{bytes.GetHashCode():X2}");
+                context.StackOperationCount += 1;
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
                 if(Utility.SizeOf(context.def.Module, "System.String")!= 24) 

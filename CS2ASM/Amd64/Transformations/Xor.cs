@@ -10,8 +10,10 @@ namespace CS2ASM
         {
             context.Append($"pop rdx");
             context.Append($"pop rax");
+            context.StackOperationCount -= 2;
             context.Append($"xor rax,rdx");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

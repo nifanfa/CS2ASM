@@ -11,31 +11,31 @@ namespace CS2ASM
         public static void Calli(Context context)
         {
             //This is for calling c/c++ code
-            if (context.numberOfVariable <= 6)
+            if (context.numberOfParams <= 6)
             {
-                if (context.numberOfVariable >= 1)
+                if (context.numberOfParams >= 1)
                 {
-                    context.Append($"mov rdi,[rsp+{(context.numberOfVariable - 1) * 8}]");
+                    context.Append($"mov rdi,[rsp+{(context.numberOfParams - 1) * 8}]");
                 }
-                if (context.numberOfVariable >= 2)
+                if (context.numberOfParams >= 2)
                 {
-                    context.Append($"mov rsi,[rsp+{(context.numberOfVariable - 2) * 8}]");
+                    context.Append($"mov rsi,[rsp+{(context.numberOfParams - 2) * 8}]");
                 }
-                if (context.numberOfVariable >= 3)
+                if (context.numberOfParams >= 3)
                 {
-                    context.Append($"mov rdx,[rsp+{(context.numberOfVariable - 3) * 8}]");
+                    context.Append($"mov rdx,[rsp+{(context.numberOfParams - 3) * 8}]");
                 }
-                if (context.numberOfVariable >= 4)
+                if (context.numberOfParams >= 4)
                 {
-                    context.Append($"mov rcx,[rsp+{(context.numberOfVariable - 4) * 8}]");
+                    context.Append($"mov rcx,[rsp+{(context.numberOfParams - 4) * 8}]");
                 }
-                if (context.numberOfVariable >= 5)
+                if (context.numberOfParams >= 5)
                 {
-                    context.Append($"mov r8,[rsp+{(context.numberOfVariable - 5) * 8}]");
+                    context.Append($"mov r8,[rsp+{(context.numberOfParams - 5) * 8}]");
                 }
-                if (context.numberOfVariable >= 6)
+                if (context.numberOfParams >= 6)
                 {
-                    context.Append($"mov r9,[rsp+{(context.numberOfVariable - 6) * 8}]");
+                    context.Append($"mov r9,[rsp+{(context.numberOfParams - 6) * 8}]");
                 }
             }
             else 
@@ -43,7 +43,8 @@ namespace CS2ASM
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
 
-            int rsv = context.numberOfVariable * 8;
+            context.StackOperationCount -= context.numberOfParams;
+            int rsv = context.numberOfParams * 8;
             if (rsv != 0)
                 context.Append($"add rsp,{rsv}");
 
@@ -52,6 +53,7 @@ namespace CS2ASM
             if (context.hasReturn)
             {
                 context.Append($"push rax");
+                context.StackOperationCount += 1;
             }
         }
     }

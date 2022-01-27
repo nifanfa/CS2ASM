@@ -10,6 +10,7 @@ namespace CS2ASM
         { 
             ulong Index = OperandParser.Stloc(context.ins) + 1;
             context.Append($"pop rax");
+            context.StackOperationCount -= 1;
             context.Append($"mov [rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0) + Index) * 8}],rax");
         }
     }

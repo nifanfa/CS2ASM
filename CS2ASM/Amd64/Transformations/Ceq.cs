@@ -11,9 +11,11 @@ namespace CS2ASM
             context.Append($"xor rbx,rbx");
             context.Append($"pop rdx");
             context.Append($"pop rax");
+            context.StackOperationCount -= 2;
             context.Append($"cmp rax,rdx");
             context.Append($"sete bl");
             context.Append($"push rbx");
+            context.StackOperationCount += 1;
         }
     }
 }

@@ -9,8 +9,10 @@ namespace CS2ASM
         public static void Not(Context context)
         {
             context.Append($"pop rax");
+            context.StackOperationCount -= 1;
             context.Append($"not rax");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

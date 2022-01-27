@@ -10,6 +10,7 @@ namespace CS2ASM
         public static void Ldfld(Context context)
         {
             context.Append("pop rax");
+            context.StackOperationCount -= 1;
             context.Append($"add rax,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
             context.Append($"xor rcx,rcx");
             switch (Utility.SizeOfShallow(context.operand is MemberRef ? ((MemberRef)context.operand).FieldSig.Type : ((FieldDef)context.operand).FieldType))
@@ -28,6 +29,7 @@ namespace CS2ASM
                     break;
             }
             context.Append("push qword rcx");
+            context.StackOperationCount += 1;
         }
     }
 }

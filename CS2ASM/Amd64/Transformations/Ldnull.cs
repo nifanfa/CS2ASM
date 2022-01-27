@@ -12,6 +12,7 @@ namespace CS2ASM
             //Here can be implementation of disposing
             context.Append($"mov qword rax,0");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

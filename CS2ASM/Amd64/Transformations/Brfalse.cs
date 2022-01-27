@@ -10,6 +10,7 @@ namespace CS2ASM
         public static void Brfalse(Context context)
         {
             context.Append($"pop rax");
+            context.StackOperationCount -= 1;
             context.Append($"cmp rax,0");
             context.Append($"je {Utility.BrLabelName(context.ins, context.def)}");
         }

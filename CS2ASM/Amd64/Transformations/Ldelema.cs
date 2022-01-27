@@ -11,6 +11,7 @@ namespace CS2ASM
         {
             context.Append($"pop rdi"); //index
             context.Append($"pop rsi"); //ptr
+            context.StackOperationCount -= 2;
 
             context.Append($"xor rdx,rdx");
             context.Append($"mov rax,{Utility.SizeOfShallow((IType)context.operand)}");
@@ -18,6 +19,7 @@ namespace CS2ASM
             context.Append($"add rsi,rax");
             context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
             context.Append($"push rsi");
+            context.StackOperationCount += 1;
         }
     }
 }

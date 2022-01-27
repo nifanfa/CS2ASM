@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldarga)]
         public static void Ldarga(Context context)
         {
-            throw new NotImplementedException("Ldarga is not implemented");
+            Ldarg(context);
         }
     }
 }

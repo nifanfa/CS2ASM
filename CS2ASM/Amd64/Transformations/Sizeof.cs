@@ -18,6 +18,7 @@ namespace CS2ASM
             }
 
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

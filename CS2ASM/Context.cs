@@ -15,6 +15,8 @@ namespace CS2ASM
         public MethodDef def;
         public BaseArch arch;
 
+        public volatile int StackOperationCount = 0;
+         
         public bool hasReturn 
         {
             get 
@@ -47,7 +49,7 @@ namespace CS2ASM
             }
         }
 
-        public int numberOfVariable 
+        public int numberOfParams 
         {
             get
             {

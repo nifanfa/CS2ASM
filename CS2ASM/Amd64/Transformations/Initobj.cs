@@ -12,13 +12,16 @@ namespace CS2ASM
         {
             //Amd64.cs Line 47
             context.Append($"add rsp,8"); //clean ldloc/ldsflda/ldflda
+            context.StackOperationCount -= 1;
 
             Sizeof(new Context(context.text, new Instruction() { Operand = (TypeDef)context.operand }, context.def, context.arch));
             context.Append($"pop rdi");
+            context.StackOperationCount -= 1;
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
 
-            if(context.prevInstruction.OpCode.Code == Code.Ldsflda)
+            if (context.prevInstruction.OpCode.Code == Code.Ldsflda)
             {
                 Stsfld(new Context(context.text, context.prevInstruction, context.def, context.arch));
             }else if(

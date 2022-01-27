@@ -12,6 +12,7 @@ namespace CS2ASM
             //context.Append($"push qword [{def.DeclaringType.SafeTypeName() + "_" + ((FieldDef)ins.Operand).Name}]");
             context.Append($"mov qword rax,[{Utility.SafeFieldName(((FieldDef)context.operand).DeclaringType, (FieldDef)context.operand)}]");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }

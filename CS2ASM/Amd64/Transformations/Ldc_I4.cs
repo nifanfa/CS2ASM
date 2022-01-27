@@ -10,6 +10,7 @@ namespace CS2ASM
         {
             context.Append($"mov rax,{OperandParser.Ldc(context.ins)}");
             context.Append($"push rax");
+            context.StackOperationCount += 1;
         }
     }
 }
