@@ -9,7 +9,8 @@
         ArrayCtor,
         Stackalloc,
         InitialiseStatics,
-        EntryPoint
+        EntryPoint,
+        Newobj
     }
 
     class CompilerMethodAttribute : Attribute

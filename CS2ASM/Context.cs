@@ -25,6 +25,14 @@ namespace CS2ASM
             }
         }
 
+        public bool hasThis
+        {
+            get
+            {
+                return methodSig.HasThis;
+            }
+        }
+
         public IList<Instruction> instructions 
         {
             get 

@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\AssemblyMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\CompilerMethodAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\DebugAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\ILHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\RuntimeHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CompilerServices\Unsafe.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GC.cs" />
