@@ -22,13 +22,8 @@ namespace CS2ASM
             Sizeof(new Context(context.text, new Instruction() { Operand = context.operand is MemberRef ? ((MemberRef)context.operand).DeclaringType.ScopeType : ((MethodDef)context.operand).DeclaringType }, context.def, context.arch));
             context.Append($"pop rdi");
             context.StackOperationCount -= 1;
-            context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
-            context.Append($"push rax");
-            context.StackOperationCount += 1;
-
-            //Get result value from System.GC.Allocate.UInt64 and make a copy for ldloc because call will pop the params
-            context.Append($"pop r15");
-            context.StackOperationCount -= 1;
+            context.Append($"call {context.arch.GetCompilerMethod(Methods.Newobj)}");
+            context.Append($"mov r15,rax");
             context.Append($"push r15");
             context.Append($"push r15");
             context.StackOperationCount += 2;
@@ -47,47 +42,43 @@ namespace CS2ASM
                 context.Append($"mov [rsp+{(argumentNum + 1) * 8}],r15");
             }
 
-            Sizeof(new Context(context.text, new Instruction() { Operand = context.operand is MemberRef ? ((MemberRef)context.operand).DeclaringType.ScopeType : ((MethodDef)context.operand).DeclaringType }, context.def, context.arch));
-
-            //Object.Size
-            context.Append($"xor rdx,rdx");
-            context.Append($"pop rcx");
-            context.StackOperationCount -= 1;
-            context.Append($"mov [r15],rcx");
-
-
             if (context.numberOfParams <= 6)
             {
                 if (context.numberOfParams >= 1)
                 {
                     context.Append($"mov rdi,[rsp+{(context.numberOfParams - 1) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
                 if (context.numberOfParams >= 2)
                 {
                     context.Append($"mov rsi,[rsp+{(context.numberOfParams - 2) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
                 if (context.numberOfParams >= 3)
                 {
                     context.Append($"mov rdx,[rsp+{(context.numberOfParams - 3) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
                 if (context.numberOfParams >= 4)
                 {
                     context.Append($"mov rcx,[rsp+{(context.numberOfParams - 4) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
                 if (context.numberOfParams >= 5)
                 {
                     context.Append($"mov r8,[rsp+{(context.numberOfParams - 5) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
                 if (context.numberOfParams >= 6)
                 {
                     context.Append($"mov r9,[rsp+{(context.numberOfParams - 6) * 8}]");
+                    context.StackOperationCount -= 1;
                 }
             }
             else
             {
                 throw new ArgumentOutOfRangeException("Too much argument");
             }
-            context.StackOperationCount -= context.numberOfParams;
             context.Append($"add rsp,{context.numberOfParams * 8}");
             if (context.operand is MemberRef)
             {
