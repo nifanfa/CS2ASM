@@ -1,6 +1,4 @@
-﻿using System.Platform.Amd64;
-
-namespace ConsoleApp1
+﻿namespace System.Platform.Amd64
 {
     /// <summary>
     /// Bochs VBE Extensions.

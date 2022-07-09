@@ -13,7 +13,7 @@ namespace ConsoleApp1
             RuntimeHelpers.InitialiseStatics();
             Serial.WriteLine("Hello from ConsoleApp1!");
             const ulong add = 4 + 8;
-            Serial.WriteLine(add.ToString());
+            Serial.WriteLine("4 + 8 = " + add);
             BGA.Setup();
             BGA.SetVideoMode(640, 480);
             PS2Mouse.X = BGA.Width / 2;
