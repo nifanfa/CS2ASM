@@ -121,6 +121,12 @@ namespace CS2ASM
         {
             var currentd = Environment.CurrentDirectory;
             Environment.CurrentDirectory = dir;
+            Start(file, args);
+            Environment.CurrentDirectory = currentd;
+        }
+        
+        public static void Start(string file, string args)
+        {
             var psi = new ProcessStartInfo
             {
                 FileName = file,
@@ -133,8 +139,7 @@ namespace CS2ASM
                 UseShellExecute = false
             };
             var v = Process.Start(psi);
-            v.WaitForExit();
-            Environment.CurrentDirectory = currentd;
+            v?.WaitForExit();
         }
     }
 }

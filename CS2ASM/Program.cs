@@ -9,6 +9,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using DiscUtils.Iso9660;
 
 namespace CS2ASM
 {
@@ -53,16 +54,34 @@ namespace CS2ASM
             arch.After(def);
 
             stopwatch.Stop();
-            Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.");
-
+            Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.\nAssembling...");
+            stopwatch.Restart();
+            
             File.WriteAllText("Tools/Kernel.asm", arch.text.ToString());
-            Console.WriteLine("Generating image...");
+            Utility.Start("nasm", "-felf64 EntryPoint.asm -o kernel.bin", "Tools");
+            Utility.Start("ld", "-Ttext=0x100000 -melf_x86_64 -o kernel.elf kernel.bin", "Tools");
+
+            stopwatch.Stop();
+            Console.WriteLine($"Finished assembling! Took {stopwatch.ElapsedMilliseconds} ms.\nGenerating image...");
             stopwatch.Restart();
 
-            Utility.Start("nasm", "-felf64 EntryPoint.asm -o kernel.bin", "Tools");
-            Utility.Start("ld", "-Ttext=0x100000 -melf_x86_64 -o limine/kernel.elf kernel.bin", "Tools");
-            Utility.Start("mkisofs", $"-relaxed-filenames -J -R -o \"{output}\" -b limine-cd.bin -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/limine\"", "Tools");
-            Utility.Start("limine-deploy", "../../output.iso", "Tools/limine");
+            using var boot = File.OpenRead("Tools/limine/limine-cd.bin");
+            using var stream = File.Create(output);
+
+            var iso = new CDBuilder
+            {
+                UseJoliet = true,
+                VolumeIdentifier = "CS2ASM",
+                UpdateIsolinuxBootTable = true
+            };
+            iso.AddFile("limine-cd.bin", boot);
+            iso.AddFile("limine.sys", "Tools/limine/limine.sys");
+            iso.AddFile("limine.cfg", "Tools/limine/limine.cfg");
+            iso.AddFile("kernel.elf", "Tools/kernel.elf");
+            iso.SetBootImage(boot, BootDeviceEmulation.NoEmulation, 0);
+            iso.Build().CopyTo(stream);
+
+            Utility.Start("Tools/limine/limine-deploy", "--force-mbr " + output);
 
             stopwatch.Stop();
             Console.WriteLine($"Finished image generation! Took {stopwatch.ElapsedMilliseconds} ms.");
