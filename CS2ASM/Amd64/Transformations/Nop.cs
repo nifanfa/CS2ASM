@@ -6,8 +6,6 @@ namespace CS2ASM
     public static unsafe partial class Amd64Transformation
     {
         [ILTransformation(Code.Nop)]
-        public static void Nop(Context context)
-        {
-        }
+        public static void Nop(Context context) {}
     }
 }
