@@ -117,11 +117,22 @@ namespace CS2ASM
             return $"LB_{def.GetHashCode():X4}{(Create ? ins.Offset : ((Instruction)(ins.Operand)).Offset):X4}";
         }
 
-        public static void Start(string file, string args)
+        public static void Start(string file, string args, string dir)
         {
-            string currentd = Environment.CurrentDirectory;
-            Environment.CurrentDirectory = new FileInfo(file).DirectoryName;
-            var v = Process.Start(file, args);
+            var currentd = Environment.CurrentDirectory;
+            Environment.CurrentDirectory = dir;
+            var psi = new ProcessStartInfo
+            {
+                FileName = file,
+                Arguments = args,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                RedirectStandardInput = true,
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false
+            };
+            var v = Process.Start(psi);
             v.WaitForExit();
             Environment.CurrentDirectory = currentd;
         }

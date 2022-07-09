@@ -2,53 +2,33 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<LangVersion>9.0</LangVersion>
+	<LangVersion>default</LangVersion>
 	<StartupObject>CS2ASM.Program</StartupObject>
 	<OutputPath>..\bin</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Misc\Sample.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Misc\Sample.cs">
+    <None Update="Tools\EntryPoint.asm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Tools\mkisofs.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Tools\nasm.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dnlib" Version="3.3.5" />
+    <PackageReference Include="dnlib" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Amd64\grub2\**">
+    <Content Include="Tools\grub2\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-	  
-    <None Update="QEMU.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\EntryPoint.asm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\LongMode.asm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\Macros.asm">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\mkisofs.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\Multiboot.asm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Amd64\nasm.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

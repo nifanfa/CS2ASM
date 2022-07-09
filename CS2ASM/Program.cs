@@ -8,26 +8,38 @@ using dnlib.DotNet;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace CS2ASM
 {
     internal class Program
     {
-        public static ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
-        public static BaseArch arch = null;
+        public static readonly ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
+        public static BaseArch arch;
+        public static string NasmPath = "nasm";
+        public static string MkisofsPath = "mkisofs";
 
-        static unsafe void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //If you are debugging check out launchSettings.json
-            if(args.Length == 0) 
+            if (args.Length < 2) 
             {
-                throw new ArgumentNullException();
+                Console.WriteLine("Usage: CS2ASM <input> <output>");
+                Environment.Exit(1);
             }
-            ModuleDefMD def = ModuleDefMD.Load(args[0]);
 
-            Stopwatch stopwatch = new Stopwatch();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                NasmPath = "Tools/" + NasmPath;
+                MkisofsPath = "Tools/" + MkisofsPath;
+            }
+
+            var input = args[0];
+            var output = args[1];
+            var def = ModuleDefMD.Load(input);
+            var stopwatch = new Stopwatch();
+
+            Console.WriteLine("Compiling...");
             stopwatch.Start();
 
             switch (ProcessorArchitecture)
@@ -44,27 +56,29 @@ namespace CS2ASM
             foreach (var typ in def.Types)
             {
                 foreach (var meth in typ.Methods)
-                {
                     arch.Translate(meth);
-                }
                 arch.InitializeStaticFields(typ);
             }
             arch.After(def);
 
             stopwatch.Stop();
-            Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} Seconds");
+            Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.");
+            
+            File.WriteAllText("Tools/Kernel.asm", arch.text.ToString());
+            Console.WriteLine("Generating image...");
+            stopwatch.Restart();
 
             switch (ProcessorArchitecture)
             {
                 case ProcessorArchitecture.Amd64:
-                    File.WriteAllText(@"Amd64\Kernel.asm", arch.text.ToString());
-
-                    Utility.Start(@"Amd64\nasm.exe", "-fbin EntryPoint.asm -o kernel");
-                    File.Move(@"Amd64\kernel", @"Amd64\grub2\boot\kernel", true);
-                    Utility.Start(@"Amd64\mkisofs.exe", $"-relaxed-filenames -J -R -o \"{Environment.CurrentDirectory}\\output.iso\" -b \"{@"boot/grub/i386-pc/eltorito.img"}\" -no-emul-boot -boot-load-size 4 -boot-info-table {Environment.CurrentDirectory}\\Amd64\\grub2");
-                    Process.Start($"{Environment.CurrentDirectory}\\QEMU.bat");
+                    Utility.Start(NasmPath, "-fbin EntryPoint.asm -o kernel", "Tools");
+                    File.Move("Tools/kernel", "Tools/grub2/boot/kernel", true);
+                    Utility.Start(MkisofsPath, $"-relaxed-filenames -J -R -o \"{output}\" -b \"boot/grub/i386-pc/eltorito.img\" -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/grub2\"", "Tools");
                     break;
             }
+            
+            stopwatch.Stop();
+            Console.WriteLine($"Finished image generation! Took {stopwatch.ElapsedMilliseconds} ms.");
         }
     }
 }

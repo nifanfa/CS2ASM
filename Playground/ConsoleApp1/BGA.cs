@@ -1,5 +1,4 @@
-﻿using static System.Runtime.CompilerServices.Unsafe;
-using System.Platform.Amd64;
+﻿using System.Platform.Amd64;
 
 namespace ConsoleApp1
 {
