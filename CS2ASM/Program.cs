@@ -68,14 +68,9 @@ namespace CS2ASM
             Console.WriteLine("Generating image...");
             stopwatch.Restart();
 
-            switch (ProcessorArchitecture)
-            {
-                case ProcessorArchitecture.Amd64:
-                    Utility.Start(NasmPath, "-fbin EntryPoint.asm -o kernel", "Tools");
-                    File.Move("Tools/kernel", "Tools/grub2/boot/kernel", true);
-                    Utility.Start(MkisofsPath, $"-relaxed-filenames -J -R -o \"{output}\" -b \"boot/grub/i386-pc/eltorito.img\" -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/grub2\"", "Tools");
-                    break;
-            }
+            Utility.Start(NasmPath, "-fbin EntryPoint.asm -o kernel", "Tools");
+            File.Move("Tools/kernel", "Tools/grub2/boot/kernel", true);
+            Utility.Start(MkisofsPath, $"-relaxed-filenames -J -R -o \"{output}\" -b \"boot/grub/i386-pc/eltorito.img\" -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/grub2\"", "Tools");
             
             stopwatch.Stop();
             Console.WriteLine($"Finished image generation! Took {stopwatch.ElapsedMilliseconds} ms.");

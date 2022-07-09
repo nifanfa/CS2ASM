@@ -23,9 +23,9 @@ namespace CS2ASM
         Newobj
     }
 
-    public abstract unsafe class BaseArch
+    public abstract class BaseArch
     {
-        public Dictionary<Methods, MethodDef> CompilerMethods = new Dictionary<Methods, MethodDef>();
+        public Dictionary<Methods, MethodDef> CompilerMethods = new();
         public ModuleDefMD module;
 
         public BaseArch(ModuleDefMD md)
@@ -45,7 +45,7 @@ namespace CS2ASM
             }
         }
 
-        public virtual void ImportCompilerMethods(ModuleDef def) 
+        public void ImportCompilerMethods(ModuleDef def) 
         {
             foreach(var t in def.Types) 
             {
@@ -79,7 +79,7 @@ namespace CS2ASM
             return Utility.SafeMethodName(CompilerMethods[methods], CompilerMethods[methods].MethodSig);
         }
 
-        public virtual void ImportTransformations(Type transformations)
+        public void ImportTransformations(Type transformations)
         {
             var methodInfos = from M in transformations.GetMethods()
                               where M.GetCustomAttribute(typeof(ILTransformationAttribute), true) != null
@@ -91,11 +91,11 @@ namespace CS2ASM
         }
 
         public bool Debug = true;
-        public StringBuilder text = new StringBuilder();
+        public StringBuilder text = new();
 
-        public int InstructionIndex = 0;
+        public int InstructionIndex;
 
-        public int PointerSize = 8;
+        public abstract int PointerSize { get; }
 
         public void SkipNextInstruction()
         {
@@ -107,7 +107,7 @@ namespace CS2ASM
             text.AppendLine(s);
         }
 
-        public Dictionary<Code, MethodInfo> ILBridgeMethods = new Dictionary<Code, MethodInfo>();
+        public Dictionary<Code, MethodInfo> ILBridgeMethods = new();
         
         public abstract void Translate(MethodDef meth);
         public abstract void InitializeStaticFields(TypeDef typ);

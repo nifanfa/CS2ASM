@@ -15,15 +15,15 @@ using System.Diagnostics;
 
 namespace CS2ASM.AMD64
 {
-    public unsafe class Amd64 : BaseArch
+    public class Amd64 : BaseArch
     {
-        public Amd64(ModuleDefMD md) : base(md) { }
+        public override int PointerSize => 8;
+
+        public Amd64(ModuleDefMD md) : base(md) {}
 
         public override void Before(ModuleDefMD def)
         {
-            this.PointerSize = 8;
-
-            this.Append($"[bits 64]");
+            Append($"[bits 64]");
         }
 
         public override void Translate(MethodDef def)
