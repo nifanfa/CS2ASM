@@ -2,13 +2,12 @@ using CS2ASM.AMD64;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 
 namespace CS2ASM
 {
-    public static unsafe partial class Amd64Transformation
+    public static partial class Amd64Transformation
     {
         [ILTransformation(Code.Ldstr)]
         public static void Ldstr(Context context)
