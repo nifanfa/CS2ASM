@@ -1,6 +1,4 @@
-﻿using static System.Runtime.CompilerServices.Unsafe;
-using System.Runtime.CompilerServices;
-using System.Platform.Amd64;
+﻿using System.Runtime.CompilerServices;
 
 namespace System
 {
@@ -76,7 +74,6 @@ namespace System
                     (&Descs[i])->Address = p;
                     break; //Must Exist
                 }
-                continue;
             }
 
             Platform.Amd64.Native.Stosb((void*)p, 0, size);

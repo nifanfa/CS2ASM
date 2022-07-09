@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace CS2ASM;
@@ -10,12 +11,12 @@ public enum ImageType { None, Iso }
 public class Settings
 {
     public string InputFile, OutputFile;
-    public uint BaseAddress;
+    public ulong BaseAddress;
     public Architecture Architecture;
     public Format Format;
     public ImageType ImageType;
     
-    public Settings(string[] args)
+    public Settings(IEnumerable<string> args)
     {
         foreach (var arg in args)
         {
@@ -33,7 +34,7 @@ public class Settings
                     break;
 
                 case 'a':
-                    BaseAddress = arg.Contains("0x") ? uint.Parse(arg[4..], NumberStyles.HexNumber) : uint.Parse(arg[2..]);
+                    BaseAddress = arg.Contains("0x") ? ulong.Parse(arg[4..], NumberStyles.HexNumber) : ulong.Parse(arg[2..]);
                     break;
 
                 case 'c':

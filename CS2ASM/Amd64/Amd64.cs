@@ -10,8 +10,7 @@
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+using System.Linq;
 
 namespace CS2ASM.AMD64
 {
@@ -23,126 +22,102 @@ namespace CS2ASM.AMD64
 
         public override void Before(ModuleDefMD def)
         {
-            Append($"[bits 64]");
+            Append("[bits 64]");
         }
 
         public override void Translate(MethodDef def)
         {
-            if (!def.HasBody) return;
+            if (!def.HasBody)
+                return;
+
             if (Debug)
-                this.Append($";{new string('>', 20)}{def}{new string('>', 20)}");
+                Append($";>>>>>{def}>>>>>");
 
-            //Get All Branches
-            var BrS = GetAllBranches(def);
+            // Get All Branches
+            var brS = GetAllBranches(def).ToArray();
 
-            //Label
-            this.Append($"{Utility.SafeMethodName(def, def.MethodSig)}:");
+            // Label
+            Append(Utility.SafeMethodName(def, def.MethodSig) + ":");
 
-            if (!Amd64.IsAssemblyMethod(def))
+            if (!IsAssemblyMethod(def))
             {
-                int cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
-                //Call.cs Line 19
-                this.Append($"push rbp");
-                this.Append($"mov rbp,rsp");
+                var cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
+                // Call.cs Line 19
+                Append("push rbp");
+                Append("mov rbp,rsp");
 
-                int rsv = (cnt + def.Body.Variables.Count) * 8;
-                if(rsv!=0)
-                    this.Append($"sub rsp,{rsv}");
+                var rsv = (cnt + def.Body.Variables.Count) * 8;
+                if (rsv != 0)
+                    Append("sub rsp," + rsv);
 
                 //if (IsDebugMethod(def))
                 if (cnt <= 6)
                 {
                     if (cnt >= 1)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 0) * 8}],rdi");
-                    }
+                        Append($"mov [rbp-{cnt * 8}],rdi");
                     if (cnt >= 2)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
-                    }
+                        Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
                     if (cnt >= 3)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
-                    }
+                        Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
                     if (cnt >= 4)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
-                    }
+                        Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
                     if (cnt >= 5)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 4) * 8}],r8");
-                    }
-                    if (cnt >= 6)
-                    {
-                        this.Append($"mov [rbp-{(cnt - 5) * 8}],r9");
-                    }
+                        Append($"mov [rbp-{(cnt - 4) * 8}],r8");
+                    if (cnt == 6)
+                        Append("mov [rbp-8],r9");
                 }
                 else
-                {
-                    throw new ArgumentOutOfRangeException("Too much argument");
-                }
+                    throw new ArgumentOutOfRangeException(nameof(cnt), "Too much arguments!");
             }
 
-            if(def == CompilerMethods[Methods.InitialiseStatics])
+            if (def == CompilerMethods[Methods.InitialiseStatics])
+                InitializeStaticConstructor((ModuleDefMD)def.Module);
+
+            var ctx = new Context(text, null, def, this)
             {
-                this.InitializeStaticConstructor((ModuleDefMD)def.Module);
-            }
+                StackOperationCount = 0
+            };
 
-            Context ctx = new Context(this.text, null, def, this);
-            ctx.StackOperationCount = 0;
-
-            //Start Parse IL Code
+            // Start parsing CIL code
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
             {
                 var ins = def.Body.Instructions[InstructionIndex];
 
                 if (Debug)
-                    this.Append($";{ins}");
+                    Append(";" + ins);
 
-                //For Branches
-                foreach (var v in BrS)
-                {
+                // For branches
+                foreach (var v in brS)
                     if (((Instruction)v.Operand).Offset == ins.Offset)
-                    {
-                        this.Append($"{Utility.BrLabelName(ins, def, true)}:");
-                    }
-                }
+                        Append(Utility.BrLabelName(ins, def, true) + ":");
 
                 ctx.ins = ins;
 
-                //Compile IL Instructions
-                ILBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { ctx });
-                this.Append($";stack op count;{ctx.StackOperationCount}");
+                // Compile CIL instructions
+                IlBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { ctx });
+                Append(";stack op count;" + ctx.StackOperationCount);
             }
 
             if (ctx.StackOperationCount != 0)
-                this.Append($";Stack issue: {ctx.StackOperationCount}");
+                Append(";Stack issue: " + ctx.StackOperationCount);
 
             if (Debug)
-                this.Append($";{new string('<', 20)}{def}{new string('<', 20)}");
+                Append($";<<<<<{def}<<<<<");
         }
 
         public static bool IsAssemblyMethod(MethodDef def)
         {
             foreach (var v in def.CustomAttributes)
-            {
                 if (v.TypeFullName == "System.Runtime.CompilerServices.AssemblyMethodAttribute")
-                {
                     return true;
-                }
-            }
             return false;
         }
 
         public static bool IsDebugMethod(MethodDef def)
         {
             foreach (var v in def.CustomAttributes)
-            {
                 if (v.TypeFullName == "System.Runtime.CompilerServices.DebugAttribute")
-                {
                     return true;
-                }
-            }
             return false;
         }
 
@@ -150,43 +125,34 @@ namespace CS2ASM.AMD64
         {
             foreach (var v in typ.Fields)
             {
-                //Ldsfld
-                //Stsfld
-                if (v.IsStatic)
-                {
-                    this.Append($"{Utility.SafeFieldName(typ, v)}:");
-                    this.Append($"dq {(v.HasConstant ? v.Constant.Value : 0)}");
-                }
+                if (!v.IsStatic)
+                    continue;
+
+                // Ldsfld
+                // Stsfld
+                Append(Utility.SafeFieldName(typ, v) + ":");
+                Append("dq " + (v.HasConstant ? v.Constant.Value : 0));
             }
         }
 
-        public override void Append(string s = "")
+        public override void Append(string str)
         {
-            s = s.Trim();
-
-            base.Append(s);
+            base.Append(str.Trim());
         }
 
-        internal override void After(ModuleDefMD def)
-        {
-        }
+        internal override void After(ModuleDefMD def) {}
 
         public override void InitializeStaticConstructor(ModuleDefMD def)
         {
-            foreach (var T in def.Types)
-                foreach (var M in T.Methods)
-                {
-                    if (M.IsStaticConstructor)
-                    {
-                        this.Append($"call {Utility.SafeMethodName(M, M.MethodSig)}");
-                    }
-                }
+            foreach (var t in def.Types)
+                foreach (var m in t.Methods)
+                    if (m.IsStaticConstructor)
+                        Append("call " + Utility.SafeMethodName(m, m.MethodSig));
         }
 
         public override void JumpToEntry(ModuleDefMD def)
         {
-            this.Append($"call {GetCompilerMethod(Methods.EntryPoint)}");
-            this.Append($"jmp $");
+            Append("call " + GetCompilerMethod(Methods.EntryPoint));
         }
     }
 }

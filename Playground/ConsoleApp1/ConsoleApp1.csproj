@@ -11,11 +11,14 @@
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<OutputPath>..\..\bin</OutputPath>
 		<UseAppHost>false</UseAppHost>
-		<Optimize>True</Optimize>
 		<NoWarn>1701;1702;0028</NoWarn>
 	</PropertyGroup>
 
-	<Import Project="..\..\System.Platform.Amd64\System.Platform.Amd64.projitems" Label="Shared" />
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+	  <DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
 
+	<Import Project="..\..\System.Platform.Amd64\System.Platform.Amd64.projitems" Label="Shared" />
 	<Import Project="..\..\System.Private.Corlib\Corlib.projitems" Label="Shared" />
+
 </Project>

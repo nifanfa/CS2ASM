@@ -14,8 +14,8 @@ namespace ConsoleApp1
             Serial.WriteLine("Hello from ConsoleApp1!");
             BGA.Setup();
             BGA.SetVideoMode(800, 600);
-            PS2Mouse.X = 800 / 2;
-            PS2Mouse.Y = 600 / 2;
+            PS2Mouse.X = BGA.Width / 2;
+            PS2Mouse.Y = BGA.Height / 2;
 
             var cursor = new[]
             {

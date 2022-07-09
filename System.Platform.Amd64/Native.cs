@@ -46,13 +46,6 @@ namespace System.Platform.Amd64
             asm("rep stosd");
         }
 
-        public static void Out32(ushort port, uint value)
-        {
-            asm("mov rdx,{port}");
-            asm("mov rax,{value}");
-            asm("out dx,eax");
-        }
-
         public static uint In32(ushort port)
         {
             uint data = 0;
@@ -100,6 +93,13 @@ namespace System.Platform.Amd64
             asm("mov rdx,{port}");
             asm("mov rax,{value}");
             asm("out dx,ax");
+        }
+
+        public static void Out32(ushort port, uint value)
+        {
+            asm("mov rdx,{port}");
+            asm("mov rax,{value}");
+            asm("out dx,eax");
         }
     }
 }
