@@ -9,7 +9,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace CS2ASM
 {
@@ -17,8 +16,6 @@ namespace CS2ASM
     {
         public static readonly ProcessorArchitecture ProcessorArchitecture = ProcessorArchitecture.Amd64;
         public static BaseArch arch;
-        public static string NasmPath = "nasm";
-        public static string MkisofsPath = "mkisofs";
 
         public static void Main(string[] args)
         {
@@ -26,12 +23,6 @@ namespace CS2ASM
             {
                 Console.WriteLine("Usage: CS2ASM <input> <output>");
                 Environment.Exit(1);
-            }
-
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                NasmPath = "Tools/" + NasmPath;
-                MkisofsPath = "Tools/" + MkisofsPath;
             }
 
             var input = args[0];
@@ -63,15 +54,16 @@ namespace CS2ASM
 
             stopwatch.Stop();
             Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.");
-            
+
             File.WriteAllText("Tools/Kernel.asm", arch.text.ToString());
             Console.WriteLine("Generating image...");
             stopwatch.Restart();
 
-            Utility.Start(NasmPath, "-fbin EntryPoint.asm -o kernel", "Tools");
-            File.Move("Tools/kernel", "Tools/grub2/boot/kernel", true);
-            Utility.Start(MkisofsPath, $"-relaxed-filenames -J -R -o \"{output}\" -b \"boot/grub/i386-pc/eltorito.img\" -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/grub2\"", "Tools");
-            
+            Utility.Start("nasm", "-felf64 EntryPoint.asm -o kernel.bin", "Tools");
+            Utility.Start("ld", "-Ttext=0x100000 -melf_x86_64 -o limine/kernel.elf kernel.bin", "Tools");
+            Utility.Start("mkisofs", $"-relaxed-filenames -J -R -o \"{output}\" -b limine-cd.bin -no-emul-boot -boot-load-size 4 -boot-info-table \"{Environment.CurrentDirectory}/Tools/limine\"", "Tools");
+            Utility.Start("limine-deploy", "../../output.iso", "Tools/limine");
+
             stopwatch.Stop();
             Console.WriteLine($"Finished image generation! Took {stopwatch.ElapsedMilliseconds} ms.");
         }

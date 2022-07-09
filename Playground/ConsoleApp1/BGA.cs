@@ -10,55 +10,58 @@ namespace ConsoleApp1
     public static unsafe class BGA
     {
         public static uint* Ptr;
-        public static ushort Width;
-        public static ushort Height;
+        public static ushort Width, Height;
+        public static ulong FrameSize;
         public static uint* Buffer;
 
         public static void Setup() 
         {
-            for(ulong i = 0; i < PCI.Devices.Length; i++) 
+            for (ulong i = 0; i < PCI.Devices.Length; i++)
             {
-                if(PCI.Devices[i].VendorID == 0x1234) 
-                {
-                    Ptr = (uint*)PCI.Devices[i].Bar0;
-                    return;
-                }
+                if (PCI.Devices[i].VendorID != 0x1234)
+                    continue;
+
+                Ptr = (uint*)PCI.Devices[i].Bar0;
+                return;
             }
         }
 
-        public static void Clear(uint Color) 
+        public static void Clear(uint color) 
         {
-            Native.Stosd(Buffer, Color, (ulong)(Width * Height));
+            Native.Stosd(Buffer, color, (ulong)(Width * Height));
         }
 
-        public static void DrawPoint(int X, int Y,uint Color) 
+        public static void DrawPoint(int x, int y, uint color) 
         {
-            if (X > 0 && Y > 0)
-                Buffer[Width * Y + X] = Color;
+            if (x > 0 && y > 0)
+                Buffer[Width * y + x] = color;
         }
 
         public static void Update() 
         {
-            Native.Movsd(Ptr, Buffer, (ulong)(Width * Height));
+            Native.Movsd(Ptr, Buffer, FrameSize);
         }
 
-        public static void WriteRegister(ushort IndexValue,ushort DataValue)
+        public static void SetVideoMode(ushort width, ushort height)
         {
-            Native.Out16(0x01CE, IndexValue);
-            Native.Out16(0x01CF, DataValue);
-        }
+            Width = width;
+            Height = height;
+            FrameSize = (ulong)(Width * Height);
 
-        public static void SetVideoMode(ushort XRes, ushort YRes)
-        {
-            Width = XRes;
-            Height = YRes;
             WriteRegister(4, 0);
-            WriteRegister(1, XRes);
-            WriteRegister(2, YRes);
+            WriteRegister(1, width);
+            WriteRegister(2, height);
             WriteRegister(3, 32);
-            WriteRegister(4, (ushort)(1 | 0x40));
-            uint* p = stackalloc uint[XRes * YRes];
+            WriteRegister(4, 1 | 0x40);
+
+            var p = stackalloc uint[(int)FrameSize];
             Buffer = p;
+        }
+        
+        private static void WriteRegister(ushort index, ushort data)
+        {
+            Native.Out16(0x01CE, index);
+            Native.Out16(0x01CF, data);
         }
     }
 }

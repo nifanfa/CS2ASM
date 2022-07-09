@@ -10,23 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Tools\EntryPoint.asm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Tools\mkisofs.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Tools\nasm.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="dnlib" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Tools\grub2\**">
+    <Content Include="Tools\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

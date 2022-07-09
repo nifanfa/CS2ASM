@@ -1,21 +1,10 @@
 [BITS 32]
 [global _start]
-[ORG 0x100000]
-;If using '-f bin' we need to specify the
-;origin point for our code with ORG directive
-;multiboot loaders load us at physical 
-;address 0x100000
 
-MULTIBOOT_AOUT_KLUDGE    equ  1 << 16
-;FLAGS[16] indicates to GRUB we are not
-;an ELF executable and the fields
-;header address, load address, load end address;
-;bss end address and entry address will be available
-;in Multiboot header
-MULTIBOOT_ALIGN          equ  1<<0   
 ; align loaded modules on page boundaries
-MULTIBOOT_MEMINFO        equ  1<<1   
+MULTIBOOT_ALIGN          equ  1<<0
 ; provide memory map
+MULTIBOOT_MEMINFO        equ  1<<1
 
 MULTIBOOT_VBE_MODE equ 1<<2
 
@@ -23,7 +12,7 @@ MULTIBOOT_HEADER_MAGIC   equ  0x1BADB002
 ;magic number GRUB searches for in the first 8k
 ;of the kernel file GRUB is told to load
 
-MULTIBOOT_HEADER_FLAGS   equ  MULTIBOOT_AOUT_KLUDGE|MULTIBOOT_ALIGN|MULTIBOOT_MEMINFO;|MULTIBOOT_VBE_MODE
+MULTIBOOT_HEADER_FLAGS   equ  MULTIBOOT_ALIGN|MULTIBOOT_MEMINFO;|MULTIBOOT_VBE_MODE
 CHECKSUM                 equ  -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)
 
 KERNEL_STACK             equ  0x00200000  
@@ -207,7 +196,7 @@ resb 4096
 p2_table:
 resb 4096
 
-[BITS 64]      
+[BITS 64]
 _Main:
     mov ax, 0x0010
     mov ds, ax
