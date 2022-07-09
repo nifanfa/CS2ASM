@@ -82,7 +82,6 @@ namespace CS2ASM.AMD64
             for (InstructionIndex = 0; InstructionIndex < def.Body.Instructions.Count; InstructionIndex++)
             {
                 var ins = def.Body.Instructions[InstructionIndex];
-
                 if (Debug)
                     Append(";" + ins);
 
@@ -95,14 +94,16 @@ namespace CS2ASM.AMD64
 
                 // Compile CIL instructions
                 IlBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { ctx });
-                Append(";stack op count;" + ctx.StackOperationCount);
+                if (Debug)
+                    Append(";stack op count;" + ctx.StackOperationCount);
             }
+
+            if (!Debug)
+                return;
 
             if (ctx.StackOperationCount != 0)
                 Append(";Stack issue: " + ctx.StackOperationCount);
-
-            if (Debug)
-                Append($";<<<<<{def}<<<<<");
+            Append($";<<<<<{def}<<<<<");
         }
 
         public static bool IsAssemblyMethod(MethodDef def)
