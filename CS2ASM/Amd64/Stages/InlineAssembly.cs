@@ -10,52 +10,48 @@ namespace CS2ASM.AMD64
     {
         public static bool NewMethod(Context context)
         {
-            if (context.nextInstruction.OpCode.Code == Code.Call && ((MethodDef)context.nextInstruction.Operand) == context.arch.CompilerMethods[Methods.ASM])
+            if (context.nextInstruction.OpCode.Code == Code.Call && (MethodDef)context.nextInstruction.Operand == context.arch.CompilerMethods[Methods.ASM])
             {
-                string comment = (string)context.operand;
-                int paramCount = context.def.Parameters.Count;
+                var comment = (string)context.operand;
+                var paramCount = context.def.Parameters.Count;
+                var open = comment.IndexOf('{');
 
-                string cpy = comment;
-                if (cpy.IndexOf("{") != -1 && cpy.IndexOf("}") != -1)
+                if (open != -1 && comment.IndexOf('}') != -1)
                 {
-                    cpy = cpy.Substring(cpy.IndexOf("{") + 1);
-                    cpy = cpy.Substring(0, cpy.IndexOf("}"));
+                    var cpy = comment[(open + 1)..];
+                    cpy = cpy[..cpy.IndexOf('}')];
 
                     foreach (var v in context.def.Parameters)
                     {
-                        if (v.Name == cpy)
-                        {
-                            //ldarg
-                            comment = comment.Replace($"{{{cpy}}}", $"[rbp-{(paramCount + 0 - v.Index) * 8}]");
-                            goto End;
-                        }
+                        if (v.Name != cpy)
+                            continue;
+
+                        // ldarg
+                        comment = comment.Replace($"{{{cpy}}}", $"[rbp-{(paramCount - v.Index) * 8}]");
+                        goto End;
                     }
 
                     foreach (var v in context.def.Body.Variables)
                     {
-                        if (v.Name == cpy)
-                        {
-                            //ldloc
-                            comment = comment.Replace($"{{{cpy}}}", $"[rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0)+(ulong)v.Index + 1) * 8}]");
-                            goto End;
-                        }
+                        if (v.Name != cpy)
+                            continue;
+
+                        // ldloc
+                        comment = comment.Replace($"{{{cpy}}}", $"[rbp-{((ulong)context.def.MethodSig.Params.Count + (ulong)(context.def.MethodSig.HasThis ? 1 : 0) + (ulong)v.Index + 1) * 8}]");
+                        goto End;
                     }
 
                     if (comment == (string)context.operand)
-                    {
                         throw new Exception($"\"{cpy}\" is not a valid variable of the context");
-                    }
                 }
-            End:
+
+                End:
                 context.Append($"{comment}");
                 context.arch.SkipNextInstruction();
-
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }
