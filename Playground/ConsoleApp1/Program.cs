@@ -11,6 +11,7 @@ namespace ConsoleApp1
         public static void Main(MultibootInfo* info, ulong magic)
         {
             RuntimeHelpers.InitialiseStatics();
+            Serial.WriteLine("Hello from ConsoleApp1!");
             BGA.Setup();
             BGA.SetVideoMode(800, 600);
             PS2Mouse.X = 800 / 2;
