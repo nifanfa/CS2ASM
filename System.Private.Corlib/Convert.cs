@@ -1,6 +1,6 @@
 ﻿namespace System
 {
-    public static unsafe class Convert
+    public static class Convert
 	{
 		//Preventing memory overflow
 		private static string Result = "                     ";
@@ -48,8 +48,6 @@
             }
             else 
 			{
-				Result.Length = 21;
-
 				ulong len = 0;
 				ulong val0 = val;
 

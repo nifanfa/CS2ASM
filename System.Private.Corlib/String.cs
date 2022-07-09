@@ -21,36 +21,32 @@ namespace System
 
         public char this[ulong index] 
         {
-            get 
-            {
-                return Value[index];
-            }
-            set 
-            {
-                Value[index] = value;
-            }
+            get => Value[index];
+            set => Value[index] = value;
         }
 
         [CompilerMethod(Methods.StringCtor)]
         public static string Ctor(char* chr, ulong length)
         {
-            String Str = new String();
-            char* Char = stackalloc char[(int)length];
-            Platform.Amd64.Native.Movsb(Char, chr, length * 2);
-            Str.Length = length;
-            Str.Size = Str.Size + length * 2;
-            Str.Value = Char;
-            return Str;
+            var str = new string();
+            var schr = stackalloc char[(int)length];
+
+            Native.Movsb(schr, chr, length * 2);
+
+            str.Length = length;
+            str.Size += length * 2;
+            str.Value = schr;
+            return str;
         }
 
-        public static bool operator == (string a,string b) 
+        public static bool operator ==(string a,string b) 
         {
-            if (a.Length != b.Length) return false;
+            if (a.Length != b.Length)
+                return false;
 
-            for (ulong i = 0; i < a.Length; i++) 
-            {
+            for (ulong i = 0; i < a.Length; i++)
                 if (a[i] != b[i]) return false;
-            }
+
             return true;
         }
 

@@ -18,7 +18,7 @@ internal class Program
 {
     public static string NasmPath = "nasm";
     public static string LdPath = "ld";
-    
+
     public static void Main(string[] args)
     {
         if (args.Length < 6) 
@@ -86,7 +86,7 @@ internal class Program
             {
                 Console.WriteLine("Generating ISO image...");
                 stopwatch.Restart();
-                
+
                 using var cd = File.OpenRead("Tools/limine/limine-cd.bin");
                 using var sys = File.OpenRead("Tools/limine/limine.sys");
                 using var kernel = File.OpenRead(elf);

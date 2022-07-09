@@ -8,16 +8,11 @@ namespace System
             return Convert.ToString(this);
         }
 
-        private static string x2 = "x2";
+        private static readonly string X2 = "x2";
 
-        public string ToString(string format) 
+        public string ToString(string format)
         {
-            if(format == x2) 
-            {
-                //format.Dispose();
-                return Convert.ToString(this, true);
-            }
-            return Convert.ToString(this);
+            return format == X2 ? Convert.ToString(this, true) : Convert.ToString(this);
         }
     }
 }
