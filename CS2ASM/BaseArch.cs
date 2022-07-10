@@ -133,8 +133,8 @@ br.OpCode.Code == Code. Bgt_Un_S
 
         public abstract void JumpToEntry(ModuleDefMD def);
 
-        internal abstract void After(ModuleDefMD def);
+        internal abstract void Finalization(ModuleDefMD def);
 
-        public abstract void Before(ModuleDefMD def);
+        public abstract void Initialization(ModuleDefMD def);
     }
 }

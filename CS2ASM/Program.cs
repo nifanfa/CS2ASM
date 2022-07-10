@@ -53,7 +53,7 @@ internal class Program
             default: return;
         }
         arch.ImportCompilerMethods(def);
-        arch.Before(def);
+        arch.Initialization(def);
         arch.JumpToEntry(def);
         foreach (var typ in def.Types)
         {
@@ -61,7 +61,7 @@ internal class Program
                 arch.Translate(meth);
             arch.InitializeStaticFields(typ);
         }
-        arch.After(def);
+        arch.Finalization(def);
 
         stopwatch.Stop();
         Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.\nAssembling...");
@@ -84,6 +84,9 @@ internal class Program
             case ImageType.None: return;
             case ImageType.Iso:
             {
+                if (settings.Format == Format.Bin)
+                    throw new Exception("Cannot create an ISO image with a kernel of bin format!");
+                
                 Console.WriteLine("Generating ISO image...");
                 stopwatch.Restart();
 

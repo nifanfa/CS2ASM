@@ -20,7 +20,7 @@ namespace CS2ASM.AMD64
 
         public Amd64(ModuleDefMD md) : base(md) {}
 
-        public override void Before(ModuleDefMD def)
+        public override void Initialization(ModuleDefMD def)
         {
             Append("[bits 64]");
         }
@@ -141,7 +141,7 @@ namespace CS2ASM.AMD64
             base.Append(str.Trim());
         }
 
-        internal override void After(ModuleDefMD def) {}
+        internal override void Finalization(ModuleDefMD def) {}
 
         public override void InitializeStaticConstructor(ModuleDefMD def)
         {
