@@ -1,4 +1,5 @@
-﻿using dnlib.DotNet;
+﻿using System;
+using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -58,7 +59,7 @@ public static class Utility
         foreach (var v in module.Types)
             if (v.FullName == fullName)
                 return SizeOfOrIndex(v, null);
-        throw new KeyNotFoundException();
+        throw new Exception("Could not find type for sizeof: " + fullName);
     }
 
     public static string SafeMethodName(MethodDef meth, MethodSig msig)

@@ -2,7 +2,6 @@
 using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -16,7 +15,6 @@ public enum Methods
     Dispose,
     ArrayCtor,
     Stackalloc,
-    InitialiseStatics,
     EntryPoint,
     Newobj
 }
@@ -25,50 +23,47 @@ public abstract class BaseArch
 {
     public readonly Dictionary<Methods, MethodDef> CompilerMethods;
     public readonly Dictionary<Code, MethodInfo> IlBridgeMethods;
-    public readonly StringBuilder text;
-    public readonly ModuleDefMD module;
+    public readonly StringBuilder Text;
     public bool Debug;
     public int InstructionIndex;
         
     public abstract int PointerSize { get; }
+    
+    public abstract void JumpToEntryPoint();
 
-    public BaseArch(ModuleDefMD md)
+    public abstract void Translate(MethodDef method);
+
+    public abstract void InitializeStaticFields(TypeDef type);
+    
+    public abstract void InitializeStaticConstructor(MethodDef method);
+
+    public BaseArch(ref ModuleDefMD md)
     {
         CompilerMethods = new();
         IlBridgeMethods = new();
-        text = new();
-        module = md;
+        Text = new();
 
-        if (Utility.SizeOf(module, "System.Object") != 8) 
+        if (Utility.SizeOf(md, "System.Object") != 8) 
             throw new Exception("Invalid size for System.Object!");
-        if (Utility.SizeOf(module, "System.Array") != 16)
+        if (Utility.SizeOf(md, "System.Array") != 16)
             throw new Exception("Invalid size for System.Array!");
-        if (Utility.SizeOf(module, "System.String") != 24)
+        if (Utility.SizeOf(md, "System.String") != 24)
             throw new Exception("Invalid size for System.String!");
     }
 
-    public void ImportCompilerMethods(ModuleDef def) 
+    public void ImportCompilerMethod(MethodDef method) 
     {
-        foreach(var t in def.Types) 
-        foreach(var m in t.Methods) 
-        foreach(var a in m.CustomAttributes) 
-            if (a.TypeFullName == "System.Runtime.CompilerServices.CompilerMethodAttribute") 
+        foreach (var attribute in method.CustomAttributes) 
+            if (attribute.TypeFullName == "System.Runtime.CompilerServices.CompilerMethodAttribute") 
             {
-                var defined = Enum.TryParse<Methods>(a.ConstructorArguments[0].Value.ToString(), true, out var result);
-                if (!defined)
-                    throw new KeyNotFoundException("Could not find method!");
+                if (!Enum.TryParse<Methods>(attribute.ConstructorArguments[0].Value.ToString(), true, out var result))
+                    throw new Exception("Could not find method!");
 
-                CompilerMethods.Add(result, m);
+                CompilerMethods.Add(result, method);
             }
-
-        if (CompilerMethods.Count != Enum.GetNames(typeof(Methods)).Length) 
-            throw new KeyNotFoundException("Number of methods don't match!");
     }
 
-    public string GetCompilerMethod(Methods methods) 
-    {
-        return Utility.SafeMethodName(CompilerMethods[methods], CompilerMethods[methods].MethodSig);
-    }
+    public string GetCompilerMethod(Methods methods) => Utility.SafeMethodName(CompilerMethods[methods], CompilerMethods[methods].MethodSig);
 
     public void ImportTransformations(Type transformations)
     {
@@ -80,32 +75,14 @@ public abstract class BaseArch
         }
     }
 
-    public void SkipNextInstruction()
+    public void SkipNextInstruction() => InstructionIndex++;
+
+    protected virtual void Append(string s) => Text.AppendLine(s);
+
+    protected static IEnumerable<Instruction> GetAllBranches(MethodDef method)
     {
-        InstructionIndex++;
-    }
-
-    public virtual void Append(string s)
-    {
-        text.AppendLine(s);
-    }
-
-    public abstract void Translate(MethodDef meth);
-
-    public abstract void InitializeStaticFields(TypeDef typ);
-
-    public static IEnumerable<Instruction> GetAllBranches(MethodDef def)
-    {
-        foreach (var br in def.Body.Instructions)
+        foreach (var br in method.Body.Instructions)
             if (br.OpCode.OperandType is OperandType.InlineBrTarget or OperandType.ShortInlineBrTarget)
                 yield return br;
     }
-
-    public abstract void InitializeStaticConstructor(ModuleDefMD def);
-
-    public abstract void JumpToEntry(ModuleDefMD def);
-
-    internal abstract void Finalization(ModuleDefMD def);
-
-    public abstract void Initialization(ModuleDefMD def);
 }

@@ -8,7 +8,6 @@
         Dispose,
         ArrayCtor,
         Stackalloc,
-        InitialiseStatics,
         EntryPoint,
         Newobj
     }

@@ -10,7 +10,6 @@ namespace ConsoleApp1
         [CompilerMethod(Methods.EntryPoint)]
         public static void Main(MultibootInfo* info, ulong magic)
         {
-            RuntimeHelpers.InitialiseStatics();
             Serial.WriteLine("Hello from ConsoleApp1!");
             const ulong add = 4 + 8;
             Serial.WriteLine(add.ToString());

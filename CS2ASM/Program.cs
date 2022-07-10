@@ -46,22 +46,29 @@ internal class Program
         switch (settings.Architecture)
         {
             case Architecture.Amd64:
-                arch = new Amd64(def);
-                arch.Debug = true;
+                arch = new Amd64(ref def);
+                arch.Debug = false; // Disable this to improve compiler performance
                 arch.ImportTransformations(typeof(Amd64Transformation));
                 break;
             default: return;
         }
-        arch.ImportCompilerMethods(def);
-        arch.Initialization(def);
-        arch.JumpToEntry(def);
-        foreach (var typ in def.Types)
+
+        // TODO: Improve speed by merging the loops
+
+        foreach (var type in def.Types)
+            foreach (var method in type.Methods)
+            {
+                arch.ImportCompilerMethod(method);
+                arch.InitializeStaticConstructor(method);
+            }
+
+        arch.JumpToEntryPoint();
+        foreach (var type in def.Types)
         {
-            foreach (var meth in typ.Methods)
-                arch.Translate(meth);
-            arch.InitializeStaticFields(typ);
+            foreach (var method in type.Methods)
+                arch.Translate(method);
+            arch.InitializeStaticFields(type);
         }
-        arch.Finalization(def);
 
         stopwatch.Stop();
         Console.WriteLine($"Finished compiling! Took {stopwatch.ElapsedMilliseconds} ms.\nAssembling...");
@@ -71,7 +78,7 @@ internal class Program
         if (settings.Format == Format.Elf)
             format = settings.Architecture == Architecture.Amd64 ? "elf64" : "elf32";
 
-        File.WriteAllText("Tools/Kernel.asm", arch.text.ToString());
+        File.WriteAllText("Tools/Kernel.asm", arch.Text.ToString());
         Utility.Start(NasmPath, $"-f{format} Tools/EntryPoint.asm -o {bin}");
         if (settings.Format != Format.Bin)
             Utility.Start(LdPath, $"-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");

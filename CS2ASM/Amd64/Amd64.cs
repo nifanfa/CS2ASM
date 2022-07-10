@@ -17,13 +17,12 @@ namespace CS2ASM.AMD64;
 public class Amd64 : BaseArch
 {
     public override int PointerSize => 8;
+    
+    protected override void Append(string str) => base.Append(str.Trim());
 
-    public Amd64(ModuleDefMD md) : base(md) {}
+    public Amd64(ref ModuleDefMD md) : base(ref md) => base.Append("[bits 64]");
 
-    public override void Initialization(ModuleDefMD def)
-    {
-        Append("[bits 64]");
-    }
+    public override void JumpToEntryPoint() => Append("call " + GetCompilerMethod(Methods.EntryPoint));
 
     public override void Translate(MethodDef def)
     {
@@ -31,49 +30,46 @@ public class Amd64 : BaseArch
             return;
 
         if (Debug)
-            Append($";>>>>>{def}>>>>>");
+            base.Append($";>>>>>{def}>>>>>");
 
-        // Get All Branches
-        var brS = GetAllBranches(def).ToArray();
+        // Get all branches
+        var brS = GetAllBranches(def).ToList();
 
         // Label
-        Append(Utility.SafeMethodName(def, def.MethodSig) + ":");
+        base.Append(Utility.SafeMethodName(def, def.MethodSig) + ":");
 
         if (!IsAssemblyMethod(def))
         {
             var cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
-            // Call.cs Line 19
-            Append("push rbp");
-            Append("mov rbp,rsp");
+            // Call.cs line 19
+            base.Append("push rbp");
+            base.Append("mov rbp,rsp");
 
             var rsv = (cnt + def.Body.Variables.Count) * 8;
             if (rsv != 0)
-                Append("sub rsp," + rsv);
+                base.Append("sub rsp," + rsv);
 
             //if (IsDebugMethod(def))
             if (cnt <= 6)
             {
                 if (cnt >= 1)
-                    Append($"mov [rbp-{cnt * 8}],rdi");
+                    base.Append($"mov [rbp-{cnt * 8}],rdi");
                 if (cnt >= 2)
-                    Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
+                    base.Append($"mov [rbp-{(cnt - 1) * 8}],rsi");
                 if (cnt >= 3)
-                    Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
+                    base.Append($"mov [rbp-{(cnt - 2) * 8}],rdx");
                 if (cnt >= 4)
-                    Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
+                    base.Append($"mov [rbp-{(cnt - 3) * 8}],rcx");
                 if (cnt >= 5)
-                    Append($"mov [rbp-{(cnt - 4) * 8}],r8");
+                    base.Append($"mov [rbp-{(cnt - 4) * 8}],r8");
                 if (cnt == 6)
-                    Append("mov [rbp-8],r9");
+                    base.Append("mov [rbp-8],r9");
             }
             else
                 throw new ArgumentOutOfRangeException(nameof(cnt), "Too much arguments!");
         }
 
-        if (def == CompilerMethods[Methods.InitialiseStatics])
-            InitializeStaticConstructor((ModuleDefMD)def.Module);
-
-        var ctx = new Context(text, null, def, this)
+        var ctx = new Context(Text, null, def, this)
         {
             StackOperationCount = 0
         };
@@ -83,27 +79,47 @@ public class Amd64 : BaseArch
         {
             var ins = def.Body.Instructions[InstructionIndex];
             if (Debug)
-                Append(";" + ins);
+                base.Append(";" + ins);
 
             // For branches
             foreach (var v in brS)
                 if (((Instruction)v.Operand).Offset == ins.Offset)
-                    Append(Utility.BrLabelName(ins, def, true) + ":");
+                    base.Append(Utility.BrLabelName(ins, def, true) + ":");
 
             ctx.ins = ins;
 
             // Compile CIL instructions
             IlBridgeMethods[ins.OpCode.Code].Invoke(null, new object[] { ctx });
             if (Debug)
-                Append(";stack op count;" + ctx.StackOperationCount);
+                base.Append(";stack op count;" + ctx.StackOperationCount);
         }
 
         if (!Debug)
             return;
 
         if (ctx.StackOperationCount != 0)
-            Append(";Stack issue: " + ctx.StackOperationCount);
-        Append($";<<<<<{def}<<<<<");
+            base.Append(";Stack issue: " + ctx.StackOperationCount);
+        base.Append($";<<<<<{def}<<<<<");
+    }
+    
+    public override void InitializeStaticFields(TypeDef type)
+    {
+        foreach (var field in type.Fields)
+        {
+            if (!field.IsStatic)
+                continue;
+
+            // Ldsfld
+            // Stsfld
+            base.Append(Utility.SafeFieldName(type, field) + ":");
+            base.Append("dq " + (field.HasConstant ? field.Constant.Value : 0));
+        }
+    }
+
+    public override void InitializeStaticConstructor(MethodDef method)
+    {
+        if (method.IsStaticConstructor)
+            base.Append("call " + Utility.SafeMethodName(method, method.MethodSig));
     }
 
     public static bool IsAssemblyMethod(MethodDef def)
@@ -120,39 +136,5 @@ public class Amd64 : BaseArch
             if (v.TypeFullName == "System.Runtime.CompilerServices.DebugAttribute")
                 return true;
         return false;
-    }
-
-    public override void InitializeStaticFields(TypeDef typ)
-    {
-        foreach (var v in typ.Fields)
-        {
-            if (!v.IsStatic)
-                continue;
-
-            // Ldsfld
-            // Stsfld
-            Append(Utility.SafeFieldName(typ, v) + ":");
-            Append("dq " + (v.HasConstant ? v.Constant.Value : 0));
-        }
-    }
-
-    public override void Append(string str)
-    {
-        base.Append(str.Trim());
-    }
-
-    internal override void Finalization(ModuleDefMD def) {}
-
-    public override void InitializeStaticConstructor(ModuleDefMD def)
-    {
-        foreach (var t in def.Types)
-        foreach (var m in t.Methods)
-            if (m.IsStaticConstructor)
-                Append("call " + Utility.SafeMethodName(m, m.MethodSig));
-    }
-
-    public override void JumpToEntry(ModuleDefMD def)
-    {
-        Append("call " + GetCompilerMethod(Methods.EntryPoint));
     }
 }
