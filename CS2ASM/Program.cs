@@ -47,7 +47,7 @@ internal class Program
         {
             case Architecture.Amd64:
                 arch = new Amd64(ref def);
-                arch.Debug = true; // Disable this to improve compiler performance
+                arch.Debug = false; // Disable this to improve compiler performance
                 arch.ImportTransformations(typeof(Amd64Transformation));
                 break;
             default: return;
@@ -100,7 +100,6 @@ internal class Program
                 using var cd = File.OpenRead("Tools/limine/limine-cd.bin");
                 using var sys = File.OpenRead("Tools/limine/limine.sys");
                 using var kernel = File.OpenRead(elf);
-                using var stream = File.Create(settings.OutputFile);
 
                 var iso = new CDBuilder
                 {
@@ -113,7 +112,7 @@ internal class Program
                 iso.AddFile("limine.cfg", Encoding.ASCII.GetBytes($"TIMEOUT=0\n:{def.Assembly.Name}\nPROTOCOL=multiboot1\nKERNEL_PATH=boot:///{name}"));
                 iso.AddFile(name, kernel);
                 iso.SetBootImage(cd, BootDeviceEmulation.NoEmulation, 0);
-                iso.Build().CopyTo(stream);
+                iso.Build(settings.OutputFile);
 
                 Utility.Start("Tools/limine/limine-deploy", "--force-mbr " + settings.OutputFile);
 
