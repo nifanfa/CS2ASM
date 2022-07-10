@@ -47,7 +47,7 @@ internal class Program
         {
             case Architecture.Amd64:
                 arch = new Amd64(ref def);
-                arch.Debug = false; // Disable this to improve compiler performance
+                arch.Debug = true; // Disable this to improve compiler performance
                 arch.ImportTransformations(typeof(Amd64Transformation));
                 break;
             default: return;
