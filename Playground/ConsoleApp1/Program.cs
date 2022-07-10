@@ -13,7 +13,7 @@ namespace ConsoleApp1
             RuntimeHelpers.InitialiseStatics();
             Serial.WriteLine("Hello from ConsoleApp1!");
             const ulong add = 4 + 8;
-            Serial.WriteLine("4 + 8 = " + add);
+            Serial.WriteLine(add.ToString());
             BGA.Setup();
             BGA.SetVideoMode(640, 480);
             PS2Mouse.X = BGA.Width / 2;
@@ -47,7 +47,8 @@ namespace ConsoleApp1
             for (;;)
             {
                 BGA.Clear(0x0);
-                ASC16.DrawString("FPS: " + (ulong)FPSMeter.FPS, 10, 10, 0xFFFFFFFF);
+                ASC16.DrawString("FPS:", 10, 10, 0xFFFFFFFF);
+                ASC16.DrawString(((ulong)FPSMeter.FPS).ToString(), 42, 10, 0xFFFFFFFF);
                 DrawCursor(cursor, PS2Mouse.X, PS2Mouse.Y);
                 BGA.Update();
                 FPSMeter.Update();

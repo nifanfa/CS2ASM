@@ -38,21 +38,6 @@ namespace System
             return str;
         }
 
-        public static string Concat(string a, string b)
-        {
-            var str = new string();
-            var length = a.Length + b.Length;
-            var schr = stackalloc char[(int)length];
-
-            Native.Movsb(schr, a.Value, a.Length * 2);
-            Native.Movsb(schr + a.Length, b.Value, b.Length * 2);
-
-            str.Length = length;
-            str.Size += length * 2;
-            str.Value = schr;
-            return str;
-        }
-
         public static bool operator ==(string a,string b) 
         {
             if (a.Length != b.Length)

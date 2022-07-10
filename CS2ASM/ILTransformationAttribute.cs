@@ -1,15 +1,11 @@
 ﻿using dnlib.DotNet.Emit;
 using System;
 
-namespace CS2ASM
-{
-    class ILTransformationAttribute : Attribute
-    {
-        public Code code;
+namespace CS2ASM;
 
-        public ILTransformationAttribute(Code c)
-        {
-            this.code = c;
-        }
-    }
+public sealed class ILTransformationAttribute : Attribute
+{
+    public Code Code;
+
+    public ILTransformationAttribute(Code c) => Code = c;
 }

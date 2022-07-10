@@ -15,15 +15,15 @@ namespace CS2ASM
 
         public BaseArch arch { get; }
 
-        public volatile int StackOperationCount = 0;
+        public int StackOperationCount { get; set; }
          
         public bool hasReturn => methodSig.RetType.ElementType != ElementType.Void;
 
-        public bool hasThis => methodSig.HasThis;
+        public bool HasThis => methodSig.HasThis;
 
         public IList<Instruction> instructions => def.Body.Instructions;
 
-        public int currentInstructionIndex => instructions.IndexOf(ins);
+        public int CurrentInstructionIndex => instructions.IndexOf(ins);
 
         public object operand => ins.Operand;
 

@@ -1,136 +1,109 @@
 ﻿using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 
-namespace CS2ASM
+namespace CS2ASM;
+
+public static class Utility
 {
-    public static class Utility
+    public static int SizeOfShallow(IType type)
     {
-        public static int SizeOfShallow(IType type)
+        if (type.FullName.Contains("e__FixedBuffer")) 
+            return (int)((TypeDef)type.ScopeType).ClassSize;
+
+        switch (type.FullName)
         {
-            if (type.FullName.Contains("e__FixedBuffer")) 
-            {
-                return (int)((TypeDef)type.ScopeType).ClassSize;
-            }
-            string Name = type.FullName;
-            if (
-                   Name == "System.Byte" ||
-                   Name == "System.SByte"
-                   )
-            {
+            case "System.Byte":
+            case "System.SByte":
                 return 1;
-            }
-            else if (
-                Name == "System.Char" ||
-                Name == "System.Int16" ||
-                Name == "System.UInt16"
-                )
-            {
+            case "System.Char":
+            case "System.Int16":
+            case "System.UInt16":
                 return 2;
-            }
-            else if (
-               Name == "System.Int32" ||
-               Name == "System.UInt32"
-               )
-            {
+            case "System.Int32":
+            case "System.UInt32":
                 return 4;
-            }
-            else
-            {
+            default:
                 return 8;
+        }
+    }
+
+    public static ulong SizeOfOrIndex(TypeDef type, string name)
+    {
+        var fields = new List<IList<FieldDef>>();
+        var td = type;
+
+        do
+        {
+            fields.Insert(0, td.Fields);
+            if (td.IsValueType) // For structures
+                break;
+        } while ((td = (TypeDef)td.BaseType) != null);
+
+        ulong index = 0;
+        foreach (var v1 in fields)
+            foreach (var v2 in v1)
+            {
+                if (v2.Name == name || v2.IsStatic)
+                    break;
+                index += (ulong)SizeOfShallow(v2.FieldType);
             }
-        }
 
-        public static ulong SizeOfOrIndex(TypeDef type, string name)
+        return index;
+    }
+
+    public static ulong SizeOf(ModuleDef module, string fullName)
+    {
+        foreach (var v in module.Types)
+            if (v.FullName == fullName)
+                return SizeOfOrIndex(v, null);
+        throw new KeyNotFoundException();
+    }
+
+    public static string SafeMethodName(MethodDef meth, MethodSig msig)
+    {
+        var result = $"{SafeTypeName(meth.DeclaringType)}.{meth.Name}";
+        var dotP = false;
+
+        for (var i = 0; i < msig.Params.Count; i++)
         {
-            List<IList<FieldDef>> fields = new List<IList<FieldDef>>();
-            TypeDef td = type;
-            do
+            if (!dotP)
             {
-                fields.Insert(0, td.Fields);
-                //Here is for struct
-                if (td.IsValueType) break;
-            } while ((td = (TypeDef)td.BaseType) != null);
-
-            ulong Index = 0;
-            foreach (var v1 in fields)
-            {
-                foreach (var v2 in v1)
-                {
-                    if (v2.Name == name) break;
-                    if (v2.IsStatic) break;
-                    Index += (ulong)SizeOfShallow(v2.FieldType);
-                }
+                result += "_";
+                dotP = true;
             }
-            return Index;
-        }
 
-        public static ulong SizeOf(ModuleDef module, string FullName)
-        {
-            foreach (var v in module.Types)
-            {
-                if (v.FullName == FullName)
-                {
-                    return SizeOfOrIndex(v, null);
-                }
-            }
-            throw new KeyNotFoundException();
+            result += msig.Params[i].TypeName.Replace("*", string.Empty);
+            if (i != msig.Params.Count - 1)
+                result += "_";
         }
+        
+        return result
+            .Replace("`", string.Empty)
+            .Replace("[", string.Empty)
+            .Replace("]", string.Empty);
+    }
 
-        public static string SafeMethodName(MethodDef meth, MethodSig msig)
-        {
-            string result = $"{Utility.SafeTypeName(meth.DeclaringType)}.{meth.Name}";
-            bool dotP = false;
-            for (int i = 0; i < msig.Params.Count; i++)
-            {
-                if (!dotP)
-                {
-                    result += "_";
-                    dotP = true;
-                }
-                result += msig.Params[i].TypeName.Replace("*", "");
-                if (i != msig.Params.Count - 1)
-                    result += "_";
-            }
-            result = result.Replace("`", "");
-            result = result.Replace("[", "");
-            result = result.Replace("]", "");
-            return result;
-        }
+    public static string SafeTypeName(TypeDef def) => $"{def.Namespace}.{def.Name}";
 
-        public static string SafeTypeName(TypeDef def)
-        {
-            return $"{def.Namespace}.{def.Name}";
-        }
+    public static string SafeFieldName(TypeDef type, FieldDef field) => $"{type.Namespace}.{type.Name}.{field.Name}";
 
-        public static string SafeFieldName(TypeDef type, FieldDef field)
-        {
-            return $"{type.Namespace}.{type.Name}.{field.Name}";
-        }
+    // Every object has its own unique hash code, this is why I use it
+    public static string BrLabelName(Instruction ins, MethodDef def, bool create = false) => $"LB_{def.GetHashCode():X4}{(create ? ins.Offset : ((Instruction)ins.Operand).Offset):X4}";
 
-        public static string BrLabelName(Instruction ins, MethodDef def, bool Create = false)
+    public static void Start(string file, string args)
+    {
+        Process.Start(new ProcessStartInfo
         {
-            //Every object has its unique hash code this is why i use it
-            return $"LB_{def.GetHashCode():X4}{(Create ? ins.Offset : ((Instruction)(ins.Operand)).Offset):X4}";
-        }
-
-        public static void Start(string file, string args)
-        {
-            var proc = Process.Start(new ProcessStartInfo
-            {
-                FileName = file,
-                Arguments = args,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                RedirectStandardInput = true,
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden,
-                UseShellExecute = false
-            });
-            proc?.WaitForExit();
-        }
+            FileName = file,
+            Arguments = args,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            RedirectStandardInput = true,
+            CreateNoWindow = true,
+            WindowStyle = ProcessWindowStyle.Hidden,
+            UseShellExecute = false
+        })?.WaitForExit();
     }
 }
