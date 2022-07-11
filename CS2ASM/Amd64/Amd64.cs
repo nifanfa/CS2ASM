@@ -123,9 +123,9 @@ public class Amd64 : BaseArch
 
     public override string Push(string register)
     {
-        /*var index = StackIndex;
-        StackIndex += PointerSize;
-        return "+" + index;*/
+        /*StackIndex += PointerSize;
+        var index = StackIndex;
+        return $"mov qword [rbp+{index}],{register}";*/
         return "push " + register;
     }
 
@@ -133,7 +133,7 @@ public class Amd64 : BaseArch
     {
         /*var index = StackIndex;
         StackIndex -= PointerSize;
-        return index < 0 ? "+" + -index : index.ToString();*/
+        return $"mov {register},qword [rbp+{index}]";*/
         return "pop " + register;
     }
 
