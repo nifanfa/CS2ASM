@@ -25,7 +25,7 @@ public abstract class BaseArch
     public readonly Dictionary<Code, MethodInfo> IlBridgeMethods;
     public readonly StringBuilder Text;
     public bool Debug;
-    public int InstructionIndex;
+    public int InstructionIndex, StackIndex;
         
     public abstract int PointerSize { get; }
     
@@ -36,6 +36,20 @@ public abstract class BaseArch
     public abstract void InitializeStaticFields(TypeDef type);
     
     public abstract void InitializeStaticConstructor(MethodDef method);
+
+    public string Push()
+    {
+        var index = StackIndex;
+        StackIndex += PointerSize;
+        return "+" + index;
+    }
+
+    public string Pop()
+    {
+        var index = StackIndex;
+        StackIndex -= PointerSize;
+        return index < 0 ? "+" + -index : index.ToString();
+    }
 
     public BaseArch(ref ModuleDefMD md)
     {

@@ -17,6 +17,7 @@ namespace CS2ASM;
 internal class Program
 {
     public static string NasmPath = "nasm";
+    public static string LldPath = "ld.lld";
 
     public static void Main(string[] args)
     {
@@ -27,7 +28,10 @@ internal class Program
         }
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
             NasmPath = "Tools/" + NasmPath;
+            LldPath = "cmd";
+        }
 
         var settings = new Settings(args);
         var def = ModuleDefMD.Load(settings.InputFile);
@@ -83,7 +87,7 @@ internal class Program
 
         // You need to have LLD on your PATH!
         if (settings.Format != Format.Bin)
-            Utility.Start("ld.lld", $"-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
+            Utility.Start(LldPath, $"{(LldPath == "cmd" ? "/c ld.lld" : string.Empty)}-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
 
         stopwatch.Stop();
         Console.WriteLine($"Finished assembling! Took {stopwatch.ElapsedMilliseconds} ms.");
