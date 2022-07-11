@@ -30,7 +30,7 @@ namespace System.Platform.Amd64
             asm("rep movsd");
         }
 
-        public static void Stosb(void* dest, byte value, ulong count)
+        public static void Stosb(void* dest, uint value, ulong count)
         {
             asm("mov rcx,{count}");
             asm("mov rdi,{dest}");

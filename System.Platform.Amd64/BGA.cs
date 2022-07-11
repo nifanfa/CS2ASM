@@ -26,7 +26,7 @@
 
         public static void Clear(uint color) 
         {
-            Native.Stosd(Buffer, color, (ulong)(Width * Height));
+            Native.Stosb(Buffer, color, FrameSize);
         }
 
         public static void DrawPoint(int x, int y, uint color) 
@@ -37,14 +37,14 @@
 
         public static void Update() 
         {
-            Native.Movsd(Ptr, Buffer, FrameSize);
+            Native.Movsb(Ptr, Buffer, FrameSize);
         }
 
         public static void SetVideoMode(ushort width, ushort height)
         {
             Width = width;
             Height = height;
-            FrameSize = (ulong)(Width * Height);
+            FrameSize = (ulong)(Width * Height * 4);
 
             WriteRegister(4, 0);
             WriteRegister(1, width);

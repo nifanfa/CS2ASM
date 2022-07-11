@@ -45,7 +45,7 @@ namespace ConsoleApp1
 
             for (;;)
             {
-                BGA.Clear(0x0);
+                BGA.Clear(0);
                 ASC16.DrawString("FPS:", 10, 10, 0xFFFFFFFF);
                 ASC16.DrawString(((ulong)FPSMeter.FPS).ToString(), 42, 10, 0xFFFFFFFF);
                 DrawCursor(cursor, PS2Mouse.X, PS2Mouse.Y);
