@@ -60,6 +60,7 @@ public abstract class BaseArch
                     throw new Exception("Could not find method!");
 
                 CompilerMethods.Add(result, method);
+                break;
             }
     }
 

@@ -13,6 +13,8 @@ You can now try to run on bare metal, or via QEMU:
 
 ``qemu-system-x86_64 -cdrom output.iso -cpu max -m 1G -enable-kvm -serial stdio``
 
+**You need to have LLVM on your PATH to execute the ELF linker, LLD!**
+
 **Be sure to remove the ``-enable-kvm`` argument if you're not on Linux!**
 
 ## System.Private.Corlib

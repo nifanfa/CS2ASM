@@ -84,7 +84,10 @@ public class Amd64 : BaseArch
             // For branches
             foreach (var v in brS)
                 if (((Instruction)v.Operand).Offset == ins.Offset)
+                {
                     base.Append(Utility.BrLabelName(ins, def, true) + ":");
+                    break;
+                }
 
             ctx.ins = ins;
 
@@ -116,11 +119,7 @@ public class Amd64 : BaseArch
         }
     }
 
-    public override void InitializeStaticConstructor(MethodDef method)
-    {
-        if (method.IsStaticConstructor)
-            base.Append("call " + Utility.SafeMethodName(method, method.MethodSig));
-    }
+    public override void InitializeStaticConstructor(MethodDef method) => base.Append("call " + Utility.SafeMethodName(method, method.MethodSig));
 
     public static bool IsAssemblyMethod(MethodDef def)
     {

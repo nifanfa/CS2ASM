@@ -45,9 +45,8 @@ public static class InlineAssembly
         }
 
         End:
-        context.Append($"{comment}");
+        context.Append(comment);
         context.arch.SkipNextInstruction();
         return true;
-
     }
 }

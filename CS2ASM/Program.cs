@@ -17,7 +17,6 @@ namespace CS2ASM;
 internal class Program
 {
     public static string NasmPath = "nasm";
-    public static string LdPath = "ld";
 
     public static void Main(string[] args)
     {
@@ -28,10 +27,7 @@ internal class Program
         }
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
             NasmPath = "Tools/" + NasmPath;
-            LdPath = "Tools/" + LdPath;
-        }
 
         var settings = new Settings(args);
         var def = ModuleDefMD.Load(settings.InputFile);
@@ -58,8 +54,12 @@ internal class Program
         foreach (var type in def.Types)
             foreach (var method in type.Methods)
             {
+                if (method.IsStaticConstructor)
+                {
+                    arch.InitializeStaticConstructor(method);
+                    continue;
+                }
                 arch.ImportCompilerMethod(method);
-                arch.InitializeStaticConstructor(method);
             }
 
         arch.JumpToEntryPoint();
@@ -80,8 +80,10 @@ internal class Program
 
         File.WriteAllText("Tools/Kernel.asm", arch.Text.ToString());
         Utility.Start(NasmPath, $"-f{format} Tools/EntryPoint.asm -o {bin}");
+
+        // You need to have LLD on your PATH!
         if (settings.Format != Format.Bin)
-            Utility.Start(LdPath, $"-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
+            Utility.Start("ld.lld", $"-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
 
         stopwatch.Stop();
         Console.WriteLine($"Finished assembling! Took {stopwatch.ElapsedMilliseconds} ms.");
