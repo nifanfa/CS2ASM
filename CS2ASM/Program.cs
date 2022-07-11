@@ -23,9 +23,16 @@ internal class Program
     {
         if (args.Length < 6) 
         {
+            if (Debugger.IsAttached) 
+            {
+                args = "CS2ASM -a0x100000 -camd64 -felf -tiso -ooutput.iso ConsoleApp1.dll".Split(" ");
+                goto DebugStart;
+            }
+
             Console.WriteLine("Usage: CS2ASM -a<address> -c<amd64> -f<bin,elf> -t<none,iso> -o<output> <input>");
             Environment.Exit(1);
         }
+        DebugStart:
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
