@@ -9,12 +9,12 @@ namespace CS2ASM
         public static void Ceq(Context context)
         {
             context.Append($"xor rbx,rbx");
-            context.Append($"pop rdx");
-            context.Append($"pop rax");
+            context.Pop($"rdx");
+            context.Pop($"rax");
             context.StackOperationCount -= 2;
             context.Append($"cmp rax,rdx");
             context.Append($"sete bl");
-            context.Append($"push rbx");
+            context.Push($"rbx");
             context.StackOperationCount += 1;
         }
     }

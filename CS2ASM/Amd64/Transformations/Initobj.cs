@@ -15,10 +15,10 @@ namespace CS2ASM
             context.StackOperationCount -= 1;
 
             Sizeof(new Context(context.text, new Instruction() { Operand = (TypeDef)context.operand }, context.def, context.arch));
-            context.Append($"pop rdi");
+            context.Pop($"rdi");
             context.StackOperationCount -= 1;
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Allocate)}");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
 
             if (context.prevInstruction.OpCode.Code == Code.Ldsflda)

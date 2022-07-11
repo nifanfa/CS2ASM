@@ -13,7 +13,7 @@ namespace CS2ASM
             //Call.cs
             if (context.def.HasReturnType)
             {
-                context.Append($"pop rax");
+                context.Pop($"rax");
                 context.StackOperationCount -= 1;
             }
 
@@ -23,7 +23,7 @@ namespace CS2ASM
                 context.Append($"add rsp,{rsv}");
 
             //dont use context.StackOperationCount-=1 here
-            context.Append($"pop rbp");
+            context.Pop($"rbp");
             context.Append($"ret");
         }
     }

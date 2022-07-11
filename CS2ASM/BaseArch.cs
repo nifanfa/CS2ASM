@@ -37,19 +37,9 @@ public abstract class BaseArch
     
     public abstract void InitializeStaticConstructor(MethodDef method);
 
-    public string Push()
-    {
-        var index = StackIndex;
-        StackIndex += PointerSize;
-        return "+" + index;
-    }
+    public abstract string Push(string register);
 
-    public string Pop()
-    {
-        var index = StackIndex;
-        StackIndex -= PointerSize;
-        return index < 0 ? "+" + -index : index.ToString();
-    }
+    public abstract string Pop(string register);
 
     public BaseArch(ref ModuleDefMD md)
     {

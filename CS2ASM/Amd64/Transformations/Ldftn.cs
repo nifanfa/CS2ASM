@@ -13,7 +13,7 @@ namespace CS2ASM
             if((context.operand is MethodDef)) 
             {
                 context.Append($"mov qword rax,{Utility.SafeMethodName((MethodDef)context.operand, ((MethodDef)context.operand).MethodSig)}");
-                context.Append($"push rax");
+                context.Push($"rax");
                 context.StackOperationCount += 1;
             }
             else

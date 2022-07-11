@@ -9,7 +9,7 @@ namespace CS2ASM
         public static void Ldc_I4(Context context)
         {
             context.Append($"mov rax,{OperandParser.Ldc(context.ins)}");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

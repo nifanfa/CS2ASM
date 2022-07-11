@@ -8,11 +8,11 @@ namespace CS2ASM
         [ILTransformation(Code.Xor)]
         public static void Xor(Context context)
         {
-            context.Append($"pop rdx");
-            context.Append($"pop rax");
+            context.Pop($"rdx");
+            context.Pop($"rax");
             context.StackOperationCount -= 2;
             context.Append($"xor rax,rdx");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

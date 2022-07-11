@@ -59,5 +59,15 @@ namespace CS2ASM
         {
             text.AppendLine(v);
         }
+
+        internal void Push(string v)
+        {
+            text.AppendLine(arch.Push(v));
+        }
+
+        internal void Pop(string v)
+        {
+            text.AppendLine(arch.Pop(v));
+        }
     }
 }

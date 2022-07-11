@@ -14,8 +14,8 @@ namespace CS2ASM
 
         private static void DoLdelem(Context context,int size)
         {
-            context.Append($"pop rdi"); //index
-            context.Append($"pop rsi"); //ptr
+            context.Pop($"rdi"); //index
+            context.Pop($"rsi"); //ptr
             context.StackOperationCount -= 2;
 
             context.Append($"xor rdx,rdx");
@@ -39,7 +39,7 @@ namespace CS2ASM
                     context.Append($"mov rax,[rsi]");
                     break;
             }
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

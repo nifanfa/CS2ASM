@@ -121,6 +121,22 @@ public class Amd64 : BaseArch
 
     public override void InitializeStaticConstructor(MethodDef method) => base.Append("call " + Utility.SafeMethodName(method, method.MethodSig));
 
+    public override string Push(string register)
+    {
+        /*var index = StackIndex;
+        StackIndex += PointerSize;
+        return "+" + index;*/
+        return "push " + register;
+    }
+
+    public override string Pop(string register)
+    {
+        /*var index = StackIndex;
+        StackIndex -= PointerSize;
+        return index < 0 ? "+" + -index : index.ToString();*/
+        return "pop " + register;
+    }
+
     public static bool IsAssemblyMethod(MethodDef def)
     {
         foreach (var v in def.CustomAttributes)

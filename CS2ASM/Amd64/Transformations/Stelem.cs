@@ -15,9 +15,9 @@ namespace CS2ASM
 
         private static void DoStelem(Context context, int size)
         {
-            context.Append($"pop rbx"); //value
-            context.Append($"pop rdi"); //index
-            context.Append($"pop rsi"); //ptr
+            context.Pop($"rbx"); //value
+            context.Pop($"rdi"); //index
+            context.Pop($"rsi"); //ptr
             context.StackOperationCount -= 3;
             context.Append($"xor rdx,rdx");
             context.Append($"mov rax,{size}");

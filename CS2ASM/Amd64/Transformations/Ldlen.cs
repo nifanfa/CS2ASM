@@ -9,10 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Ldlen)]
         public static void Ldlen(Context context)
         {
-            context.Append($"pop rsi");
+            context.Pop($"rsi");
             context.StackOperationCount -= 1;
             context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
-            context.Append($"push rsi");
+            context.Push($"rsi");
             context.StackOperationCount += 1;
         }
     }
