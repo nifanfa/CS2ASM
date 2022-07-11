@@ -87,7 +87,7 @@ internal class Program
 
         // You need to have LLD on your PATH!
         if (settings.Format != Format.Bin)
-            Utility.Start(LldPath, $"{(LldPath == "cmd" ? "/c ld.lld" : string.Empty)}-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
+            Utility.Start(LldPath, $"{(LldPath == "cmd" ? "/c ld.lld " : string.Empty)}-Ttext={settings.BaseAddress} -melf_x86_64 -o {elf} {bin}");
 
         stopwatch.Stop();
         Console.WriteLine($"Finished assembling! Took {stopwatch.ElapsedMilliseconds} ms.");
