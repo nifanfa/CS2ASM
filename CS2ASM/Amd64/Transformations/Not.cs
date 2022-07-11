@@ -8,10 +8,10 @@ namespace CS2ASM
         [ILTransformation(Code.Not)]
         public static void Not(Context context)
         {
-            context.Append($"pop rax");
+            context.Pop($"rax");
             context.StackOperationCount -= 1;
             context.Append($"not rax");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

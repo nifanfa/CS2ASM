@@ -17,7 +17,7 @@ namespace CS2ASM
                 context.Append($"mov rax,{Utility.SizeOfOrIndex((TypeDef)context.operand, null)}");
             }
 
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

@@ -9,11 +9,11 @@ namespace CS2ASM
         [ILTransformation(Code.Neg)]
         public static void Neg(Context context)
         {
-            context.Append("pop rbx");
+            context.Pop($"rbx");
             context.StackOperationCount -= 1;
             context.Append("xor rdx,rdx");
             context.Append("neg rbx");
-            context.Append("push rbx");
+            context.Push($"rbx");
             context.StackOperationCount += 1;
         }
     }

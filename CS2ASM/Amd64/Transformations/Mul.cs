@@ -9,11 +9,11 @@ namespace CS2ASM
         public static void Mul(Context context)
         {
             context.Append($"xor rdx,rdx");
-            context.Append($"pop rbx");
-            context.Append($"pop rax");
+            context.Pop($"rbx");
+            context.Pop($"rax");
             context.StackOperationCount -= 2;
             context.Append($"imul rbx");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

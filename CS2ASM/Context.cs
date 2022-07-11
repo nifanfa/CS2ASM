@@ -55,6 +55,23 @@ namespace CS2ASM
             this.arch = arch;
         }
 
+        public int NumReservedStack;
+        public int CurrentStackPos = 0;
+
+        public int WorkingStackSize;
+
+        public void Push(string reg) 
+        {
+            CurrentStackPos++;
+            Append($"mov [rbp-{((NumReservedStack + CurrentStackPos) * 8)}],{reg}");
+        }
+
+        public void Pop(string reg)
+        {
+            Append($"mov {reg},[rbp-{((NumReservedStack + CurrentStackPos) * 8)}]");
+            CurrentStackPos--;
+        }
+
         internal void Append(string v)
         {
             text.AppendLine(v);

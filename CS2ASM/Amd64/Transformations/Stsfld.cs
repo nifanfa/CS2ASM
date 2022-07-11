@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Stsfld)]
         public static void Stsfld(Context context)
         {
-            context.Append($"pop rax");
+            context.Pop($"rax");
             context.StackOperationCount -= 1;
             context.Append($"mov [{Utility.SafeFieldName(((FieldDef)context.operand).DeclaringType, (FieldDef)context.operand)}],rax");
         }

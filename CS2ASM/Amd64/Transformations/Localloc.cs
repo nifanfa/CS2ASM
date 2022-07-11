@@ -9,10 +9,10 @@ namespace CS2ASM
         [ILTransformation(Code.Localloc)]
         public static void Localloc(Context context)
         {
-            context.Append($"pop rdi");
+            context.Pop($"rdi");
             context.StackOperationCount -= 1;
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Stackalloc)}");
-            context.Append($"push rax");
+            context.Push($"rax");
             context.StackOperationCount += 1;
         }
     }

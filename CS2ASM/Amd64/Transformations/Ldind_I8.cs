@@ -18,9 +18,9 @@ namespace CS2ASM
                 }
             }
 
-            context.Append($"pop rax");
+            context.Pop($"rax");
             context.StackOperationCount -= 1;
-            context.Append($"push qword [rax]");
+            context.Push($"qword [rax]");
             context.StackOperationCount += 1;
         }
     }

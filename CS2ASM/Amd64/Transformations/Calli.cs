@@ -48,11 +48,11 @@ namespace CS2ASM
             if (rsv != 0)
                 context.Append($"add rsp,{rsv}");
 
-            context.Append("pop rax");
+            context.Pop($"rax");
             context.Append("call rax");
             if (context.hasReturn)
             {
-                context.Append($"push rax");
+                context.Push($"rax");
                 context.StackOperationCount += 1;
             }
         }

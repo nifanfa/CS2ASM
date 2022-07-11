@@ -13,9 +13,11 @@ namespace CS2ASM
             //Call.cs
             if (context.def.HasReturnType)
             {
-                context.Append($"pop rax");
+                context.Pop($"rax");
                 context.StackOperationCount -= 1;
             }
+
+            context.Append($"add rsp,{context.WorkingStackSize}");
 
             int rsv = (context.def.MethodSig.Params.Count + (context.def.MethodSig.HasThis ? 1 : 0) + context.def.Body.Variables.Count) * 8;
             //dont use context.StackOperationCount -= (context.def.MethodSig.Params.Count + (context.def.MethodSig.HasThis ? 1 : 0) + context.def.Body.Variables.Count) here
