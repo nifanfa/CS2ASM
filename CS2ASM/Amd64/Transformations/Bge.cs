@@ -9,8 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Bge)]
         public static void Bge(Context context)
         {
-            context.Pop($"rdx");
-            context.Pop($"rax");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
             context.StackOperationCount -= 2;
             context.Append($"cmp rax,rdx");
             context.Append($"jae {Utility.BrLabelName(context.ins, context.def)}");

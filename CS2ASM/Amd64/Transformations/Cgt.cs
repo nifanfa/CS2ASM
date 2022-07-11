@@ -9,12 +9,12 @@ namespace CS2ASM
         public static void Cgt(Context context)
         {
             context.Append($"xor rbx,rbx");
-            context.Pop($"rdx");
-            context.Pop($"rax");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
             context.StackOperationCount -= 2;
             context.Append($"cmp rax,rdx");
             context.Append($"setg bl");
-            context.Push($"rbx");
+            context.Append($"push rbx");
             context.StackOperationCount += 1;
         }
     }

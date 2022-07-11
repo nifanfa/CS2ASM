@@ -9,8 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Stfld)]
         public static void Stfld(Context context)
         {
-            context.Pop($"rax");
-            context.Pop($"rdi");
+            context.Append($"pop rax");
+            context.Append($"pop rdi");
             context.StackOperationCount -= 2;
             context.Append($"add rdi,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
             switch (Utility.SizeOfShallow(context.operand is MemberRef ? ((MemberRef)context.operand).FieldSig.Type : ((FieldDef)context.operand).FieldType)) 

@@ -9,8 +9,8 @@ namespace CS2ASM
         [ILTransformation(Code.Ldelema)]
         public static void Ldelema(Context context)
         {
-            context.Pop($"rdi"); //index
-            context.Pop($"rsi"); //ptr
+            context.Append($"pop rdi"); //index
+            context.Append($"pop rsi"); //ptr
             context.StackOperationCount -= 2;
 
             context.Append($"xor rdx,rdx");
@@ -18,7 +18,7 @@ namespace CS2ASM
             context.Append($"mul rdi");
             context.Append($"add rsi,rax");
             context.Append($"add rsi,{Utility.SizeOf(context.def.Module, "System.Array")}");
-            context.Push($"rsi");
+            context.Append($"push rsi");
             context.StackOperationCount += 1;
         }
     }

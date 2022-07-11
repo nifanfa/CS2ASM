@@ -11,7 +11,7 @@ namespace CS2ASM
         {
             //dangerous
             context.Append($"mov rax,[rsp]");
-            context.Push($"rax");
+            context.Append($"push rax");
             context.StackOperationCount++;
         }
     }

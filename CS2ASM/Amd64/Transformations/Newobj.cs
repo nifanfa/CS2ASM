@@ -20,12 +20,12 @@ namespace CS2ASM
                 argumentNum = ((MethodDef)context.operand).MethodSig.Params.Count;
             }
             Sizeof(new Context(context.text, new Instruction() { Operand = context.operand is MemberRef ? ((MemberRef)context.operand).DeclaringType.ScopeType : ((MethodDef)context.operand).DeclaringType }, context.def, context.arch));
-            context.Pop($"rdi");
+            context.Append($"pop rdi");
             context.StackOperationCount -= 1;
             context.Append($"call {context.arch.GetCompilerMethod(Methods.Newobj)}");
             context.Append($"mov r15,rax");
-            context.Push($"r15");
-            context.Push($"r15");
+            context.Append($"push r15");
+            context.Append($"push r15");
             context.StackOperationCount += 2;
 
             if (argumentNum != 0) 
@@ -90,7 +90,7 @@ namespace CS2ASM
             }
             if (context.hasReturn)
             {
-                context.Push($"rax");
+                context.Append($"push rax");
                 context.StackOperationCount += 1;
             }
         }

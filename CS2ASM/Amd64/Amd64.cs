@@ -38,22 +38,16 @@ public class Amd64 : BaseArch
         // Label
         base.Append(Utility.SafeMethodName(def, def.MethodSig) + ":");
 
-        int rsvd_stack = 0;
-
-        int working_stack_size = 4096;
-
         if (!IsAssemblyMethod(def))
         {
             var cnt = def.MethodSig.Params.Count + (def.MethodSig.HasThis ? 1 : 0);
             // Call.cs line 19
             base.Append("push rbp");
             base.Append("mov rbp,rsp");
-            rsvd_stack = (cnt + def.Body.Variables.Count);
-            int rsv = (rsvd_stack) * 8;
+
+            var rsv = (cnt + def.Body.Variables.Count) * 8;
             if (rsv != 0)
                 base.Append("sub rsp," + rsv);
-
-            base.Append($"sub rsp,{working_stack_size}");
 
             //if (IsDebugMethod(def))
             if (cnt <= 6)
@@ -77,9 +71,7 @@ public class Amd64 : BaseArch
 
         var ctx = new Context(Text, null, def, this)
         {
-            StackOperationCount = 0,
-            NumReservedStack = rsvd_stack,
-            WorkingStackSize = working_stack_size
+            StackOperationCount = 0
         };
 
         // Start parsing CIL code

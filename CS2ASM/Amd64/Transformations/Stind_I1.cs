@@ -8,8 +8,8 @@ namespace CS2ASM
         [ILTransformation(Code.Stind_I1)]
         public static void Stind_I1(Context context)
         {
-            context.Pop($"rdx");
-            context.Pop($"rax");
+            context.Append($"pop rdx");
+            context.Append($"pop rax");
             context.StackOperationCount -= 2;
             context.Append($"mov [rax],dl");
         }

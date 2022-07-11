@@ -10,11 +10,11 @@ namespace CS2ASM
         public static void Rem(Context context)
         {
             context.Append($"xor rdx,rdx");
-            context.Pop($"rbx");
-            context.Pop($"rax");
+            context.Append($"pop rbx");
+            context.Append($"pop rax");
             context.StackOperationCount -= 2;
             context.Append($"idiv rbx");
-            context.Push($"rdx");
+            context.Append($"push rdx");
             context.StackOperationCount += 1;
         }
     }

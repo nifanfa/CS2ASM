@@ -9,7 +9,7 @@ namespace CS2ASM
         [ILTransformation(Code.Ldfld)]
         public static void Ldfld(Context context)
         {
-            context.Pop($"rax");
+            context.Append("pop rax");
             context.StackOperationCount -= 1;
             context.Append($"add rax,{Utility.SizeOfOrIndex(context.operand is MemberRef ? (TypeDef)((MemberRef)context.operand).DeclaringType.ScopeType : ((FieldDef)context.operand).DeclaringType, context.operand is MemberRef ? ((MemberRef)context.operand).Name : ((FieldDef)context.operand).Name)}");
             context.Append($"xor rcx,rcx");
@@ -28,7 +28,7 @@ namespace CS2ASM
                     context.Append($"mov rcx,[rax]");
                     break;
             }
-            context.Push($"qword rcx");
+            context.Append("push qword rcx");
             context.StackOperationCount += 1;
         }
     }

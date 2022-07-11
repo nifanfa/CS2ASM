@@ -9,9 +9,9 @@ namespace CS2ASM
         [ILTransformation(Code.Ldsfld)]
         public static void Ldsfld(Context context)
         {
-            //context.Push($"qword [{def.DeclaringType.SafeTypeName() + "_" + ((FieldDef)ins.Operand).Name}]");
+            //context.Append($"push qword [{def.DeclaringType.SafeTypeName() + "_" + ((FieldDef)ins.Operand).Name}]");
             context.Append($"mov qword rax,[{Utility.SafeFieldName(((FieldDef)context.operand).DeclaringType, (FieldDef)context.operand)}]");
-            context.Push($"rax");
+            context.Append($"push rax");
             context.StackOperationCount += 1;
         }
     }

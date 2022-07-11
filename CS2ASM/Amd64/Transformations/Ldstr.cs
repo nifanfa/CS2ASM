@@ -34,7 +34,7 @@ namespace CS2ASM
                 context.Append($"mov rdi,LB_{bytes.GetHashCode():X2}");
                 context.Append($"mov rsi,{((string)context.operand).Length}");
                 context.Append($"call {context.arch.GetCompilerMethod(Methods.StringCtor)}");
-                context.Push($"rax");
+                context.Append($"push rax");
                 context.StackOperationCount += 1;
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");
@@ -42,7 +42,7 @@ namespace CS2ASM
                 context.Append($"LB_{context.nextInstruction.GetHashCode():X2}:");
                 */
                 //Static
-                context.Push($"LB_{bytes.GetHashCode():X2}");
+                context.Append($"push LB_{bytes.GetHashCode():X2}");
                 context.StackOperationCount += 1;
                 context.Append($"jmp LB_{context.nextInstruction.GetHashCode():X2}");
                 context.Append($"LB_{bytes.GetHashCode():X2}:");

@@ -9,11 +9,11 @@ namespace CS2ASM
         public static void Shr(Context context)
         {
             context.Append($"xor rdx,rdx");
-            context.Pop($"rcx");
-            context.Pop($"rax");
+            context.Append($"pop rcx");
+            context.Append($"pop rax");
             context.StackOperationCount -= 2;
             context.Append($"shr rax,cl");
-            context.Push($"rax");
+            context.Append($"push rax");
             context.StackOperationCount += 1;
         }
     }

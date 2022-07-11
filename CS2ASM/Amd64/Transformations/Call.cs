@@ -55,7 +55,7 @@ namespace CS2ASM
                 context.Append($"call {Utility.SafeMethodName((MethodDef)context.operand, context.methodSig)}");
             if (context.hasReturn) 
             {
-                context.Push($"rax");
+                context.Append($"push rax");
                 context.StackOperationCount += 1;
             }
         }
