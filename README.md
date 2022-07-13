@@ -1,3 +1,6 @@
+# Unmaintained
+CS2ASM is unmaintained and development is now going towards [NativeCIL](https://github.com/AnErrupTion/NativeCIL).
+
 # CS2ASM
 CS2ASM is a compiler which translates C# code into x86 assembly.<br/>
 By using this compiler, you may create your own operating system using any language that compiles to CIL.
