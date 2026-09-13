@@ -1,3 +1,6 @@
+# Deprecated
+Please migrate to [github.com/nifanfa/IL2LLVM](https://github.com/nifanfa/IL2LLVM)
+
 ## CS2ASM
 
 CS2ASM is a compiler which translates C# code into Assembly.
